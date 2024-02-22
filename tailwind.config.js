@@ -18,6 +18,7 @@ export default {
         'orange': '#ffaa0e',
         'orange2': '#ffb52e',
         'orange3': '#fca300',
+        'orange4': '#fac25a',
         'purple': '#663399',
       },
       fontFamily: {
