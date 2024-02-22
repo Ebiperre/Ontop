@@ -20,7 +20,8 @@ export default {
         'orange3': '#fca300',
         'purple': '#663399',
       },
-      backgroundImage: {
+      fontFamily: {
+        'author': 'Author'
       },
     },
   },

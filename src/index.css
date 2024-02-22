@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  background: rebeccapurple;
+    font-family: 'Author', sans-serif;
 }
