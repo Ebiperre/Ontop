@@ -1,0 +1,105 @@
+.container{
+   
+}
+
+.hero_section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+text-align: center;
+padding: 1rem;
+min-height: 100vh;
+gap: 2rem;
+    /* background-color: red; */
+
+}
+
+.hero_text{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    /* text-align: left; */
+    flex-direction: column;
+    flex: 1;
+    gap: 2rem;
+    height: 70%;
+}
+
+.hero_text h2{
+    font-size: 10vw;
+    line-height: 9vw;
+    font-weight: 600;
+
+}
+
+.hero_image{
+    height: 70%;
+    flex: 1;
+
+}
+
+
+.subscribe_field{
+    width: 90%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    height: 3rem;
+    box-shadow: 0px 0px 5px 0px var(--orange2);
+    border-radius: 6px;
+}
+
+.subscribe_input{
+    display: flex;
+    height: 100%;
+    width: 65%;
+}
+
+.subscribe_field input{
+    /* width: 100%; */
+    display: flex !important;
+    flex: 1;
+    outline: none;
+    padding: 0px 1rem;
+    /* background-color: blue; */
+}
+
+.subscribe_field button{
+    height: 3rem;
+    width: 8rem;
+    color: white;
+    border-radius: 6px;
+transition: all 200ms ease-in-out;
+    background-color: var(--orange2);
+
+}
+
+@media screen and (min-width: 800px) {
+    
+    .hero_section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 6rem;
+        text-align: left;
+        padding: 0px 3rem;
+        /* flex-wrap: wrap; */
+        /* background-color: red; */
+    
+    }
+
+    .hero_text{
+        padding-right: 8rem;
+        gap: 2rem;
+    }
+
+.hero_text h2{
+    font-size: 4vw;
+    line-height: 4vw;
+
+}
+}
