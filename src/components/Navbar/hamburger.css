@@ -1,0 +1,53 @@
+.hamburger {
+    height: 50px;
+    width: 50px;
+    transform: 0.2s;
+    position: relative;
+    scale: 0.7;
+  }
+  .hamburger .checkbox {
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+  }
+  .line {
+    transition: 0.5s;
+    stroke-width: 6px;
+    stroke: white;
+  }
+  .lineTop {
+    stroke-dasharray: 40 40;
+    stroke-dashoffset: 25;
+  }
+  .lineBottom {
+    stroke-dasharray: 40 40;
+    stroke-dashoffset: 60;
+  }
+  .lineMid {
+    stroke-dasharray: 40 40;
+  }
+  .hamburger .checkbox:checked + svg .line {
+    stroke: var(--orange);
+  }
+  .hamburger .checkbox:checked + svg .lineTop {
+    stroke-dashoffset: 0;
+    transform-origin: left;
+    transform: rotateZ(45deg) translate(-7px, -5px);
+  }
+  .hamburger .checkbox:checked + svg .lineMid {
+    stroke-dashoffset: 40;
+  }
+  .hamburger .checkbox:checked + svg .lineBottom {
+    stroke-dashoffset: 0;
+    transform-origin: left;
+    transform: rotateZ(-45deg) translate(-5px, 5px);
+  }
+
+  @media screen and (min-width:800px) {
+    .hamburger{
+        display: none;
+    }
+  }
+  

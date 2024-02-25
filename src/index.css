@@ -5,3 +5,26 @@
 body {
     font-family: 'Author', sans-serif;
 }
+
+#root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100% !important;
+}
+
+:root {
+    --dark: #181A20;
+    --dark2: #2C2C2C;
+    --grey: #5F6368;
+    --grey2: #737373;
+    --greyWhite: #dcd7fe;
+    --greyWhite2: #eeebfe;
+    --deleteRed: #e04a43;
+    --successGreen: #63ad0e;
+    --orange: #ffaa0e;
+    --orange2: #ffb52e;
+    --orange3: #fca300;
+    --orange4: #fac25a;
+    --purple: #663399;
+}

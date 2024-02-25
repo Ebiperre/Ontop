@@ -14,7 +14,7 @@ const ErrorPage = () => {
                   doorway to the great nothing
                 </h1>
                 <p className="my-2 text-gray-800">Sorry about that! Please visit our hompage to get where you need to go.</p>
-                <button className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-orange text-white hover:bg-orange3 focus:outline-none focus:ring-2 focus:ring-orange3 focus:ring-opacity-50">Take me there!</button>
+                <button className="sm:w-full lg:w-auto my-2 border rounded-lg py-4 px-8 text-center bg-orange text-white hover:bg-orange3 focus:outline-none focus:ring-2 focus:ring-orange3 focus:ring-opacity-50">Take me there!</button>
               </div>
             </div>
             <div>
