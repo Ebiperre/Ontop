@@ -29,7 +29,7 @@
     stroke-dasharray: 40 40;
   }
   .hamburger .checkbox:checked + svg .line {
-    stroke: var(--orange2);
+    stroke: var(--orange);
   }
   .hamburger .checkbox:checked + svg .lineTop {
     stroke-dashoffset: 0;

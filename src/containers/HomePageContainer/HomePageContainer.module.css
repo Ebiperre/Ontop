@@ -1,6 +1,10 @@
 .container{
-   
+   font-size: 1rem;
+   padding: 0px 1rem;
 }
+
+
+/* hero section */
 
 .hero_section{
     display: flex;
@@ -8,7 +12,7 @@
     justify-content: center;
     flex-direction: column;
 text-align: center;
-padding: 1rem;
+padding: 1rem 0px;
 min-height: 100vh;
 gap: 2rem;
     /* background-color: red; */
@@ -17,13 +21,14 @@ gap: 2rem;
 
 .hero_text{
     display: flex;
-    align-items: start;
+    align-items: center;
     justify-content: center;
     /* text-align: left; */
     flex-direction: column;
     flex: 1;
     gap: 2rem;
     height: 70%;
+    width: 100%;
 }
 
 .hero_text h2{
@@ -48,7 +53,7 @@ gap: 2rem;
     justify-content: space-between;
     gap: 4px;
     height: 3rem;
-    box-shadow: 0px 0px 5px 0px var(--orange2);
+    box-shadow: 0px 0px 1px 0px var(--orange);
     border-radius: 6px;
 }
 
@@ -63,7 +68,7 @@ gap: 2rem;
     display: flex !important;
     flex: 1;
     outline: none;
-    padding: 0px 1rem;
+    /* padding: 0px 1rem; */
     /* background-color: blue; */
 }
 
@@ -71,11 +76,59 @@ gap: 2rem;
     height: 3rem;
     width: 8rem;
     color: white;
-    border-radius: 6px;
+    border-radius: 0px 8px 8px 0px;
 transition: all 200ms ease-in-out;
-    background-color: var(--orange2);
+    background-color: var(--orange);
 
 }
+
+/* features */
+
+.features_head h2{
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+
+
+.card_wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+    min-height: 100vh;
+  }
+
+.card{
+    /* height: 50vh;
+    width: 90%; */
+    max-width: 20rem;
+    flex: 1;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0px  1rem;
+}
+
+.card div{
+    height: 11rem;
+    width: 11rem;
+    border-radius: 50%;
+    background-color: #d0b5ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card h3{
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
 
 @media screen and (min-width: 800px) {
     
@@ -101,5 +154,14 @@ transition: all 200ms ease-in-out;
     font-size: 4vw;
     line-height: 4vw;
 
+}
+
+/* features */
+
+.card_wrap{
+    min-height: 70vh !important;
+    /* padding-top: 1rem; */
+    align-items:  center;
+    /* background-color: red; */
 }
 }

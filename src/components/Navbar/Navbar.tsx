@@ -1,20 +1,27 @@
 import classes from './Navbar.module.css';
 import "./hamburger.css"
-import logo from "../../assets/icons/logo_with_left_text.svg"
+import logo from "../../assets/icons/logo_with_left_text.svg";
 
-export default function Navbar() {
+type NavBarProps = {
+    showNavlist?: boolean
+    
+    
+}
+
+export default function Navbar({showNavlist}:NavBarProps) {
+
+
     return (
         <>
 
             <nav className={classes.nav}>
 
                 <img className={classes.logo} src={logo} alt="" />
-
-
+{showNavlist && (
                 <div className={classes.nav_list}>
-
-
-                    <ul className="gap-8 flex items-center justify-center">
+                
+                    
+                        <ul className="gap-8 flex items-center justify-center">
                         <a href="#">
                             <li>Home</li>
                         </a>
@@ -30,6 +37,7 @@ export default function Navbar() {
 
                     </ul>
 
+                    
                     <div className="flex gap-4 items-center justify-center">
                         <a href="#">
 
@@ -46,7 +54,7 @@ export default function Navbar() {
                     </div>
 
                 </div>
-
+                )}
                 <div className="hamburger">
                     <input className="checkbox" type="checkbox" />
                     <svg fill="none" viewBox="0 0 50 50" height="50" width="50">

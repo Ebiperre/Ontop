@@ -10,7 +10,7 @@ function App() {
 
   return (
 <>
-<Navbar />
+<Navbar showNavlist={true}/>
 
  <Routes>
       <Route path="*" element={<ErrorPage />} />
