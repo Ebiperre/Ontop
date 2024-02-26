@@ -89,7 +89,7 @@ const HomePageContainer = () => {
                     </section>
                 </section>
 
-                <section>
+                <section className={classes.giftCard_wrap}>
                     <div>
                         <img src={giftCards} alt="" />
                     </div>
@@ -102,6 +102,7 @@ const HomePageContainer = () => {
                         </p>
                     </div>
                 </section>
+                
 
             </main>
 

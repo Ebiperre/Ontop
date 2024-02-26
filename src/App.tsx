@@ -5,6 +5,7 @@ import SignUpPageContainer from './containers/SignUpPageContainer/SignUpPageCont
 import SignInPageContainer from './containers/SignInPageContainer/SignInPageContainer';
 import HomePageContainer from './containers/HomePageContainer/HomePageContainer';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
       <Route path="/sign-in" element={<SignInPageContainer />} />
     </Routes>
 
+
+<Footer/>
 </>
 
    
