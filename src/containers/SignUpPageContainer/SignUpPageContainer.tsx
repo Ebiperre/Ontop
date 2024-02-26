@@ -1,12 +1,72 @@
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import signUpImage from '../../../src/assets/images/signUp-illustration.svg'
+import signUpImage from '../../../src/assets/images/signUp-illustration.svg';
+
+interface FormData {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    password: string;
+}
 
 const SignUpPageContainer = () => {
     const navigate = useNavigate();
+
+    const [formData, setFormData] = useState<FormData>({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        password: '',
+    });
+    const [errors, setErrors] = useState<Partial<FormData>>({});
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: '',
+        }));
+    };
+
+    const handleSubmit = () => {
+        const validationErrors: Partial<FormData> = {};
+        if (!formData.firstName) {
+            validationErrors.firstName = 'First name is required';
+        }
+        if (!formData.lastName) {
+            validationErrors.lastName = 'Last name is required';
+        }
+        if (!formData.email) {
+            validationErrors.email = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            validationErrors.email = 'Email is invalid';
+        }
+        if (!formData.phone) {
+            validationErrors.phone = 'Phone number is required';
+        }
+        if (!formData.password) {
+            validationErrors.password = 'Password is required';
+        }
+
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        console.log(formData);
+    };
+
+
     return (
         <div className='mx-auto w-full flex items-center justify-center'>
-
-            <div className="xl:max-w-7xl bg-white drop-shadow-xl border border-black/20 w-full rounded-md flex justify-between items-stretch px-5 xl:px-5 py-2.5">
+            <div className="xl:max-w-7xl bg-white drop-shadow-xl border border-black/20 w-full rounded-md flex justify-between items-stretch px-5 xl:px-5 py-5">
                 <div className="sm:w-[60%] lg:w-[50%] bg-cover bg-center items-center justify-center hidden md:flex ">
                     <img src={signUpImage} alt="login" className="h-[500px]" />
                 </div>
@@ -19,19 +79,70 @@ const SignUpPageContainer = () => {
                     <div className="w-full mt-5 sm:mt-8">
                         <div className="mx-auto w-full sm:max-w-md md:max-w-lg flex flex-col gap-5">
                             <div className="flex flex-col sm:flex-row gap-3">
-                                <input className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none " type="text" placeholder="Your first name" />
-                                <input className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none " type="text" placeholder="Your last name" />
+                                <div className='flex-1'>
+                                    <input required
+                                        className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
+                                        type="text"
+                                        placeholder="Your first name"
+                                        name="firstName"
+                                        value={formData.firstName}
+                                        onChange={handleInputChange}
+                                    />
+                                    {errors.firstName && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.firstName}</span>}
+                                </div>
+                                <div className='flex-1'>
+                                    <input required
+                                        className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
+                                        type="text"
+                                        placeholder="Your last name"
+                                        name="lastName"
+                                        value={formData.lastName}
+                                        onChange={handleInputChange}
+                                    />
+                                    {errors.lastName && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.lastName}</span>}
+                                </div>
                             </div>
-                            <input className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none " type="email" placeholder="Enter your email" />
-                            <input className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none " type="tel" placeholder="Enter your phone" />
-                            <input className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none " type="password" placeholder="Password" />
+                            <div>
+                                <input required
+                                    className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                />
+                                {errors.email && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.email}</span>}
+                            </div>
+                            <div>
+
+                                <input required
+                                    className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
+                                    type="number"
+                                    placeholder="Enter your phone"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                />
+                                {errors.phone && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.phone}</span>}
+                            </div>
+                            <div>
+                                <input required
+                                    className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
+                                    type="password"
+                                    placeholder="Password"
+                                    name="password"
+                                    value={formData.password}
+                                    onChange={handleInputChange}
+                                />
+                                {errors.password && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.password}</span>}
+                            </div>
                             <div className="flex items-center gap-1 sm:gap-4 justify-start pl-2">
-                                <input type="checkbox" className="accent-orange4 text-white" />
+                                <input required type="checkbox" className="accent-orange4 text-white" />
                                 <h3 className="flex items-center whitespace-nowrap text-xs">I agree to the <a href=""><span className="text-orange">&nbsp;Terms</span>&nbsp;and<span className="text-orange">&nbsp;Privacy Policy</span></a>.</h3>
                             </div>
                             <div className="flex flex-col md:flex-row gap-2 md:gap-4">
                                 <button
-                                    onClick={() => { }}
+                                    onClick={handleSubmit}
                                     className="md:mt-5 tracking-wide font-semibold bg-orange text-white w-full py-4 rounded-lg hover:bg-orange3 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"><span>Sign Up</span></button>
                                 <button
                                     onClick={() => { navigate('/sign-in') }}
