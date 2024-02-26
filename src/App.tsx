@@ -1,28 +1,37 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import ErrorPage from './containers/404Page/404Page';
 import SignUpPageContainer from './containers/SignUpPageContainer/SignUpPageContainer';
 import SignInPageContainer from './containers/SignInPageContainer/SignInPageContainer';
-import HomePageContainer from './containers/HomePageContainer/HomePageContainer';
-import Navbar from './components/Navbar/Navbar';
+import ContactPageContainer from './containers/ContactPageContainer/ContactPageContainer';
+
+
+
+const router = createBrowserRouter([
+  {
+    path: "/sign-up",
+    element: <SignUpPageContainer />
+  },
+  {
+    path: "/sign-in",
+    element: <SignInPageContainer />
+  },
+  {
+    path: "/contact-Us",
+    element: <ContactPageContainer />
+  },
+  {
+    path: "*",
+    element: <ErrorPage />
+  },
+]);
 
 function App() {
-
   return (
-<>
-<Navbar showNavlist={true}/>
-
- <Routes>
-      <Route path="*" element={<ErrorPage />} />
-<Route path="/home" element={<HomePageContainer />}/>
-
-      <Route path="/sign-up" element={<SignUpPageContainer />} />
-      <Route path="/sign-in" element={<SignInPageContainer />} />
-    </Routes>
-
-</>
-
-   
+  <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
   )
 }
 
