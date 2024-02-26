@@ -8,6 +8,7 @@ interface FormData {
     email: string;
     phone: string;
     password: string;
+    agreed: boolean | string; // Change type to boolean or string
 }
 
 const SignUpPageContainer = () => {
@@ -19,20 +20,26 @@ const SignUpPageContainer = () => {
         email: '',
         phone: '',
         password: '',
+        agreed: false,
     });
     const [errors, setErrors] = useState<Partial<FormData>>({});
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
+        const { name, value, type, checked } = e.target;
+        const inputValue = type === 'checkbox' ? checked : value;
 
-        setErrors((prevErrors) => ({
-            ...prevErrors,
-            [name]: '',
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: inputValue,
         }));
+
+        // Clear errors for terms and policy when the checkbox is checked
+        if (name === 'agreed' && checked) {
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                agreed: undefined,
+            }));
+        }
     };
 
     const handleSubmit = () => {
@@ -54,6 +61,9 @@ const SignUpPageContainer = () => {
         if (!formData.password) {
             validationErrors.password = 'Password is required';
         }
+        if (!formData.agreed) {
+            validationErrors.agreed = 'You must read and accept the terms and policies of Ontop';
+        }
 
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
@@ -62,7 +72,6 @@ const SignUpPageContainer = () => {
 
         console.log(formData);
     };
-
 
     return (
         <div className='mx-auto w-full flex items-center justify-center'>
@@ -114,7 +123,6 @@ const SignUpPageContainer = () => {
                                 {errors.email && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.email}</span>}
                             </div>
                             <div>
-
                                 <input required
                                     className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
                                     type="number"
@@ -137,9 +145,10 @@ const SignUpPageContainer = () => {
                                 {errors.password && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.password}</span>}
                             </div>
                             <div className="flex items-center gap-1 sm:gap-4 justify-start pl-2">
-                                <input required type="checkbox" className="accent-orange4 text-white" />
+                                <input required type="checkbox" className="accent-orange4 text-white" name="agreed" onChange={handleInputChange} />
                                 <h3 className="flex items-center whitespace-nowrap text-xs">I agree to the <a href=""><span className="text-orange">&nbsp;Terms</span>&nbsp;and<span className="text-orange">&nbsp;Privacy Policy</span></a>.</h3>
                             </div>
+                            {errors.agreed && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.agreed}</span>}
                             <div className="flex flex-col md:flex-row gap-2 md:gap-4">
                                 <button
                                     onClick={handleSubmit}
