@@ -6,11 +6,11 @@
     gap: 1rem;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 1rem;
-    height: 5rem;
     width: 100%;
     font-size: 1.1rem;
     font-weight: 500;
+    height: 100%;
+    padding-inline: 4rem;
 }
 
 .nav_list {
@@ -45,11 +45,6 @@
 }
 
 @media screen and (min-width: 800px) {
-
-    .nav {
-        padding: 0px 4rem;
-    }
-
     .nav_list {
         display: flex;
         gap: 8rem;

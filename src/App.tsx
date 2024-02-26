@@ -1,32 +1,31 @@
 import './App.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from './containers/404Page/404Page';
-import SignUpPageContainer from './containers/SignUpPageContainer/SignUpPageContainer';
-import SignInPageContainer from './containers/SignInPageContainer/SignInPageContainer';
 import ContactPageContainer from './containers/ContactPageContainer/ContactPageContainer';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
-import HomePageContainer from './containers/HomePageContainer/HomePageContainer';
+import HomePage from './pages/HomePage';
+import SignInPage from './pages/SignInPage';
+import SignUpPage from './pages/SignUpPage';
 
 const router = createBrowserRouter([
   {
     path: "/sign-up",
-    element: <SignUpPageContainer />
+    element: <SignUpPage />
   },
   {
     path: "/sign-in",
-    element: <SignInPageContainer />
+    element: <SignInPage />
   },
   {
-    path: "/contact-Us",
+    path: "/contact-us",
     element: <ContactPageContainer />
   },
   {
     path: "/home",
-    element: <HomePageContainer />
+    element: <HomePage />
+  },
+  {
+    path: "/",
+    element: <HomePage />
   },
   {
     path: "*",
@@ -36,11 +35,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
-      <Footer />
-    </>
+    <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
   )
 }
 

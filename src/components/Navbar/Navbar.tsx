@@ -1,6 +1,7 @@
 import classes from './Navbar.module.css';
 import "./hamburger.css"
 import logo from "../../assets/icons/logo_with_left_text.svg";
+import { Link, useNavigate } from 'react-router-dom';
 
 type NavBarProps = {
     notNavlist?: boolean
@@ -8,12 +9,14 @@ type NavBarProps = {
 }
 
 export default function Navbar({ notNavlist, navBg }: NavBarProps) {
-
+    const navigate = useNavigate();
 
     return (
         <>
             <nav className={classes.nav} style={navBg ? { background: "#fff" } : undefined}>
-                <img className={classes.logo} src={logo} alt="Ontop" />
+                <img
+                    onClick={() => { navigate('/home') }}
+                    className={classes.logo} src={logo} alt="Ontop" />
                 {!notNavlist && (
                     <div className={classes.nav_list}>
                         <ul className="gap-8 flex items-center justify-center">
@@ -26,23 +29,23 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
                             <a href="#">
                                 <li>Services</li>
                             </a>
-                            <a href="#">
+                            <a href="/contact-us">
                                 <li>Contact Us</li>
                             </a>
                         </ul>
                         <div className="flex gap-4 items-center justify-center">
-                            <a href="#">
+                            <Link to="/sign-in">
 
                                 <span className="material-symbols-outlined">
                                     login
                                 </span>
                                 Login
-                            </a>
-                            <a href="#">
+                            </Link>
+                            <Link to="/sign-up">
                                 <button className={classes.sign_up_btn}>
                                     Get Started
                                 </button>
-                            </a>
+                            </Link>
                         </div>
 
                     </div>
