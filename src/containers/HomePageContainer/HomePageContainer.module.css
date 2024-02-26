@@ -84,9 +84,23 @@ transition: all 200ms ease-in-out;
 
 /* features */
 
+.features_head{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* background-color: red; */
+}
+
 .features_head h2{
     font-weight: 600;
     font-size: 2rem;
+}
+
+.features_head p{
+    width: 100%;
+    max-width: 50rem;
 }
 
 
@@ -102,11 +116,13 @@ transition: all 200ms ease-in-out;
   }
 
 .card{
-    /* height: 50vh;
-    width: 90%; */
+    height: 50vh;
+   /*  width: 90%; */
     max-width: 20rem;
     flex: 1;
     /* background-color: red; */
+    box-shadow: 0px 0px 5px 0px var(--greyWhite);
+border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,7 +134,7 @@ transition: all 200ms ease-in-out;
     height: 11rem;
     width: 11rem;
     border-radius: 50%;
-    background-color: #d0b5ff;
+    /* background-color: #d0b5ff; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -128,6 +144,24 @@ transition: all 200ms ease-in-out;
     font-size: 1.6rem;
     font-weight: 600;
 }
+
+/* gift cards */
+
+.giftCard_wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    gap: 3rem;
+}
+
+.giftCard_wrap div h3{
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+
 
 
 @media screen and (min-width: 800px) {
@@ -163,5 +197,14 @@ transition: all 200ms ease-in-out;
     /* padding-top: 1rem; */
     align-items:  center;
     /* background-color: red; */
+}
+
+
+.giftCard_wrap{
+    flex-direction: row;
+    text-align: left;
+    padding: 0px 7rem;
+    gap: 4rem;
+    height: 60vh;
 }
 }
