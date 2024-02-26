@@ -7,6 +7,8 @@ import ErrorPage from './containers/404Page/404Page';
 import SignUpPageContainer from './containers/SignUpPageContainer/SignUpPageContainer';
 import SignInPageContainer from './containers/SignInPageContainer/SignInPageContainer';
 import ContactPageContainer from './containers/ContactPageContainer/ContactPageContainer';
+import Navbar from './components/Navbar/Navbar';
+import HomePageContainer from './containers/HomePageContainer/HomePageContainer';
 
 
 
@@ -24,6 +26,10 @@ const router = createBrowserRouter([
     element: <ContactPageContainer />
   },
   {
+    path: "/home",
+    element: <HomePageContainer />
+  },
+  {
     path: "*",
     element: <ErrorPage />
   },
@@ -31,7 +37,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-  <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+    <>
+     <Navbar />
+     <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+    </>
   )
 }
 
