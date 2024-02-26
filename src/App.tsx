@@ -8,9 +8,8 @@ import SignUpPageContainer from './containers/SignUpPageContainer/SignUpPageCont
 import SignInPageContainer from './containers/SignInPageContainer/SignInPageContainer';
 import ContactPageContainer from './containers/ContactPageContainer/ContactPageContainer';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 import HomePageContainer from './containers/HomePageContainer/HomePageContainer';
-
-
 
 const router = createBrowserRouter([
   {
@@ -40,6 +39,7 @@ function App() {
     <>
      <Navbar />
      <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+      <Footer/>
     </>
   )
 }
