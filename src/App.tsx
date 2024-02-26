@@ -38,8 +38,8 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-     <Navbar />
-     <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+      <Navbar navBg='#fff' notNavlist={true} />
+      <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
     </>
   )
 }
