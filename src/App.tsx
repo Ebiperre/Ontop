@@ -5,6 +5,7 @@ import ContactPageContainer from './containers/ContactPageContainer/ContactPageC
 import HomePage from './pages/HomePage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
+import ForgotPassword from './containers/ForgotPassword/ForgotPassword';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/sign-in",
     element: <SignInPage />
+  },
+  {
+    path: "/sign-in/forgot-password",
+    element: <ForgotPassword />
   },
   {
     path: "/contact-us",

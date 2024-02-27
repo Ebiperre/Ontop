@@ -10,7 +10,8 @@
     font-size: 1.1rem;
     font-weight: 500;
     height: 100%;
-    padding-inline: 4rem;
+    overflow: hidden;
+    padding-inline: 1rem;
 }
 
 .nav_list {
@@ -25,10 +26,9 @@
 }
 
 .logo {
-    height: 4rem;
-    width: 6rem;
-    object-fit: cover;
-    scale: 1.2;
+    object-fit: contain;
+    height: 9rem;
+    width: 40%;
 }
 
 .sign_up_btn {
@@ -44,6 +44,12 @@
     color: var(--orange);
 }
 
+@media screen and (min-width: 1023px) {
+    .nav {
+        padding-inline: 4rem;
+    }
+}
+
 @media screen and (min-width: 800px) {
     .nav_list {
         display: flex;
@@ -56,12 +62,10 @@
 
     .nav ul a {
         position: relative;
-
     }
 
     .nav ul a:hover::after {
         transform: scaleX(0.7);
-
     }
 
     .nav ul a::after {
@@ -78,19 +82,14 @@
         width: 100%;
     }
 
-
-
     .sign_up_btn {
         height: 3rem;
         width: 8rem;
     }
 
     .sign_up_btn:hover {
-
         background-color: var(--orange3);
         font-size: 1.2rem;
         scale: 0.9;
     }
-
-    ;
 }

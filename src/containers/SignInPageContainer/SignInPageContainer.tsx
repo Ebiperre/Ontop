@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import signInImage from '../../../src/assets/images/signIn-illustration.svg';
 
 interface FormData {
@@ -7,7 +7,7 @@ interface FormData {
     password: string;
 }
 
-const SignInPageContainer: React.FC = () => {
+const SignInPageContainer = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState<FormData>({
@@ -15,6 +15,7 @@ const SignInPageContainer: React.FC = () => {
         password: '',
     });
     const [errors, setErrors] = useState<Partial<FormData>>({});
+    const [rememberMe, setRememberMe] = useState<boolean>(false);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -27,6 +28,10 @@ const SignInPageContainer: React.FC = () => {
             ...prevErrors,
             [name]: '',
         }));
+    };
+
+    const handleRememberMeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setRememberMe(e.target.checked);
     };
 
     const handleSubmit = () => {
@@ -46,7 +51,7 @@ const SignInPageContainer: React.FC = () => {
             return;
         }
 
-        console.log(formData);
+        console.log({ ...formData, rememberMe });
     };
 
     return (
@@ -62,42 +67,46 @@ const SignInPageContainer: React.FC = () => {
                     </div>
                     <div className="w-full mt-5 sm:mt-8">
                         <div className="mx-auto w-full sm:max-w-md md:max-w-lg flex flex-col gap-5">
-                            <input
-                                required
-                                className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
-                                type="email"
-                                placeholder="Enter your email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleInputChange}
-                            />
-                            {errors.email && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.email}</span>}
-                            <input
-                                required
-                                className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
-                                type="password"
-                                placeholder="Password"
-                                name="password"
-                                value={formData.password}
-                                onChange={handleInputChange}
-                            />
-                            {errors.password && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.password}</span>}
+                            <div>
+                                <input
+                                    required
+                                    className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                />
+                                {errors.email && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.email}</span>}
+                            </div>
+                            <div>
+                                <input
+                                    required
+                                    className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
+                                    type="password"
+                                    placeholder="Password"
+                                    name="password"
+                                    value={formData.password}
+                                    onChange={handleInputChange}
+                                />
+                                {errors.password && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.password}</span>}
+                            </div>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-1 sm:gap-4 justify-start pl-2">
-                                    <input type="checkbox" className="accent-orange4 text-white" />
+                                    <input type="checkbox" className="accent-orange4 text-white" onChange={handleRememberMeChange} />
                                     <h3 className="flex items-center whitespace-nowrap text-xs">Remember me</h3>
                                 </div>
                                 <div className="text-right">
-                                    <a href="#" className="text-sm text-gray-500 hover:text-gray-700">Forgot password?</a>
+                                    <Link to="/sign-in/forgot-password" className="text-sm text-gray-500 hover:text-gray-700">Forgot password?</Link>
                                 </div>
                             </div>
                             <div className="flex flex-col md:flex-row gap-2 md:gap-4">
                                 <button
                                     onClick={handleSubmit}
-                                    className="md:mt-5 tracking-wide font-semibold bg-orange text-white w-full py-4 rounded-lg hover:bg-orange3 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"><span>Sign In</span></button>
+                                    className="md:mt-5 tracking-wide font-medium bg-orange text-white w-full py-4 rounded-lg hover:bg-orange3 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"><span>Sign In</span></button>
                                 <button
                                     onClick={() => { navigate('/sign-up') }}
-                                    className="md:mt-5 tracking-wide text-orange font-semibold border-orange border  w-full py-4 rounded-lg hover:bg-orange hover:text-white transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"><span>Sign Up</span></button>
+                                    className="md:mt-5 tracking-wide text-orange font-medium border-orange border  w-full py-4 rounded-lg hover:bg-orange hover:text-white transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"><span>Sign Up</span></button>
                             </div>
                         </div>
                     </div>

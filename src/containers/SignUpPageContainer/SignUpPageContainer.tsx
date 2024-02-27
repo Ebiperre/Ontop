@@ -8,7 +8,7 @@ interface FormData {
     email: string;
     phone: string;
     password: string;
-    agreed: boolean | string; // Change type to boolean or string
+    agreed: boolean | string;
 }
 
 const SignUpPageContainer = () => {
@@ -33,7 +33,6 @@ const SignUpPageContainer = () => {
             [name]: inputValue,
         }));
 
-        // Clear errors for terms and policy when the checkbox is checked
         if (name === 'agreed' && checked) {
             setErrors(prevErrors => ({
                 ...prevErrors,
@@ -89,7 +88,8 @@ const SignUpPageContainer = () => {
                         <div className="mx-auto w-full sm:max-w-md md:max-w-lg flex flex-col gap-5">
                             <div className="flex flex-col sm:flex-row gap-3">
                                 <div className='flex-1'>
-                                    <input required
+                                    <input
+                                        required
                                         className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
                                         type="text"
                                         placeholder="Your first name"
@@ -97,10 +97,11 @@ const SignUpPageContainer = () => {
                                         value={formData.firstName}
                                         onChange={handleInputChange}
                                     />
-                                    {errors.firstName && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.firstName}</span>}
+                                    {errors.firstName && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.firstName}</span>}
                                 </div>
                                 <div className='flex-1'>
-                                    <input required
+                                    <input
+                                        required
                                         className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
                                         type="text"
                                         placeholder="Your last name"
@@ -108,11 +109,12 @@ const SignUpPageContainer = () => {
                                         value={formData.lastName}
                                         onChange={handleInputChange}
                                     />
-                                    {errors.lastName && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.lastName}</span>}
+                                    {errors.lastName && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.lastName}</span>}
                                 </div>
                             </div>
                             <div>
-                                <input required
+                                <input
+                                    required
                                     className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
                                     type="email"
                                     placeholder="Enter your email"
@@ -120,10 +122,11 @@ const SignUpPageContainer = () => {
                                     value={formData.email}
                                     onChange={handleInputChange}
                                 />
-                                {errors.email && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.email}</span>}
+                                {errors.email && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.email}</span>}
                             </div>
                             <div>
-                                <input required
+                                <input
+                                    required
                                     className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
                                     type="number"
                                     placeholder="Enter your phone"
@@ -131,10 +134,11 @@ const SignUpPageContainer = () => {
                                     value={formData.phone}
                                     onChange={handleInputChange}
                                 />
-                                {errors.phone && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.phone}</span>}
+                                {errors.phone && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.phone}</span>}
                             </div>
                             <div>
-                                <input required
+                                <input
+                                    required
                                     className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
                                     type="password"
                                     placeholder="Password"
@@ -142,20 +146,22 @@ const SignUpPageContainer = () => {
                                     value={formData.password}
                                     onChange={handleInputChange}
                                 />
-                                {errors.password && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.password}</span>}
+                                {errors.password && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.password}</span>}
                             </div>
-                            <div className="flex items-center gap-1 sm:gap-4 justify-start pl-2">
-                                <input required type="checkbox" className="accent-orange4 text-white" name="agreed" onChange={handleInputChange} />
-                                <h3 className="flex items-center whitespace-nowrap text-xs">I agree to the <a href=""><span className="text-orange">&nbsp;Terms</span>&nbsp;and<span className="text-orange">&nbsp;Privacy Policy</span></a>.</h3>
+                            <div>
+                                <div className="flex items-center gap-1 sm:gap-4 justify-start pl-2">
+                                    <input required type="checkbox" className="accent-orange4 text-white" name="agreed" onChange={handleInputChange} />
+                                    <h3 className="flex items-center whitespace-nowrap text-xs">I agree to the <a href=""><span className="text-orange">&nbsp;Terms</span>&nbsp;and<span className="text-orange">&nbsp;Privacy Policy</span></a>.</h3>
+                                </div>
+                                {errors.agreed && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.agreed}</span>}
                             </div>
-                            {errors.agreed && <span className="text-deleteRed text-xs text-right md:text-left block">{errors.agreed}</span>}
                             <div className="flex flex-col md:flex-row gap-2 md:gap-4">
                                 <button
                                     onClick={handleSubmit}
-                                    className="md:mt-5 tracking-wide font-semibold bg-orange text-white w-full py-4 rounded-lg hover:bg-orange3 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"><span>Sign Up</span></button>
+                                    className="md:mt-5 tracking-wide font-medium bg-orange text-white w-full py-4 rounded-lg hover:bg-orange3 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"><span>Sign Up</span></button>
                                 <button
                                     onClick={() => { navigate('/sign-in') }}
-                                    className="md:mt-5 tracking-wide text-orange font-semibold border-orange border  w-full py-4 rounded-lg hover:bg-orange hover:text-white transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"><span>Sign In</span></button>
+                                    className="md:mt-5 tracking-wide text-orange font-medium border-orange border  w-full py-4 rounded-lg hover:bg-orange hover:text-white transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"><span>Sign In</span></button>
                             </div>
                         </div>
                     </div>
