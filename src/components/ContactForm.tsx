@@ -3,7 +3,7 @@ import ContactImg from "../assets/images/contact_us.svg";
 const ContactForm = () => {
   return (
     <div className="">
-      <div className="xl:max-w-7xl md:my-6 h-full w-full flex justify-between items-stretch px-5 xl:px-5 py-2.5">
+      <div className="xl:max-w-7xl md:my-3 h-full w-full flex justify-between items-stretch px-5 xl:px-5 py-2.5">
         <div className="sm:w-[60%] lg:w-[50%] bg-cover bg-center items-center justify-center hidden md:flex ">
           <img src={ContactImg} alt="login" className="h-[500px]" />
         </div>

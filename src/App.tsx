@@ -1,47 +1,45 @@
-import './App.css'
+import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from './containers/404Page/404Page';
-import ContactPageContainer from './containers/ContactPageContainer/ContactPageContainer';
-import HomePage from './pages/HomePage';
-import SignInPage from './pages/SignInPage';
-import SignUpPage from './pages/SignUpPage';
-import ForgotPassword from './containers/ForgotPassword/ForgotPassword';
+import ErrorPage from "./containers/404Page/404Page";
+import HomePage from "./pages/HomePage";
+import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
+import ForgotPassword from "./containers/ForgotPassword/ForgotPassword";
+import ContactPage from "./pages/ContactPage";
 
 const router = createBrowserRouter([
   {
     path: "/sign-up",
-    element: <SignUpPage />
+    element: <SignUpPage />,
   },
   {
     path: "/sign-in",
-    element: <SignInPage />
+    element: <SignInPage />,
   },
   {
     path: "/sign-in/forgot-password",
-    element: <ForgotPassword />
+    element: <ForgotPassword />,
   },
   {
     path: "/contact-us",
-    element: <ContactPageContainer />
+    element: <ContactPage />,
   },
   {
     path: "/home",
-    element: <HomePage />
+    element: <HomePage />,
   },
   {
     path: "/",
-    element: <HomePage />
+    element: <HomePage />,
   },
   {
     path: "*",
-    element: <ErrorPage />
+    element: <ErrorPage />,
   },
 ]);
 
 function App() {
-  return (
-    <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
-  )
+  return <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />;
 }
 
-export default App
+export default App;
