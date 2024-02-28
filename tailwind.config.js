@@ -21,7 +21,9 @@ export default {
         'orange4': '#fac25a',
         'purple': '#663399',
         'purple2': '#7c4fa8',
-        'transparent': '#f2f7ff'
+        'transparent': '#f2f7ff',
+        'transcard': '#e0eaff;'
+
       },
       fontFamily: {
         'author': 'Author'
