@@ -2,7 +2,7 @@ import ContactImg from "../assets/images/contact_us.svg";
 
 const ContactForm = () => {
   return (
-    <div className="">
+    <div className="relative">
       <div className="xl:max-w-7xl md:my-3 h-full w-full flex justify-between items-stretch px-5 xl:px-5 py-2.5">
         <div className="sm:w-[60%] lg:w-[50%] bg-cover bg-center items-center justify-center hidden md:flex ">
           <img src={ContactImg} alt="login" className="h-[500px]" />
@@ -52,11 +52,13 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
-      <div className="relative left-6 md:absolute md:bottom-14 md:left-6 flex items-center gap-4">
-        <div className="w-8 h-8 border border-pink-300 rounded-md"></div>
-        <div className="w-8 h-8 border border-blue-600 rounded-md"></div>
-        <div className="w-8 h-8 border border-black rounded-md"></div>
-        <div className="w-8 h-8 border border-green-400 rounded-md"></div>
+      <div className="left-6 absolute bottom-5">
+        <div className="flex items-center gap-4">
+          <div className="w-8 h-8 border border-pink-300 rounded-md"></div>
+          <div className="w-8 h-8 border border-blue-600 rounded-md"></div>
+          <div className="w-8 h-8 border border-black rounded-md"></div>
+          <div className="w-8 h-8 border border-green-400 rounded-md"></div>
+        </div>
       </div>
     </div>
   );
