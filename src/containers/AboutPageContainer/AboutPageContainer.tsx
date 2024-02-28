@@ -47,9 +47,9 @@ const AboutPageContainer = () => {
                 </div>
             </div>
             <div className="pt-10">
-                <div className="px-[1rem] sm:px-16 lg:py-28">
+                <div className="px-[1rem] sm:px-16 lg:py-28 xl:flex xl:justify-center xl:items-center xl:flex-col">
                 <p className="text-3xl lg:text-3xl lg:font-bold">Our Values</p>
-                <p className="lg:text-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
+                <p className="lg:text-lg xl:text-2xl xl:w-[33rem]">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
                 </div>
                 <div className="lg:flex">
                 <div className="pt-5 flex flex-col justify-center items-center">
@@ -68,7 +68,7 @@ const AboutPageContainer = () => {
                 </div>
                 <div className="pt-5 flex flex-col justify-center items-center">
                     <img src={AboutIcon3} alt="" className="w-[30%]"/>
-                    <div className=" px-3 pb-6 pt-4  sm:px-16">
+                    <div className=" px-20 pb-6 pt-4  sm:px-16">
                         <p className="text-2xl font-medium lg:text-lg lg:font-bold">Starting Buying and Selling</p>
                         <p className="text-gray-600 w-full text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
                     </div>
@@ -79,9 +79,9 @@ const AboutPageContainer = () => {
                         <img src={BuyingImage} alt="" />
                     </div>
             <div className="bg-purple pt-5 lg:mt-11 w-full lg:w-full xl:w-full">
-                <div className="px-[1rem] w-full flex flex-col items-center justify-center gap-3 sm:px-14">
+                <div className="px-[1rem] w-full flex flex-col items-center justify-center gap-3 sm:px-14 xl:flex xl:justify-center xl:items-center xl:flex-col">
                     <p className="text-white text-xl sm:text-2xl lg:text-5xl">Start Trading On ONTOP</p>
-                    <p className="text-white sm:text-md  lg:text-2xl">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
+                    <p className="text-white sm:text-md  lg:text-2xl xl:text-2xl xl:w-[33rem]">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
                     <button className="text-white bg-orange2 px-4 w-30 py-2 font-medium text-lg rounded-md lg:px-12">Register Now</button>
                 </div>
                 <div className="w-full flex justify-center items-center pt-4">
