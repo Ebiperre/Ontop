@@ -6,7 +6,6 @@ import AboutIcon2 from "../../assets/images/iconabout2.png"
 import AboutIcon3 from "../../assets/images/iconabout3.png"
 import Man from "../../assets/images/man.png"
 import BuyingImage from "../../assets/images/convert-currency.png"
-import Navbar from "../../components/Navbar/Navbar"
 
 
 
@@ -17,9 +16,6 @@ const AboutPageContainer = () => {
 
     return (
         <div>
-            <div className="h-20">
-            <Navbar />
-            </div>
             <div className="w-full h-full px-[1rem] pt-3 xl:w-full">
                 <img className="h-[500px] w-full object-cover xl:w-full" src={AboutImage} alt="about" />
                 <div className="bg-white rounded-sm  p-5 absolute top-8 mt-[19rem] ml-[0.89rem] w-[84%] lg:py-16 xl:w-[50%] xl:py-16 xl:items-start">

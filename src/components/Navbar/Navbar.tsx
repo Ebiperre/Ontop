@@ -26,7 +26,7 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
                             <a href="/about">
                                 <li>About</li>
                             </a>
-                            <a href="#">
+                            <a href="service">
                                 <li>Services</li>
                             </a>
                             <a href="/contact-us">
