@@ -7,6 +7,7 @@ import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import ForgotPassword from './containers/ForgotPassword/ForgotPassword';
 import AboutPageContainer from './containers/AboutPageContainer/AboutPageContainer';
+import ServicePageContainer from './containers/ServicePageContainer/ServicePageContainer';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <AboutPageContainer />
+  },
+  {
+    path: "/service",
+    element: <ServicePageContainer />
   },
   {
     path: "/home",
