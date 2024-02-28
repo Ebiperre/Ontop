@@ -1,4 +1,3 @@
-import Navbar from "../../components/Navbar/Navbar";
 import UsaImage from "../../assets/images/usa.png"
 import UkImage from "../../assets/images/UK.png"
 import AudImage from "../../assets/images/AUD.png"
@@ -10,16 +9,14 @@ import AmazonImage from "../../assets/images/card_amazon.png"
 import GoogleImage from "../../assets/images/card_google.png"
 import AppleImage from "../../assets/images/card_apple.png"
 import VisaImage from "../../assets/images/card_visa.png"
-import RazerImage from "../../assets/images/card_razer.png"
+// import RazerImage from "../../assets/images/card_razer.png"
 import SephoraImage from "../../assets/images/card_sephora.png"
 
 const ServicePageContainer = () => {
 
     return (
         <div>
-             <div className="h-20">
-            <Navbar />
-            </div>
+            
             <div className="p-5">
                 <p className="text-2xl font-medium">About Rates On ONTOP</p>
                 <p className="text-md">You can check the current rates on this page, but it still changes. So please sell your gift cards as soon as possible after seeing the appropriate real-time rate to ensure that the rate will not change. Rate of the final order depends on the time of selling. Our rate is generally higher than the market rate, and we promise the security of cards, fast transaction, and get cash instantly. If you have any other questions, you can click <span className="text-orange3">“contact us”</span>.</p>
