@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import ForgotPassword from './containers/ForgotPassword/ForgotPassword';
+import AboutPageContainer from './containers/AboutPageContainer/AboutPageContainer';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/contact-us",
     element: <ContactPageContainer />
+  },
+  {
+    path: "/about",
+    element: <AboutPageContainer />
   },
   {
     path: "/home",
