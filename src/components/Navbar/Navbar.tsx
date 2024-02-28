@@ -23,7 +23,7 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
                             <a href="#">
                                 <li>Home</li>
                             </a>
-                            <a href="#">
+                            <a href="/about">
                                 <li>About</li>
                             </a>
                             <a href="#">
