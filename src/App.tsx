@@ -1,14 +1,13 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from './containers/404Page/404Page';
-import ContactPageContainer from './containers/ContactPageContainer/ContactPageContainer';
+import ContactPage from "./pages/ContactPage";
 import HomePage from './pages/HomePage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import ForgotPassword from './containers/ForgotPassword/ForgotPassword';
 import AboutPageContainer from './containers/AboutPageContainer/AboutPageContainer';
 import ServicePage from './pages/ServicePage';
-import ServicePageContainer from './containers/ServicePageContainer/ServicePageContainer';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/contact-us",
-    element: <ContactPageContainer />,
+    element: <ContactPage />,
   },
   {
     path: "/about",
