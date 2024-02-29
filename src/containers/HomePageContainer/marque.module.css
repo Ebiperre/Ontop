@@ -23,7 +23,7 @@
       rgba(0, 0, 0, 0) 100%
     );
   
-    padding: 1rem 0px;
+    padding: 2rem 0px;
   }
   
   .marquee::-webkit-scrollbar {
@@ -38,7 +38,7 @@
   
   .marquee section {
     display: flex;
-    gap: 15px;
+    gap: 3rem;
     -webkit-animation: animate-marquee var(--marquee-speed) ease-in-out alternate-reverse;
     animation: animate-marquee var(--marquee-speed) ease-in-out infinite alternate-reverse ;
     transition: var(--marquee-hover-transition-speed) margin-left ease-in-out;
@@ -46,7 +46,7 @@
   }
   
   .marquee section div {
-    border: 5px solid var(--orange);
+    border: 2px solid var(--orange);
     border-radius: 20px;
     height: 45vh;
     width: 25rem;

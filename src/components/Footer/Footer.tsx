@@ -4,9 +4,9 @@ import logo from "../../assets/icons/logo_without_text.svg"
 export default function Footer() {
     return (
         <>
-            <div className=" bg-text-color text-black px-[4vw] pt-[16vh]">
+            <div className=" bg-text-color text-black px-[4vw] pt-[16vh] md:pt-[30vh] md:pb-[10vh]">
                 <div>
-                    <div className="flex flex-wrap lg:flex-nowrap items-start justify-center md:flex-row md:items-start md:text-left gap-10 mb-5 md:mb-10 lg:mb-20">
+                    <div className="flex flex-wrap lg:flex-nowrap items-start justify-start md:flex-row md:items-start md:justify-start md:text-left md:gap-40 gap-10 mb-5 md:mb-10 lg:mb-20">
                         <div className="flex-col flex gap-4 text-left">
                             <div className="h-10 font-bold text-lg flex items-center justify-start ml-[-3rem]">
                                 <img
@@ -27,25 +27,28 @@ export default function Footer() {
                                 </button>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-2">
+
+                        <div className="flex flex-wrap justify-start gap-10 w-full">
+
+                        <div className="flex flex-col gap-2 items-start text-left">
                             <div className="font-semibold text-xl mb-3 whitespace-nowrap">About us</div>
-                            <div className="font-extralight  flex flex-col gap-2 flex flex-col gap-2">
+                            <div className="font-extralight  flex flex-col  gap-2 flex flex-col gap-2">
                                 <a className="hover:underline hover:text-purple hover:cursor-pointer">About Us</a>
                                 <a className="hover:underline hover:text-purple hover:cursor-pointer">Buy/Sell</a>
                                 <a className="hover:underline hover:text-purple hover:cursor-pointer">Staking</a>
                             </div>
                         </div>
-                        <div>
+                        <div className=" items-start text-left">
                             <div className="font-semibold text-xl mb-3">Privacy</div>
                             <div className="font-extralight  flex flex-col gap-2">
                                 <a className="hover:underline hover:text-purple hover:cursor-pointer">Terms & Condition</a>
                                 <a className="hover:underline hover:text-purple hover:cursor-pointer">Privacy Policy</a>
                             </div>
                         </div>
-                        <div>
+                        <div className=" items-start text-left">
                             <div className="font-semibold text-xl mb-3">ONTOP</div>
                             <div className="font-extralight flex flex-col gap-2">
-                                <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, tenetur!</span>
+                                <span className="max-w-[300px]">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, tenetur!</span>
                                 <a href="tel:+23470173453453">Contact:
                                     <span className="hover:underline hover:text-purple hover:cursor-pointer ml-2">(234) 701-3458-453</span></a>
                             </div>
@@ -65,6 +68,8 @@ export default function Footer() {
                                     </svg>
                                 </div>
                             </div>
+                        </div>
+
                         </div>
                     </div>
                     <div className={classes.rights}>
