@@ -1,9 +1,9 @@
 .hamburger {
   height: 50px;
   width: 50px;
-  transform: 0.2s;
   position: relative;
   scale: 0.7;
+  margin-left: 40vw;
 }
 
 .hamburger .checkbox {
