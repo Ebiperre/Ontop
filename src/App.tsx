@@ -8,6 +8,7 @@ import SignUpPage from './pages/SignUpPage';
 import ForgotPassword from './containers/ForgotPassword/ForgotPassword';
 import ServicePage from './pages/ServicePage';
 import AboutPage from './pages/AboutPage';
+import TermsAndConditions from "./containers/TermsAndConditions/TermsAndConditions";
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/service",
     element: <ServicePage />
+  },
+  {
+    path: "/terms&conditions",
+    element: <TermsAndConditions />
   },
   {
     path: "/home",
