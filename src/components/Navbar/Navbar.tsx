@@ -95,13 +95,13 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
                             <Link to="/home">
                                 <li>Home</li>
                             </Link>
-                            <Link to="/home">
+                            <Link to="/about">
                                 <li>About</li>
                             </Link>
-                            <Link to="/home">
+                            <Link to="/service">
                                 <li>Services</li>
                             </Link>
-                            <Link to="/home">
+                            <Link to="/contact-us">
                                 <li>Contact Us</li>
                             </Link>
 
