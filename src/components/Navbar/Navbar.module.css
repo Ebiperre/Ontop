@@ -32,7 +32,7 @@
 }
 
 .sign_up_btn {
-    padding: 1rem 0px;
+    padding: 10px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +40,7 @@
     color: white;
     border-radius: 6px;
     transition: all 200ms ease-in-out;
-    background: var(--orange);
+    background: var(--orange2);
 }
 
 .nav div a:hover span {
@@ -86,13 +86,12 @@
     }
 
     .sign_up_btn {
-        height: 3rem;
+        height: 2.8rem;
         width: 8rem;
     }
 
     .sign_up_btn:hover {
         background-color: var(--orange3);
         font-size: 1.2rem;
-        scale: 0.9;
     }
 }

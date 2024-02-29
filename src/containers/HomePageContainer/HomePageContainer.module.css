@@ -1,25 +1,19 @@
-.container{
-   font-size: 1rem;
-   padding: 30px 42px;
-}
-
-
 /* hero section */
 
-.hero_section{
+.hero_section {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-text-align: center;
-padding: 1rem 0px;
-min-height: 100vh;
-gap: 2rem;
+    text-align: center;
+    padding: 1rem 0px;
+    min-height: 100vh;
+    gap: 2rem;
     /* background-color: red; */
 
 }
 
-.hero_text{
+.hero_text {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,21 +25,21 @@ gap: 2rem;
     width: 100%;
 }
 
-.hero_text h2{
+.hero_text h2 {
     font-size: 10vw;
     line-height: 9vw;
     font-weight: 600;
 
 }
 
-.hero_image{
+.hero_image {
     height: 70%;
     flex: 1;
 
 }
 
 
-.subscribe_field{
+.subscribe_field {
     width: 90%;
     /* background-color: red; */
     display: flex;
@@ -57,13 +51,13 @@ gap: 2rem;
     border-radius: 6px;
 }
 
-.subscribe_input{
+.subscribe_input {
     display: flex;
     height: 100%;
     width: 65%;
 }
 
-.subscribe_field input{
+.subscribe_field input {
     /* width: 100%; */
     display: flex !important;
     flex: 1;
@@ -72,19 +66,19 @@ gap: 2rem;
     /* background-color: blue; */
 }
 
-.subscribe_field button{
+.subscribe_field button {
     height: 3rem;
     width: 8rem;
     color: white;
     border-radius: 0px 8px 8px 0px;
-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
     background-color: var(--orange);
 
 }
 
 /* features */
 
-.features_head{
+.features_head {
 
     display: flex;
     align-items: center;
@@ -93,19 +87,19 @@ transition: all 200ms ease-in-out;
     /* background-color: red; */
 }
 
-.features_head h2{
+.features_head h2 {
     font-weight: 600;
     font-size: 2rem;
 }
 
-.features_head p{
+.features_head p {
     width: 100%;
     max-width: 50rem;
 }
 
 
 
-.card_wrap{
+.card_wrap {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,24 +107,24 @@ transition: all 200ms ease-in-out;
     flex-wrap: wrap;
     gap: 2rem;
     min-height: 100vh;
-  }
+}
 
-.card{
+.card {
     height: 50vh;
-   /*  width: 90%; */
+    /*  width: 90%; */
     max-width: 20rem;
     flex: 1;
     /* background-color: red; */
     box-shadow: 0px 0px 5px 0px var(--greyWhite);
-border-radius: 8px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 0px  1rem;
+    padding: 0px 1rem;
 }
 
-.card div{
+.card div {
     height: 11rem;
     width: 11rem;
     border-radius: 50%;
@@ -140,14 +134,14 @@ border-radius: 8px;
     justify-content: center;
 }
 
-.card h3{
+.card h3 {
     font-size: 1.6rem;
     font-weight: 600;
 }
 
 /* gift cards */
 
-.giftCard_wrap{
+.giftCard_wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -156,7 +150,7 @@ border-radius: 8px;
     gap: 3rem;
 }
 
-.giftCard_wrap div h3{
+.giftCard_wrap div h3 {
     font-size: 1.6rem;
     font-weight: 600;
 }
@@ -165,8 +159,8 @@ border-radius: 8px;
 
 
 @media screen and (min-width: 800px) {
-    
-    .hero_section{
+
+    .hero_section {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -176,35 +170,35 @@ border-radius: 8px;
         padding: 0px 3rem;
         /* flex-wrap: wrap; */
         /* background-color: red; */
-    
+
     }
 
-    .hero_text{
+    .hero_text {
         padding-right: 8rem;
         gap: 2rem;
     }
 
-.hero_text h2{
-    font-size: 4vw;
-    line-height: 4vw;
+    .hero_text h2 {
+        font-size: 4vw;
+        line-height: 4vw;
 
-}
+    }
 
-/* features */
+    /* features */
 
-.card_wrap{
-    min-height: 70vh !important;
-    /* padding-top: 1rem; */
-    align-items:  center;
-    /* background-color: red; */
-}
+    .card_wrap {
+        min-height: 70vh !important;
+        /* padding-top: 1rem; */
+        align-items: center;
+        /* background-color: red; */
+    }
 
 
-.giftCard_wrap{
-    flex-direction: row;
-    text-align: left;
-    padding: 0px 7rem;
-    gap: 4rem;
-    height: 60vh;
-}
+    .giftCard_wrap {
+        flex-direction: row;
+        text-align: left;
+        padding: 0px 7rem;
+        gap: 4rem;
+        height: 60vh;
+    }
 }
