@@ -16,9 +16,9 @@ const AboutPageContainer = () => {
 
     return (
         <div>
-            <div className="w-full h-full px-[1rem] pt-3 xl:w-full">
+            <div className="w-full h-full relative px-[1rem] pt-3 xl:w-full">
                 <img className="h-[500px] w-full object-cover xl:w-full" src={AboutImage} alt="about" />
-                <div className="bg-white rounded-sm  p-5 absolute top-8 mt-[19rem] ml-[0.89rem] w-[84%] lg:py-16 xl:w-[50%] xl:py-16 xl:items-start">
+                <div className="bg-white rounded-sm  p-5 absolute top-8 mt-[17rem] ml-[0.89rem] w-[84%] lg:py-16 xl:w-[50%] xl:mt-[14rem] xl:py-16 xl:items-start">
                     <div className="flex flex-col lg:items-start xl:items-start">
                         <p className="text-3xl font-semibold lg:text-2xl xl:text-4xl">Not Going Anywhere, We Are One </p>
                         <p className="text-gray-500 xl:text-lg text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
