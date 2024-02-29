@@ -61,7 +61,7 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
                     </div>
                 )}
                 <div onClick={closeNav} className="hamburger relative z-10">
-                    <input className="checkbox" type="checkbox" />
+                    <input className="checkbox" checked={click} type="checkbox" />
                     <svg fill="none" viewBox="0 0 50 50" height="50" width="50">
                         <path
                             className="lineTop line"
@@ -87,27 +87,27 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
                     </svg>
                 </div>
 
-                <section className={click ? "absolute top-0 right-0 h-[100vh] w-[100vw] flex" : "hidden"}>
+                <section className={click ? "absolute top-0 right-0 h-[100vh] w-[100vw] flex overflow-hidden" : "w-[0px] bg-purple"}>
                     <div onClick={closeNav} className="bg-[#0000003d]  flex-1"></div>
 
-                    <div className={`${classes.nav_list} flex flex-col items-center justify-between h-full w-3/4 bg-white text-black p-8 gap-4`}>
-                        <ul className="flex flex-col items-start justify-start h-full w-full gap-8">
+                    <div className={click ? "w-3/4 overflow-hidden bg-white text-black pt-20 pb-4 px-2 flex justify-between flex-col" : "w-[0px]"}>
+                        <ul className="flex flex-col items-start justify-start h-full w-full gap-8 overflow-hidden">
                             <Link to="/home">
                                 <li>Home</li>
                             </Link>
-                            <Link to="/home">
+                            <Link to="/about">
                                 <li>About</li>
                             </Link>
-                            <Link to="/home">
+                            <Link to="/service">
                                 <li>Services</li>
                             </Link>
-                            <Link to="/home">
+                            <Link to="/contact-us">
                                 <li>Contact Us</li>
                             </Link>
 
                         </ul>
                         <div className="flex flex-col w-full gap-4 items-start justify-start">
-                            <Link to="/sign-in">
+                            <Link className="flex items-center justify-center" to="/sign-in">
 
                                 <span className="material-symbols-outlined">
                                     login
