@@ -27,7 +27,7 @@ const AboutPageContainer = () => {
                     </div>
                 </div>
             </div>
-            <div className="pt-10 sm:flex sm:flex-col sm:items-center sm:justify-center lg:mt-24">
+            <div className="pt-10 sm:flex sm:flex-col sm:items-center sm:justify-center px-6 lg:mt-24">
                 <p className="text-3xl xl:text-4xl">Our Services</p>
                 <div className="pt-5 px-[1rem] sm:flex sm:justify-center sm:items-center sm:flex-col sm:w-full lg:flex lg:flex-row xl:flex xl:justify-center xl:items-center">
                     <img src={HistoryImage} alt="" className=" lg:w-[30%] xl:w-[30%]"/>
@@ -83,7 +83,7 @@ const AboutPageContainer = () => {
                     <button onClick={() => {navigate('/sign-up')}} className="text-white bg-orange2 px-4 w-30 py-2 font-medium text-lg rounded-md lg:px-12">Register Now</button>
                 </div>
                 <div className="w-full flex justify-center items-center pt-4">
-                    <img src={Man} alt="" className="w-[90%] lg:w-[40%]"/>
+                    <img src={Man} alt="" className="w-[90%] lg:w-[40%] xl:w-[30%]"/>
                 </div>
             </div>
         </div>
