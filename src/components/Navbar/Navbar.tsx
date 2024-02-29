@@ -30,13 +30,13 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
                 {!notNavlist && (
                     <div className={classes.nav_list}>
                         <ul className="gap-8 flex items-center justify-center">
-                            <a href="#">
+                            <a href="home">
                                 <li>Home</li>
                             </a>
                             <a href="/about">
                                 <li>About</li>
                             </a>
-                            <a href="#">
+                            <a href="service">
                                 <li>Services</li>
                             </a>
                             <a href="/contact-us">
