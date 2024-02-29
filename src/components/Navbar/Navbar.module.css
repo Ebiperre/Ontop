@@ -26,13 +26,16 @@
 }
 
 .logo {
-    object-fit: contain;
-    height: 9rem;
+    object-fit: cover;
+    height: 7rem;
     width: 40%;
 }
 
 .sign_up_btn {
-    height: 2rem;
+    padding: 1rem 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 6rem;
     color: white;
     border-radius: 6px;

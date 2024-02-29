@@ -9,7 +9,6 @@ import ForgotPassword from './containers/ForgotPassword/ForgotPassword';
 import AboutPageContainer from './containers/AboutPageContainer/AboutPageContainer';
 import ServicePage from './pages/ServicePage';
 
-
 const router = createBrowserRouter([
   {
     path: "/sign-up",

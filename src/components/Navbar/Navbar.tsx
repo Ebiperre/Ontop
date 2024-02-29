@@ -1,6 +1,6 @@
 import classes from './Navbar.module.css';
 import "./hamburger.css"
-import logo from "../../assets/icons/logo_with_left_text.svg";
+import logo from "../../assets/icons/logo_without_text.svg";
 import { Link, useNavigate } from 'react-router-dom';
 
 type NavBarProps = {
@@ -14,9 +14,15 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
     return (
         <>
             <nav className={classes.nav} style={navBg ? { background: "#fff" } : undefined}>
-                <img
-                    onClick={() => { navigate('/home') }}
-                    className={classes.logo} src={logo} alt="Ontop" />
+
+                <div className="text-white font-bold text-lg flex items-center justify-center">
+                    <img
+                        onClick={() => { navigate('/home') }}
+                        className={classes.logo} src={logo} alt="Ontop" />
+                   <p className="">
+                    ONTOP
+                   </p>
+                </div>
                 {!notNavlist && (
                     <div className={classes.nav_list}>
                         <ul className="gap-8 flex items-center justify-center">

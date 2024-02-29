@@ -1,0 +1,96 @@
+:root {
+    --marquee-speed: 30s;
+    --marquee-hover-transition-speed: 0.7s;
+    --marquee-fade-edges: 30%;
+  }
+  
+  .marquee {
+    color: var(--text-color);
+    letter-spacing: 0.02em;
+    overflow-y: hidden;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      #000 var(--marquee-fade-edges),
+      #000 calc(100% - var(--marquee-fade-edges)),
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      #000 var(--marquee-fade-edges),
+      #000 calc(100% - var(--marquee-fade-edges)),
+      rgba(0, 0, 0, 0) 100%
+    );
+  
+    padding: 1rem 0px;
+  }
+  
+  .marquee::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .marquee,
+  .marquee > div {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .marquee section {
+    display: flex;
+    gap: 15px;
+    -webkit-animation: animate-marquee var(--marquee-speed) ease-in-out alternate-reverse;
+    animation: animate-marquee var(--marquee-speed) ease-in-out infinite alternate-reverse ;
+    transition: var(--marquee-hover-transition-speed) margin-left ease-in-out;
+    will-change: transform, margin-left;
+  }
+  
+  .marquee section div {
+    border: 5px solid var(--orange);
+    border-radius: 20px;
+    height: 45vh;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .marquee div span {
+    font-size: 5rem;
+  }
+  
+  .marquee div p {
+    flex-wrap: wrap;
+    display: flex;
+  }
+  
+  .h3 {
+    font-weight: 600;
+    font-size: 3vw;
+  }
+  
+  .marquee:hover > section {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+  
+  @-webkit-keyframes animate-marquee {
+    0%, 100% {
+      transform: translateX(0%) translateZ(0);
+    }
+    50% {
+      transform: translateX(-100%) translateZ(0);
+    }
+  }
+  
+  @keyframes animate-marquee {
+    0%, 100% {
+      transform: translateX(0%) translateZ(0);
+    }
+    50% {
+      transform: translateX(-100%) translateZ(0);
+    }
+  }
+  
