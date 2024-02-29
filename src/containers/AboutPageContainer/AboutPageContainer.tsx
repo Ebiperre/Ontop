@@ -6,12 +6,14 @@ import AboutIcon2 from "../../assets/images/iconabout2.png"
 import AboutIcon3 from "../../assets/images/iconabout3.png"
 import Man from "../../assets/images/man.png"
 import BuyingImage from "../../assets/images/convert-currency.png"
+import { useNavigate } from "react-router-dom"
 
 
 
 
 
 const AboutPageContainer = () => {
+    const navigate = useNavigate()
 
 
     return (
@@ -25,7 +27,7 @@ const AboutPageContainer = () => {
                     </div>
                 </div>
             </div>
-            <div className="pt-10 sm:flex sm:flex-col sm:items-center sm:justify-center lg:mt-24">
+            <div className="pt-10 sm:flex sm:flex-col sm:items-center sm:justify-center px-6 lg:mt-24">
                 <p className="text-3xl xl:text-4xl">Our Services</p>
                 <div className="pt-5 px-[1rem] sm:flex sm:justify-center sm:items-center sm:flex-col sm:w-full lg:flex lg:flex-row xl:flex xl:justify-center xl:items-center">
                     <img src={HistoryImage} alt="" className=" lg:w-[30%] xl:w-[30%]"/>
@@ -78,10 +80,10 @@ const AboutPageContainer = () => {
                 <div className="px-[1rem] w-full flex flex-col items-center justify-center gap-3 sm:px-14 xl:flex xl:justify-center xl:items-center xl:flex-col">
                     <p className="text-white text-xl sm:text-2xl lg:text-5xl">Start Trading On ONTOP</p>
                     <p className="text-white sm:text-md  lg:text-2xl xl:text-2xl xl:w-[33rem]">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem in!</p>
-                    <button className="text-white bg-orange2 px-4 w-30 py-2 font-medium text-lg rounded-md lg:px-12">Register Now</button>
+                    <button onClick={() => {navigate('/sign-up')}} className="text-white bg-orange2 px-4 w-30 py-2 font-medium text-lg rounded-md lg:px-12">Register Now</button>
                 </div>
                 <div className="w-full flex justify-center items-center pt-4">
-                    <img src={Man} alt="" className="w-[90%] lg:w-[40%]"/>
+                    <img src={Man} alt="" className="w-[90%] lg:w-[40%] xl:w-[30%]"/>
                 </div>
             </div>
         </div>
