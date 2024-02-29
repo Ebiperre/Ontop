@@ -1,3 +1,8 @@
+.container {
+    font-size: 1rem;
+    padding: 30px 1rem;
+}
+
 /* hero section */
 
 .hero_section {
@@ -9,15 +14,12 @@
     padding: 1rem 0px;
     min-height: 100vh;
     gap: 2rem;
-    /* background-color: red; */
-
 }
 
 .hero_text {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* text-align: left; */
     flex-direction: column;
     flex: 1;
     gap: 2rem;
@@ -41,7 +43,6 @@
 
 .subscribe_field {
     width: 90%;
-    /* background-color: red; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -58,12 +59,9 @@
 }
 
 .subscribe_field input {
-    /* width: 100%; */
     display: flex !important;
     flex: 1;
     outline: none;
-    /* padding: 0px 1rem; */
-    /* background-color: blue; */
 }
 
 .subscribe_field button {
@@ -84,7 +82,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* background-color: red; */
 }
 
 .features_head h2 {
@@ -110,25 +107,22 @@
 }
 
 .card {
-    height: 50vh;
-    /*  width: 90%; */
+    min-height: 50vh;
     max-width: 20rem;
     flex: 1;
-    /* background-color: red; */
     box-shadow: 0px 0px 5px 0px var(--greyWhite);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 0px 1rem;
+    padding: 1rem;
 }
 
 .card div {
     height: 11rem;
     width: 11rem;
     border-radius: 50%;
-    /* background-color: #d0b5ff; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -156,6 +150,12 @@
 }
 
 
+@media screen and (max-width: 1024px) {
+    .hero_text {
+        padding: 0px !important;
+    }
+}
+
 
 
 @media screen and (min-width: 800px) {
@@ -167,10 +167,6 @@
         flex-direction: row;
         gap: 6rem;
         text-align: left;
-        padding: 0px 3rem;
-        /* flex-wrap: wrap; */
-        /* background-color: red; */
-
     }
 
     .hero_text {
@@ -188,11 +184,13 @@
 
     .card_wrap {
         min-height: 70vh !important;
-        /* padding-top: 1rem; */
         align-items: center;
-        /* background-color: red; */
     }
 
+
+    .card {
+        padding: 1rem 0px !important;
+    }
 
     .giftCard_wrap {
         flex-direction: row;

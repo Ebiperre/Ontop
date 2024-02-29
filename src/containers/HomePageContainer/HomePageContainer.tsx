@@ -105,90 +105,90 @@ const HomePageContainer = () => {
 
                 {/* <section> */}
                 <div className={marqueeStyle.marquee}>
-                        <section>
-                            <div>
-                                <span className="material-symbols-outlined">
-                                    account_balance
-                                </span>
+                    <section>
+                        <div>
+                            <span className="material-symbols-outlined">
+                                account_balance
+                            </span>
 
-                                <h3 className={marqueeStyle.h3}>
-                                    Lorem, ipsum.
-                                </h3>
-                                <p className="">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
-                                </p>
+                            <h3 className={marqueeStyle.h3}>
+                                Lorem, ipsum.
+                            </h3>
+                            <p className="">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
+                            </p>
 
-                            </div>
-                            <div>
-                                <span className="material-symbols-outlined">
-                                    account_balance_wallet
-                                </span>
-                                <h3 className={marqueeStyle.h3}>
-                                    Lorem, ipsum.
-                                </h3>
+                        </div>
+                        <div>
+                            <span className="material-symbols-outlined">
+                                account_balance_wallet
+                            </span>
+                            <h3 className={marqueeStyle.h3}>
+                                Lorem, ipsum.
+                            </h3>
 
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
-                                </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
+                            </p>
 
-                            </div>
+                        </div>
 
-                            <div>
-                                <span className="material-symbols-outlined">
-                                    savings
-                                </span>
-                                <h3 className={marqueeStyle.h3}>
-                                    Lorem, ipsum.
-                                </h3>
+                        <div>
+                            <span className="material-symbols-outlined">
+                                savings
+                            </span>
+                            <h3 className={marqueeStyle.h3}>
+                                Lorem, ipsum.
+                            </h3>
 
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
-                                </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
+                            </p>
 
-                            </div>
-                            <div>
-                                <span className="material-symbols-outlined">
-                                    credit_card
-                                </span>
-                                <h3 className={marqueeStyle.h3}>
-                                    Lorem, ipsum.
-                                </h3>
+                        </div>
+                        <div>
+                            <span className="material-symbols-outlined">
+                                credit_card
+                            </span>
+                            <h3 className={marqueeStyle.h3}>
+                                Lorem, ipsum.
+                            </h3>
 
 
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
-                                </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
+                            </p>
 
-                            </div>
-                            <div>
-                                <span className="material-symbols-outlined">
-                                    redeem
-                                </span>
-                                <h3 className={marqueeStyle.h3}>
-                                    Lorem, ipsum.
-                                </h3>
+                        </div>
+                        <div>
+                            <span className="material-symbols-outlined">
+                                redeem
+                            </span>
+                            <h3 className={marqueeStyle.h3}>
+                                Lorem, ipsum.
+                            </h3>
 
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
-                                </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
+                            </p>
 
-                            </div>
-                            <div>
-                                <span className="material-symbols-outlined">
-                                    featured_seasonal_and_gifts
-                                </span>
-                                <h3 className={marqueeStyle.h3}>
-                                    Lorem, ipsum.
-                                </h3>
+                        </div>
+                        <div>
+                            <span className="material-symbols-outlined">
+                                featured_seasonal_and_gifts
+                            </span>
+                            <h3 className={marqueeStyle.h3}>
+                                Lorem, ipsum.
+                            </h3>
 
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
-                                </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quibusdam.
+                            </p>
 
-                            </div>
+                        </div>
 
-                        </section>
-                    </div>
+                    </section>
+                </div>
                 {/* </section> */}
 
             </main>

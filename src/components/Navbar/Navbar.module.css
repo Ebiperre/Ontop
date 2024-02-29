@@ -12,6 +12,8 @@
     height: 100%;
     overflow: hidden;
     padding-inline: 1rem;
+    white-space: nowrap;
+
 }
 
 .nav_list {
@@ -43,17 +45,58 @@
     background: var(--orange2);
 }
 
+.sign_up_btn2 {
+    padding: 0.6rem 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8rem;
+    color: white;
+    border-radius: 6px;
+    transition: all 200ms ease-in-out;
+    background: var(--orange);
+}
+
 .nav div a:hover span {
     color: var(--orange);
 }
 
-@media screen and (min-width: 1023px) {
-    .nav {
-        padding-inline: 4rem;
+.nav_list ul a {
+    position: relative;
+}
+
+.nav_list ul a:hover::after {
+    transform: scaleX(0.7);
+}
+
+.nav_list ul a::after {
+    transform: scaleX(0);
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: var(--orange);
+    border-radius: 3px;
+    transition: all 200ms ease;
+    transform-origin: left;
+    width: 100%;
+}
+
+section {
+    transition: all 200ms ease-in-out;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav {}
+
+    .nav_list {
+        gap: 4rem !important;
     }
 }
 
 @media screen and (min-width: 800px) {
+
     .nav_list {
         display: flex;
         gap: 8rem;
@@ -61,28 +104,6 @@
 
     .logo {
         scale: 1.5;
-    }
-
-    .nav ul a {
-        position: relative;
-    }
-
-    .nav ul a:hover::after {
-        transform: scaleX(0.7);
-    }
-
-    .nav ul a::after {
-        transform: scaleX(0);
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 4px;
-        background-color: var(--orange);
-        border-radius: 3px;
-        transition: all 200ms ease;
-        transform-origin: left;
-        width: 100%;
     }
 
     .sign_up_btn {

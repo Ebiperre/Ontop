@@ -3,22 +3,6 @@
     /* border-top: 1px solid grey; */
     width: 100%;
 }
-
-
-/* Footer.module.css */
-
-.footer {
-    /* background-color: #222; */
-    color: #000;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
   
   .logo{
     width: 150px !important; /* Set the desired width for your logo */
