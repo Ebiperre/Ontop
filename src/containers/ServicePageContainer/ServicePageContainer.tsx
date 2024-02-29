@@ -55,11 +55,10 @@ const giftCard = [
 ]
 
     return (
-        <div>
-            
-            <div className="p-5">
-                <p className="text-2xl font-medium">About Rates On ONTOP</p>
-                <p className="text-md">You can check the current rates on this page, but it still changes. So please sell your gift cards as soon as possible after seeing the appropriate real-time rate to ensure that the rate will not change. Rate of the final order depends on the time of selling. Our rate is generally higher than the market rate, and we promise the security of cards, fast transaction, and get cash instantly. If you have any other questions, you can click <span onClick={() => {navigate('/contact-us')}} className="text-orange3">“contact us”</span>.</p>
+        <div className="px-4 xl:px-8">
+            <div className="p-5 xl:p-6">
+                <p className="text-2xl font-medium xl:text-4xl xl:pb-10 xl:px-20">About Rates On ONTOP</p>
+                <p className="text-md xl:text-2xl">You can check the current rates on this page, but it still changes. So please sell your gift cards as soon as possible after seeing the appropriate real-time rate to ensure that the rate will not change. Rate of the final order depends on the time of selling. Our rate is generally higher than the market rate, and we promise the security of cards, fast transaction, and get cash instantly. If you have any other questions, you can click <span onClick={() => {navigate('/contact-us')}} className="text-orange3">“contact us”</span>.</p>
             </div>
             <div className="">
                 <div className="bg-transparent flex justify-center flex-col pb-4 pt-3">
@@ -67,12 +66,12 @@ const giftCard = [
                         <>
                         <p key={Math.random()} className="text-xl font-medium">{data.title}</p>
                                             <div key={Math.random()} className="flex flex-wrap items-center justify-center gap-2 px-2 pt-3 pb-3 xl:flex xl:items-start xl:justify-start">
-                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-5 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={UsaImage} alt="" />USA</button>
-                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-5 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={UkImage} alt="" /> UK</button>
-                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-5 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={AudImage} alt="" />AUD</button>
-                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-5 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={EURImage} alt="" />EUR </button>
-                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-5 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={CadImage} alt="" />CAD</button>
-                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-5 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={ChfImage} alt="" />CHF</button>
+                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-4 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={UsaImage} alt="" />USA</button>
+                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-4 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={UkImage} alt="" /> UK</button>
+                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-4 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={AudImage} alt="" />AUD</button>
+                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-4 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={EURImage} alt="" />EUR </button>
+                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-4 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={CadImage} alt="" />CAD</button>
+                                                <button className="flex justify-center border-1 items-center gap-3 rounded-md bg-gray-100 px-4 py-2 hover:bg-orange3 hover:text-white cursor-pointer"> <img className="w-8 xl:w-10" src={ChfImage} alt="" />CHF</button>
                                             </div>
                                             <div key={Math.random()} className=" p-4 md:flex md:gap-2 lg:gap-2">
                                                 <div className="pb-3">
