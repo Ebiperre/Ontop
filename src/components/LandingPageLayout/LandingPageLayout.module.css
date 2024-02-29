@@ -3,6 +3,12 @@
   display: flex;
   align-items: stretch;
   overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
 }
 
 .body {
@@ -37,7 +43,7 @@
 
 @media screen and (max-width: 1023px) {
   .header {
-    height: 49px;
+    height: 70px;
   }
 
   .bodyMain {
