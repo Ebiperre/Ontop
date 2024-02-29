@@ -1,6 +1,3 @@
-
-
-
 import UsaImage from "../../assets/images/usa.png"
 import UkImage from "../../assets/images/UK.png"
 import AudImage from "../../assets/images/AUD.png"
