@@ -61,15 +61,15 @@
     color: var(--orange);
 }
 
-.nav_list ul a {
+ul a {
     position: relative;
 }
 
-.nav_list ul a:hover::after {
+ul a:hover::after {
     transform: scaleX(0.7);
 }
 
-.nav_list ul a::after {
+ul a::after {
     transform: scaleX(0);
     content: '';
     position: absolute;
