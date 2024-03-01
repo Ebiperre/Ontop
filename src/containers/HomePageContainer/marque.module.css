@@ -94,3 +94,10 @@
     }
   }
   
+
+  @media screen and (max-width: 800px) {
+
+    .marquee{
+      display: none !important;
+    }
+  }

@@ -90,8 +90,8 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
                 <section className={click ? "fixed top-0 right-0 h-[100vh] w-[100vw] flex overflow-hidden" : "w-[0px] bg-purple"}>
                     <div onClick={closeNav} className="bg-[#0000003d]  flex-1"></div>
 
-                    <div className={click ? "w-3/4 overflow-hidden bg-white text-black py-20 px-2 flex justify-between flex-col" : "w-[0px]"}>
-                        <ul className="flex flex-col items-start justify-start h-full w-full gap-8 overflow-hidden">
+                    <div className={click ? "w-3/4 overflow-hidden bg-white text-black pt-28 pb-20 px-2 flex justify-center items-center flex-col" : "w-[0px]"}>
+                        <ul className="flex flex-col items-start justify-start h-full w-full gap-4 overflow-hidden">
                             <Link to="/home">
                                 <li>Home</li>
                             </Link>
