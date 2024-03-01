@@ -99,6 +99,8 @@ section {
 
     .nav_list {
         display: flex;
+        flex: 1;
+        justify-content: flex-end;
         gap: 8rem;
     }
 
@@ -114,5 +116,17 @@ section {
     .sign_up_btn:hover {
         background-color: var(--orange3);
         font-size: 1.2rem;
+    }
+
+
+}
+
+@media screen and (max-width: 800px) {
+    ul a{
+
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+        padding-bottom: 10px;
+        text-align: left;
     }
 }
