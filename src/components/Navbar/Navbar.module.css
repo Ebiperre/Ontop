@@ -99,6 +99,8 @@ section {
 
     .nav_list {
         display: flex;
+        flex: 1;
+        justify-content: flex-end;
         gap: 8rem;
     }
 

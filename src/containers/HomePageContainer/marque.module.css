@@ -1,5 +1,5 @@
 :root {
-    --marquee-speed: 30s;
+    --marquee-speed: 20s;
     --marquee-hover-transition-speed: 0.7s;
     --marquee-fade-edges: 30%;
   }
@@ -39,10 +39,6 @@
   .marquee section {
     display: flex;
     gap: 3rem;
-    -webkit-animation: animate-marquee var(--marquee-speed) ease-in-out alternate-reverse;
-    animation: animate-marquee var(--marquee-speed) ease-in-out infinite alternate-reverse ;
-    transition: var(--marquee-hover-transition-speed) margin-left ease-in-out;
-    will-change: transform, margin-left;
   }
   
   .marquee section div {
@@ -55,6 +51,10 @@
     padding: 1rem 2rem;
     text-align: center;
     gap: 1rem;
+    -webkit-animation: animate-marquee var(--marquee-speed) ease-in-out alternate-reverse;
+    animation: animate-marquee var(--marquee-speed) ease-in-out infinite alternate-reverse ;
+    transition: var(--marquee-hover-transition-speed) margin-left ease-in-out;
+    will-change: transform, margin-left;
   }
   
   .marquee div span {
@@ -71,7 +71,7 @@
     font-size: 3vw;
   }
   
-  .marquee:hover > section {
+  .marquee:hover > section div {
     -webkit-animation-play-state: paused;
     animation-play-state: paused;
   }
