@@ -1,10 +1,13 @@
 import React, { useState, useRef } from 'react';
-import { Button, Typography, TextField } from '@mui/material';
-import { CheckCircle } from '@mui/icons-material';
+import { FiCheckCircle } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
+import success from '../../../src/assets/gifs/success.gif';
 
 const steps = ['Enter Username', 'Enter Transaction PIN', 'Confirm Transaction PIN', 'Congratulations!'];
 
 const SignUpFormStepper: React.FC = () => {
+    const navigate = useNavigate();
+
     const [activeStep, setActiveStep] = useState<number>(0);
     const [username, setUsername] = useState<string>('');
     const [pin, setPin] = useState<string[]>(['', '', '', '']);
@@ -38,8 +41,8 @@ const SignUpFormStepper: React.FC = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (validate()) {
-            if (activeStep === steps.length - 1) {
-                console.log('Form submitted:', { username, pin });
+            if (activeStep === 2) {
+                setActiveStep(3); // Move to Congratulations step
             } else {
                 setActiveStep(activeStep + 1);
             }
@@ -65,108 +68,127 @@ const SignUpFormStepper: React.FC = () => {
     };
 
     const moveToDashboard = () => {
-        // Navigate to dashboard or perform any other relevant action
-        console.log('Moving to dashboard...');
+        navigate('/dashboard');
     };
 
     return (
-        <div className="max-w-md mx-auto">
-            <div className="mb-8">
-                {steps.map((label, index) => (
-                    <div key={label} className="flex items-center mb-4">
-                        {index > 0 && <div className={`h-0.5 flex-grow bg-gray-300 mr-2 ${activeStep > index ? 'bg-primary' : ''}`}></div>}
-                        {activeStep > index ? (
-                            <CheckCircle className="text-green-500 mr-2" />
-                        ) : (
-                            <div className="h-6 w-6 rounded-full border border-gray-300 mr-2 flex items-center justify-center">
-                                {index + 1}
+        <div className="h-screen max-w-lg mx-auto p-4 flex flex-col gap-20 justify-center items-center">
+            {activeStep !== 3 && (
+                <div className="flex">
+                    {steps.slice(0, 3).map((label, index) => (
+                        <div key={label} className="flex items-center mb-4">
+                            {index > 0 && (
+                                <div className={`h-0.5 flex-grow bg-gray-300 mr-2 ${activeStep > index ? 'bg-primary' : ''}`}></div>
+                            )}
+                            {activeStep > index ? (
+                                <FiCheckCircle className="text-orange2 mr-2 h-12 w-12" />
+                            ) : (
+                                <div className="h-12 w-12 rounded-full border border-gray-300 mr-2 flex items-center justify-center">
+                                    {index + 1}
+                                </div>
+                            )}
+                            {index < 2 && (
+                                <div className={`mx-2 border-b w-20 ${activeStep > index ? 'border-primary' : 'border-gray-300'}`}></div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            )}
+            {activeStep !== 3 && (
+                <form className='w-full' onSubmit={handleSubmit}>
+                    <div>
+                        {activeStep === 0 && (
+                            <div className='font-author text-left flex flex-col gap-1 md:gap-3'>
+                                <h3 className="text-2xl md:text-3xl font-medium">Hey there 👋 <br /> Welcome To OnTop</h3>
+                                <p className="text-sm md:text-base mb-5 text-grey2">Please provide your username for the account.Let’s get to know you! We’ll need you to choose a really cool name that other users can find you with</p>
+                                <input
+                                    type="text"
+                                    className={`w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none ${errors.includes('Username is required') ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:border-primary`}
+                                    placeholder="Username"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                />
+                                {errors.includes('Username is required') && (
+                                    <span className="text-deleteRed text-xs text-right md:text-left block">Username is required</span>
+                                )}
                             </div>
                         )}
-                        <Typography variant="h6">{label}</Typography>
+                        {activeStep === 1 && (
+                            <div className='font-author text-left flex flex-col gap-1 md:gap-3'>
+                                <h3 className="text-2xl md:text-3xl font-medium">Enter Transaction PIN</h3>
+                                <p className="text-sm md:text-base mb-5 text-grey2">Please set a 4-digit transaction PIN for your account. Your pin would be used to authenticate your request for transactions and authentications.</p>
+                                <div className="flex">
+                                    {pin.map((digit, index) => (
+                                        <input
+                                            key={index}
+                                            ref={pinInputs[index]}
+                                            type="text"
+                                            maxLength={1}
+                                            className="w-12 h-12 text-3xl border border-gray-300 rounded-lg text-center mr-2 focus:outline-none"
+                                            value={digit}
+                                            onChange={(e) => handlePinChange(index, e.target.value)}
+                                        />
+                                    ))}
+                                </div>
+                                <span className="text-xs text-deleteRed mt-1">
+                                    {errors.includes('Transaction PIN must be a 4-digit number') ? 'Transaction PIN must be a 4-digit number' : ''}
+                                </span>
+                            </div>
+                        )}
+                        {activeStep === 2 && (
+                            <div className='font-author text-left flex flex-col gap-1 md:gap-3'>
+                                <h3 className="text-2xl md:text-3xl font-medium">Confirm Transaction PIN</h3>
+                                <p className="text-sm md:text-base mb-5 text-grey2">Please confirm your transaction PIN.</p>
+                                <div className="flex">
+                                    {confirmPin.map((digit, index) => (
+                                        <input
+                                            key={index}
+                                            ref={pinInputs[index]}
+                                            type="text"
+                                            maxLength={1}
+                                            className="w-12 h-12 text-3xl border border-gray-300 rounded-lg text-center mr-2 focus:outline-none"
+                                            value={digit}
+                                            onChange={(e) => handleConfirmPinChange(index, e.target.value)}
+                                        />
+                                    ))}
+                                </div>
+                                <span className="text-xs text-deleteRed mt-1">
+                                    {errors.includes('Confirm Transaction PIN is required') ? 'Confirm Transaction PIN is required' : errors.includes('Transaction PIN and Confirm PIN must match') ? 'Transaction PIN and Confirm PIN must match' : ''}
+                                </span>
+                            </div>
+                        )}
+                        <div className="mt-8 flex items-center justify-between">
+                            <button
+                                disabled={activeStep === 0}
+                                onClick={() => setActiveStep(activeStep - 1)}
+                                className="px-4 py-2 mr-4 disabled:bg-inherit disabled:text-gray-300 disabled:cursor-not-allowed"
+                            >
+                                Back
+                            </button>
+                            <button
+                                type="submit"
+                                className="px-8 py-2 rounded-md bg-orange2 text-white"
+                            >
+                                Next
+                            </button>
+                        </div>
                     </div>
-                ))}
-            </div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    {activeStep === 0 && (
-                        <div>
-                            <Typography variant="h5">Enter Username</Typography>
-                            <Typography variant="body1">Please provide your username for the account.</Typography>
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Username"
-                                variant="outlined"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                error={errors.includes('Username is required')}
-                                helperText={errors.includes('Username is required') ? 'Username is required' : ''}
-                            />
-                        </div>
-                    )}
-                    {activeStep === 1 && (
-                        <div>
-                            <Typography variant="h5">Enter Transaction PIN</Typography>
-                            <Typography variant="body1">Please set a 4-digit transaction PIN for your account.</Typography>
-                            <div className="flex">
-                                {pin.map((digit, index) => (
-                                    <input
-                                        key={index}
-                                        ref={pinInputs[index]}
-                                        type="text"
-                                        maxLength={1}
-                                        className="w-12 h-12 text-3xl border border-gray-300 rounded-lg text-center mr-2 focus:outline-none"
-                                        value={digit}
-                                        onChange={(e) => handlePinChange(index, e.target.value)}
-                                    />
-                                ))}
-                            </div>
-                            <Typography variant="caption" color="error" className="mt-1">
-                                {errors.includes('Transaction PIN must be a 4-digit number') ? 'Transaction PIN must be a 4-digit number' : ''}
-                            </Typography>
-                        </div>
-                    )}
-                    {activeStep === 2 && (
-                        <div>
-                            <Typography variant="h5">Confirm Transaction PIN</Typography>
-                            <Typography variant="body1">Please confirm your transaction PIN.</Typography>
-                            <div className="flex">
-                                {confirmPin.map((digit, index) => (
-                                    <input
-                                        key={index}
-                                        ref={pinInputs[index]}
-                                        type="text"
-                                        maxLength={1}
-                                        className="w-12 h-12 text-3xl border border-gray-300 rounded-lg text-center mr-2 focus:outline-none"
-                                        value={digit}
-                                        onChange={(e) => handleConfirmPinChange(index, e.target.value)}
-                                    />
-                                ))}
-                            </div>
-                            <Typography variant="caption" color="error" className="mt-1">
-                                {errors.includes('Confirm Transaction PIN is required') ? 'Confirm Transaction PIN is required' : errors.includes('Transaction PIN and Confirm PIN must match') ? 'Transaction PIN and Confirm PIN must match' : ''}
-                            </Typography>
-                        </div>
-                    )}
-                    {activeStep === 3 && (
-                        <div>
-                            <Typography variant="h5">Congratulations!</Typography>
-                            <Typography variant="body1">Your account setup is successful.</Typography>
-                            <Button variant="contained" color="primary" onClick={moveToDashboard} className="mt-4">
-                                Go to Dashboard
-                            </Button>
-                        </div>
-                    )}
+                </form>
+            )}
+            {activeStep === 3 && (
+                <div className='font-author text-center flex flex-col items-center justify-center gap-1 md:gap-3'>
+                    <div>
+                        <img src={success} alt="Successful Registration" />
+                    </div>
+                    <div>
+                        <h3 className="text-2xl md:text-3xl font-medium">Account Setup Successful! 🎉</h3>
+                        <p className="text-sm md:text-base mb-5 text-grey2">Your account setup is successful.Welcome to OnTop! We're excited to have you join our community. You can now go to your <strong onClick={moveToDashboard}>Dashboard</strong> and carry out activities</p>
+                    </div>
+                    <button onClick={moveToDashboard} className="bg-orange2 text-white py-2.5 px-8 rounded">
+                        Go to Dashboard
+                    </button>
                 </div>
-                <div className="mt-8">
-                    <Button disabled={activeStep === 0} onClick={() => setActiveStep(activeStep - 1)}>
-                        Back
-                    </Button>
-                    <Button type="submit" variant="contained" color="primary" className="ml-4">
-                        {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
-                    </Button>
-                </div>
-            </form>
+            )}
         </div>
     );
 };
