@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import signUpImage from '../../../src/assets/images/signUp-illustration.svg';
 
@@ -14,15 +14,22 @@ interface FormData {
 const SignUpPageContainer = () => {
     const navigate = useNavigate();
 
-    const [formData, setFormData] = useState<FormData>({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        password: '',
-        agreed: false,
+    const [formData, setFormData] = useState<FormData>(() => {
+        const storedData = localStorage.getItem('formData');
+        return storedData ? JSON.parse(storedData) : {
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            password: '',
+            agreed: false,
+        };
     });
     const [errors, setErrors] = useState<Partial<FormData>>({});
+
+    useEffect(() => {
+        localStorage.setItem('formData', JSON.stringify(formData));
+    }, [formData]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value, type, checked } = e.target;
@@ -152,7 +159,7 @@ const SignUpPageContainer = () => {
                             <div>
                                 <div className="flex items-center gap-1 sm:gap-4 justify-start pl-2">
                                     <input required type="checkbox" className="accent-orange4 text-white" name="agreed" onChange={handleInputChange} />
-                                    <h3 className="flex items-center whitespace-nowrap text-xs">I agree to the <a href="/terms&conditions" target='_blank'><span className="text-orange">&nbsp;Terms</span>&nbsp;and<span className="text-orange">&nbsp;Privacy Policy</span></a>.</h3>
+                                    <h3 className="flex items-center whitespace-nowrap text-xs">I agree to the <a href="/terms&conditions"><span className="text-orange">&nbsp;Terms</span>&nbsp;and<span className="text-orange">&nbsp;Privacy Policy</span></a>.</h3>
                                 </div>
                                 {errors.agreed && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.agreed}</span>}
                             </div>

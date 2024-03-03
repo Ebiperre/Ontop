@@ -8,8 +8,8 @@ import SignUpPage from './pages/SignUpPage';
 import ForgotPassword from './containers/ForgotPassword/ForgotPassword';
 import ServicePage from './pages/ServicePage';
 import AboutPage from './pages/AboutPage';
-import TermsAndConditions from "./containers/TermsAndConditions/TermsAndConditions";
 import SignUpFormStepper from "./containers/SignUpPageContainer/SignUpFormStepper";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         <Route path="/contact-us" element={<ContactPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/service" element={<ServicePage />} />
-        <Route path="/terms&conditions" element={<TermsAndConditions />} />
+        <Route path="/terms&conditions" element={<TermsAndConditionsPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/" element={<Navigate to="/home"></Navigate>} />
         <Route path="*" element={<ErrorPage />} />

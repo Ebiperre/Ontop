@@ -1,8 +1,12 @@
+import { FaArrowLeft } from "react-icons/fa";
 import "../TermsAndConditions/Terms.css"
 
 const TermsAndConditions = () => {
+  const goBackHandler = () => {
+    window.history.back();
+  };
   return (
-    <section className="bg-white text-dark h-[100%]">
+    <section className="bg-white text-dark min-h-screen">
       <div className="hero-image">
         <div className="hero-image">
           <div className="hero-text">
@@ -18,7 +22,13 @@ const TermsAndConditions = () => {
           </div>
         </div>
       </div>
-
+      <button
+        onClick={goBackHandler}
+        className="flex items-center px-4 py-2 mt-10 mb-5 ml-5 bg-orange2 text-white rounded hover:bg-orange focus:outline-none focus:bg-orange"
+      >
+        <FaArrowLeft className="mr-2" />
+        Go Back
+      </button>
       <div className="max-w-[1000px] mx-auto px-4 pb-3 lg:pb-[40px]">
         <h1 className="mt-[60px] mb-[20px] text-[25px]">
           Welcome to OnTop!
