@@ -9,12 +9,17 @@ import ForgotPassword from './containers/ForgotPassword/ForgotPassword';
 import ServicePage from './pages/ServicePage';
 import AboutPage from './pages/AboutPage';
 import TermsAndConditions from "./containers/TermsAndConditions/TermsAndConditions";
+import SignUpFormStepper from "./containers/SignUpPageContainer/SignUpFormStepper";
 
 
 const router = createBrowserRouter([
   {
     path: "/sign-up",
     element: <SignUpPage />,
+  },
+  {
+    path: "/sign-up/steps",
+    element: <SignUpFormStepper />,
   },
   {
     path: "/sign-in",
