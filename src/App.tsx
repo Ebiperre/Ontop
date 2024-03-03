@@ -1,5 +1,5 @@
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import ErrorPage from './containers/404Page/404Page';
 import ContactPage from "./pages/ContactPage";
 import HomePage from './pages/HomePage';
@@ -11,56 +11,24 @@ import AboutPage from './pages/AboutPage';
 import TermsAndConditions from "./containers/TermsAndConditions/TermsAndConditions";
 import SignUpFormStepper from "./containers/SignUpPageContainer/SignUpFormStepper";
 
-
-const router = createBrowserRouter([
-  {
-    path: "/sign-up",
-    element: <SignUpPage />,
-  },
-  {
-    path: "/sign-up/steps",
-    element: <SignUpFormStepper />,
-  },
-  {
-    path: "/sign-in",
-    element: <SignInPage />,
-  },
-  {
-    path: "/sign-in/forgot-password",
-    element: <ForgotPassword />,
-  },
-  {
-    path: "/contact-us",
-    element: <ContactPage />,
-  },
-  {
-    path: "/about",
-    element: <AboutPage />
-  },
-  {
-    path: "/service",
-    element: <ServicePage />
-  },
-  {
-    path: "/terms&conditions",
-    element: <TermsAndConditions />
-  },
-  {
-    path: "/home",
-    element: <HomePage />,
-  },
-  {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "*",
-    element: <ErrorPage />,
-  },
-]);
-
 function App() {
-  return <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/sign-up" element={<SignUpPage />} />
+        <Route path="/sign-up/steps" element={<SignUpFormStepper />} />
+        <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/sign-in/forgot-password" element={<ForgotPassword />} />
+        <Route path="/contact-us" element={<ContactPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/service" element={<ServicePage />} />
+        <Route path="/terms&conditions" element={<TermsAndConditions />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<Navigate to="/home"></Navigate>} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
