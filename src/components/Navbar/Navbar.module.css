@@ -129,4 +129,8 @@ section {
         padding-bottom: 10px;
         text-align: left;
     }
+
+    ul a:hover::after {
+        transform: scaleX(1);
+    }
 }

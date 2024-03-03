@@ -128,6 +128,11 @@
     justify-content: center;
 }
 
+.card h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
 /* gift cards */
 
 .giftCard_wrap {
@@ -149,11 +154,17 @@
     .hero_text {
         padding: 0px !important;
     }
+
+
 }
 
 
 
 @media screen and (min-width: 800px) {
+
+    .container{
+        padding-left: 3rem;
+    }
 
     .hero_section {
         display: flex;
@@ -184,7 +195,7 @@
 
 
     .card {
-        padding: 1rem 0px !important;
+        /* padding: 1rem 0px !important; */
     }
 
     .giftCard_wrap {

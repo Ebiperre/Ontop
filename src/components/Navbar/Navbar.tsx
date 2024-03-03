@@ -106,7 +106,7 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
                             </Link>
 
                         </ul>
-                        <div className="flex flex-col w-full gap-4 items-start justify-start">
+                        <div className="flex flex-col w-full gap-4 items-start justify-start md:hidden">
                             <Link className="flex items-center justify-center" to="/sign-in">
 
                                 <span className="material-symbols-outlined">
