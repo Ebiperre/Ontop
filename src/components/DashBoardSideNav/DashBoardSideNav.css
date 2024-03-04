@@ -25,7 +25,6 @@
     border-radius: 10px;
 }
 
-/* Styling for the thumb when being hovered */
 .side-bar-container::-webkit-scrollbar-thumb:hover {
     background-color: #333;
 }
