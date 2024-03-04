@@ -1,11 +1,10 @@
-import React from 'react'
-import LandingPageLayout from '../components/LandingPageLayout/LandingPageLayout'
 import AboutPageContainer from '../containers/AboutPageContainer/AboutPageContainer'
+import LandingPageLayout from '../containers/LandingPageLayout/LandingPageLayout'
 
 const AboutPage = () => {
   return (
     <LandingPageLayout>
-        <AboutPageContainer />
+      <AboutPageContainer />
     </LandingPageLayout>
   )
 }

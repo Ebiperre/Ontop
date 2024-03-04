@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import DashBoardSideNav from "../DashBoardSideNav/DashBoardSideNav";
-// import DashBoardTopHeader from "../DashBoardTopHeader/DashBoardTopHeader";
+import React, { ReactNode, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import DashBoardSideNav from "../../components/DashBoardSideNav/DashBoardSideNav";
+import DashBoardTopHeader from "../../components/DashBoardTopHeader/DashBoardTopHeader";
 
-const DashboardLayout = () => {
+type DashboardLayoutProps = {
+  children: ReactNode;
+}
+
+const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const [showNav, setShowNav] = useState(false);
   const [activeLinkText, setActiveLinkText] = useState("");
   const location = useLocation();
 
-  // Function to toggle the showNav state
   const toggleNav = () => {
     setShowNav((prevShowNav) => !prevShowNav);
   };
-  // Use useEffect to update the activeLinkText whenever the location changes
   useEffect(() => {
-    const path = location.pathname; // Get the current path
-    // Update the activeLinkText based on the path
+    const path = location.pathname;
     switch (path) {
       case "/wallet-home":
         setActiveLinkText("Home");
@@ -42,25 +42,29 @@ const DashboardLayout = () => {
       case "/wallet-settings":
         setActiveLinkText("Settings");
         break;
-      // Add other cases for other routes as needed
       default:
         setActiveLinkText("");
     }
-  }, [location.pathname]); // Run the effect whenever the location.pathname changes
+  }, [location.pathname]);
 
   return (
-    <section className="">
-      {/* <DashBoardTopHeader
-        showNav={showNav}
-        toggleNav={toggleNav}
-        activeLinkText={activeLinkText}
-        setActiveLinkText={setActiveLinkText}
-      /> */}
-      <DashBoardSideNav
-        showNav={showNav}
-        setActiveLinkText={setActiveLinkText}
-        setShowNav={setShowNav}
-      />
+    <section className="bg-[#f7f7f7] text-dark">
+      <div>
+        <DashBoardTopHeader
+          showNav={showNav}
+          toggleNav={toggleNav}
+          activeLinkText={activeLinkText}
+          setActiveLinkText={setActiveLinkText}
+        />
+        <DashBoardSideNav
+          showNav={showNav}
+          setActiveLinkText={setActiveLinkText}
+          setShowNav={setShowNav}
+        />
+        <div className="pt-[100px] largeDevice:ml-[274px]">
+          {children}
+        </div>
+      </div>
     </section>
   );
 };

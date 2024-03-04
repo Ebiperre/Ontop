@@ -80,7 +80,7 @@ const SignUpFormStepper: React.FC = () => {
     };
 
     const moveToDashboard = () => {
-        navigate('/dashboard');
+        navigate('/wallet-home');
     };
 
     return (

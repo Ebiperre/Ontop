@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import logo from "../../../../src/assets/icons/logo_with_left_text.svg"
+import logo from "../../../src/assets/icons/logo_with_left_text.svg"
 import "../DashBoardSideNav/DashBoardSideNav.css";
 import { NavLink } from "react-router-dom"
 import { MdCardGiftcard, MdOutlineAdminPanelSettings, MdSpaceDashboard } from "react-icons/md";
@@ -8,7 +7,6 @@ import { FaCreditCard } from "react-icons/fa";
 import { PiSwapBold } from "react-icons/pi";
 import { IoWalletOutline } from "react-icons/io5";
 import { TfiLayoutListThumb } from "react-icons/tfi";
-// import Logout from "../../Pages/LogOut/Logout";
 
 type DashBoardSideNavProps = {
   showNav: boolean;
@@ -21,18 +19,18 @@ const DashBoardSideNav = ({ showNav, setActiveLinkText, setShowNav }: DashBoardS
     <>
       <aside
         className={`${showNav ? "" : "generalDevice:right-[-100%]"
-          } side-bar-container bg-[#f7f7f7] font-author text-left text-dark h-full min-h-full w-full max-w-[274px] overflow-auto fixed z-50 generalDevice:top-[70px] generalDevice:right-0 transition-all duration-[1s] ease-in-out`}
+          } side-bar-container bg-[#fbfaff] font-author text-left text-dark h-full min-h-full w-full max-w-[274px] overflow-auto fixed z-50 generalDevice:top-[70px] generalDevice:right-0 transition-all duration-[1s] ease-in-out`}
       >
-        <div>
+        <div className="h-20 w-40 pl-[10px] overflow-hidden">
           <img
             src={logo}
             alt="logo"
-            className="w-[150px] generalDevice:hidden block pr-[10px]"
+            className="w-full h-full object-cover generalDevice:hidden block"
           />
         </div>
 
         <div className="">
-          <p className="text-[rgb(124,138,150)] text-sm ml-5 mb-[20px] smallDevice:mt-[20px]">
+          <p className="text-[rgb(124,138,150)] text-sm ml-5 mb-[20px] smallDevice:mt-[10px]">
             Dashboard
           </p>
 

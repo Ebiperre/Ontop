@@ -1,5 +1,4 @@
-import React from 'react'
-import LandingPageLayout from '../components/LandingPageLayout/LandingPageLayout'
+import LandingPageLayout from '../containers/LandingPageLayout/LandingPageLayout'
 import TermsAndConditions from '../containers/TermsAndConditions/TermsAndConditions'
 
 const TermsAndConditionsPage = () => {

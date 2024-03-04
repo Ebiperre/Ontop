@@ -1,34 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import coinvault from "./DashBoardTopHeader-Image/coin-bg.png";
+import logo from '../../../src/assets/icons/logo_without_text.svg'
 import axios from "axios";
 import "../DashBoardTopHeader/DashBoardTopHeader.css";
-import { RotatingLines } from "react-loader-spinner";
-import useUserCryptoData from "../../Data/useUserCryptoData";
-import Logout from "../LogOut/Logout";
 
 const DashBoardTopHeader = ({
   showNav,
   toggleNav,
   activeLinkText,
 }) => {
-  const { userData } = useUserCryptoData();
   const assetRef = useRef(null);
   const [showAsset, setShowAsset] = useState(false);
   const [coins, setCoins] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredCoins, setFilteredCoins] = useState([]);
-  const [closeLogout, setCloseLogout] = useState(false);
-  const [toggleNotification, setToggleNotification] = useState(false);
   const [transactionHistory, setTransactionHistory] = useState([]);
+  const [toggleNotification, setToggleNotification] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-  const baseUrl = import.meta.env.VITE_REACT_APP_Vercel_BASE_URL;
-
-  const handleLogout = () => {
-    setCloseLogout(false);
-  };
 
   // Handle click outside the div to hide it
   useEffect(() => {
@@ -49,7 +39,6 @@ const DashBoardTopHeader = ({
     setShowAsset(!showAsset);
   };
 
-  // Fetch the list of coins from CoinGecko API
   useEffect(() => {
     fetchCoins();
   }, []);
@@ -74,7 +63,6 @@ const DashBoardTopHeader = ({
     }
   };
 
-  // Handle search logic
   useEffect(() => {
     if (searchQuery.trim() === "") {
       setFilteredCoins([]);
@@ -94,44 +82,9 @@ const DashBoardTopHeader = ({
     setShowAsset(false);
     handleSelectCoin(coinId);
     setSearchQuery("");
-    // Reload the page after a short delay (optional)
     setTimeout(() => {
       window.location.reload();
-    }, 500); // You can adjust the delay as needed.
-  };
-
-  useEffect(() => {
-    const fetchNotificationHistory = async () => {
-      try {
-        const response = await axios.get(
-          `${baseUrl}/v1/auth/notifications/${userData.userId}`
-        );
-        setTransactionHistory(response.data);
-
-        // Calculate the unread count
-        const unread = response.data.filter(
-          (notification) => notification.status === "unread"
-        ).length;
-        setUnreadCount(unread);
-      } catch (error) {
-        console.error("Error fetching transaction history:", error.message);
-      }
-    };
-
-    fetchNotificationHistory();
-  }, [userData]);
-
-  const handleClickNotification = () => {
-    // Send a PUT request to mark all notifications as read
-    axios
-      .put(`${baseUrl}/v1/auth/notifications/mark-as-read/${userData.userId}`)
-      .then(() => {
-        // After marking as read, set unreadCount to 0
-        setUnreadCount(0);
-      })
-      .catch((error) => {
-        console.error("Error marking notifications as read:", error);
-      });
+    }, 500);
   };
 
   const totalPages = Math.ceil(transactionHistory.length / itemsPerPage);
@@ -148,7 +101,6 @@ const DashBoardTopHeader = ({
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    // Reverse the order of transactions to display the most recent ones first
     const reversedTransactions = [...transactionHistory].reverse();
 
     return reversedTransactions
@@ -161,21 +113,21 @@ const DashBoardTopHeader = ({
         >
           <span
             className={`${transaction.messageStatus === "failed"
-                ? "text-red-500"
-                : "text-green-500"
+              ? "text-red-500"
+              : "text-green-500"
               } block mb-[5px] capitalize`}
           >
             {transaction.messageStatus}
           </span>
 
-          <span className="text-[rgb(171,171,171)] block mb-[5px]">
+          <span className="text-dark2 block mb-[5px]">
             {transaction.message}
           </span>
 
           <span
             className={`${transaction.messageStatus === "failed"
-                ? "text-red-500"
-                : "text-green-500"
+              ? "text-red-500"
+              : "text-green-500"
               } block mb-[5px]`}
           >
             {new Date(transaction.date).toLocaleString()}
@@ -186,28 +138,27 @@ const DashBoardTopHeader = ({
 
   return (
     <section>
-      <nav className="fixed z-40">
-        <div className="bg-[rgb(28,33,39)] generalDevice:w-[100%] h-[70px] border-b-[1px] border-b-[rgb(50,56,63)] fixed largeDevice:left-[230px] largeDevice:right-0 flex items-center justify-between px-[15px]">
+      <nav className="fixed z-40 font-author">
+        <div className="bg-white text-dark generalDevice:w-[100%] h-[70px] border-b-[1px] border-b-[#d8d8d8] fixed largeDevice:left-[274px] largeDevice:right-0 flex items-center justify-between px-4">
           <div className="largeDevice:hidden mt-[15px]">
-            <img src={coinvault} alt="" className="w-[130px] block pr-[10px]" />
+            <img src={logo} alt="logo" className="w-full h-full block pr-4" />
           </div>
 
           <div className="generalDevice:hidden">
-            <p className="text-[25px] font-[poppins] text-[rgb(165,177,189)]">
+            <p className="text-2xl font-[poppins] text-dark2">
               {activeLinkText || "Coin"}
             </p>
           </div>
 
           <div className="generalDevice:hidden flex gap-[20px]">
             <div
-              className={`${showAsset ? "glowing-border" : ""
-                } flex items-center gap-[10px] bg-[rgb(32,37,43)]  rounded-t-[5px] h-[35px] rounded-b-[5px]`}
+              className={`${showAsset} flex items-center gap-[10px] bg-[#f7f7f7] border  rounded-t-[5px] h-[35px] rounded-b-[5px]`}
               onClick={handleDivClick}
             >
-              <i className="fa-solid fa-magnifying-glass pl-[5px]"></i>
+              <i className="fa-solid fa-magnifying-glass pl-5"></i>
               <input
                 type="text"
-                className="border-none outline-none w-[100%] bg-[rgb(32,37,43)] h-[30px]"
+                className="border-none outline-none w-[100%] bg-[#f7f7f7] h-[30px]"
                 placeholder="Search for assets"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -215,50 +166,25 @@ const DashBoardTopHeader = ({
             </div>
 
             <NavLink to="/wallet-settings">
-              <div className="flex items-center gap-[10px] bg-[rgb(18,23,29)]  rounded-t-[5px] w-[150px] rounded-b-[5px] py-[3px] cursor-pointer">
-                {!userData ? (
-                  <div className="w-[30px] mx-auto">
-                    <RotatingLines
-                      strokeColor="grey"
-                      strokeWidth="5"
-                      animationDuration="0.75"
-                      width="20"
-                      visible={true}
-                    />
-                  </div>
-                ) : (
-                  <div className="bg-[rgb(255,179,0)] w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer text-[14px]">
-                    {userData.profileImage === null ? (
-                      <p className="font-[600] uppercase text-[white]">
-                        {userData.firstName && userData.firstName.charAt(0)}
-                        {userData.lastName && userData.lastName.charAt(0)}
-                      </p>
-                    ) : (
-                      <div className="w-[30px] h-[30px] flex justify-center items-center cursor-pointer">
-                        <img
-                          src={userData.profileImage}
-                          alt=""
-                          className="block w-[100%] h-[30px] rounded-full object-cover"
-                        />
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                <div className="flex items-center gap-[20px]">
-                  <p
-                    className="capitalize font-[poppins]"
-                    style={{
-                      whiteSpace: "nowrap",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      maxWidth: "100px",
-                    }}
-                  >
-                    {userData && userData.firstName}....
-                  </p>
-                  <i className="fa-solid fa-chevron-right"></i>
+              <div className="flex items-center justify-end mr-5 gap-[10px] bg-[#f7f7f7  rounded-t-[5px] w-[150px] rounded-b-[5px] py-[3px] cursor-pointer">
+                <div className="w-10 h-10 flex justify-center items-center cursor-pointer">
+                  <img
+                    src="https://ise-admin-dashboard-frontend.vercel.app/static/media/amirahTemi.bbf53a86315b6bcff637525e5cf7a4fc.svg"
+                    alt="user"
+                    className="block w-[100%] h-full rounded-full object-cover"
+                  />
                 </div>
+                <p
+                  className="capitalize font-author"
+                  style={{
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    maxWidth: "100px",
+                  }}
+                >
+                  Kizitech
+                </p>
               </div>
             </NavLink>
 
@@ -269,24 +195,22 @@ const DashBoardTopHeader = ({
               }}
             >
               <abbr title="Notification">
-                <i className="fa-regular fa-bell text-[20px]"></i>
+                <i className="fa-regular fa-bell text-xl"></i>
               </abbr>
 
               {unreadCount > 0 && (
                 <div className="absolute top-[-5px] left-[16px]">
-                  <p className="text-[11px]">{unreadCount}</p>
+                  <p className="text-xs">{unreadCount}</p>
                 </div>
               )}
             </div>
 
             <div
               className="cursor-pointer mt-[8px]"
-              onClick={() => {
-                setCloseLogout(true);
-              }}
+              onClick={() => { }}
             >
               <abbr title="Logout">
-                <i className="fa-solid fa-arrow-right-from-bracket text-[20px]"></i>
+                <i className="fa-solid fa-arrow-right-from-bracket text-xl"></i>
               </abbr>
             </div>
           </div>
@@ -297,34 +221,16 @@ const DashBoardTopHeader = ({
             </div>
 
             <NavLink to="/wallet-settings">
-              {!userData ? (
-                <div className="w-[30px] mx-auto">
-                  <RotatingLines
-                    strokeColor="grey"
-                    strokeWidth="5"
-                    animationDuration="0.75"
-                    width="20"
-                    visible={true}
+              <div className="bg-orange3 w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer text-sm">
+
+                <div className="w-[30px] h-[30px] flex justify-center items-center cursor-pointer">
+                  <img
+                    src="https://ise-admin-dashboard-frontend.vercel.app/static/media/amirahTemi.bbf53a86315b6bcff637525e5cf7a4fc.svg"
+                    alt="user"
+                    className="block w-[100%] h-[30px] rounded-full object-cover"
                   />
                 </div>
-              ) : (
-                <div className="bg-[rgb(255,179,0)] w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer text-[14px]">
-                  {userData.profileImage === null ? (
-                    <p className="font-[600] uppercase text-[white]">
-                      {userData.firstName && userData.firstName.charAt(0)}
-                      {userData.lastName && userData.lastName.charAt(0)}
-                    </p>
-                  ) : (
-                    <div className="w-[30px] h-[30px] flex justify-center items-center cursor-pointer">
-                      <img
-                        src={userData.profileImage}
-                        alt=""
-                        className="block w-[100%] h-[30px] rounded-full object-cover"
-                      />
-                    </div>
-                  )}
-                </div>
-              )}
+              </div>
             </NavLink>
 
             <div
@@ -339,19 +245,19 @@ const DashBoardTopHeader = ({
 
               {unreadCount > 0 && (
                 <div className="absolute top-[-5px] left-[12px]">
-                  <p className="text-[11px]">{unreadCount}</p>
+                  <p className="text-xs">{unreadCount}</p>
                 </div>
               )}
             </div>
 
-            <div className="cursor-pointer text-[20px] relative mr-[10px]">
+            <div className="cursor-pointer text-xl relative mr-[10px]">
               <i
                 className={`${showNav ? "hidden" : "block"
                   } fa-solid fa-bars-staggered absolute top-[-10px] left-[-7px]`}
                 onClick={toggleNav}
               ></i>
               <i
-                className={`${showNav ? "block text-[rgb(133,209,240)]" : "hidden"
+                className={`${showNav ? "block text-orange" : "hidden"
                   } fa-solid fa-xmark absolute top-[-10px] left-[-5px] font-[600]`}
                 onClick={toggleNav}
               ></i>
@@ -362,27 +268,28 @@ const DashBoardTopHeader = ({
         <div
           ref={assetRef}
           className={`${showAsset ? "block" : "hidden"
-            } fixed top-[69px] w-[100%] largeDevice:w-[210px] h-[100%] largeDevice:h-auto border-[1px] border-[rgb(125,139,151)] largeDevice:rounded-t-[0px] largeDevice:rounded-b-[10px] rounded-t-[15px] largeDevice:right-[265px] bg-[rgb(28,33,39)]`}
+            } fixed top-[70px] w-[100%] largeDevice:w-[274px] h-[100%] largeDevice:h-auto aboveBonusDevice:right-[25%] aboveBonusDevice:top-[115px]`}
         >
-          <div className="flex items-center gap-[10px] bg-[rgb(32,37,43)]  rounded-t-[8px] w-[95%] mx-auto h-[50px] rounded-b-[8px] mt-[15px] largeDevice:hidden">
-            <i className="fa-solid fa-magnifying-glass pl-[10px]"></i>
+          <div className="flex items-center gap-[10px] w-[95%] mx-auto h-[50px] mt-[15px] largeDevice:hidden
+           border-[1px] border-[#d8d8d8]  rounded-t-[15px] largeDevice:right-[265px] bg-white m-5">
+            <i className="fa-solid fa-magnifying-glass pl-5"></i>
             <input
               type="text"
-              className={`border-none outline-none w-[100%] bg-[rgb(32,37,43)] h-[50px] rounded-b-[8px] rounded-t-[8px]`}
+              className={`outline-none w-[100%] rounded-b-[8px] rounded-t-[8px]`}
               placeholder="Search for assets"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <i
-              className={`fa-solid fa-xmark font-[600] pr-[5px] cursor-pointer`}
+              className={`fa-solid fa-xmark font-[600] pr-5 cursor-pointer`}
               onClick={() => {
                 setShowAsset(false);
               }}
             ></i>
           </div>
 
-          <div className="mt-[20px] ml-[20px]">
-            <p className="mb-[10px]">Assets</p>
+          <div className="m-5 border border-t-0 -mt-5 p-5 rounded-b-[15px]  md:bg-white md:rounded-2xl md:border-t">
+            <p className="mb-5">Assets</p>
             {filteredCoins.length > 0 ? (
               <ul>
                 {filteredCoins.map((coin) => (
@@ -402,10 +309,10 @@ const DashBoardTopHeader = ({
                         alt={coin.name}
                         className="w-[25px]"
                       />
-                      <span className="capitalize text-[15px]">
+                      <span className="capitalize text-base">
                         {coin.name}
                       </span>
-                      <span className="uppercase text-[12px] text-[rgb(125,139,151)] font-[600]">
+                      <span className="uppercase text-sm text-dark2 font-[600]">
                         {coin.symbol}
                       </span>
                     </Link>
@@ -413,27 +320,25 @@ const DashBoardTopHeader = ({
                 ))}
               </ul>
             ) : (
-              <p className="flex items-center gap-[10px] text-[rgb(131,207,237)]">
-                <i className="fa-solid fa-magnifying-glass"></i> View all assets
-              </p>
+              <p className="text-center text-orange py-20 aboveBonusDevice:py-5">View all assets 🪙</p>
             )}
           </div>
         </div>
 
         <div
           className={`${toggleNotification ? "block" : "hidden"
-            } fixed top-[69px] w-[100%] aboveBonusDevice:w-[500px] h-[100%] aboveBonusDevice:h-[500px] border-[1px] border-[rgb(125,139,151)] aboveBonusDevice:rounded-t-[0px] aboveBonusDevice:rounded-b-[10px] rounded-t-[15px] aboveBonusDevice:right-[15px] bg-[rgb(28,33,39)]`}
+            } fixed top-[70px] w-[100%] aboveBonusDevice:w-[500px] h-[100%] aboveBonusDevice:h-[500px] aboveBonusDevice:right-[15px]`}
         >
-          <div className="flex justify-between items-center px-[20px] pt-[20px] pb-[10px]">
+          <div className="flex justify-between items-center px-[20px] pt-[20px] pb-[10px] m-5  border-[1px] border-#d8d8d8] rounded-t-[15px] bg-white">
             <div
-              className="text-[18px] cursor-pointer"
-              onClick={handleClickNotification}
+              className="text-xl cursor-pointer"
+              onClick={() => { }}
             >
               <p>Mark as read</p>
             </div>
 
             <div
-              className="text-[20px] text-[rgb(131,207,237)]"
+              className="text-xl text-orange"
               onClick={() => {
                 setToggleNotification(false);
               }}
@@ -442,8 +347,8 @@ const DashBoardTopHeader = ({
             </div>
           </div>
           {transactionHistory.length === 0 ? (
-            <div className="flex justify-center items-center pt-[200px] aboveBonusDevice:pt-[160px]">
-              <p className="text-[rgb(171,171,171)] font-[600]">
+            <div className="flex justify-center items-center py-20 mx-5 -mt-5 border-[1px] border-#d8d8d8] border-t-0 rounded-b-[15px]">
+              <p className="text-dark2 font-[600]">
                 No Notification Yet
               </p>
             </div>
@@ -460,14 +365,14 @@ const DashBoardTopHeader = ({
                   <button
                     onClick={handleClickPrev}
                     disabled={currentPage === 1}
-                    className="mr-2 px-[30px] py-2 bg-blue-500 text-white rounded cursor-pointer"
+                    className="mr-2 px-[30px] py-2 bg-purple2 text-white rounded cursor-pointer"
                   >
                     Prev
                   </button>
                   <button
                     onClick={handleClickNext}
                     disabled={currentPage === totalPages}
-                    className="ml-2 px-[30px] py-2 bg-blue-500 text-white rounded cursor-pointer"
+                    className="ml-2 px-[30px] py-2 bg-purple2 text-white rounded cursor-pointer"
                   >
                     Next
                   </button>
@@ -477,10 +382,6 @@ const DashBoardTopHeader = ({
           )}
         </div>
       </nav>
-
-      <div className="">
-        <Logout closeLogout={closeLogout} handleLogout={handleLogout} />
-      </div>
     </section>
   );
 };

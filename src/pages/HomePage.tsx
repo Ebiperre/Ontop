@@ -1,5 +1,5 @@
-import LandingPageLayout from "../components/LandingPageLayout/LandingPageLayout"
 import HomePageContainer from "../containers/HomePageContainer/HomePageContainer"
+import LandingPageLayout from "../containers/LandingPageLayout/LandingPageLayout"
 
 const HomePage = () => {
     return (
