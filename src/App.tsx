@@ -10,6 +10,7 @@ import ServicePage from './pages/ServicePage';
 import AboutPage from './pages/AboutPage';
 import SignUpFormStepper from "./containers/SignUpPageContainer/SignUpFormStepper";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
+import DashboardLayout from "./containers/DashBoard/DashboardLayout/DashboardLayout";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/" element={<Navigate to="/home"></Navigate>} />
         <Route path="*" element={<ErrorPage />} />
+
+        <Route path="/wallet-home" element={<DashboardLayout />} />
       </Routes>
     </Router>
   );
