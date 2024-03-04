@@ -145,7 +145,7 @@ const DashBoardTopHeader = ({
           </div>
 
           <div className="generalDevice:hidden">
-            <p className="text-2xl font-[poppins] text-dark2">
+            <p className="text-5xl opacity-35 font-author font-bold text-dark2">
               {activeLinkText || "Coin"}
             </p>
           </div>

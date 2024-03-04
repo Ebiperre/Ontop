@@ -4,12 +4,9 @@
     background: var(--orange2);
 }
 
-/* For Firefox */
 .side-bar-container {
     scrollbar-width: thin;
-    /* or auto or none */
-    scrollbar-color: #333 #ddd;
-    /* thumb color and track color */
+    scrollbar-color: #d8d8d8;
 }
 
 /* For WebKit browsers */
@@ -18,7 +15,7 @@
 }
 
 .side-bar-container::-webkit-scrollbar-track {
-    background-color: #ddd;
+    background-color: #d8d8d8;
     border-radius: 10px;
 }
 
