@@ -14,6 +14,7 @@ import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
 import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
 import CardDetails from "./containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails";
 import DashboardBuyPage from "./pages/DashboardPages/DashboardBuyPage";
+import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
 
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
         <Route path="/wallet-cards" element={<DashBoardGiftCardPage />} />
         <Route path="/wallet-cards/:CardId" element={<CardDetails />} />
         <Route path="/wallet-buy" element={<DashboardBuyPage />} />
+        <Route path="/wallet-cards" element={<DashBoardGiftCardPage />} />
+        {/* <Route path="/card/:title" Component={CardDetails} /> */}
+        <Route path="/" Component={DashBoardGiftCardPage} />
       </Routes>
     </Router>
   );

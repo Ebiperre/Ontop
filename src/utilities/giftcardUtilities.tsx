@@ -22,6 +22,7 @@ export type giftCardType = {
 
 
 export const giftCards: giftCardType = [
+
     {   
         id: 1,
         image: AmazonImage,
