@@ -14,15 +14,7 @@ interface GiftCard {
 }
 
 
-export type giftCardType = {
-    id: number;
-    image: string;
-    title: string;
-}[]
-
-
-export const giftCards: giftCardType = [
-
+const cards = [
     {   
         id: 1,
         image: AmazonImage,
@@ -32,6 +24,10 @@ export const giftCards: giftCardType = [
         id: 2,
         image: SteamImage,
         title: 'Steam'
+    },
+    {
+        image: GoogleImage,
+        title: 'Google'
     },
     {
         id: 3,
@@ -45,17 +41,12 @@ export const giftCards: giftCardType = [
     },
     {
         id: 5,
-        image: GoogleImage,
-        title: 'Google'
-    },
-    {
-        id: 6,
         image: RazerImage,
         title: 'Razer'
     },
     {
-        id: 7,
+        id: 6,
         image: SephoraImage,
         title: 'Sephora'
     },
-];
+]
