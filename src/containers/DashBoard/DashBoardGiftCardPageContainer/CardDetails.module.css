@@ -1,0 +1,21 @@
+.input_field {
+    outline: none;
+    width: 90px;
+    border: none;
+}
+
+/* Hide the default text */
+/* input[type="file"]::-webkit-file-upload-button {
+    font-size: 0; 
+  }
+  
+  input[type="file"]::-moz-file-upload-button {
+    font-size: 0; 
+  }
+  
+  input[type="file"]::-ms-browse {
+    font-size: 0; 
+  } */
+  
+ 
+  

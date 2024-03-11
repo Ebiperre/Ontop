@@ -13,6 +13,7 @@ import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
 import DashboardBuyPage from "./pages/DashboardPages/DashboardBuyPage";
 import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
+import CardDetails from "./containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails";
 
 function App() {
   return (
@@ -32,8 +33,7 @@ function App() {
         <Route path="/wallet-home" element={<DashBoardHomePage />} />
         <Route path="/wallet-buy" element={<DashboardBuyPage />} />
         <Route path="/wallet-cards" element={<DashBoardGiftCardPage />} />
-        {/* <Route path="/card/:title" Component={CardDetails} /> */}
-        <Route path="/" Component={DashBoardGiftCardPage} />
+        <Route path="/wallet-cards/:CardId" element={<CardDetails />} />
       </Routes>
     </Router>
   );
