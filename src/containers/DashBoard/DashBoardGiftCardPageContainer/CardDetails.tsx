@@ -83,6 +83,13 @@ const imageHandler = (e: any) => {
       <label className='text-lg font-semibold flex items-center gap-1' htmlFor="">Upload Card Image <FaImage /></label>
       </div>
       <div className="w-full bg-gray-200 mt-5 h-[100px] gap-8 flex justify-center items-center p-4 xl:py-20">
+          <input className='bg-gray-200 py-3 w-full px-2 rounded-sm outline-none' type="number" placeholder='Enter Card Value' name="" id="" />
+        </div>
+      </div>
+      <div className='flex justify-start items-start h-4 pt-2'>
+      <label className='text-lg font-semibold' htmlFor="">Upload Card Image</label>
+      </div>
+      <div className="w-full bg-gray-200 mt-5 h-[100px] gap-8 flex justify-center items-center p-4">
             <div className='flex flex-col justify-center  items-start'>
               <img className='w-16'
                 src={
@@ -97,6 +104,7 @@ const imageHandler = (e: any) => {
             </div>
           </div>
           <button className='w-full bg-purple2 mt-8 text-white py-4 rounded-md xl:py-2 xl:mr-[50rem] xl:text-xl xl:w-36'>Confirm Trade</button>
+          <button className='w-full bg-purple2 mt-8 text-white py-4 rounded-md'>Confirm Trade</button>
 
     </div>
     
