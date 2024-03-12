@@ -48,7 +48,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   }, [location.pathname]);
 
   return (
-    <section className="bg-[#f7f7f7] text-dark flex-1 h-full">
+    <section className="bg-white lg:bg-[#f7f7f7] text-dark flex-1 h-full">
       <div>
         <DashBoardTopHeader
           showNav={showNav}
