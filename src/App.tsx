@@ -28,7 +28,6 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/" element={<Navigate to="/home"></Navigate>} />
         <Route path="*" element={<ErrorPage />} />
-
         <Route path="/dashboard-home" element={<DashBoardHomePage />} />
         <Route path="/dashboard-settings" element={<DashBoardSettingsPage />} />
       </Routes>
