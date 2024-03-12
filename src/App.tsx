@@ -35,8 +35,6 @@ function App() {
         <Route path="/wallet-cards" element={<DashBoardGiftCardPage />} />
         <Route path="/wallet-cards/:CardId" element={<CardDetails />} />
         <Route path="/wallet-buy" element={<DashboardBuyPage />} />
-        <Route path="/wallet-cards" element={<DashBoardGiftCardPage />} />
-        <Route path="/wallet-cards/:CardId" element={<CardDetails />} />
       </Routes>
     </Router>
   );
