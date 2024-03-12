@@ -10,8 +10,9 @@ import ServicePage from './pages/ServicePage';
 import AboutPage from './pages/AboutPage';
 import SignUpFormStepper from "./containers/SignUpPageContainer/SignUpFormStepper";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
-import DashboardHome from "./containers/DashBoard/DashBoardHome/DashBoardHome";
 import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
+import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
+import CardDetails from "./containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
 
         <Route path="/wallet-home" element={<DashBoardHomePage />} />
+        <Route path="/wallet-cards" element={<DashBoardGiftCardPage />} />
+        <Route path="/wallet-cards/:CardId" element={<CardDetails />} />
       </Routes>
     </Router>
   );
