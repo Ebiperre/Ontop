@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import DashBoardSideNav from "../../components/DashBoardSideNav/DashBoardSideNav";
-import DashBoardTopHeader from "../../components/DashBoardTopHeader/DashBoardTopHeader";
+import DashBoardSideNav from "../../../components/DashBoardSideNav/DashBoardSideNav";
+import DashBoardTopHeader from "../../../components/DashBoardTopHeader/DashBoardTopHeader";
 
 type DashboardLayoutProps = {
   children: ReactNode;
@@ -18,28 +18,28 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   useEffect(() => {
     const path = location.pathname;
     switch (path) {
-      case "/wallet-home":
+      case "/dashboard-home":
         setActiveLinkText("Home");
         break;
-      case "/wallet-buy":
+      case "/dashboard-buy":
         setActiveLinkText("Buy Assets");
         break;
-      case "/wallet-sell":
+      case "/dashboard-sell":
         setActiveLinkText("Sell Assets");
         break;
-      case "/wallet-swapcoin":
+      case "/dashboard-swapcoin":
         setActiveLinkText("Swap Coin");
         break;
-      case "/wallet-cards":
+      case "/dashboard-cards":
         setActiveLinkText("Cards");
         break;
-      case "/wallet-wallet":
+      case "/dashboard-wallet":
         setActiveLinkText("Wallet");
         break;
-      case "/wallet-transactions":
+      case "/dashboard-transactions":
         setActiveLinkText("Transactions");
         break;
-      case "/wallet-settings":
+      case "/dashboard-settings":
         setActiveLinkText("Settings");
         break;
       default:
@@ -48,7 +48,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   }, [location.pathname]);
 
   return (
-    <section className="bg-white md:bg-[#f7f7f7] text-dark">
+    <section className="bg-white lg:bg-[#f7f7f7] text-dark flex-1 h-full">
       <div>
         <DashBoardTopHeader
           showNav={showNav}
@@ -61,7 +61,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           setActiveLinkText={setActiveLinkText}
           setShowNav={setShowNav}
         />
-        <div className="pt-[100px] largeDevice:ml-[274px]">
+        <div className="pt-[45px] largeDevice:ml-[274px]">
           {children}
         </div>
       </div>

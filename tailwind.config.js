@@ -29,6 +29,9 @@ export default {
       fontFamily: {
         'author': 'Author'
       },
+      backgroundImage: {
+        'accountProfilePattern': "url('/src/assets/images/profile-account-pattern.svg')"
+      },
       screens: {
         "mobileDeviceOnly": { "min": "300px", "max": "799px" },
         "mobileDeviceLesserThan500": { "min": "300px", "max": "499px" },
