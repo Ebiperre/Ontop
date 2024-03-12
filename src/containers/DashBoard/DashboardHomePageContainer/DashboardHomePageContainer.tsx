@@ -39,11 +39,6 @@ const DashboardHomePageContainer = ({ element }: any) => {
       });
   }, []);
 
-  const handleBuyButtonClick = () => {
-      navigate(`/wallet-buy/${element.id}`);
-      console.log("working");
-  };
-
 
   const handleSearch = (e: string) => {
     const inputValue = e.target.value;
@@ -172,7 +167,7 @@ const DashboardHomePageContainer = ({ element }: any) => {
                 </div>
                 <p style={{ color: textColor }} className="hidden md:flex flex-1 gap-2">{element.ath_change_percentage} %</p>
                 <div className="flex gap-2">
-                  <button onClick={handleBuyButtonClick} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
+                  <button onClick={()=> navigate(`/wallet-buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
                     Buy
                   </button>
                 </div>
