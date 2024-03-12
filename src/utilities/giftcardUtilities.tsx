@@ -14,16 +14,6 @@ interface GiftCard {
 }
 
 
-const cards = [
-import SteamImage from "../../src/assets/images/card_steam.png"
-import AmazonImage from "../../src/assets/images/card_amazon.png"
-import GoogleImage from "../../src/assets/images/card_google.png"
-import AppleImage from "../../src/assets/images/card_apple.png"
-import VisaImage from "../../src/assets/images/card_visa.png"
-import RazerImage from "../../src/assets/images/card_razer.png"
-import SephoraImage from "../../src/assets/images/card_sephora.png"
-
-
 export type giftCardType = {
     id: number;
     image: string;
