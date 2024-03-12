@@ -1,5 +1,6 @@
+import React from 'react';
 
-const DashboardHomePageContainer = () => {
+const DashboardHomePageContainer: React.FC = () => {
   return (
     <div>DashboardHomePageContainer</div>
   )
