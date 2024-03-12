@@ -2,9 +2,7 @@ import DashboardHomePageContainer from "../../containers/DashBoard/DashBoardHome
 import DashboardLayout from "../../containers/DashboardLayout/DashboardLayout";
 
 const DashboardPages = () => {
-
-
-
+  
   return (
     <DashboardLayout>
       <DashboardHomePageContainer />

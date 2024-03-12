@@ -10,8 +10,8 @@ import ServicePage from './pages/ServicePage';
 import AboutPage from './pages/AboutPage';
 import SignUpFormStepper from "./containers/SignUpPageContainer/SignUpFormStepper";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
-import DashboardHome from "./containers/DashBoard/DashBoardHome/DashBoardHome";
 import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
+import DashboardBuyPage from "./pages/DashboardPages/DashboardBuyPage";
 
 function App() {
   return (
@@ -28,8 +28,8 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/" element={<Navigate to="/home"></Navigate>} />
         <Route path="*" element={<ErrorPage />} />
-
         <Route path="/wallet-home" element={<DashBoardHomePage />} />
+        <Route path="/wallet-buy" element={<DashboardBuyPage />} />
       </Routes>
     </Router>
   );
