@@ -1,10 +1,10 @@
-import SteamImage from "../../../assets/images/card_steam.png"
-import AmazonImage from "../../../assets/images/card_amazon.png"
-import GoogleImage from "../../../assets/images/card_google.png"
-import AppleImage from "../../../assets/images/card_apple.png"
-import VisaImage from "../../../assets/images/card_visa.png"
-import RazerImage from "../../../assets/images/card_razer.png"
-import SephoraImage from "../../../assets/images/card_sephora.png"
+import SteamImage from "../assets/images/card_steam.png"
+import AmazonImage from "../assets/images/card_amazon.png"
+import GoogleImage from "../assets/images/card_google.png"
+import AppleImage from "../assets/images/card_apple.png"
+import VisaImage from "../assets/images/card_visa.png"
+import RazerImage from "../assets/images/card_razer.png"
+import SephoraImage from "../assets/images/card_sephora.png"
 
 
 interface GiftCard {
@@ -34,18 +34,18 @@ export const giftCards: giftCardType = [
     },
     {
         id: 3,
+        image: GoogleImage,
+        title: 'Google'
+    },
+    {
+        id: 4,
         image: AppleImage,
         title: 'Apple'
     },
     {
-        id: 4,
+        id: 5,
         image: VisaImage,
         title: 'Visa'
-    },
-    {
-        id: 5,
-        image: GoogleImage,
-        title: 'Google'
     },
     {
         id: 6,
@@ -57,4 +57,4 @@ export const giftCards: giftCardType = [
         image: SephoraImage,
         title: 'Sephora'
     },
-];
+]
