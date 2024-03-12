@@ -11,9 +11,9 @@ import AboutPage from './pages/AboutPage';
 import SignUpFormStepper from "./containers/SignUpPageContainer/SignUpFormStepper";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
-import DashboardBuyPage from "./pages/DashboardPages/DashboardBuyPage";
 import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
 import CardDetails from "./containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails";
+import DashboardBuyPage from "./pages/DashboardPages/DashboardBuyPage";
 
 function App() {
   return (
