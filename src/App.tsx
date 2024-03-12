@@ -14,8 +14,6 @@ import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
 import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
 import CardDetails from "./containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails";
 import DashboardBuyPage from "./pages/DashboardPages/DashboardBuyPage";
-import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
-import CardDetails from "./containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails";
 
 
 function App() {
