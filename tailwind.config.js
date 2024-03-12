@@ -15,6 +15,7 @@ export default {
         'greyWhite2': "#eeebfe",
         'deleteRed': "#e04a43",
         'successGreen': "#63ad0e",
+        'green': "#4f9b83",
         'orange': '#ffaa0e',
         'orange2': '#ffb52e',
         'orange3': '#fca300',

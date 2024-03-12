@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const DashBoardGiftcardContainer: React.FC = () => {
 const {cards} = useContext(AppContext)
    const navigate = useNavigate();
+
   return (
     <div className='px-4 md:px-8 xl:px-10'>
         <div className='flex justify-start items-start flex-col p-3 xl:pl-[5rem]'>
