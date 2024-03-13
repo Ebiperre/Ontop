@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-// import classes from "./DashboardHomePage.module.css";
-import classes from "./DashboardHomePageContainer.module.css"
+import { useContext, useEffect, useState } from "react";
+import classes from "./DashboardHomePageContainer.module.css";
 import axios from "axios";
-import noResultImage from "../../../../assets/images/undraw_crypto_portfolio_2jy5.svg";
+import noResultImage from "../../../assets/images/undraw_crypto_portfolio_2jy5.svg";
 import { useNavigate } from "react-router-dom";
+import AppContext from "../../../context/AppContext";
 
 type DashboardHomePageContainerProps = {
   id: string
@@ -18,8 +18,6 @@ const DashboardHomePageContainer = ({ element }: any) => {
   const textColor = element?.ath_change_percentage > 0 ? 'green' : 'red';
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
-
 
   const handleSeeMore = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + 8);
@@ -167,7 +165,7 @@ const DashboardHomePageContainer = ({ element }: any) => {
                 </div>
                 <p style={{ color: textColor }} className="hidden md:flex flex-1 gap-2">{element.ath_change_percentage} %</p>
                 <div className="flex gap-2">
-                  <button onClick={()=> navigate(`/wallet-buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
+                  <button onClick={()=> navigate(`/dashboard-buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
                     Buy
                   </button>
                 </div>
@@ -208,7 +206,6 @@ const DashboardHomePageContainer = ({ element }: any) => {
 
 
     </>
-
   )
 }
 

@@ -12,6 +12,7 @@ import SignUpFormStepper from "./containers/SignUpPageContainer/SignUpFormSteppe
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
 import DashBoardSettingsPage from "./pages/DashboardPages/DashBoardSettingsPage";
+import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
         <Route path="/dashboard-home" element={<DashBoardHomePage />} />
         <Route path="/dashboard-settings" element={<DashBoardSettingsPage />} />
+        <Route path="/dashboard-cards" element={<DashBoardGiftCardPage />} />
       </Routes>
     </Router>
   );

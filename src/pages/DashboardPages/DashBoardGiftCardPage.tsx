@@ -1,6 +1,6 @@
 import React from 'react'
-import DashboardLayout from '../../containers/DashboardLayout/DashboardLayout'
 import DashBoardGiftcardContainer from '../../containers/DashBoard/DashBoardGiftCardPageContainer/DashBoardGiftcardContainer'
+import DashboardLayout from '../../containers/DashBoard/DashboardLayout/DashboardLayout'
 
 const DashBoardGiftCardPage = () => {
   return (
