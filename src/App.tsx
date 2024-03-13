@@ -18,6 +18,7 @@ import DashboardCoinPages from "./pages/DashboardPages/DashboardCoinPage";
 import DashboardTransactionPage from './pages/DashboardPages/DashboardTransactionPage'
 import DashboardPaymentPage from "./pages/DashboardPages/DashboardPaymentPage";
 import DashboardBuyPages from "./pages/DashboardPages/DashboardBuyPage";
+import WalletPage from "./pages/DashboardPages/WalletPage";
 
 function App() {
   return (
@@ -42,6 +43,9 @@ function App() {
         <Route path="/dashboard-buy/:CoinCardId" element={<DashboardCoinPages />} />
         <Route path="/dashboard-transactions" element={<DashboardTransactionPage />} />
         <Route path="/dashboard-transactions/payments" element={<DashboardPaymentPage />} />
+
+        <Route path="/wallet-home" element={<DashBoardHomePage />} />
+        <Route path="/wallet-wallet" element={<WalletPage />} />
       </Routes>
     </Router>
   );
