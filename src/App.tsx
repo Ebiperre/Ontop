@@ -13,6 +13,8 @@ import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
 import DashBoardSettingsPage from "./pages/DashboardPages/DashBoardSettingsPage";
 import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
+import CardDetails from "./containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails";
+import DashboardCoinPages from "./pages/DashboardPages/DashboardCoinPage";
 
 function App() {
   return (
@@ -32,6 +34,9 @@ function App() {
         <Route path="/dashboard-home" element={<DashBoardHomePage />} />
         <Route path="/dashboard-settings" element={<DashBoardSettingsPage />} />
         <Route path="/dashboard-cards" element={<DashBoardGiftCardPage />} />
+        <Route path="/dashboard-cards/:CardId" element={<CardDetails />} />
+        <Route path="/dashboard-buy/:CoinCardId" element={<DashboardCoinPages />} />
+
       </Routes>
     </Router>
   );

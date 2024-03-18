@@ -1,103 +1,81 @@
-// import React, {  useContext,  } from 'react';
-// import {  useNavigate } from 'react-router-dom';
-// import { useState } from "react";
-// import { AppContext } from '../../../context/AppContext';
-// import { useParams } from 'react-router-dom';
-// import { FaImage } from "react-icons/fa6";
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
-// const CoinCardContainer = () => {
-//   const navigate = useNavigate()
+interface CoinData {
+  id: string;
+  symbol: string;
+  current_price: number;
+  // Add more properties as needed based on the actual API response
+}
 
+const CoinCardContainer: React.FC = () => {
+  const navigate = useNavigate();
+  const [data, setData] = useState<CoinData[]>([]);
+  const [filteredData, setFilteredData] = useState<CoinData[]>([]);
+  const [currencyRate, setCurrencyRate] = useState<number>(1); // Default to 1:1 USD to Naira
+  const [selectedCurrency, setSelectedCurrency] = useState<string>('USD'); // Default currency
 
-// const {coinCards} = useContext(AppContext)
+  useEffect(() => {
+    axios
+      .get(`https://v6.exchangerate-api.com/v6/f37ca771bb207d4e21c89669/latest/USD=${selectedCurrency}`)
+      .then((res) => {
+        setCurrencyRate(res.data.rate); 
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-// const { CoinCardId } = useParams()
+    axios
+      .get<CoinData[]>(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${selectedCurrency.toLowerCase()}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
+      )
+      .then((res) => {
+        setData(res.data);
+        setFilteredData(res.data);
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [selectedCurrency]);
 
-// const activeCard = coinCards.find(data => data.title.toLowerCase() === CoinCardId)
+  const { CoinCardId } = useParams<{ CoinCardId: string }>();
 
-// const [userImage, setUserImage] = useState<{
-//   frontendFile: null | string;
-//   file: null | string;
-// }>({
-//   file: null,
-//   frontendFile: null,
-// });
+  const activeCoin = filteredData.find((coin) => coin.id === CoinCardId);
 
-// // Utils
-// const imageHandler = (e: any) => {
-//   const reader = new FileReader();
+  const amountInUSD = activeCoin?.current_price;
+  const amountInSelectedCurrency = amountInUSD * currencyRate;
 
-//   reader.onload = () => {
-//     if (reader.readyState === 2) {
-//       setUserImage((prevState: any) => {
-//         return { ...prevState, frontendFile: reader.result };
-//       });
-//     }
-//   };
-//   reader.readAsDataURL(e.target.files[0]);
+  const formattedAmountInUSD = amountInUSD?.toLocaleString(undefined, {
+    style: 'currency',
+    currency: 'USD',
+  });
 
-//   setUserImage((prevState: any) => {
-//     return { ...prevState, file: e.target.files[0] };
-//   });
+  const formattedAmountInSelectedCurrency = amountInSelectedCurrency?.toLocaleString(undefined, {
+    style: 'currency',
+    currency: selectedCurrency,
+  });
 
+  const handleCurrencyChange = (newCurrency: string) => {
+    setSelectedCurrency(newCurrency);
+  };
 
-// }
+  return (
+    <>
+      <div>
+        <h1 className="font-semibold text-3xl uppercase">
+          {activeCoin?.symbol}/ {selectedCurrency}
+        </h1>
+        <p>Amount in {selectedCurrency}: {formattedAmountInSelectedCurrency}</p>
 
+        <select onChange={(e) => handleCurrencyChange(e.target.value)} value={selectedCurrency}>
+          <option value="USD">USD</option>
+          <option value="NGN">NGN</option>
+        </select>
+      </div>
+    </>
+  );
+};
 
-
-  
-
-//   return (
-//     <div className='px-6 xl:px-60 xl:pb-8'>
-//       <div className='flex justify-between items-center pt-2'>
-//         <div className='flex justify-center items-center gap-3'>
-//       <img className='w-12 xl:w-20' src={activeCard?.image} alt="" />
-//       <h1 className='text-xl font-medium'>{activeCard?.title}</h1>
-//       </div>
-//       <p className="font-medium cursor-pointer xl:text-lg" onClick={() => {navigate('/wallet-coinCards')}} >Back</p>
-//       </div>
-//       <div className="flex flex-col items-start justify-start pt-4">
-//         <p className='text-xl'>Fill the form to start trading </p>
-//         <p className='font-semibold'>Select Country</p>
-//         <div className="flex  items-start justify-start gap-4 pt-4">
-//         <button className='border-[1px] p-1 bg-gray-50 rounded-md border-purple flex flex-col justify-center items-center px-2'>
-//           <img className='w-8' src={UsaImage} alt="" />
-//           <p>United</p>
-//         </button>
-//         <button className='border-[1px] p-1 bg-gray-50  rounded-md border-purple flex flex-col justify-center items-center px-2'>
-//           <img className='w-8' src={CadImage} alt="" />
-//           <p>canada</p>
-//         </button>
-//         </div>
-//       </div>
-//       <div>
-//         <div className='flex flex-col justify-start items-start pt-6 gap-2'>
-//           <label className='text-lg font-semibold' htmlFor="">Card Value ($)</label>
-//           <input className='bg-gray-200 py-3 w-full px-2 rounded-sm outline-none ' type="number" placeholder='Enter Card Value' name="" id="" />
-//         </div>
-//       </div>
-//       <div className='flex justify-start items-start h-4 pt-2'>
-//       <label className='text-lg font-semibold flex items-center gap-1' htmlFor="">Upload Card Image <FaImage /></label>
-//       </div>
-//       <div className="w-full bg-gray-200 mt-5 h-[100px] gap-8 flex justify-center items-center p-4 xl:py-20">
-//             <div className='flex flex-col justify-center  items-start'>
-//               <img className='w-16'
-//                 src={
-//                     (userImage?.frontendFile as string)
-//                 }
-//                 alt=""
-//               />
-//               <div className="">
-//                 <input className={CardClass.input_field}  type="file" accept=".jpg, .jpeg, .png" id="profilePhoto" onChange={imageHandler} />
-               
-//               </div>
-//             </div>
-//           </div>
-//           <button className='w-full bg-purple2 mt-8 text-white py-4 rounded-md xl:py-2 xl:mr-[50rem] xl:text-xl xl:w-36'>Confirm Trade</button>
-
-//     </div>
-    
-//   )
-// }
-
-// export default CoinCardContainer;
+export default CoinCardContainer;

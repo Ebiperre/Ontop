@@ -57,7 +57,7 @@ const imageHandler = (e: any) => {
       <img className='w-12 xl:w-20' src={activeCard?.image} alt="" />
       <h1 className='text-xl font-medium'>{activeCard?.title}</h1>
       </div>
-      <p className="font-medium cursor-pointer xl:text-lg" onClick={() => {navigate('/wallet-cards')}} >Back</p>
+      <p className="font-medium cursor-pointer xl:text-lg" onClick={() => {navigate('/dashboard-cards')}} >Back</p>
       </div>
       <div className="flex flex-col items-start justify-start pt-4">
         <p className='text-xl'>Fill the form to start trading </p>
