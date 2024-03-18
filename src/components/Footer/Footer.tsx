@@ -6,7 +6,7 @@ export default function Footer() {
         <>
             <div className=" bg-text-color text-black px-[4vw] pt-[16vh] md:pt-[30vh] md:pb-[10vh]">
                 <div>
-                    <div className="flex flex-wrap lg:flex-nowrap items-start justify-start md:flex-row md:items-start md:justify-start md:text-left md:gap-40 gap-10 mb-5 md:mb-10 lg:mb-20">
+                    <div className="flex md:flex-row-reverse flex-wrap lg:flex-nowrap items-start justify-start md:flex-row md:items-start md:justify-end md:text-left md:gap-40 gap-10 mb-5 md:mb-10 lg:mb-20">
                         <div className="flex-col flex gap-4 text-left">
                             <div className="h-10 font-bold text-lg flex items-center justify-start ml-[-3rem]">
                                 <img
@@ -36,6 +36,13 @@ export default function Footer() {
                                     <a className="hover:underline hover:text-purple hover:cursor-pointer">About Us</a>
                                     <a className="hover:underline hover:text-purple hover:cursor-pointer">Buy/Sell</a>
                                     <a className="hover:underline hover:text-purple hover:cursor-pointer">Staking</a>
+                                </div>
+                            </div>
+                            <div className=" items-start text-left">
+                                <div className="font-semibold text-xl mb-3">Privacy</div>
+                                <div className="font-extralight  flex flex-col gap-2">
+                                    <a href="/terms&conditions" className="hover:underline hover:text-purple hover:cursor-pointer">Terms & Condition</a>
+                                    <a href="/terms&conditions" className="hover:underline hover:text-purple hover:cursor-pointer">Privacy Policy</a>
                                 </div>
                             </div>
                             <div className=" items-start text-left">

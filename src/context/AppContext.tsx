@@ -16,6 +16,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
     const [cards, setCards] = useState<giftCardType>(
         giftCards as giftCardType
     );
+    
 
     return (
         <AppContext.Provider 

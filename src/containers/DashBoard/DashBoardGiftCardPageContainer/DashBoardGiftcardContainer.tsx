@@ -22,7 +22,7 @@ const {cards} = useContext(AppContext)
 
                 <>
                
-                <div key={Math.random()} onClick={()=> navigate(`/wallet-cards/${data.title.toLowerCase()}`)}  className='cursor-pointer'>
+                <div key={Math.random()} onClick={()=> navigate(`/dashboard-cards/${data.title.toLowerCase()}`)}  className='cursor-pointer'>
                 <img className='w-32 md:w-40 xl:w-60' src={data.image} alt="" />
                 <p key={Math.random()} className='text-lg font-medium gap-2'>{data.title}</p> 
                 </div>
