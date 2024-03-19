@@ -11,17 +11,17 @@ type CoinData = {
   image: string;
   current_price: number;
   ath_change_percentage: number;
+  amountInUSD: number | string | boolean | undefined;
   // Add more properties as needed
 }
 
 
-const DashboardHomePageContainer = ({ element }: any) => {
+const DashboardHomePageContainer: React.FC = ({element}: any) => {
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<CoinData[]>([]);
   const [filteredData, setFilteredData] = useState<CoinData[]>([]);
   const [currencyRate, setCurrencyRate] = useState<number>(1); // Default to 1:1 USD to Naira
   const [selectedCurrency, setSelectedCurrency] = useState<string>('USD'); // Default currency
-
   const [searchInput, setSearchInput] = useState('');
   const [visibleItems, setVisibleItems] = useState(8);
   const textColor = element?.ath_change_percentage > 0 ? 'green' : 'red';
@@ -33,41 +33,41 @@ const DashboardHomePageContainer = ({ element }: any) => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + 8);
   };
 
+  const amountInUSD = element?.current_price;
+  const amountInSelectedCurrency = amountInUSD * currencyRate;
   
   useEffect(() => {
-    axios
-    .get(`https://v6.exchangerate-api.com/v6/f37ca771bb207d4e21c89669/latest/USD=${selectedCurrency}`)
-    .then((res) => {
-      setCurrencyRate(res.data.rate); 
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
     axios
       .get<CoinData[]>(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${selectedCurrency.toLowerCase()}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
       )
       .then((res) => {
-        // setData(res.data);
+        setData(res.data);
         setFilteredData(res.data);
-        setLoading(false);
+        setLoading(false)
         console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
-        setLoading(false);
+      });
+
+      axios
+      .get(`https://v6.exchangerate-api.com/v6/f37ca771bb207d4e21c89669/latest/USD=${selectedCurrency}`)
+      .then((res) => {
+        setCurrencyRate(res.data.rate);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(formattedAmountInSelectedCurrency)
       });
   }, [selectedCurrency]);
 
+  // const { CoinCardId } = useParams<{ CoinCardId: string }>();
 
-  const { CoinCardId } = useParams<{ CoinCardId: string }>();
-
-  const activeCoin = filteredData.find((coin) => coin.id === CoinCardId);
+  // const activeCoin = filteredData.find((coin) => coin.id === CoinCardId);
 
 
-  const amountInUSD = activeCoin?.current_price;
-  const amountInSelectedCurrency = amountInUSD * currencyRate;
+
 
   const formattedAmountInUSD = amountInUSD?.toLocaleString(undefined, {
     style: 'currency',
@@ -84,7 +84,7 @@ const DashboardHomePageContainer = ({ element }: any) => {
   };
 
 
-  const handleSearch = (e: string) => {
+  const handleSearch = (e: any) => {
     const inputValue = e.target.value;
     const exData = [...data];
     setSearchInput(inputValue);
