@@ -11,7 +11,7 @@ type CoinData = {
   image: string;
   current_price: number;
   ath_change_percentage: number;
-  amountInUSD: number | string | boolean | undefined;
+  amountInUSD: number;
   // Add more properties as needed
 }
 
@@ -97,7 +97,7 @@ const DashboardHomePageContainer: React.FC = ({element}: any) => {
 
   return (
     <>
-      <section className="px-4 flex flex-col gap-4">
+      <section className="pt-[6rem] px-4 flex flex-col gap-4">
         <div className="flex items-start font-semibold">
           <h3 className="text-grey text-4xl">
             Dashboard
@@ -211,7 +211,10 @@ const DashboardHomePageContainer: React.FC = ({element}: any) => {
                   <p>{element.name}</p>
                 </div>
                 <div className="flex flex-col flex-1 gap-2 text-sm">
-                  <p>{selectedCurrency}: {formattedAmountInSelectedCurrency}</p>
+                  <p>
+                    {selectedCurrency} : {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(element.current_price)}
+
+                  </p>
                   <p style={{ color: textColor }} className="flex md:hidden flex-1 gap-2">{element.ath_change_percentage} %</p>
                 </div>
                 <p style={{ color: textColor }} className="hidden md:flex flex-1 gap-2">{element.ath_change_percentage} %</p>

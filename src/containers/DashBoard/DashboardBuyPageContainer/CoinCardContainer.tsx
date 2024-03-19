@@ -66,35 +66,42 @@ const CoinCardContainer: React.FC = () => {
   return (
     <>
 
-      <main className="flex flex-col gap-8 items-center justify-center">
+      <main className="pt-[6rem] pb-[2rem] flex flex-col gap-8 items-center justify-center">
         <section className="w-full flex items-center justify-center">
-           <div className="flex border flex-col text-start items-start justify-center gap-6 px-8 bg-white text-dark2 w-[96%] h-32 rounded-2xl">
-         
-          <div className="flex gap-4">
-             <img className="h-8" src={activeCoin?.image} alt="" />
-          <h1 className="font-semibold text-3xl uppercase">
-            {activeCoin?.symbol}/ {selectedCurrency}
-          </h1>
-          </div>
-          <div className="flex gap-4">
-            <select onChange={(e) => handleCurrencyChange(e.target.value)} value={selectedCurrency}>
-              <option value="USD">USD</option>
-              <option value="NGN">NGN</option>
-            </select>
-            <p className="text-xl font-medium">
-            {formattedAmountInSelectedCurrency}
-            </p>
-          </div>
+          <div className="flex border flex-col text-start items-start justify-center gap-6 px-8 bg-white text-dark2 w-[96%] h-32 rounded-2xl">
 
+            <div className="flex gap-4">
+              <img className="h-8" src={activeCoin?.image} alt="" />
+              <h1 className="font-semibold text-3xl uppercase">
+                {activeCoin?.symbol}/ {selectedCurrency}
+              </h1>
+            </div>
+            <div className="flex gap-4">
+              <select onChange={(e) => handleCurrencyChange(e.target.value)} value={selectedCurrency}>
+                <option value="USD">USD</option>
+                <option value="NGN">NGN</option>
+              </select>
+              <p className="text-xl font-medium">
+                {formattedAmountInSelectedCurrency}
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <section className="h-1/2 w-[96%] items-center justify-center flex gap-6">
+          <div className="flex border rounded-2xl flex-1 min-h-[50vh] bg-white">
+
+          </div>
+          <div className="flex border rounded-2xl w-[70%] min-h-[50vh] bg-white">
+
+          </div>
+        </section>
+
+        <div className="text-left flex items-center w-[96%] pl-6 h-12 bg-white rounded-xl">
+          Need help with your transaction? <a className="text-orange pl-2" href="" target='blank'>Contact Us</a>
         </div>
-        </section>
 
-        <section className="h-1/2 w-full items-center justify-center flex ">
-          <div className="flex border rounded-2xl w-[96%] min-h-[50vh] bg-white">
-
-          </div>
-        </section>
-       
       </main>
 
 

@@ -61,7 +61,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           setActiveLinkText={setActiveLinkText}
           setShowNav={setShowNav}
         />
-        <div className="pt-[6rem] largeDevice:ml-[274px]">
+        <div className="largeDevice:ml-[274px]">
           {children}
         </div>
       </div>

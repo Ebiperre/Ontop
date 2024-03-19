@@ -17,6 +17,7 @@ import CardDetails from "./containers/DashBoard/DashBoardGiftCardPageContainer/C
 import DashboardCoinPages from "./pages/DashboardPages/DashboardCoinPage";
 import DashboardTransactionPage from './pages/DashboardPages/DashboardTransactionPage'
 import DashboardPaymentPage from "./pages/DashboardPages/DashboardPaymentPage";
+import DashboardBuyPages from "./pages/DashboardPages/DashboardBuyPage";
 
 function App() {
   return (
@@ -33,8 +34,8 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/" element={<Navigate to="/home"></Navigate>} />
         <Route path="*" element={<ErrorPage />} />
-
         <Route path="/dashboard-home" element={<DashBoardHomePage />} />
+        <Route path="/dashboard-buy" element={<DashboardBuyPages />} />
         <Route path="/dashboard-settings" element={<DashBoardSettingsPage />} />
         <Route path="/dashboard-cards" element={<DashBoardGiftCardPage />} />
         <Route path="/dashboard-cards/:CardId" element={<CardDetails />} />
