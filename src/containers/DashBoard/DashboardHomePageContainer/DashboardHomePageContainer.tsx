@@ -1,46 +1,90 @@
-import { useEffect, useState } from "react";
-// import classes from "./DashboardHomePage.module.css";
-import classes from "./DashboardHomePageContainer.module.css"
+import { useContext, useEffect, useState } from "react";
+import classes from "./DashboardHomePageContainer.module.css";
 import axios from "axios";
-import noResultImage from "../../../../assets/images/undraw_crypto_portfolio_2jy5.svg";
-import { useNavigate } from "react-router-dom";
+import noResultImage from "../../../assets/images/undraw_crypto_portfolio_2jy5.svg";
+import { useNavigate, useParams } from "react-router-dom";
+import AppContext from "../../../context/AppContext";
 
-type DashboardHomePageContainerProps = {
-  id: string
+type CoinData = {
+  id: string;
+  name: string;
+  image: string;
+  current_price: number;
+  ath_change_percentage: number;
+  amountInUSD: number | string | boolean | undefined;
+  // Add more properties as needed
 }
 
-const DashboardHomePageContainer = ({ element }: any) => {
 
-  const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+const DashboardHomePageContainer: React.FC = ({element}: any) => {
+
+  const [data, setData] = useState<CoinData[]>([]);
+  const [filteredData, setFilteredData] = useState<CoinData[]>([]);
+  const [currencyRate, setCurrencyRate] = useState<number>(1); // Default to 1:1 USD to Naira
+  const [selectedCurrency, setSelectedCurrency] = useState<string>('USD'); // Default currency
   const [searchInput, setSearchInput] = useState('');
   const [visibleItems, setVisibleItems] = useState(8);
   const textColor = element?.ath_change_percentage > 0 ? 'green' : 'red';
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
-
+  
 
   const handleSeeMore = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + 8);
   };
 
+  const amountInUSD = element?.current_price;
+  const amountInSelectedCurrency = amountInUSD * currencyRate;
+  
   useEffect(() => {
-    axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
-      .then(async (res) => {
-        await setData(res.data);
-        await setFilteredData(res.data);
-        setLoading(false);
+    axios
+      .get<CoinData[]>(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${selectedCurrency.toLowerCase()}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
+      )
+      .then((res) => {
+        setData(res.data);
+        setFilteredData(res.data);
+        setLoading(false)
         console.log(res.data);
       })
-      .catch(error => {
-        setLoading(false);
+      .catch((error) => {
         console.log(error);
       });
-  }, []);
+
+      axios
+      .get(`https://v6.exchangerate-api.com/v6/f37ca771bb207d4e21c89669/latest/USD=${selectedCurrency}`)
+      .then((res) => {
+        setCurrencyRate(res.data.rate);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(formattedAmountInSelectedCurrency)
+      });
+  }, [selectedCurrency]);
+
+  // const { CoinCardId } = useParams<{ CoinCardId: string }>();
+
+  // const activeCoin = filteredData.find((coin) => coin.id === CoinCardId);
 
 
-  const handleSearch = (e: string) => {
+
+
+  const formattedAmountInUSD = amountInUSD?.toLocaleString(undefined, {
+    style: 'currency',
+    currency: 'USD',
+  });
+
+  const formattedAmountInSelectedCurrency = amountInSelectedCurrency?.toLocaleString(undefined, {
+    style: 'currency',
+    currency: selectedCurrency,
+  });
+
+  const handleCurrencyChange = (newCurrency: string) => {
+    setSelectedCurrency(newCurrency);
+  };
+
+
+  const handleSearch = (e: any) => {
     const inputValue = e.target.value;
     const exData = [...data];
     setSearchInput(inputValue);
@@ -150,7 +194,12 @@ const DashboardHomePageContainer = ({ element }: any) => {
           <section>
             <div className="border-b text-left grid grid-cols-[1fr,_1fr_50px] md:grid-cols-[repeat(3,_1fr)_70px] items-start border-transparent pt-10 md:px-4 pb-2 gap-12">
               <p>Name</p>
-              <p>Price</p>
+              <p>Price
+              <select onChange={(e) => handleCurrencyChange(e.target.value)} value={selectedCurrency}>
+          <option value="USD">USD</option>
+          <option value="NGN">NGN</option>
+        </select>
+              </p>
               <p className="hidden md:block">Change</p>
               <p>Trade</p>
             </div>
@@ -162,12 +211,12 @@ const DashboardHomePageContainer = ({ element }: any) => {
                   <p>{element.name}</p>
                 </div>
                 <div className="flex flex-col flex-1 gap-2 text-sm">
-                  <p>{element.current_price} $</p>
+                  <p>{selectedCurrency}: {formattedAmountInSelectedCurrency}</p>
                   <p style={{ color: textColor }} className="flex md:hidden flex-1 gap-2">{element.ath_change_percentage} %</p>
                 </div>
                 <p style={{ color: textColor }} className="hidden md:flex flex-1 gap-2">{element.ath_change_percentage} %</p>
                 <div className="flex gap-2">
-                  <button onClick={()=> navigate(`/wallet-buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
+                  <button onClick={()=> navigate(`/dashboard-buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
                     Buy
                   </button>
                 </div>
@@ -208,7 +257,6 @@ const DashboardHomePageContainer = ({ element }: any) => {
 
 
     </>
-
   )
 }
 

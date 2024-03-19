@@ -8,7 +8,7 @@ const {cards} = useContext(AppContext)
    const navigate = useNavigate();
   return (
     <div className='px-4 md:px-8 xl:px-10'>
-        <div className='flex justify-start items-start flex-col p-3 xl:pl-[5rem]'>
+        <div className='flex justify-start items-start flex-col p-3 mt-6 xl:pl-[5rem]'>
             <h2 className='text-xl font-medium xl:text-2xl'>Trade Gift Cards</h2>
             <p>click om any gift card to start trading</p>
         </div>
@@ -22,7 +22,7 @@ const {cards} = useContext(AppContext)
 
                 <>
                
-                <div key={Math.random()} onClick={()=> navigate(`/wallet-cards/${data.title.toLowerCase()}`)}  className='cursor-pointer'>
+                <div key={Math.random()} onClick={()=> navigate(`/dashboard-cards/${data.title.toLowerCase()}`)}  className='cursor-pointer'>
                 <img className='w-32 md:w-40 xl:w-60' src={data.image} alt="" />
                 <p key={Math.random()} className='text-lg font-medium gap-2'>{data.title}</p> 
                 </div>
