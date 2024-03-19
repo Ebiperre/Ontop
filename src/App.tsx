@@ -11,12 +11,14 @@ import AboutPage from './pages/AboutPage';
 import SignUpFormStepper from "./containers/SignUpPageContainer/SignUpFormStepper";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
+import WalletPage from "./pages/DashboardPages/WalletPage";
 import DashBoardSettingsPage from "./pages/DashboardPages/DashBoardSettingsPage";
 import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
 import CardDetails from "./containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails";
 import DashboardCoinPages from "./pages/DashboardPages/DashboardCoinPage";
 import DashboardTransactionPage from './pages/DashboardPages/DashboardTransactionPage'
 import DashboardPaymentPage from "./pages/DashboardPages/DashboardPaymentPage";
+
 
 function App() {
   return (
@@ -33,7 +35,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/" element={<Navigate to="/home"></Navigate>} />
         <Route path="*" element={<ErrorPage />} />
-
+        <Route path="/wallet-wallet" element={<WalletPage />} />
         <Route path="/dashboard-home" element={<DashBoardHomePage />} />
         <Route path="/dashboard-settings" element={<DashBoardSettingsPage />} />
         <Route path="/dashboard-cards" element={<DashBoardGiftCardPage />} />
@@ -41,6 +43,7 @@ function App() {
         <Route path="/dashboard-buy/:CoinCardId" element={<DashboardCoinPages />} />
         <Route path="/dashboard-transactions" element={<DashboardTransactionPage />} />
         <Route path="/dashboard-transactions/payments" element={<DashboardPaymentPage />} />
+
       </Routes>
     </Router>
   );
