@@ -1,10 +1,10 @@
-:root {
+/* :root {
     --marquee-speed: 20s;
     --marquee-hover-transition-speed: 0.7s;
     --marquee-fade-edges: 30%;
-  }
+  } */
   
-  .marquee {
+  /* .marquee {
     color: var(--text-color);
     letter-spacing: 0.02em;
     overflow-y: hidden;
@@ -25,11 +25,21 @@
   
     padding: 2rem 0px;
   }
-  
-  .marquee::-webkit-scrollbar {
+   */
+  /* .marquee::-webkit-scrollbar {
     display: none;
   }
+   */
+
+.marquee section{
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+  min-height: 80vh;
+  justify-content: center;
   
+}
+
   .marquee,
   .marquee > div {
     display: flex;
@@ -42,21 +52,27 @@
   }
   
   .marquee section div {
-    border: 2px solid var(--orange);
+    border: 2px var(--orange);
     border-radius: 20px;
-    height: 45vh;
-    width: 25rem;
+    border-style: dashed;
+    height: 40vh;
+    width: 22rem;
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem;
     text-align: center;
     gap: 1rem;
-    -webkit-animation: animate-marquee var(--marquee-speed) ease-in-out alternate-reverse;
+    transition: all 300ms ease-in-out;
+    /* -webkit-animation: animate-marquee var(--marquee-speed) ease-in-out alternate-reverse;
     animation: animate-marquee var(--marquee-speed) ease-in-out infinite alternate-reverse ;
     transition: var(--marquee-hover-transition-speed) margin-left ease-in-out;
-    will-change: transform, margin-left;
+    will-change: transform, margin-left; */
   }
   
+.marquee section div:hover{
+  border-style: solid;
+}
+
   .marquee div span {
     font-size: 5rem;
   }
@@ -75,7 +91,7 @@
     -webkit-animation-play-state: paused;
     animation-play-state: paused;
   }
-  
+/*   
   @-webkit-keyframes animate-marquee {
     0%, 100% {
       transform: translateX(0%) translateZ(0);
@@ -83,9 +99,9 @@
     50% {
       transform: translateX(-100%) translateZ(0);
     }
-  }
+  } */
   
-  @keyframes animate-marquee {
+  /* @keyframes animate-marquee {
     0%, 100% {
       transform: translateX(0%) translateZ(0);
     }
@@ -93,11 +109,14 @@
       transform: translateX(-100%) translateZ(0);
     }
   }
-  
+   */
 
   @media screen and (max-width: 800px) {
 
     .marquee{
       display: none !important;
+
     }
+
+  
   }

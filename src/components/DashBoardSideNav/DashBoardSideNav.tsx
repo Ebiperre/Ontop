@@ -37,7 +37,7 @@ const DashBoardSideNav = ({ showNav, setActiveLinkText, setShowNav }: DashBoardS
           <div className="mb-[40px] smallerDevice:mb-[15px]">
             <ul className="flex flex-col gap-[20px] smallDevice:gap-[25px] smallerDevice:gap-[10px]">
               <NavLink
-                to="/wallet-home"
+                to="/dashboard-home"
                 className={`side-btn w-[80%] mx-auto `}
                 onClick={() => {
                   handleNavLinkClick("Home");
@@ -52,7 +52,7 @@ const DashBoardSideNav = ({ showNav, setActiveLinkText, setShowNav }: DashBoardS
               </NavLink>
 
               <NavLink
-                to="/wallet-buy"
+                to="/dashboard-buy"
                 className={`side-btn w-[80%] mx-auto`}
                 onClick={() => {
                   handleNavLinkClick("Buy Assets");
@@ -67,7 +67,7 @@ const DashBoardSideNav = ({ showNav, setActiveLinkText, setShowNav }: DashBoardS
               </NavLink>
 
               <NavLink
-                to="/wallet-sell"
+                to="/dashboard-sell"
                 className={`side-btn w-[80%] mx-auto `}
                 onClick={() => {
                   handleNavLinkClick("Sell Assets");
@@ -83,7 +83,7 @@ const DashBoardSideNav = ({ showNav, setActiveLinkText, setShowNav }: DashBoardS
               </NavLink>
 
               <NavLink
-                to="/wallet-swapcoin"
+                to="/dashboard-swapcoin"
                 className={`side-btn w-[80%] mx-auto `}
                 onClick={() => {
                   handleNavLinkClick("Swap Coin");
@@ -98,7 +98,7 @@ const DashBoardSideNav = ({ showNav, setActiveLinkText, setShowNav }: DashBoardS
               </NavLink>
 
               <NavLink
-                to="/wallet-cards"
+                to="/dashboard-cards"
                 className={`side-btn w-[80%] mx-auto `}
                 onClick={() => {
                   handleNavLinkClick("Cards");
@@ -113,7 +113,7 @@ const DashBoardSideNav = ({ showNav, setActiveLinkText, setShowNav }: DashBoardS
               </NavLink>
 
               <NavLink
-                to="/wallet-wallet"
+                to="/dashboard-wallet"
                 className={`side-btn w-[80%] mx-auto `}
                 onClick={() => {
                   handleNavLinkClick("Wallet");
@@ -128,7 +128,7 @@ const DashBoardSideNav = ({ showNav, setActiveLinkText, setShowNav }: DashBoardS
               </NavLink>
 
               <NavLink
-                to="/wallet-transactions"
+                to="/dashboard-transactions"
                 className={`side-btn w-[80%] mx-auto `}
                 onClick={() => {
                   handleNavLinkClick("Transactions");
@@ -152,7 +152,7 @@ const DashBoardSideNav = ({ showNav, setActiveLinkText, setShowNav }: DashBoardS
             <div className="pb-[40px]">
               <ul className="flex flex-col gap-[15px] smallerDevice:gap-[0px]">
                 <NavLink
-                  to="/wallet-settings"
+                  to="/dashboard-settings"
                   className={`side-btn w-[80%] mx-auto `}
                   onClick={() => {
                     handleNavLinkClick("Settings");

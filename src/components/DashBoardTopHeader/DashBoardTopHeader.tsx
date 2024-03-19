@@ -2,66 +2,68 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../src/assets/icons/logo_without_text.svg'
 import axios from "axios";
-import "../DashBoardTopHeader/DashBoardTopHeader.css";
+import "./DashBoardTopHeader.css";
 
-const DashBoardTopHeader = ({
+interface Transaction {
+  _id: string;
+  status: string;
+  messageStatus: string;
+  message: string;
+  date: string;
+}
+
+interface Coin {
+  id: string;
+  name: string;
+  symbol: string;
+  image: string;
+}
+
+interface DashBoardTopHeaderProps {
+  showNav: boolean;
+  toggleNav: () => void;
+  activeLinkText: string;
+}
+
+const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
   showNav,
   toggleNav,
   activeLinkText,
 }) => {
-  const assetRef = useRef(null);
+  const assetRef = useRef<HTMLDivElement>(null);
   const [showAsset, setShowAsset] = useState(false);
-  const [coins, setCoins] = useState([]);
+  const [coins, setCoins] = useState<Coin[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredCoins, setFilteredCoins] = useState([]);
-  const [transactionHistory, setTransactionHistory] = useState([]);
+  const [filteredCoins, setFilteredCoins] = useState<Coin[]>([]);
   const [toggleNotification, setToggleNotification] = useState(false);
+  const [transactionHistory, setTransactionHistory] = useState<Transaction[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
-  // Handle click outside the div to hide it
   useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (assetRef.current && !assetRef.current.contains(e.target)) {
-        setShowAsset(false);
+    const fetchCoins = async () => {
+      try {
+        const response = await axios.get<Coin[]>(
+          "https://api.coingecko.com/api/v3/coins/markets",
+          {
+            params: {
+              vs_currency: "usd",
+              order: "market_cap_desc",
+              per_page: 100,
+              page: 1,
+              sparkline: false,
+            },
+          }
+        );
+        setCoins(response.data);
+      } catch (error) {
+        console.error("Error fetching coins:", error);
       }
     };
 
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, []);
-
-  const handleDivClick = () => {
-    setShowAsset(!showAsset);
-  };
-
-  useEffect(() => {
     fetchCoins();
   }, []);
-
-  const fetchCoins = async () => {
-    try {
-      const response = await axios.get(
-        "https://api.coingecko.com/api/v3/coins/markets",
-        {
-          params: {
-            vs_currency: "usd",
-            order: "market_cap_desc",
-            per_page: 100,
-            page: 1,
-            sparkline: false,
-          },
-        }
-      );
-      setCoins(response.data);
-    } catch (error) {
-      console.error("Error fetching coins:", error);
-    }
-  };
 
   useEffect(() => {
     if (searchQuery.trim() === "") {
@@ -78,7 +80,25 @@ const DashBoardTopHeader = ({
     }
   }, [searchQuery, coins]);
 
-  const handleLinkClick = (coinId) => {
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (assetRef.current && !assetRef.current.contains(e.target as Node)) {
+        setShowAsset(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  const handleDivClick = () => {
+    setShowAsset(!showAsset);
+  };
+
+  const handleLinkClick = (coinId: string) => {
     setShowAsset(false);
     handleSelectCoin(coinId);
     setSearchQuery("");
@@ -165,7 +185,7 @@ const DashBoardTopHeader = ({
               />
             </div>
 
-            <NavLink to="/wallet-settings">
+            <NavLink to="/dashboard-settings">
               <div className="flex items-center justify-end mr-5 gap-[10px] bg-[#f7f7f7  rounded-t-[5px] w-[150px] rounded-b-[5px] py-[3px] cursor-pointer">
                 <div className="w-10 h-10 flex justify-center items-center cursor-pointer">
                   <img
@@ -220,7 +240,7 @@ const DashBoardTopHeader = ({
               <i className="fa-solid fa-magnifying-glass"></i>
             </div>
 
-            <NavLink to="/wallet-settings">
+            <NavLink to="/dashboard-settings">
               <div className="bg-orange3 w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer text-sm">
 
                 <div className="w-[30px] h-[30px] flex justify-center items-center cursor-pointer">

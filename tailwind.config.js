@@ -15,6 +15,8 @@ export default {
         'greyWhite2': "#eeebfe",
         'deleteRed': "#e04a43",
         'successGreen': "#63ad0e",
+        'green': "#4f9b83",
+        'green2': "#19fa4a",
         'orange': '#ffaa0e',
         'orange2': '#ffb52e',
         'orange3': '#fca300',
@@ -27,6 +29,9 @@ export default {
       },
       fontFamily: {
         'author': 'Author'
+      },
+      backgroundImage: {
+        'accountProfilePattern': "url('/src/assets/images/profile-account-pattern.svg')"
       },
       screens: {
         "mobileDeviceOnly": { "min": "300px", "max": "799px" },
