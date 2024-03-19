@@ -5,13 +5,11 @@ import { theme } from "../../chakraTheme"
 
 const DashBoardSettingsPage = () => {
     return (
-        // <SimpleBar style={{ maxHeight: '100vh' }}>
         <ChakraProvider theme={theme}>
             <DashboardLayout>
                 <SettingsMain />
             </DashboardLayout>
         </ChakraProvider>
-        // </SimpleBar>
     )
 }
 
