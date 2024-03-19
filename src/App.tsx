@@ -35,7 +35,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/" element={<Navigate to="/home"></Navigate>} />
         <Route path="*" element={<ErrorPage />} />
-        <Route path="/wallet-wallet" element={<WalletPage />} />
+        <Route path="/dashboard-wallet" element={<WalletPage />} />
         <Route path="/dashboard-home" element={<DashBoardHomePage />} />
         <Route path="/dashboard-settings" element={<DashBoardSettingsPage />} />
         <Route path="/dashboard-cards" element={<DashBoardGiftCardPage />} />
