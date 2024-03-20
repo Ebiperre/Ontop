@@ -212,7 +212,7 @@ const DashboardHomePageContainer: React.FC = ({element}: any) => {
                 </div>
                 <div className="flex flex-col flex-1 gap-2 text-sm">
                   <p>
-                    {selectedCurrency} : {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(element.current_price)}
+                    {selectedCurrency === 'NGN' ? '₦' : '$'}{' '} : {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(element.current_price)}
 
                   </p>
                   <p style={{ color: textColor }} className="flex md:hidden flex-1 gap-2">{element.ath_change_percentage} %</p>
