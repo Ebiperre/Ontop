@@ -11,6 +11,7 @@ import AboutPage from './pages/AboutPage';
 import SignUpFormStepper from "./containers/SignUpPageContainer/SignUpFormStepper";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
+import WalletPage from "./pages/DashboardPages/WalletPage";
 import DashBoardSettingsPage from "./pages/DashboardPages/DashBoardSettingsPage";
 import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
 import CardDetails from "./containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails";
@@ -19,6 +20,7 @@ import DashboardTransactionPage from './pages/DashboardPages/DashboardTransactio
 import DashboardPaymentPage from "./pages/DashboardPages/DashboardPaymentPage";
 import DashboardBuyPages from "./pages/DashboardPages/DashboardBuyPage";
 import WalletPage from "./pages/DashboardPages/WalletPage";
+
 
 
 function App() {
@@ -45,9 +47,6 @@ function App() {
         <Route path="/dashboard-buy/:CoinCardId" element={<DashboardCoinPages />} />
         <Route path="/dashboard-transactions" element={<DashboardTransactionPage />} />
         <Route path="/dashboard-transactions/payments" element={<DashboardPaymentPage />} />
-
-        <Route path="/wallet-home" element={<DashBoardHomePage />} />
-        <Route path="/wallet-wallet" element={<WalletPage />} />
       </Routes>
     </Router>
   );
