@@ -83,21 +83,6 @@ const DashBoardSideNav = ({ showNav, setActiveLinkText, setShowNav }: DashBoardS
               </NavLink>
 
               <NavLink
-                to="/dashboard-swapcoin"
-                className={`side-btn w-[80%] mx-auto `}
-                onClick={() => {
-                  handleNavLinkClick("Swap Coin");
-                  setActiveLinkText("Swap Coin");
-                }}
-              >
-                <li
-                  className={`text-[18px] font-normal flex items-center gap-2 cursor-pointer pl-3 pr-8 py-2 rounded transition-all duration-[2s] ease-in-out`}
-                >
-                  <PiSwapBold /> Swap Coin
-                </li>
-              </NavLink>
-
-              <NavLink
                 to="/dashboard-cards"
                 className={`side-btn w-[80%] mx-auto `}
                 onClick={() => {

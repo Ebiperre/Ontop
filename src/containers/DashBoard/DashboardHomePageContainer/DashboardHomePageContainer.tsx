@@ -11,7 +11,7 @@ type CoinData = {
   image: string;
   current_price: number;
   ath_change_percentage: number;
-  amountInUSD: number | string | boolean | undefined;
+  amountInUSD: number;
   // Add more properties as needed
 }
 
