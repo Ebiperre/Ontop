@@ -14,8 +14,8 @@ const WalletPageContainer = () => {
   const [showBalance, setShowBalance] = useState(true);
   return (
     <div className="w-full relative">
-     <div className="lg:px-4">
-     <div className=" sticky w-full top-16 z-50 bg-white lg:static lg:border lg:rounded-md lg:mx-0 py-4 flex flex-col tablet:pb-0  tablet:grid tablet:grid-cols-2 tablet:item-center tablet:justify-center mediumDevice:px-2 lg:grid lg:grid-cols-2 ">
+     <div className="lg:px-4 lg:pt-20">
+     <div className=" sticky w-full top-16 z-10 bg-white lg:static lg:border lg:rounded-md lg:mx-0 py-4 flex flex-col tablet:pb-0  tablet:grid tablet:grid-cols-2 tablet:item-center tablet:justify-center mediumDevice:px-2 lg:grid lg:grid-cols-2 ">
      <div className="mb-4 mx-4 overflow-hidden ">
         <div className=" bg-dark2 text-white rounded-md w-full  mb-4">
           <div className="flex relative">
