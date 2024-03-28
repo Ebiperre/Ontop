@@ -12,11 +12,10 @@ type CoinData = {
   current_price: number;
   ath_change_percentage: number;
   amountInUSD: number;
-  // Add more properties as needed
 }
 
 
-const DashboardHomePageContainer: React.FC = ({element}: any) => {
+const DashboardHomePageContainer: React.FC = ({ element }: any) => {
 
   const [data, setData] = useState<CoinData[]>([]);
   const [filteredData, setFilteredData] = useState<CoinData[]>([]);
@@ -27,7 +26,7 @@ const DashboardHomePageContainer: React.FC = ({element}: any) => {
   const textColor = element?.ath_change_percentage > 0 ? 'green' : 'red';
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  
+
 
   const handleSeeMore = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + 8);
@@ -35,7 +34,7 @@ const DashboardHomePageContainer: React.FC = ({element}: any) => {
 
   const amountInUSD = element?.current_price;
   const amountInSelectedCurrency = amountInUSD * currencyRate;
-  
+
   useEffect(() => {
     axios
       .get<CoinData[]>(
@@ -51,7 +50,7 @@ const DashboardHomePageContainer: React.FC = ({element}: any) => {
         console.log(error);
       });
 
-      axios
+    axios
       .get(`https://v6.exchangerate-api.com/v6/f37ca771bb207d4e21c89669/latest/USD=${selectedCurrency}`)
       .then((res) => {
         setCurrencyRate(res.data.rate);
@@ -61,12 +60,6 @@ const DashboardHomePageContainer: React.FC = ({element}: any) => {
         console.log(formattedAmountInSelectedCurrency)
       });
   }, [selectedCurrency]);
-
-  // const { CoinCardId } = useParams<{ CoinCardId: string }>();
-
-  // const activeCoin = filteredData.find((coin) => coin.id === CoinCardId);
-
-
 
 
   const formattedAmountInUSD = amountInUSD?.toLocaleString(undefined, {
@@ -81,6 +74,7 @@ const DashboardHomePageContainer: React.FC = ({element}: any) => {
 
   const handleCurrencyChange = (newCurrency: string) => {
     setSelectedCurrency(newCurrency);
+    selectedCurrency === '₦'
   };
 
 
@@ -97,7 +91,7 @@ const DashboardHomePageContainer: React.FC = ({element}: any) => {
 
   return (
     <>
-      <section className="px-4 flex flex-col gap-4">
+      <section className="pt-[6rem] px-4 pb-4 flex flex-col gap-4">
         <div className="flex items-start font-semibold">
           <h3 className="text-grey text-4xl">
             Dashboard
@@ -194,11 +188,11 @@ const DashboardHomePageContainer: React.FC = ({element}: any) => {
           <section>
             <div className="border-b text-left grid grid-cols-[1fr,_1fr_50px] md:grid-cols-[repeat(3,_1fr)_70px] items-start border-transparent pt-10 md:px-4 pb-2 gap-12">
               <p>Name</p>
-              <p>Price
-              <select onChange={(e) => handleCurrencyChange(e.target.value)} value={selectedCurrency}>
-          <option value="USD">USD</option>
-          <option value="NGN">NGN</option>
-        </select>
+              <p>Price :{" "}
+                <select className="py-2 px-2 rounded-md" onChange={(e) => handleCurrencyChange(e.target.value)} value={selectedCurrency}>
+                  <option value="USD">USD</option>
+                  <option value="NGN">NGN</option>
+                </select>
               </p>
               <p className="hidden md:block">Change</p>
               <p>Trade</p>
@@ -211,12 +205,18 @@ const DashboardHomePageContainer: React.FC = ({element}: any) => {
                   <p>{element.name}</p>
                 </div>
                 <div className="flex flex-col flex-1 gap-2 text-sm">
-                  <p>{selectedCurrency}: {formattedAmountInSelectedCurrency}</p>
+                  <p>
+                    {new Intl.NumberFormat('en-US', {
+                      style: 'currency',
+                      currency: selectedCurrency
+                    }).format(element.current_price)}
+                  </p>
+
                   <p style={{ color: textColor }} className="flex md:hidden flex-1 gap-2">{element.ath_change_percentage} %</p>
                 </div>
                 <p style={{ color: textColor }} className="hidden md:flex flex-1 gap-2">{element.ath_change_percentage} %</p>
                 <div className="flex gap-2">
-                  <button onClick={()=> navigate(`/dashboard-buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
+                  <button onClick={() => navigate(`/dashboard-buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
                     Buy
                   </button>
                 </div>
