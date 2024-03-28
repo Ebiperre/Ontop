@@ -6,19 +6,23 @@ import { LuBitcoin } from "react-icons/lu";
 import { SiEthereum } from "react-icons/si";
 import { SiTether } from "react-icons/si";
 import { FiPlus } from "react-icons/fi";
+import { BiShow } from "react-icons/bi";
+import { BiHide } from "react-icons/bi";
+import { useState } from "react";
 
 const WalletPageContainer = () => {
+  const [showBalance, setShowBalance] = useState(true);
   return (
     <div className="w-full relative">
-     <div className="lg:px-4">
-     <div className=" sticky w-full top-16 z-50 bg-white lg:static lg:border lg:rounded-md lg:mx-0 py-4 flex flex-col tablet:pb-0  tablet:grid tablet:grid-cols-2 tablet:item-center tablet:justify-center mediumDevice:px-2 lg:grid lg:grid-cols-2 ">
+     <div className="lg:px-4 lg:pt-20">
+     <div className=" sticky w-full top-16 z-10 bg-white lg:static lg:border lg:rounded-md lg:mx-0 py-4 flex flex-col tablet:pb-0  tablet:grid tablet:grid-cols-2 tablet:item-center tablet:justify-center mediumDevice:px-2 lg:grid lg:grid-cols-2 ">
      <div className="mb-4 mx-4 overflow-hidden ">
         <div className=" bg-dark2 text-white rounded-md w-full  mb-4">
           <div className="flex relative">
             <div className="px-4 py-3 text-start">
               <h4 className="text-sm pb-2">Your <span className="font-semibold">Balance</span></h4>
               <div className="flex items-center gap-3 pb-2">
-                <h1 className=" font-sans text-2xl font-extrabold">$24,899.<span className=" text-slate-400">00</span>
+                <h1 className=" font-sans text-2xl font-extrabold">{showBalance ?<div className=""> $24,899.<span className=" text-slate-400">00</span> </div>: <span>******</span> }
                 {/* <select name="crypto" id="1" className=" text-gray-700 text-sm pl-1 outline-none">
                   <option value="BTC">BTC</option>
                   <option value="ETH">ETH</option>
@@ -28,7 +32,10 @@ const WalletPageContainer = () => {
                 </h1>
                 {/* <span className=" rotate-90 ">icon</span> */}
               </div>
-              <h5 className="font-sans text-md font-semibold text-grey2">0.00<span className="pl-1">USD</span></h5>
+              <div className="flex items-center gap-6">
+                <div className="">{showBalance ?<h5 className="font-sans text-md font-semibold text-grey2">0.00<span className="pl-1">USD</span></h5>: <span className="mr-9">*****</span> }</div>
+                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow />: <BiHide /> }</div>
+              </div>
             </div>
            <div className="absolute bottom-3 right-4">
              <div className="border border-orange rounded-full w-8 h-8 flex justify-center items-center text-lg font-semibold text-white"><FiPlus /></div>
@@ -50,19 +57,19 @@ const WalletPageContainer = () => {
       
      <div className=" w-full text-center">
      <div className="flex gap-10 items-center justify-center text-center h-[116px] rounded-md mb-4 tablet:border lg:border tablet:mr-3 lg:mr-3">
-        <Link to='/dashboard-transactions' className="flex flex-col items-center font-semibold">
+        <Link to='/dashboard-buy' className="flex flex-col items-center font-semibold">
            <div className="w-14 h-14 rounded-full xl:rounded-tl-full xl:rounded-bl-full xl:rounded-tr-3xl  text-lg bg-[#FFFFFF] border border-gray-400 font-bold flex items-center justify-center cursor-pointer">
            <TbCoins />
            </div>
            Buy
         </Link>
-        <Link to='/dashboard-transactions' className="flex flex-col items-center font-semibold">
+        <Link to='/dashboard-withdraw' className="flex flex-col items-center font-semibold">
            <div className="w-14 h-14 rounded-full xl:rounded-tl-full xl:rounded-bl-full xl:rounded-br-3xl  text-lg  bg-[#FFFFFF] border border-gray-400 font-bold flex items-center justify-center md:cursor-pointer">
            <BiMoneyWithdraw className="t"/>
            </div>
            Withdraw
         </Link>
-        <Link to='/dashboard-transactions' className="flex flex-col items-center font-semibold">
+        <Link to='/dashboard-sell' className="flex flex-col items-center font-semibold">
            <div className="w-14 h-14 rounded-full xl:rounded-tl-3xl xl:rounded-tr-full xl:rounded-br-full  text-lg bg-[#FFFFFF] border border-gray-400 font-bold flex items-center justify-center md:cursor-pointer">
            <RiHandCoinLine />
            </div>
@@ -206,7 +213,7 @@ const WalletPageContainer = () => {
         <div className=" w-full rounded-xl px-4 xl:border pt-6 xl:pb-2 tablet:pt-0 text-[#000] mt-4 mediumDevice:px-6 ">
         <div className="flex w-full items-center justify-between pb-6">
           <h1 className="font-semibold text-lg">Token market</h1>
-          <Link to='/wallet-home'><span className="text-sm font-medium text-grey">View All</span></Link>
+          <Link to='/dashboard-home'><span className="text-sm font-medium text-grey">View All</span></Link>
         </div>
         {/* crypto cards */}
         {/* <div className="pb-4">

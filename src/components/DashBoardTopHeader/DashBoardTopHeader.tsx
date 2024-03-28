@@ -166,7 +166,7 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
 
           <div className="generalDevice:hidden">
             <p className="text-5xl opacity-35 font-author font-bold text-dark2">
-              {activeLinkText || "Coin"}
+              {activeLinkText}
             </p>
           </div>
 

@@ -6,6 +6,7 @@ const transactions = [
     {
         id: 1,
         date: 'Jan 24, 2023',
+        time: '10:30 AM',
         asset: 'Bitcoin',
         address: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
         amount: '0.05 BTC',
@@ -15,6 +16,7 @@ const transactions = [
     {
         id: 2,
         date: 'Feb 12, 2022',
+        time: '10:30 AM',
         asset: 'Ethereum',
         address: '0x32Be343B94f860124dC4fEe278FDCBD38C102D88',
         amount: '2.0 ETH',
@@ -24,6 +26,7 @@ const transactions = [
     {
         id: 3,
         date: 'Mar 5, 2021',
+        time: '10:30 AM',
         asset: 'Litecoin',
         address: 'LhQ3d7zsmweU6Hm3cLY2gNdBCsPwHPkAmJ',
         amount: '20.0 LTC',
@@ -33,11 +36,22 @@ const transactions = [
     {
         id: 4,
         date: 'Apr 18, 2020',
+        time: '10:30 AM',
         asset: 'Bitcoin',
         address: '1Jq5LQVjH6z3LsADp8sJfVUHT2sV5k5tqT',
         amount: '0.1 BTC',
         type: 'Receive',
         status: 'Completed'
+    },
+    {
+        id: 1,
+        date: 'Jan 24, 2023',
+        time: '10:30 AM',
+        asset: 'Bitcoin',
+        address: '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa',
+        amount: '0.05 BTC',
+        type: 'Send',
+        status: 'Pending'
     },
 ];
 
@@ -85,7 +99,7 @@ const DashboardTransactionPageContainer: React.FC = () => {
                             Stay on top of your finances. Monitor, analyze, and manage your transactions seamlessly with our intuitive platform.
                         </p>
                     </div>
-                    <button onClick={() => navigate('/dashboard-transactions/payments')} className="bg-orange2 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-blue-100">Manage Payment</button>
+                    <button onClick={() => navigate('/dashboard-transactions/payments')} className="bg-orange2 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-orange">Manage Payment</button>
                 </div>
 
                 <div className="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
@@ -162,25 +176,28 @@ const DashboardTransactionPageContainer: React.FC = () => {
                         <table className="w-full text-sm text-left text-gray-500">
                             <thead className="text-xs text-gray-700 uppercase bg-white">
                                 <tr className='gap-5 grid grid-cols-[100px_100px_120px_100px_2fr_100px]'>
-                                    <th scope="col" className="pb-4">Type</th>
-                                    <th scope="col" className="pb-4">Data</th>
-                                    <th scope="col" className="pb-4">Asset</th>
-                                    <th scope="col" className="pb-4">Amount</th>
-                                    <th scope="col" className="pb-4">Address</th>
-                                    <th scope="col" className="pb-4">Status</th>
+                                    <th scope="col" className="pb-4 text-lg font-semibold">Type</th>
+                                    <th scope="col" className="pb-4 text-lg font-semibold">Data</th>
+                                    <th scope="col" className="pb-4 text-lg font-semibold">Asset</th>
+                                    <th scope="col" className="pb-4 text-lg font-semibold">Amount</th>
+                                    <th scope="col" className="pb-4 text-lg font-semibold">Address</th>
+                                    <th scope="col" className="pb-4 text-lg font-semibold">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {filteredTransactions.map((transaction, index) => (
                                     <tr key={transaction.id} className={`gap-5 grid grid-cols-[100px_100px_120px_100px_2fr_100px] bg-white hover:bg-gray-50 ${index === filteredTransactions.length - 1 ? '' : 'border-b'}`}>
-                                        <td className={`pt-8 pb-2 font-medium text-${typeColors[transaction.type]}`}>{transaction.type}</td>
-                                        <td className="pt-8 pb-2">{transaction.date}</td>
-                                        <td className="pt-8 pb-2">{transaction.asset}</td>
-                                        <td className="pt-8 pb-2">{transaction.amount}</td>
-                                        <td className="pt-8 pb-2">{transaction.address}</td>
+                                        <td className={`text-base text-dark2 pt-8 pb-2 font-medium text-${typeColors[transaction.type]}`}>{transaction.type}</td>
+                                        <td className="text-base text-dark2 pt-8 pb-2 grid">
+                                            <span>{transaction.date}</span>
+                                            <span className='text-grey text-xs'>{transaction.time}</span>
+                                        </td>
+                                        <td className="text-base text-dark2 pt-8 pb-2">{transaction.asset}</td>
+                                        <td className="text-base text-dark2 pt-8 pb-2">{transaction.amount}</td>
+                                        <td className="text-base text-dark2 pt-8 pb-2">{transaction.address}</td>
                                         <td className="pt-8 pb-2">
                                             <span className={`inline-block rounded-full w-2 h-2 mr-1 bg-${statusColors[transaction.status]}`}></span>
-                                            {transaction.status}
+                                            <span>{transaction.status}</span>
                                         </td>
                                     </tr>
                                 ))}

@@ -7,7 +7,7 @@ import Notifications from './Notifications'
 import AccountDeletion from './AccountDeletion'
 
 const SettingsContent = () => {
-  const tabs = ['Account', 'Password', 'Notifications', 'Security']
+  const tabs = ['Account', 'Pin/Password', 'Notifications', 'Security']
 
   return (
     <Box
