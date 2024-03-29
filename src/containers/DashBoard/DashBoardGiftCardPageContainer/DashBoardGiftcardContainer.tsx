@@ -8,7 +8,7 @@ const {cards} = useContext(AppContext)
    const navigate = useNavigate();
   return (
     <div className='px-4 md:px-8 xl:px-10'>
-        <div className='flex justify-start items-start flex-col p-3  xl:pl-[5rem]'>
+        <div className='flex justify-start items-start flex-col p-3  xl:pl-[5rem] pt-6'>
             <h2 className='text-xl font-medium xl:text-2xl'>Trade Gift Cards</h2>
             <p>click om any gift card to start trading</p>
         </div>
