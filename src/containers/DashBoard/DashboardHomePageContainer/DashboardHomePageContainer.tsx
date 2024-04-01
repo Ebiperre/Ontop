@@ -219,6 +219,10 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
                   <button onClick={() => navigate(`/dashboard-buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
                     Buy
                   </button>
+                  <button onClick={() => navigate(`/dashboard-sell`)} className="bg-deleteRed h-7 w-14 rounded text-sm text-white font-medium">
+                    Sell
+                  </button>
+                  
                 </div>
               </div>
             ))}

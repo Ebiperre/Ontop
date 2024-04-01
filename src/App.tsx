@@ -20,6 +20,8 @@ import DashboardTransactionPage from './pages/DashboardPages/DashboardTransactio
 import DashboardPaymentPage from "./pages/DashboardPages/DashboardPaymentPage";
 import WithdrawalPage from "./pages/DashboardPages/WithdrawalPage";
 import DashboardBuyPages from "./pages/DashboardPages/DashboardBuyPage";
+import DashboardSellPage from "./pages/DashboardPages/DashboardSellPage"
+
 
 
 
@@ -41,6 +43,7 @@ function App() {
         <Route path="/dashboard-wallet" element={<WalletPage />} />
         <Route path="/dashboard-home" element={<DashBoardHomePage />} />
         <Route path="/dashboard-buy" element={<DashboardBuyPages />} />
+        <Route path="/dashboard-sell" element={<DashboardSellPage />} />
         <Route path="/dashboard-settings" element={<DashBoardSettingsPage />} />
         <Route path="/dashboard-cards" element={<DashBoardGiftCardPage />} />
         <Route path="/dashboard-cards/:CardId" element={<CardDetails />} />
