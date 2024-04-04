@@ -26,7 +26,7 @@
     flex-direction: column;
     flex: 1;
     gap: 2rem;
-    height: 50%;
+    height: 40%;
     width: 100%;
 }
 
@@ -45,10 +45,12 @@
     transition: all 200ms ease-in-out;
     background-color: var(--orange);
     margin: 0px auto 2rem;
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 
 .hero_image {
-    width: 80% !important;
+    width: 35vw !important;
     aspect-ratio: 1;
     position: relative;
     height: fit-content;
@@ -56,7 +58,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius:0px 40% 0px 40% ;
+    border-radius: 0px 40% 0px 40%;
     overflow: hidden;
 }
 
@@ -72,7 +74,7 @@
 
 /* subscribe */
 
-.subscribe{
+.subscribe {
     /* min-height: 80vh; */
     height: 50vh;
     border-radius: 20px;
@@ -93,8 +95,7 @@
 } */
 
 
-.subscribe input
-{
+.subscribe input {
     background-color: transparent;
     border: none;
     outline: none;
@@ -104,20 +105,21 @@
     flex: 1;
 }
 
-.subscribe input::placeholder{
+.subscribe input::placeholder {
     color: white;
 }
 
 
-.subscribe p{
+.subscribe p {
     text-align: center;
 }
 
 
-.subscribe svg{
+.subscribe svg {
     display: none;
 
 }
+
 /* features */
 
 .features_head {
@@ -153,7 +155,7 @@
 .card {
     min-height: 50vh;
     max-width: 18rem;
-    flex: 1;
+    /* flex: 1; */
     /* box-shadow: 0px 0px 5px 0px var(--greyWhite); */
     background: linear-gradient(-200deg, white 2%, var(--greyWhite2));
     border-radius: 8px;
@@ -174,7 +176,7 @@
     justify-content: center;
 }
 
-.card img{
+.card img {
     height: 2rem;
 }
 
@@ -205,29 +207,35 @@
         padding: 0px !important;
     }
 
-    .hero_section{
+    .hero_section {
         gap: 0px !important;
     }
 
-    .hero_image{
-        width: 30vw !important;
+    .hero_image {
+        /* width: 30vw !important; */
     }
 
-    .hero_section button{
+    .hero_section button {
         margin: 0px !important;
     }
 
 }
 
 
-@media screen and (max-width: 900px){
-    .hero_section{
+@media screen and (max-width: 900px) {
+    .hero_section {
         /* padding: 0px !important; */
         gap: 0px !important;
     }
 
-    .hero_image{
-        width: 40vw !important;
+    .hero_image {
+        width: 100% !important;
+    }
+
+    .hero_section button {
+        margin: 0px auto 2rem !important;
+        /* margin-left:  10rem; */
+        /* background-color: red !important; */
     }
 }
 
@@ -259,60 +267,60 @@
         line-height: 4vw;
 
     }
-    .hero_text p{
+
+    .hero_text p {
         padding-right: 3rem;
     }
 
-    .hero_section button{
+    .hero_section button {
         margin: 0px !important;
     }
 
-    .hero_image{
-        width: 32rem !important;
-    aspect-ratio: 1;
-    border-radius:  100% 0px 100% 100% ;
+    .hero_image {
+        /* width: 32rem !important; */
+        aspect-ratio: 1;
+        border-radius: 100% 0px 100% 100%;
     }
 
-/* subscribe */
+    /* subscribe */
 
 
-.subscribe{
-    /* min-height: 80vh; */
-    height: 50vh;
-    border-radius: 20px;
-    background-color: var(--orange);
-    width: 100%;
-    max-width: 82%;
-    margin: 0px auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 4rem;
-    flex-wrap: wrap;
-    gap: 4rem;
-}
+    .subscribe {
+        /* min-height: 80vh; */
+        height: 50vh;
+        border-radius: 20px;
+        background-color: var(--orange);
+        width: 100%;
+        max-width: 82%;
+        margin: 0px auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 4rem;
+        flex-wrap: wrap;
+        gap: 4rem;
+    }
 
-.subscribe p{
-    text-align: left;
-}
+    .subscribe p {
+        text-align: left;
+    }
 
-.subscribe input
-{
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    font-size: 1.1rem;
-}
+    .subscribe input {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 1.1rem;
+    }
 
 
-.subscribe svg{
-    position: absolute;
-    bottom: -10rem;
-    display: block;
+    .subscribe svg {
+        position: absolute;
+        bottom: -10rem;
+        display: block;
 
-}
+    }
 
     /* features */
 
