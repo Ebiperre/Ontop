@@ -9,9 +9,94 @@ import { FiPlus } from "react-icons/fi";
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
 import { useState } from "react";
+import { IconType } from "react-icons/lib";
 
-const WalletPageContainer = () => {
+type TransDetails = {
+   length: number;
+   map(arg0: (data: TransDetails) => import("react/jsx-runtime").JSX.Element): import("react").ReactNode;
+   coinFullName: string;
+   coinName: string;
+   transType: string;
+   percent: string;
+   date: string;
+   img: Element | IconType;
+ }
+
+
+const transactionData: TransDetails[] = [
+  {
+    coinFullName: 'Bitcoin',
+    coinName: 'BTC',
+    transType: 'Deposit',
+    percent: '+0.021BTC',
+    date: 'Mar 7,24',
+    img: <LuBitcoin />,
+  },
+  {
+    coinFullName: 'Bitcoin',
+    coinName: 'BTC',
+    transType: 'Deposit',
+    percent: '+0.08BTC',
+    date: 'Mar 7,24',
+    img: <LuBitcoin />
+  },
+  {
+    coinFullName: 'Ethereum',
+    coinName: 'ETH',
+    transType: 'Withdrawal',
+    percent: '-57.7ETH',
+    date: 'Mar 7,24',
+    img: <SiEthereum />
+  },
+  {
+    coinFullName: 'Ripple',
+    coinName: 'XPR',
+    transType: 'Deposit',
+    percent: '+2XPR',
+    date: 'Mar 7,24',
+    img: 'X'
+  },
+  {
+    coinFullName: 'Tether usd',
+    coinName: 'USDT',
+    transType: 'Deposit',
+    percent: '0.1USDT',
+    date: 'Mar 7,24',
+    img: <SiTether />
+  },
+  {
+    coinFullName: 'Ripple',
+    coinName: 'XPR',
+    transType: 'Withdrawal',
+    percent: '-0.03XPR',
+    date: 'Mar 7,24',
+    img: 'X'
+  },
+]
+
+const typeColors: { [key: string]: string } = {
+  Withdrawal: 'deleteRed',
+  Deposit: 'green',
+};
+
+// would remove this later
+const coinColors: { [key: string]: string } = {
+  XPR: 'black',
+  USDT: 'green',
+  BTC: 'yellow-500',
+  ETH: 'green',
+};
+
+
+
+const WalletPageContainer: React.FC = () => {
   const [showBalance, setShowBalance] = useState(true);
+  // const [TransType, setTransType] = useState('Deposit');
+
+
+
+ 
+
   return (
     <div className="w-full relative">
      <div className="lg:px-4 lg:pt-20">
@@ -33,8 +118,8 @@ const WalletPageContainer = () => {
                 {/* <span className=" rotate-90 ">icon</span> */}
               </div>
               <div className="flex items-center gap-6">
-                <div className="">{showBalance ?<h5 className="font-sans text-md font-semibold text-grey2">0.00<span className="pl-1">USD</span></h5>: <span className="mr-9">*****</span> }</div>
-                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow />: <BiHide /> }</div>
+                <div className="">{showBalance ? <h5 className="font-sans text-md font-semibold text-grey2">0.00<span className="pl-1">USD</span></h5> : <span className="mr-9">*****</span> }</div>
+                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow /> : <BiHide /> }</div>
               </div>
             </div>
            <div className="absolute bottom-3 right-4">
@@ -58,19 +143,19 @@ const WalletPageContainer = () => {
      <div className=" w-full text-center">
      <div className="flex gap-10 items-center justify-center text-center h-[116px] rounded-md mb-4 tablet:border lg:border tablet:mr-3 lg:mr-3">
         <Link to='/dashboard-buy' className="flex flex-col items-center font-semibold">
-           <div className="w-14 h-14 rounded-full xl:rounded-tl-full xl:rounded-bl-full xl:rounded-tr-3xl  text-lg bg-[#FFFFFF] border border-gray-400 font-bold flex items-center justify-center cursor-pointer">
+           <div className="w-14 h-14 rounded-full rounded-tl-full rounded-bl-full rounded-tr-3xl  text-lg bg-[#FFFFFF] border border-gray-400 font-bold flex items-center justify-center cursor-pointer">
            <TbCoins />
            </div>
            Buy
         </Link>
         <Link to='/dashboard-withdraw' className="flex flex-col items-center font-semibold">
-           <div className="w-14 h-14 rounded-full xl:rounded-tl-full xl:rounded-bl-full xl:rounded-br-3xl  text-lg  bg-[#FFFFFF] border border-gray-400 font-bold flex items-center justify-center md:cursor-pointer">
+           <div className="w-14 h-14 rounded-full rounded-tl-full rounded-bl-full rounded-br-3xl  text-lg  bg-[#FFFFFF] border border-gray-400 font-bold flex items-center justify-center md:cursor-pointer">
            <BiMoneyWithdraw className="t"/>
            </div>
            Withdraw
         </Link>
         <Link to='/dashboard-sell' className="flex flex-col items-center font-semibold">
-           <div className="w-14 h-14 rounded-full xl:rounded-tl-3xl xl:rounded-tr-full xl:rounded-br-full  text-lg bg-[#FFFFFF] border border-gray-400 font-bold flex items-center justify-center md:cursor-pointer">
+           <div className="w-14 h-14 rounded-full rounded-tl-3xl rounded-tr-full rounded-br-full  text-lg bg-[#FFFFFF] border border-gray-400 font-bold flex items-center justify-center md:cursor-pointer">
            <RiHandCoinLine />
            </div>
            Sell
@@ -86,128 +171,34 @@ const WalletPageContainer = () => {
           <Link to='/dashboard-transactions'><span className="text-sm font-medium text-grey">View All</span></Link>
         </div>
         {/* crypto cards */}
-        <div className="pb-4 border-b mb-2">
-           <div className="flex justify-between items-center w-full tablet:grid tablet:grid-cols-3 xl:grid xl:grid-cols-3">
-             <div className="flex items-center gap-2">
-              {/* image */}
-              <div className="w-11 h-11 bg-yellow-500 rounded-full flex items-center justify-center"><span className="text-white font-semibold text-2xl"><LuBitcoin /></span></div>
+        {transactionData.map((data: TransDetails) => (
+          <div className="pb-4 border-b mb-2">
+          <div className="justify-between items-center w-full grid grid-cols-4 tablet:grid-cols-3  xl:grid xl:grid-cols-3">
+            <div className="flex items-center gap-2 col-span-2 tablet:col-auto">
+             {/* image */}
+             <div className={`w-11 h-11 bg-${coinColors[data.coinName]} rounded-full flex items-center justify-center`}><span className="text-white font-semibold text-2xl">{data.img}</span></div>
 
-               <div className="flex flex-col items-start">
-                <h1 className="text-lg font-semibold">Bitcoin</h1>
-                <p className="text-sm">BTC</p>
-               </div>
-             </div>
-             <div className="font-medium">Deposit</div>
-             <div className="">
-              <div className="flex flex-col items-end">
-                <h2 className="text-md font-semibold  text-green">+0.021BTC</h2>
-                <p className=" text-grey text-sm">Mar 7,24</p>
+              <div className="flex flex-col items-start">
+              <h1 className="text-lg font-semibold">{data.coinFullName}</h1>
+               <p className="text-sm">{data.coinName}</p>
               </div>
+            </div>
+            <div className="font-medium ">{data.transType}</div>
+            <div className="">
+             <div className="flex flex-col items-end">
+               <h2 className={`text-md font-semibold  text-${typeColors[data.transType]}`}>{data.percent}</h2>
+               <p className=" text-grey text-sm">{data.date}</p>
              </div>
-           </div>
-        </div>
+            </div>
+          </div>
+       </div>
+        ))}
 
-        <div className="pb-4 border-b mb-2">
-           <div className="flex justify-between items-center w-full tablet:grid tablet:grid-cols-3 xl:grid xl:grid-cols-3">
-             <div className="flex items-center gap-2">
-              {/* image */}
-              <div className="w-11 h-11 bg-yellow-500 rounded-full flex items-center justify-center"><span className="text-white font-semibold text-2xl"><LuBitcoin /></span></div>
-
-               <div className="flex flex-col items-start">
-                <h1 className="text-lg font-semibold">Bitcoin</h1>
-                <p className="text-sm">BTC</p>
-               </div>
-             </div>
-             <div className="font-medium">Deposit</div>
-             <div className="">
-              <div className="flex flex-col items-end">
-                <h2 className="text-md font-semibold  text-green">+0.08BTC</h2>
-                <p className=" text-grey text-sm">Mar 7,24</p>
-              </div>
-             </div>
-           </div>
-        </div>
-        <div className="pb-4 border-b mb-2">
-           <div className="flex justify-between items-center w-full tablet:grid tablet:grid-cols-3 xl:grid xl:grid-cols-3">
-             <div className="flex items-center gap-2">
-              {/* image */}
-              <div className="w-11 h-11 bg-green rounded-full flex items-center justify-center"><span className="text-white font-semibold text-2xl"><SiEthereum /></span></div>
-
-               <div className="flex flex-col items-start">
-                <h1 className="text-lg font-semibold">Ethereum</h1>
-                <p className="text-sm">ETH</p>
-               </div>
-             </div>
-             <div className="font-medium">Withdrawal</div>
-             <div className="">
-              <div className="flex flex-col items-end">
-                <h2 className="text-md font-semibold  text-deleteRed">-57.7ETH</h2>
-                <p className=" text-grey text-sm">Mar 7,24</p>
-              </div>
-             </div>
-           </div>
-        </div>
-        <div className="pb-4 border-b mb-2">
-           <div className="flex justify-between items-center w-full tablet:grid tablet:grid-cols-3 xl:grid xl:grid-cols-3">
-             <div className="flex items-center gap-2">
-              {/* image */}
-              <div className="w-11 h-11 bg-black rounded-full flex items-center justify-center"><span className="text-white rotate-90 font-semibold text-2xl">X</span></div>
-
-               <div className="flex flex-col items-start">
-                <h1 className="text-lg font-semibold">Ripple</h1>
-                <p className="text-sm">XPR</p>
-               </div>
-             </div>
-             <div className="font-medium">Deposit</div>
-             <div className="">
-              <div className="flex flex-col items-end">
-                <h2 className="text-md font-semibold  text-green">+2XPR</h2>
-                <p className=" text-grey text-sm">Mar 7,24</p>
-              </div>
-             </div>
-           </div>
-        </div>
-        <div className="pb-4 border-b mb-2">
-           <div className="flex justify-between items-center w-full tablet:grid tablet:grid-cols-3 xl:grid xl:grid-cols-3">
-             <div className="flex items-center gap-2">
-              {/* image */}
-              <div className="w-11 h-11 bg-green rounded-full flex items-center justify-center"><span className="text-white font-semibold text-2xl"><SiTether /></span></div>
-
-               <div className="flex flex-col items-start">
-                <h1 className="text-lg font-semibold">Tether usd</h1>
-                <p className="text-sm">USDT</p>
-               </div>
-             </div>
-             <div className="font-medium">Deposit</div>
-             <div className="">
-              <div className="flex flex-col items-end">
-                <h2 className="text-md font-semibold text-green">0.1USDT</h2>
-                <p className=" text-grey text-sm">Mar 7,24</p>
-              </div>
-             </div>
-           </div>
-        </div>
-        
-        <div className="pb-4 border-b mb-2">
-           <div className="flex justify-between items-center w-full tablet:grid tablet:grid-cols-3 xl:grid xl:grid-cols-3">
-             <div className="flex items-center gap-2">
-              {/* image */}
-              <div className="w-11 h-11 bg-black rounded-full flex items-center justify-center"><span className="text-white rotate-90 font-semibold text-2xl">X</span></div>
-
-               <div className="flex flex-col items-start">
-                <h1 className="text-lg font-semibold">Ripple</h1>
-                <p className="text-sm">XPR</p>
-               </div>
-             </div>
-             <div className="font-medium">Withdrawal</div>
-             <div className="">
-              <div className="flex flex-col items-end">
-              <h2 className="text-md font-semibold  text-deleteRed">-0.03XPR</h2>
-                <p className=" text-grey text-sm">Mar 7,24</p>
-              </div>
-             </div>
-           </div>
-        </div>
+        {transactionData.length === 0 && (
+          <div className="">
+            <h1>No transaction DATA</h1>
+          </div>
+        )}
         </div>
 
         <div className=" w-full rounded-xl px-4 xl:border pt-6 xl:pb-2 tablet:pt-0 text-[#000] mt-4 mediumDevice:px-6 ">
@@ -299,9 +290,7 @@ const WalletPageContainer = () => {
               <p>
                 BTC
               </p>
-              <p>
-                %22.0
-              </p>
+              <p className=" text-green text-sm">+0.05%</p>
             </div>
 
 
@@ -332,9 +321,7 @@ const WalletPageContainer = () => {
               <p>
                 ETH
               </p>
-              <p>
-                %22.0
-              </p>
+              <p className=" text-green text-sm">+0.05%</p>
             </div>
 
 
@@ -348,9 +335,7 @@ const WalletPageContainer = () => {
               <p>
                 XPR
               </p>
-              <p>
-                %22.0
-              </p>
+              <p className=" text-green text-sm">+0.05%</p>
             </div>
 
 
@@ -364,9 +349,7 @@ const WalletPageContainer = () => {
               <p>
                 USDT
               </p>
-              <p>
-                %22.0
-              </p>
+              <p className=" text-green text-sm">+0.05%</p>
             </div>
 
 
