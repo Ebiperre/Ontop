@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from '../../../src/assets/icons/logo_without_text.svg'
+import logo from '../../../src/assets/icons/logo_without_text.png'
 import axios from "axios";
 import "./DashBoardTopHeader.css";
 

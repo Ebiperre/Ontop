@@ -1,55 +1,34 @@
 import classes from "./Footer.module.css";
-import logo from "../../assets/icons/logo_without_text.svg"
+import logo from "../../assets/icons/logo_without_text.png"
 
 export default function Footer() {
     return (
         <>
             <div className=" bg-text-color text-black px-[4vw] pt-[16vh] md:pt-[30vh] md:pb-[10vh]">
                 <div>
-                    <div className="flex md:flex-row-reverse flex-wrap lg:flex-nowrap items-start justify-start md:flex-row md:items-start md:justify-end md:text-left gap-10 mb-5 md:mb-10 lg:mb-20">
-                        <div className="flex-col flex gap-4 text-left">
-                            <div className="h-10 font-bold text-lg flex items-center justify-start ml-[-3rem]">
-                                <img
-                                    className={classes.logo} src={logo} alt="Ontop" />
-                                <p className="ml-[-3rem]">
-                                    ONTOP
-                                </p>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, beatae?
-                            </p>
-                            <div className="flex rounded-md overflow-hidden h-10 shadow-[0px_0px_1px_0px_orange] shadow-orange">
-                                <div className="flex w-4/6">
-                                    <input className="flex-1 pl-3 outline-none" type="email" placeholder="Input Email:" />
-                                </div>
-                                <button className="bg-orange flex-1 flex items-center justify-center text-white">
-                                    Subscribe
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-wrap justify-start gap-10 w-[70%]">
+                    <div className="flex md:flex-row-reverse flex-wrap lg:flex-nowrap items-start justify-start md:flex-row md:items-start md:justify-end md:text-left gap-10 mb-5 md:mb-10 lg:mb-20 md:px-16">
+                        <div className="flex flex-wrap justify-between gap-10 w-full">
 
                             <div className="flex flex-col gap-2 items-start text-left">
                                 <div className="font-semibold text-xl mb-3 whitespace-nowrap">About us</div>
                                 <div className="font-extralight  flex flex-col  gap-2 flex flex-col gap-2">
-                                    <a className="hover:underline hover:text-purple hover:cursor-pointer">About Us</a>
-                                    <a className="hover:underline hover:text-purple hover:cursor-pointer">Buy/Sell</a>
-                                    <a className="hover:underline hover:text-purple hover:cursor-pointer">Staking</a>
+                                    <a className="hover:underline hover:text-orange hover:cursor-pointer">About Us</a>
+                                    <a className="hover:underline hover:text-orange hover:cursor-pointer">Buy/Sell</a>
+                                    <a className="hover:underline hover:text-orange hover:cursor-pointer">Staking</a>
                                 </div>
                             </div>
                             <div className=" items-start text-left">
                                 <div className="font-semibold text-xl mb-3">Privacy</div>
                                 <div className="font-extralight  flex flex-col gap-2">
-                                    <a href="/terms&conditions" className="hover:underline hover:text-purple hover:cursor-pointer">Terms & Condition</a>
-                                    <a href="/terms&conditions" className="hover:underline hover:text-purple hover:cursor-pointer">Privacy Policy</a>
+                                    <a href="/terms&conditions" className="hover:underline hover:text-orange hover:cursor-pointer">Terms & Condition</a>
+                                    <a href="/terms&conditions" className="hover:underline hover:text-orange hover:cursor-pointer">Privacy Policy</a>
                                 </div>
                             </div>
                             <div className=" items-start text-left">
                                 <div className="font-semibold text-xl mb-3">Privacy</div>
                                 <div className="font-extralight  flex flex-col gap-2">
-                                    <a href="/terms&conditions" className="hover:underline hover:text-purple hover:cursor-pointer">Terms & Condition</a>
-                                    <a href="/terms&conditions" className="hover:underline hover:text-purple hover:cursor-pointer">Privacy Policy</a>
+                                    <a href="/terms&conditions" className="hover:underline hover:text-orange hover:cursor-pointer">Terms & Condition</a>
+                                    <a href="/terms&conditions" className="hover:underline hover:text-orange hover:cursor-pointer">Privacy Policy</a>
                                 </div>
                             </div>
                             <div className=" items-start text-left">
@@ -57,7 +36,7 @@ export default function Footer() {
                                 <div className="font-extralight flex flex-col gap-2">
                                     <span className="max-w-[300px]">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, tenetur!</span>
                                     <a href="tel:+23470173453453">Contact:
-                                        <span className="hover:underline hover:text-purple hover:cursor-pointer ml-2">(234) 701-3458-453</span></a>
+                                        <span className="hover:underline hover:text-orange hover:cursor-pointer ml-2">(234) 701-3458-453</span></a>
                                 </div>
                                 <div className="mt-3">
                                     <div>
@@ -85,7 +64,7 @@ export default function Footer() {
                             { }
                         </span>
                         All Rights Reserved by
-                        <span className="font-bold mx-1 text-purple">
+                        <span className="font-bold mx-1 text-orange">
                             ONTOP.
                         </span>
                     </div>

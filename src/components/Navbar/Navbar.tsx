@@ -1,6 +1,6 @@
 import classes from './Navbar.module.css';
 import "./hamburger.css"
-import logo from "../../assets/icons/logo_without_text.svg";
+import logo from "../../assets/icons/logo_without_text.png";
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -13,17 +13,18 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
     const navigate = useNavigate();
     const [click, setClick] = useState(false);
     const closeNav = () => setClick(!click)
+    
 
 
     return (
         <>
             <nav className={classes.nav} style={navBg ? { background: "#fff" } : undefined}>
 
-                <div onClick={() => { navigate('/home') }} className="text-white font-bold text-lg flex items-center justify-center">
+                <div onClick={() => { navigate('/home') }} className="ml-6 text-white font-bold text-lg flex items-center justify-center">
                     <img
 
-                        className={classes.logo} src={logo} alt="Ontop" />
-                    <p className="">
+                        className="logo" src={logo} alt="Ontop" />
+                    <p className="text-black text-[22px] ml-1.5">
                         ONTOP
                     </p>
                 </div>
@@ -44,13 +45,13 @@ export default function Navbar({ notNavlist, navBg }: NavBarProps) {
                             </a>
                         </ul>
                         <div className="flex gap-4 items-center justify-center">
-                            <Link to="/sign-in">
+                            {/* <Link to="/sign-in">
 
                                 <span className="material-symbols-outlined">
                                     login
                                 </span>
                                 Login
-                            </Link>
+                            </Link> */}
                             <Link to="/sign-up">
                                 <button className={classes.sign_up_btn}>
                                     Get Started
