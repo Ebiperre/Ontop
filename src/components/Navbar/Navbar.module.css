@@ -1,12 +1,16 @@
 .nav {
-    color: white;
-    background-color: var(--purple);
+    color: black;
     display: flex;
     flex-direction: row;
     gap: 1rem;
     align-items: center;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
     width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
     font-size: 1.1rem;
     font-weight: 500;
     height: 100%;
@@ -14,6 +18,15 @@
     padding-inline: 1rem;
     white-space: nowrap;
 
+}
+
+.glassy {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Adjust the opacity as needed */
+    backdrop-filter: blur(10px);
+    /* Adjust the blur strength as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a shadow */
 }
 
 .nav_list {
@@ -28,9 +41,10 @@
 }
 
 .logo {
-    object-fit: cover;
-    height: 7rem;
-    width: 40%;
+    object-fit: contain;
+    height: 50px;
+    
+    
 }
 
 .sign_up_btn {
@@ -88,7 +102,9 @@ section {
 }
 
 @media screen and (max-width: 1024px) {
-    .nav {}
+    .nav {
+        
+    }
 
     .nav_list {
         gap: 4rem !important;
@@ -97,15 +113,22 @@ section {
 
 @media screen and (min-width: 800px) {
 
+    .nav{
+    padding-left: 3.6rem;
+
+    }
+
     .nav_list {
         display: flex;
         flex: 1;
         justify-content: flex-end;
         gap: 8rem;
+
     }
 
     .logo {
-        scale: 1.5;
+        object-fit: contain;
+    height: 50px;
     }
 
     .sign_up_btn {
@@ -122,7 +145,7 @@ section {
 }
 
 @media screen and (max-width: 800px) {
-    ul a{
+    ul a {
 
         width: 100%;
         border-bottom: 1px solid rgba(0, 0, 0, 0.09);

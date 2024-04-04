@@ -2,7 +2,7 @@
   flex-wrap: wrap;
   width: 100%;
   overflow: hidden;
-  min-height: 80vh;
+  min-height: 60vh;
   justify-content: center;
   
 }
@@ -15,13 +15,13 @@
   
   .marquee section {
     display: flex;
-    gap: 3rem;
+    /* gap: 3rem; */
   }
   
   .marquee section div {
-    border: 2px var(--orange);
+    /* border: 2px var(--orange); */
     border-radius: 20px;
-    border-style: dashed;
+    /* border-style: dashed; */
     height: 40vh;
     width: 22rem;
     display: flex;
@@ -32,18 +32,32 @@
     text-align: center;
     gap: 1rem;
     transition: all 300ms ease-in-out;
+    position: relative;
+    z-index: 10;
     /* -webkit-animation: animate-marquee var(--marquee-speed) ease-in-out alternate-reverse;
     animation: animate-marquee var(--marquee-speed) ease-in-out infinite alternate-reverse ;
     transition: var(--marquee-hover-transition-speed) margin-left ease-in-out;
     will-change: transform, margin-left; */
   }
   
+.marquee section div::after{
+  box-shadow: 0px 0px 20px 0px rgba(168, 129, 52, 0.349);
+  position: absolute;
+  content: "";
+  border-radius: inherit;
+  inset: 4rem 1rem;
+  background-color: white;
+  bottom: 0;
+  z-index: -10;
+
+}
+
 .marquee section div:hover{
   border-style: solid;
 }
 
   .marquee div span {
-    font-size: 4rem;
+    padding: 0px 1rem;
   }
   
   .marquee div p {

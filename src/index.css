@@ -6,6 +6,11 @@ body {
     font-family: 'Author', sans-serif;
 }
 
+.logo{
+    object-fit: contain;
+    height: 50px;
+}
+
 #root {
     margin: 0;
     padding: 0;
