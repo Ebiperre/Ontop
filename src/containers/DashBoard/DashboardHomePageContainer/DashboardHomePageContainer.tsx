@@ -4,6 +4,8 @@ import axios from "axios";
 import noResultImage from "../../../assets/images/undraw_crypto_portfolio_2jy5.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import AppContext from "../../../context/AppContext";
+import { BiShow } from "react-icons/bi";
+import { BiHide } from "react-icons/bi";
 
 type CoinData = {
   id: string;
@@ -26,6 +28,8 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
   const textColor = element?.ath_change_percentage > 0 ? 'green' : 'red';
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [showBalance, setShowBalance] = useState(true);
+
 
 
   const handleSeeMore = () => {
@@ -111,9 +115,13 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
             </div>
 
 
-            <p className="text-2xl">
-              $77,000.00
-            </p>
+<div className="flex justify-between items-center w-full">
+            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
+
+                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow />: <BiHide /> }</div>
+</div>
+
+
           </div>
 
 
@@ -128,9 +136,13 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
             </div>
 
 
-            <p className="text-2xl">
-              $77,000.00
-            </p>
+<div className="flex justify-between items-center w-full">
+            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
+
+                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow />: <BiHide /> }</div>
+</div>
+
+
           </div>
 
           <div className="bg-greyWhite2 rounded-xl font-semibold md:flex-1 flex flex-col justify-between py-4 items-start h-28 border-r px-6">
@@ -144,9 +156,13 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
             </div>
 
 
-            <p className="text-2xl">
-              $77,000.00
-            </p>
+<div className="flex justify-between items-center w-full">
+            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
+
+                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow />: <BiHide /> }</div>
+</div>
+
+
           </div>
 
           <div className="bg-greyWhite2 rounded-xl font-semibold md:flex-1 flex flex-col justify-between py-4 items-start h-28 border-r px-6">
@@ -160,9 +176,13 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
             </div>
 
 
-            <p className="text-2xl">
-              $77,000.00
-            </p>
+<div className="flex justify-between items-center w-full">
+            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
+
+                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow />: <BiHide /> }</div>
+</div>
+
+
           </div>
         </div>
 
@@ -222,7 +242,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
                   <button onClick={() => navigate(`/dashboard-sell`)} className="bg-deleteRed h-7 w-14 rounded text-sm text-white font-medium">
                     Sell
                   </button>
-                  
+
                 </div>
               </div>
             ))}

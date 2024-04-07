@@ -62,20 +62,9 @@
     overflow: hidden;
 }
 
-
-.hero_image::after {
-    position: absolute;
-    inset: 0;
-    /* content: ''; */
-    background: radial-gradient(transparent, transparent, #ffffffc7 96%);
-    z-index: 1000;
-}
-
-
 /* subscribe */
 
 .subscribe {
-    /* min-height: 80vh; */
     height: 50vh;
     border-radius: 20px;
     background-color: var(--orange);
@@ -88,12 +77,6 @@
     padding: 1rem;
     flex-wrap: wrap;
 }
-
-/* .subscribe{
-    background-color: #ffa600de;
-    border-radius: 10px;
-} */
-
 
 .subscribe input {
     background-color: transparent;
@@ -155,8 +138,6 @@
 .card {
     min-height: 50vh;
     max-width: 18rem;
-    /* flex: 1; */
-    /* box-shadow: 0px 0px 5px 0px var(--greyWhite); */
     background: linear-gradient(-200deg, white 2%, var(--greyWhite2));
     border-radius: 8px;
     display: flex;
@@ -165,11 +146,16 @@
     text-align: left;
     gap: 1rem;
     padding: 1rem;
+    transition: all 300ms ease-in-out;
+}
+
+.card:hover{
+    background: radial-gradient(var(--greyWhite2), white);
+    scale: 1.01;
+    
 }
 
 .card div {
-    /* height: 11rem;
-    width: 11rem; */
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -211,20 +197,17 @@
         gap: 0px !important;
     }
 
-    .hero_image {
-        /* width: 30vw !important; */
-    }
-
     .hero_section button {
         margin: 0px !important;
     }
+
+  
 
 }
 
 
 @media screen and (max-width: 900px) {
     .hero_section {
-        /* padding: 0px !important; */
         gap: 0px !important;
     }
 
@@ -234,31 +217,22 @@
 
     .hero_section button {
         margin: 0px auto 2rem !important;
-        /* margin-left:  10rem; */
-        /* background-color: red !important; */
     }
 }
 
 
 @media screen and (min-width: 800px) {
-
-    .container {}
-
     .hero_section {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: row;
         gap: 6rem;
-        /* padding-left: 3rem;
-        padding-right: 1rem; */
         padding: 0px 5rem;
         text-align: left;
-        /* width: 50vw; */
     }
 
     .hero_text {
-        /* padding-right: 8rem; */
         gap: 2rem;
     }
 
@@ -277,16 +251,30 @@
     }
 
     .hero_image {
-        /* width: 32rem !important; */
         aspect-ratio: 1;
         border-radius: 100% 0px 100% 100%;
+    }
+
+
+    /* features */
+
+    
+
+    .features_head h2 {
+        font-weight: 600;
+        font-size: 2rem;
+        width: 60%;
+    }
+    
+    .features_head p {
+        width: 40%;
+        max-width: 50rem;
     }
 
     /* subscribe */
 
 
     .subscribe {
-        /* min-height: 80vh; */
         height: 50vh;
         border-radius: 20px;
         background-color: var(--orange);
@@ -327,11 +315,6 @@
     .card_wrap {
         min-height: 70vh !important;
         align-items: center;
-    }
-
-
-    .card {
-        /* padding: 1rem 0px !important; */
     }
 
     .giftCard_wrap {

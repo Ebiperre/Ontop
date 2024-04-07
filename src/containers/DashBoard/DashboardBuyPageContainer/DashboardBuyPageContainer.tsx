@@ -14,12 +14,11 @@ interface CoinData {
     price_change_percentage_24h: number;
     atl: number;
     high_24h: number;
-    // Add more properties as needed based on the actual API response
 }
 
 export default function BuyContainer() {
     const [data, setData] = useState<CoinData[]>([]);
-    const [visibleItems, setVisibleItems] = useState(8);
+    const [visibleItems, setVisibleItems] = useState(10);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState("");
     const navigate = useNavigate();
@@ -62,109 +61,96 @@ export default function BuyContainer() {
         coin.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
+    const loadMore = () => {
+        setVisibleItems((prevVisibleItems) => prevVisibleItems + 10);
+    };
+
     return (
         <main className="pt-10">
-            {/* <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Search coins..."
-                onChange={handleSearch}
-            /> */}
-               
+            <section className=" flex flex-col gap-6 items-center justify-center px-4">
 
-            <section className=" flex flex-col gap-6 items-center justify-center">
-            <div className="border rounded-md overflow-hidden h-10 flex justify-between items-center px-4 w-[30vw]">
-              {/* <input value={searchInput} onChange={handleSearch} placeholder="Search Coin..." className="outline-none border-none flex flex-1 h-full" type="search" name="" id="" /> */}
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Search coins..."
-                className="outline-none border-none flex flex-1 h-full"
-                onChange={handleSearch}
-            />
-              <span className="material-symbols-outlined">
-                search
-              </span>
 
-            </div>
-            <section className="flex flex-wrap gap-6 items-center justify-start w-[80%]">
-                {filteredData.slice(0, visibleItems).map((element) => (
-                    <div onClick={() => navigate(`/dashboard-buy/${element.id}`)} key={element.id} className=" p-2 border rounded-xl h-36 w-64 flex flex-col justify-between">
-                        <div className="flex gap-2 items-center justify-start">
-                            <img className="h-10 " src={element.image} alt="" />
-                            <div className="flex flex-col items-start justify-center">
-                                <p className="uppercase font-semibold">
-                                    {element.name}
-                                </p>
-                                <p className="uppercase font-medium">
-                                    {element.symbol}
-                                </p>
-                            </div>
 
-                            
-                        </div>
-                        <div className="flex justify-between text-sm">
-                            <div className="flex flex-col text-left font-medium">
-                                <p>
-                                    24h Volume
-                                </p>
-                                <div className="flex gap-2 ">
-                                  <p>
-                                    {formatNumber(element.high_24h)}
-                                </p>
-                                <p className={element.ath_change_percentage > 0 ? "text-green" : "text-red-600"}>
-                                    {element.ath_change_percentage.toFixed(2)}%
-                                </p>  
+                <div className="bg-white border rounded-md overflow-hidden h-10 flex justify-between items-center px-4 flex-1 min-w-72">
+                    <input
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Search coins..."
+                        className="outline-none border-none flex flex-1 h-full"
+                        onChange={handleSearch}
+                    />
+                    <span className="material-symbols-outlined">
+                        search
+                    </span>
+                </div>
+                <section className="flex flex-wrap gap-6 items-center justify-center md:w-[90%] w-full">
+                    {filteredData.slice(0, visibleItems).map((element) => (
+                        <div onClick={() => navigate(`/dashboard-buy/${element.id}`)} key={element.id} className=" p-2 border rounded-xl h-36 flex-1 min-w-64 flex flex-col justify-between bg-white">
+                            <div className="flex gap-2 items-center justify-start">
+                                <img className="h-10 " src={element.image} alt="" />
+                                <div className="flex flex-col items-start justify-center">
+                                    <p className="uppercase font-semibold">
+                                        {element.name}
+                                    </p>
+                                    <p className="uppercase font-medium">
+                                        {element.symbol}
+                                    </p>
                                 </div>
-                                
-                                <p>
-
-                                </p>
                             </div>
-
-                            <div className="flex flex-col text-left font-medium">
-                                <p>
-                                    24h Volume
-                                </p>
-                                <div className="flex gap-2 ">
-                                  <p>
-                                    {formatNumber(element.high_24h)}
-                                </p>
-                                <p className={element.ath_change_percentage > 0 ? "text-green" : "text-red-600"}>
-                                    {element.ath_change_percentage.toFixed(2)}%
-                                </p>  
+                            <div className="flex justify-between text-sm">
+                                <div className="flex flex-col text-left font-medium">
+                                    <p>
+                                        24h Volume
+                                    </p>
+                                    <div className="flex gap-2 ">
+                                        <p>
+                                            {formatNumber(element.high_24h)}
+                                        </p>
+                                        <p className={element.ath_change_percentage > 0 ? "text-green" : "text-red-600"}>
+                                            {element.ath_change_percentage.toFixed(2)}%
+                                        </p>
+                                    </div>
                                 </div>
-                               
+                                <div className="flex flex-col text-left font-medium">
+                                    <p>
+                                        Price
+                                    </p>
+                                    <div className="flex gap-2 ">
+                                        <p>
+                                            {formatNumber(element.current_price)}
+                                        </p>
+                                        <p className={element.ath_change_percentage > 0 ? "text-green" : "text-red-600"}>
+                                            {element.ath_change_percentage.toFixed(2)}%
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
-                {loading ? (
-                    <section className="w-full h-40 flex items-center justify-center">
-                        <div className="animate-spin rounded-full border-t-4 border-orange border-solid border-opacity-50 h-12 w-12"></div>
-                    </section>
-                ) : (
-                    <>
-                        {filteredData.length === 0 && (
-                            <>
-                                <img
-                                    className="h-[220px] w-full object-contain my-10"
-                                    src={noResultImage}
-                                    alt="No results found"
-                                />
-                                <p>No data found for "{searchQuery}"</p>
-                            </>
-                        )}
-                    </>
-                )}
-                {filteredData.length > visibleItems && (
-                    <p className="mt-auto">See More ...</p>
-                )}
+                    ))}
+                    {loading ? (
+                        <section className="w-full h-40 flex items-center justify-center">
+                            <div className="animate-spin rounded-full border-t-4 border-orange border-solid border-opacity-50 h-12 w-12"></div>
+                        </section>
+                    ) : (
+                        <>
+                            {filteredData.length === 0 && (
+                                <>
+                                    <img
+                                        className="h-[220px] w-full object-contain my-10"
+                                        src={noResultImage}
+                                        alt="No results found"
+                                    />
+                                    <p>No data found for "{searchQuery}"</p>
+                                </>
+                            )}
+                        </>
+                    )}
+                    {filteredData.length > visibleItems && (
+                        <button className="mt-auto" onClick={loadMore}>See More ...</button>
+                    )}
+                </section>
             </section>
-            </section>
-            
         </main>
     );
 }
