@@ -218,6 +218,10 @@
     .hero_section button {
         margin: 0px auto 2rem !important;
     }
+
+    .subscribe svg{
+        display: none !important;
+    }
 }
 
 
@@ -258,7 +262,7 @@
 
     /* features */
 
-    
+
 
     .features_head h2 {
         font-weight: 600;
@@ -305,7 +309,7 @@
 
     .subscribe svg {
         position: absolute;
-        bottom: -10rem;
+        bottom: -25vh;
         display: block;
 
     }
