@@ -18,6 +18,12 @@ body {
     max-width: 100% !important;
 }
 
+input{
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
+  }
+
 :root {
     --dark: #181A20;
     --dark2: #2C2C2C;

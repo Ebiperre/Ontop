@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-// import LineChart from '../../../components/CryptoLineGraph';
 import LineGraph from "../../../components/lineGraph";
 
 interface CoinData {
@@ -15,7 +14,6 @@ interface CoinData {
   max_supply: number;
   price_change_percentage_24h: number;
   atl: number;
-  // Add more properties as needed based on the actual API response
 }
 
 const CoinCardContainer: React.FC = () => {
@@ -26,8 +24,8 @@ const CoinCardContainer: React.FC = () => {
   const [data, setData] = useState<CoinData[]>([]);
   const [amount, setAmount] = useState()
   const [filteredData, setFilteredData] = useState<CoinData[]>([]);
-  const [currencyRate, setCurrencyRate] = useState<number>(1); // Default to 1:1 USD to Naira
-  const [selectedCurrency, setSelectedCurrency] = useState<string>('USD'); // Default currency\
+  const [currencyRate, setCurrencyRate] = useState<number>(1);
+  const [selectedCurrency, setSelectedCurrency] = useState<string>('USD');
   const [rawAmount, setRawAmount] = useState('');
   const [formattedAmount, setFormattedAmount] = useState('');
   const [dollarInActiveCoin, setDollarInActiveCoin] = useState('');
@@ -55,16 +53,9 @@ const CoinCardContainer: React.FC = () => {
         setData(res.data);
         setFilteredData(res.data);
         console.log(res.data);
-        // const data = res.data
-        // // Assuming data is an array of numbers representing cryptocurrency prices
-        // setCryptoData(data.map(coin => coin.current_price));
-        // // Generat018ing labels (you might have date labels or other appropriate labels)
-        // const newLabels = Array.from({ length: data.length }, (_, i) => `Day ${i + 1}`);
-        // setLabels(newLabels);
       })
       .catch((error) => {
         console.log(error);
-        // console.error('Error fetching cryptocurrency data:', error);
 
       });
   }, [selectedCurrency]);
@@ -92,7 +83,7 @@ const CoinCardContainer: React.FC = () => {
     setSelectedCurrency(newCurrency);
   };
 
-  const ActiveCoinInDollars = activeCoin?.current_price // Example, you can replace this with your actual value
+  const ActiveCoinInDollars = activeCoin?.current_price
 
   const handleAmountChange = (event: any) => {
     const rawValue = event.target.value;
@@ -129,7 +120,7 @@ const CoinCardContainer: React.FC = () => {
   return (
     <>
 
-      <main className="pt-[6rem] pb-[2rem] flex flex-col gap-8 items-center justify-center">
+      <main className="pt-[3rem] md:pt-[6rem] pb-[2rem] flex flex-col gap-8 items-center justify-center">
         <section className="w-full flex items-center justify-center">
           <div className="flex border flex-col text-start items-start justify-center gap-6 px-8 bg-white text-dark2 w-[96%] h-32 rounded-2xl">
 
@@ -153,7 +144,7 @@ const CoinCardContainer: React.FC = () => {
         </section>
 
         <section className="h-[30%] w-[96%] flex-wrap items-start justify-center flex gap-6">
-          <div className="flex flex-col gap-4 border rounded-2xl flex-1 md:max-w-[20vw] overflow-hidden h-full min-h-[50vh] bg-white p-4">
+          <div className="flex lg:flex-1 flex-col gap-4 border rounded-2xl flex-1 lg:max-w-[20vw] overflow-hidden h-full min-h-[50vh] bg-white p-4">
             <div className="flex items-center h-8 w-full border-b border-l-grey pb-2 pl-4 text-xl font-medium text-grey">
               Buy
             </div>
@@ -163,9 +154,9 @@ const CoinCardContainer: React.FC = () => {
                 <p>{activeCoin?.name}</p>
               </div>
 
-              <div>
+              <div className="w-full">
 
-                <div className="flex border rounded-lg py-3">
+                <div className="flex border rounded-lg py-1">
                   <input
                     className="outline-none border-none px-4 h-full w-full overflow-hidden"
                     value={formattedAmount}
@@ -192,11 +183,10 @@ const CoinCardContainer: React.FC = () => {
               </div>
             </form>
           </div>
-          <div className="flex flex-col gap-6 w-full md:flex-1 h-[80vh]">
-            <div className="flex border rounded-2xl overflow-hidden w-full md:flex-1 h-[60%] bg-white">
-              <div className="min-h-full py-6 w-full bg-white flex justify-center items-center overflow-hidden">
+          <div className="flex flex-col gap-6 w-full lg:flex-1 md:h-[200vh] lg:h-[80vh]  h-[80vh]">
+            <div className=" hidden md:flex border rounded-2xl overflow-hidden w-full md:flex-1 lg:h-[100vh] xl:h-[60%] bg-white">
+              <div className="min-h-full py-6 w-full bg-white hidden md:flex justify-center items-center overflow-hidden">
 
-                {/* <LineChart /> */}
                 <LineGraph activeCoin={activeCoin} ></LineGraph>
 
               </div>

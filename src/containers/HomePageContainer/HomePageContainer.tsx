@@ -9,12 +9,43 @@ import heroVideo from "../../assets/videos/original-0950845b9346878fc5c5ca847b4d
 import userImage from "../../assets/images/e8589424b38a561d93ece194321ebd06.jpg";
 import creditCard from "../../assets/images/credit_card.svg";
 import userShield from "../../assets/images/user_shield.svg";
-import handingDollar from "../../assets/images/handing_dollar.svg"
+import handingDollar from "../../assets/images/handing_dollar.svg";
+import data from '../../utilities/testimonialData';
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+
 
 
 
 
 const HomePageContainer = () => {
+
+    const [displayedData, setDisplayedData] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const starStyle = {
+        color: '#ffaa0e'
+    };
+
+    useEffect(() => {
+        const switchData = setInterval(() => {
+            setCurrentIndex(prevIndex => (prevIndex + 3) % data.length);
+        }, 10000);
+        setDisplayedData(data.slice(currentIndex, currentIndex + 3));
+        return () => clearInterval(switchData);
+    }, [currentIndex]);
+
+    const renderStars = (rating: number) => {
+        const stars = [];
+        for (let i = 0; i < 5; i++) {
+            if (i < rating) {
+                stars.push(<span key={i} style={starStyle}>&#9733;</span>);
+            } else {
+                stars.push(<span key={i} style={starStyle}>&#9734;</span>);
+            }
+        }
+        return stars;
+    };
+
     return (
 
         <>
@@ -31,9 +62,12 @@ const HomePageContainer = () => {
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae hic autem sit mollitia sunt illo nostrum harum quas iure facilis modi deserunt, voluptas earum. Tenetur vero distinctio voluptatum officiis repellendus.
                         </p>
 
-                        <button>
-                            Get Started
-                        </button>
+                        <Link to="/sign-up" className="md:mx-0 mx-auto">
+                            <button>
+                                Get Started
+                            </button>
+                        </Link>
+
                     </div>
 
                     <div className={classes.hero_image}>
@@ -105,58 +139,23 @@ const HomePageContainer = () => {
                 </section>
 
 
-                {/* <section> */}
                 <div className={marqueeStyle.marquee}>
                     <section>
+                        {displayedData.map((item, index) => (
+                            <div key={index}>
+                                <img className="h-28 aspect-square object-cover object-top rounded-full" src={item.userImage} alt="" />
+                                <span>
+                                    <h1 className="font-medium text-2xl">{item.name}</h1>
+                                    <p>"{item.message}"</p>
+                                    <span className="flex flex-row">
+                                        {renderStars(item.rating)}
+                                    </span>
 
-
-                        <div>
-                            <img className="h-28 aspect-square object-cover object-top rounded-full " src={userImage} alt="" />
-                            <span>
-
-                                <h1 className="font-medium text-2xl">
-                                    Lorem, ipsum dolor.
-                                </h1>
-
-                                <p>
-                                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore iste a doloremque facilis possimus."
-                                </p>
-                            </span>
-                        </div>
-
-
-                        <div>
-                            <img className="h-28 aspect-square object-cover object-top rounded-full " src={userImage} alt="" />
-                            <span>
-
-                                <h1 className="font-medium text-2xl">
-                                    Lorem, ipsum dolor.
-                                </h1>
-
-                                <p>
-                                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore iste a doloremque facilis possimus."
-                                </p>
-                            </span>
-                        </div>
-
-                        <div>
-                            <img className="h-28 aspect-square object-cover object-top rounded-full " src={userImage} alt="" />
-                            <span>
-
-                                <h1 className="font-medium text-2xl">
-                                    Lorem, ipsum dolor.
-                                </h1>
-
-                                <p>
-                                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore iste a doloremque facilis possimus."
-                                </p>
-                            </span>
-                        </div>
-
+                                </span>
+                            </div>
+                        ))}
                     </section>
                 </div>
-                {/* </section> */}
-
 
                 <section className={classes.subscribe}>
 
