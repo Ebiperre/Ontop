@@ -128,11 +128,11 @@ const HomePageContainer = () => {
                     <div>
                         <img src={giftCards} alt="" />
                     </div>
-                    <div>
-                        <h3 className={classes.h3}>
+                    <div className="flex flex-col lg:w-[70%]">
+                        <h3 className={`${classes.h3}`}>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, maiores.
                         </h3>
-                        <p>
+                        <p className="lg:w-[70%]">
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum laboriosam, blanditiis tenetur molestiae eos quo quidem magnam. Excepturi assumenda atque expedita incidunt earum, velit eveniet.
                         </p>
                     </div>
