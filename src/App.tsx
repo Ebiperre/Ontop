@@ -21,8 +21,7 @@ import DashboardPaymentPage from "./pages/DashboardPages/DashboardPaymentPage";
 import WithdrawalPage from "./pages/DashboardPages/WithdrawalPage";
 import DashboardBuyPages from "./pages/DashboardPages/DashboardBuyPage";
 import DashboardSellPage from "./pages/DashboardPages/DashboardSellPage"
-
-
+import SellCoinDataContianer from "./containers/DashBoard/DashboardSellPageContainer/SellCoinDataContainer";
 
 
 function App() {
@@ -44,6 +43,7 @@ function App() {
         <Route path="/dashboard-home" element={<DashBoardHomePage />} />
         <Route path="/dashboard-buy" element={<DashboardBuyPages />} />
         <Route path="/dashboard-sell" element={<DashboardSellPage />} />
+        <Route path="/dashboard-sell/:sellCoinCardId" element={<SellCoinDataContianer />} />
         <Route path="/dashboard-settings" element={<DashBoardSettingsPage />} />
         <Route path="/dashboard-cards" element={<DashBoardGiftCardPage />} />
         <Route path="/dashboard-cards/:CardId" element={<CardDetails />} />
