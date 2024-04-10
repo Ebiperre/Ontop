@@ -100,13 +100,19 @@ const SignInPageContainer = () => {
                                     <Link to="/sign-in/forgot-password" className="text-sm text-gray-500 hover:text-gray-700">Forgot password?</Link>
                                 </div>
                             </div>
-                            <div className="flex flex-col md:flex-row gap-2 md:gap-4">
+                            <div className="flex flex-col gap-2 md:gap-4">
                                 <button
                                     onClick={handleSubmit}
-                                    className="md:mt-5 tracking-wide font-medium bg-orange text-white w-full py-4 rounded-lg hover:bg-orange3 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"><span>Sign In</span></button>
+                                    className="md:mt-5 tracking-wide font-medium bg-orange text-white w-full py-4 rounded-lg hover:bg-orange3 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                                >
+                                    <span>Sign In</span>
+                                </button>
                                 <button
                                     onClick={() => { navigate('/sign-up') }}
-                                    className="md:mt-5 tracking-wide text-orange font-medium border-orange border  w-full py-4 rounded-lg hover:bg-orange hover:text-white transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"><span>Sign Up</span></button>
+                                    className="text-gray-600 text-sm text-center"
+                                >
+                                    Don't have an account? <span className='text-orange font-medium'>Sign up here.</span>
+                                </button>
                             </div>
                         </div>
                     </div>

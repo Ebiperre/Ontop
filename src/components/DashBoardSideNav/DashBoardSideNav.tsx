@@ -18,7 +18,7 @@ const DashBoardSideNav = ({ showNav, setActiveLinkText, setShowNav }: DashBoardS
     <>
       <aside
         className={`${showNav ? "" : "generalDevice:right-[-100%]"
-          } side-bar-container bg-[#fbfaff] font-author text-left text-dark h-full min-h-full w-full max-w-[274px] overflow-auto fixed z-50 generalDevice:top-[70px] generalDevice:right-0 transition-all duration-[1s] ease-in-out`}
+          } side-bar-container bg-white font-author text-left text-dark h-full min-h-full w-full max-w-[274px] overflow-auto fixed z-50 generalDevice:top-[70px] generalDevice:right-0 transition-all duration-[1s] ease-in-out`}
       >
         <div className="h-20 w-40 pl-[10px] overflow-hidden">
           <img
