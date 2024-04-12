@@ -49,6 +49,11 @@
     font-size: 1.2rem;
 }
 
+.hero_text button:hover{
+    border-radius: 14px;
+    background-color: var(--orange3);
+}
+
 .hero_image {
     width: 35vw !important;
     aspect-ratio: 1;
@@ -153,6 +158,10 @@
     background: radial-gradient(var(--greyWhite2), white);
     scale: 1.01;
     
+}
+
+.card:hover div{
+    background-color: var(--orange3);
 }
 
 .card div {

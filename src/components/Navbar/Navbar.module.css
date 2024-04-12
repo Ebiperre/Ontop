@@ -75,19 +75,18 @@
     color: var(--orange);
 }
 
-ul a {
+
+.nav_list ul .active{
     position: relative;
-}
-
-ul a:hover::after {
-    transform: scaleX(0.7);
-}
-
-ul a::after {
-    transform: scaleX(0);
+    background-color: red;
+  }
+  
+  
+  .nav_list ul .active::after {
+    transform: scaleX(0.8);
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: 0;
     height: 4px;
     background-color: var(--orange);
@@ -95,7 +94,9 @@ ul a::after {
     transition: all 200ms ease;
     transform-origin: left;
     width: 100%;
-}
+    
+  }
+  
 
 section {
     transition: all 200ms ease-in-out;

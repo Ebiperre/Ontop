@@ -41,7 +41,7 @@
   }
   
 .marquee section div::after{
-  box-shadow: 0px 0px 20px 0px rgba(168, 129, 52, 0.349);
+  box-shadow: 0px 0px 10px 0px rgba(218, 159, 49, 0.253);
   position: absolute;
   content: "";
   border-radius: inherit;

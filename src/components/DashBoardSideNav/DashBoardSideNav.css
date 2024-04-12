@@ -4,6 +4,16 @@
     background: var(--orange2);
 }
 
+.side-btn:hover{
+    background-color: var(--greyWhite2);
+    border-radius: 4px;
+
+}
+
+.side-btn.active::after{
+    display: none;
+}
+
 .side-bar-container {
     scrollbar-width: thin;
     scrollbar-color: #d8d8d8;

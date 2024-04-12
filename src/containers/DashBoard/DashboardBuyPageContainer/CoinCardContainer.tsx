@@ -209,11 +209,11 @@ const CoinCardContainer: React.FC = () => {
                   {priceChangePercentage}%
                 </p>
 
-                <p className={athChangePercentColor > 0 ? "text-green" : "text-red-600"}>
+                <p className={`${athChangePercentColor > 0 ? "text-green" : "text-red-600"} hidden md:block bg-orange`}>
                   {athChangePercentColor}%
                 </p>
 
-                <p className={atl > 0 ? "text-green" : "text-red-600"}>
+                <p className={`${atl > 0 ? "text-green" : "text-orange"}`}>
                   {atl}
                 </p>
               </div>
