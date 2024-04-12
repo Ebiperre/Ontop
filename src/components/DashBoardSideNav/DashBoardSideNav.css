@@ -1,7 +1,7 @@
 .side-btn.active {
     color: white;
     border-radius: 4px;
-    background: var(--orange2);
+    background: var(--orange2) !important;
 }
 
 .side-btn:hover{
