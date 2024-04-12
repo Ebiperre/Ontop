@@ -88,7 +88,7 @@ const loadMore = () => {
         </div>
         <section className="flex flex-wrap gap-6 items-center justify-center md:w-[90%] w-full">
             {filteredData.slice(0, visibleItems).map((element) => (
-                <div onClick={() => navigate(`/dashboard-buy/${element.id}`)} key={element.id} className=" p-2 border rounded-xl h-36 flex-1 min-w-64 flex flex-col justify-between bg-white">
+                <div onClick={() => navigate(`/dashboard-sell/${element.id}`)} key={element.id} className=" p-2 border rounded-xl h-36 flex-1 min-w-64 flex flex-col justify-between bg-white">
                     <div className="flex gap-2 items-center justify-start">
                         <img className="h-10 " src={element.image} alt="" />
                         <div className="flex flex-col items-start justify-center">

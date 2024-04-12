@@ -183,7 +183,7 @@ const SellCoinDataContianer: React.FC = () => {
                 </div>
 
                 <button disabled={btnDisable} type="submit" className="flex items-center mt-4 justify-center font-semibold text-white py-2 w-20 rounded-lg border-none bg-orange">
-                  Buy
+                  Sell
                 </button>
               </div>
             </form>
