@@ -226,10 +226,7 @@ const CoinCardContainer: React.FC = () => {
         <div className="text-left flex items-center w-[96%] pl-6 h-12 bg-white rounded-xl">
           Need help with your transaction? <a className="text-orange hover:text-orange2 pl-2" href="" target='blank'>Contact Us</a>
         </div>
-
       </main >
-
-
     </>
   );
 };
