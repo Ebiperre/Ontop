@@ -1,0 +1,40 @@
+.side-btn.active {
+    color: white;
+    border-radius: 4px;
+    background: var(--orange2) !important;
+}
+
+.side-btn:hover{
+    background-color: var(--greyWhite2);
+    border-radius: 4px;
+
+}
+
+.side-btn.active::after{
+    display: none;
+}
+
+.side-bar-container {
+    scrollbar-width: thin;
+    scrollbar-color: #d8d8d8;
+}
+
+/* For WebKit browsers */
+.side-bar-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.side-bar-container::-webkit-scrollbar-track {
+    background-color: #d8d8d8;
+    border-radius: 10px;
+}
+
+.side-bar-container::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border: 1px solid #555;
+    border-radius: 10px;
+}
+
+.side-bar-container::-webkit-scrollbar-thumb:hover {
+    background-color: #333;
+}

@@ -66,7 +66,7 @@ export default function BuyContainer() {
     };
 
     return (
-        <main className="pt-10">
+        <main className="pt-10 min-h-[100vh]">
             <section className=" flex flex-col gap-6 items-center justify-center px-4">
 
 
@@ -84,7 +84,7 @@ export default function BuyContainer() {
                         search
                     </span>
                 </div>
-                <section className="flex flex-wrap gap-6 items-center justify-center md:w-[90%] w-full">
+                <section className="flex flex-wrap gap-6 items-center md:justify-start lg:w-[82%] justify-center md:w-[90%] w-full">
                     {filteredData.slice(0, visibleItems).map((element) => (
                         <div onClick={() => navigate(`/dashboard/buy/${element.id}`)} key={element.id} className=" p-2 border rounded-xl h-36 flex-1 min-w-64 flex flex-col justify-between bg-white">
                             <div className="flex gap-2 items-center justify-start">

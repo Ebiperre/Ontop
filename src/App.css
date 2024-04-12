@@ -12,3 +12,25 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.active{
+  position: relative;
+  /* background-color: red; */
+}
+
+
+.active::after {
+  transform: scaleX(0.8);
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 4px;
+  background-color: var(--orange);
+  border-radius: 3px;
+  transition: all 200ms ease;
+  transform-origin: left;
+  width: 100%;
+  
+}
