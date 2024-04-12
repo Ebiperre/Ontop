@@ -23,7 +23,9 @@ interface DashBoardTopHeaderProps {
   showNav: boolean;
   toggleNav: () => void;
   activeLinkText: string;
+  setActiveLinkText: React.Dispatch<React.SetStateAction<string>>;
 }
+
 
 const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
   showNav,
@@ -98,9 +100,8 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
     setShowAsset(!showAsset);
   };
 
-  const handleLinkClick = (coinId: string) => {
+  const handleLinkClick = () => {
     setShowAsset(false);
-    handleSelectCoin(coinId);
     setSearchQuery("");
     setTimeout(() => {
       window.location.reload();
@@ -166,7 +167,7 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
 
           <div className="generalDevice:hidden">
             <p className="text-5xl opacity-35 font-author font-bold text-dark2">
-              {activeLinkText}
+              {activeLinkText || "Coin"}
             </p>
           </div>
 
@@ -185,7 +186,7 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
               />
             </div>
 
-            <NavLink to="/dashboard-settings">
+            <NavLink to="/dashboard/settings">
               <div className="flex items-center justify-end mr-5 gap-[10px] bg-[#f7f7f7  rounded-t-[5px] w-[150px] rounded-b-[5px] py-[3px] cursor-pointer">
                 <div className="w-10 h-10 flex justify-center items-center cursor-pointer">
                   <img
@@ -240,7 +241,7 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
               <i className="fa-solid fa-magnifying-glass"></i>
             </div>
 
-            <NavLink to="/dashboard-settings">
+            <NavLink to="/dashboard/settings">
               <div className="bg-orange3 w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer text-sm">
 
                 <div className="w-[30px] h-[30px] flex justify-center items-center cursor-pointer">
@@ -315,11 +316,10 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
                 {filteredCoins.map((coin) => (
                   <li key={coin.id}>
                     <Link
-                      to={`/coin/${coin.id}`}
+                      to={`/dashboard/buy/${coin.id}`}
                       className="flex items-center gap-[5px] mb-[20px] cursor-pointer"
                       onClick={() => {
                         setShowAsset(false);
-                        handleSelectCoin(coin.name);
                         handleLinkClick(coin.id);
                         setSearchQuery("");
                       }}

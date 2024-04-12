@@ -115,11 +115,11 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
             </div>
 
 
-<div className="flex justify-between items-center w-full">
-            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
+            <div className="flex justify-between items-center w-full">
+              <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
 
-                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow />: <BiHide /> }</div>
-</div>
+              <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow /> : <BiHide />}</div>
+            </div>
 
 
           </div>
@@ -136,11 +136,11 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
             </div>
 
 
-<div className="flex justify-between items-center w-full">
-            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
+            <div className="flex justify-between items-center w-full">
+              <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
 
-                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow />: <BiHide /> }</div>
-</div>
+              <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow /> : <BiHide />}</div>
+            </div>
 
 
           </div>
@@ -156,11 +156,11 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
             </div>
 
 
-<div className="flex justify-between items-center w-full">
-            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
+            <div className="flex justify-between items-center w-full">
+              <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
 
-                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow />: <BiHide /> }</div>
-</div>
+              <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow /> : <BiHide />}</div>
+            </div>
 
 
           </div>
@@ -176,11 +176,11 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
             </div>
 
 
-<div className="flex justify-between items-center w-full">
-            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
+            <div className="flex justify-between items-center w-full">
+              <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>******</span>}</h1>
 
-                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow />: <BiHide /> }</div>
-</div>
+              <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow /> : <BiHide />}</div>
+            </div>
 
 
           </div>
@@ -236,10 +236,10 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
                 </div>
                 <p style={{ color: textColor }} className="hidden md:flex flex-1 gap-2">{element.ath_change_percentage} %</p>
                 <div className="flex gap-2">
-                  <button onClick={() => navigate(`/dashboard-buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
+                  <button onClick={() => navigate(`/dashboard/buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
                     Buy
                   </button>
-                  <button onClick={() => navigate(`/dashboard-sell/${element.id}`)} className="bg-deleteRed h-7 w-14 rounded text-sm text-white font-medium">
+                  <button onClick={() => navigate(`/dashboard/sell/${element.id}`)} className="bg-deleteRed h-7 w-14 rounded text-sm text-white font-medium">
                     Sell
                   </button>
 

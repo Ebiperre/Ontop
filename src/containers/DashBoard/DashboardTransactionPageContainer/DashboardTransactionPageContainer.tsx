@@ -99,7 +99,7 @@ const DashboardTransactionPageContainer: React.FC = () => {
                             Stay on top of your finances. Monitor, analyze, and manage your transactions seamlessly with our intuitive platform.
                         </p>
                     </div>
-                    <button onClick={() => navigate('/dashboard-transactions/payments')} className="bg-orange2 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-orange">Manage Payment</button>
+                    <button onClick={() => navigate('/dashboard/transactions/payments')} className="bg-orange2 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-orange">Manage Payment</button>
                 </div>
 
                 <div className="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">

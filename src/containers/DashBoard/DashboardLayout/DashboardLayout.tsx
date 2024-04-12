@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import DashBoardSideNav from "../../../components/DashBoardSideNav/DashBoardSideNav";
 import DashBoardTopHeader from "../../../components/DashBoardTopHeader/DashBoardTopHeader";
@@ -18,28 +18,28 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   useEffect(() => {
     const path = location.pathname;
     switch (path) {
-      case "/dashboard-home":
+      case "/dashboard/home":
         setActiveLinkText("Home");
         break;
-      case "/dashboard-buy":
+      case "/dashboard/buy":
         setActiveLinkText("Buy Assets");
         break;
-      case "/dashboard-sell":
+      case "/dashboard/sell":
         setActiveLinkText("Sell Assets");
         break;
-      case "/dashboard-swapcoin":
-        setActiveLinkText("Swap Coin");
-        break;
-      case "/dashboard-cards":
+      case "/dashboard/cards":
         setActiveLinkText("Cards");
         break;
-      case "/dashboard-wallet":
+      case "/dashboard/wallet":
         setActiveLinkText("Wallet");
         break;
-      case "/dashboard-transactions":
+      case "/dashboard/transactions":
         setActiveLinkText("Transactions");
         break;
-      case "/dashboard-settings":
+      case "/dashboard/transactions/payments":
+        setActiveLinkText("Payments");
+        break;
+      case "/dashboard/settings":
         setActiveLinkText("Settings");
         break;
       default:
@@ -61,7 +61,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           setActiveLinkText={setActiveLinkText}
           setShowNav={setShowNav}
         />
-        <div className="largeDevice:ml-[274px] pt-12 border-l border-l-[#d8d8d8]">
+        <div className="largeDevice:ml-[274px] pt-12">
           {children}
         </div>
       </div>
