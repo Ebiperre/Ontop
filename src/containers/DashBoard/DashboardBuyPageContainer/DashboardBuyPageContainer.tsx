@@ -66,7 +66,7 @@ export default function BuyContainer() {
     };
 
     return (
-        <main className="pt-10">
+        <main className="pt-10 min-h-[100vh]">
             <section className=" flex flex-col gap-6 items-center justify-center px-4">
 
 
