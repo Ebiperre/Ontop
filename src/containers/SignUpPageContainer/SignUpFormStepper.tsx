@@ -42,7 +42,7 @@ const SignUpFormStepper: React.FC = () => {
         event.preventDefault();
         if (validate()) {
             if (activeStep === 2) {
-                setActiveStep(3); // Move to Congratulations step
+                setActiveStep(3);
             } else {
                 setActiveStep(activeStep + 1);
             }
@@ -50,31 +50,35 @@ const SignUpFormStepper: React.FC = () => {
     };
 
     const handlePinChange = (index: number, value: string) => {
-        const newPin = [...pin];
-        newPin[index] = value;
-        setPin(newPin);
-        if (value) {
-            if (index < 3) {
-                pinInputs[index + 1].current?.focus();
-            }
-        } else {
-            if (index > 0) {
-                pinInputs[index - 1].current?.focus();
+        if (value.length <= 1 && /^\d*$/.test(value)) {
+            const newPin = [...pin];
+            newPin[index] = value;
+            setPin(newPin);
+            if (value) {
+                if (index < 3) {
+                    pinInputs[index + 1].current?.focus();
+                }
+            } else {
+                if (index > 0) {
+                    pinInputs[index - 1].current?.focus();
+                }
             }
         }
     };
 
     const handleConfirmPinChange = (index: number, value: string) => {
-        const newConfirmPin = [...confirmPin];
-        newConfirmPin[index] = value;
-        setConfirmPin(newConfirmPin);
-        if (value) {
-            if (index < 3) {
-                pinInputs[index + 1].current?.focus();
-            }
-        } else {
-            if (index > 0) {
-                pinInputs[index - 1].current?.focus();
+        if (value.length <= 1 && /^\d*$/.test(value)) {
+            const newConfirmPin = [...confirmPin];
+            newConfirmPin[index] = value;
+            setConfirmPin(newConfirmPin);
+            if (value) {
+                if (index < 3) {
+                    pinInputs[index + 1].current?.focus();
+                }
+            } else {
+                if (index > 0) {
+                    pinInputs[index - 1].current?.focus();
+                }
             }
         }
     };
@@ -115,7 +119,7 @@ const SignUpFormStepper: React.FC = () => {
                                 <p className="text-sm md:text-base mb-5 text-grey2">Please provide your username for the account.Let’s get to know you! We’ll need you to choose a really cool name that other users can find you with</p>
                                 <input
                                     type="text"
-                                    className={`w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none ${errors.includes('Username is required') ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:border-primary`}
+                                    className={`w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm input-focus ${errors.includes('Username is required') ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:border-primary`}
                                     placeholder="Username"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
@@ -134,15 +138,15 @@ const SignUpFormStepper: React.FC = () => {
                                         <input
                                             key={index}
                                             ref={pinInputs[index]}
-                                            type="text"
+                                            type="number"
                                             maxLength={1}
-                                            className="w-12 h-12 text-3xl border border-gray-300 rounded-lg text-center mr-2 focus:outline-none"
+                                            className="w-12 h-12 text-3xl border border-gray-300 rounded-lg text-center mr-2 input-focus"
                                             value={digit}
                                             onChange={(e) => handlePinChange(index, e.target.value)}
                                         />
                                     ))}
                                 </div>
-                                <span className="text-xs text-deleteRed mt-1">
+                                <span className="text-xs text-center text-deleteRed mt-1">
                                     {errors.includes('Transaction PIN must be a 4-digit number') ? 'Transaction PIN must be a 4-digit number' : ''}
                                 </span>
                             </div>
@@ -156,15 +160,15 @@ const SignUpFormStepper: React.FC = () => {
                                         <input
                                             key={index}
                                             ref={pinInputs[index]}
-                                            type="text"
+                                            type="number"
                                             maxLength={1}
-                                            className="w-12 h-12 text-3xl border border-gray-300 rounded-lg text-center mr-2 focus:outline-none"
+                                            className="w-12 h-12 text-3xl border border-gray-300 rounded-lg text-center mr-2 input-focus"
                                             value={digit}
                                             onChange={(e) => handleConfirmPinChange(index, e.target.value)}
                                         />
                                     ))}
                                 </div>
-                                <span className="text-xs text-deleteRed mt-1">
+                                <span className="text-xs text-center text-deleteRed mt-1">
                                     {errors.includes('Confirm Transaction PIN is required') ? 'Confirm Transaction PIN is required' : errors.includes('Transaction PIN and Confirm PIN must match') ? 'Transaction PIN and Confirm PIN must match' : ''}
                                 </span>
                             </div>

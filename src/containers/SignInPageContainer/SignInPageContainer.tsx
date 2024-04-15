@@ -70,7 +70,7 @@ const SignInPageContainer = () => {
                             <div>
                                 <input
                                     required
-                                    className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
+                                    className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm input-focus"
                                     type="email"
                                     placeholder="Enter your email"
                                     name="email"
@@ -82,7 +82,7 @@ const SignInPageContainer = () => {
                             <div>
                                 <input
                                     required
-                                    className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
+                                    className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm input-focus"
                                     type="password"
                                     placeholder="Password"
                                     name="password"

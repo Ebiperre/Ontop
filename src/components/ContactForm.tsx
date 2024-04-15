@@ -22,12 +22,12 @@ const ContactForm = () => {
             <div className="mx-auto w-full sm:max-w-md md:max-w-lg flex flex-col gap-5">
               <div className="flex flex-col sm:flex-row gap-3">
                 <input
-                  className="w-full px-5 py-3 rounded-lg font-medium border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none "
+                  className="w-full px-5 py-3 rounded-lg font-medium border border-gray-300 placeholder-gray-500 text-sm input-focus "
                   type="text"
                   placeholder="Enter your name"
                 />
                 <input
-                  className="w-full px-5 py-3 rounded-lg font-medium border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none "
+                  className="w-full px-5 py-3 rounded-lg font-medium border border-gray-300 placeholder-gray-500 text-sm input-focus "
                   type="message"
                   placeholder="Enter your email"
                 />
@@ -36,13 +36,13 @@ const ContactForm = () => {
                 <textarea
                   name="message"
                   id="message"
-                  className="w-full px-5 py-3 rounded-lg font-medium border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none"
+                  className="w-full px-5 py-3 rounded-lg font-medium border border-gray-300 placeholder-gray-500 text-sm input-focus"
                   placeholder="Write your message here..."
                   cols={30}
                   rows={10}
                 ></textarea>
                 <button
-                  onClick={() => {}}
+                  onClick={() => { }}
                   className="md:mt-5 tracking-wide font-semibold bg-orange text-white md:w-fit py-4 md:px-6 rounded-lg hover:bg-orange3 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                 >
                   <span>Sent Message</span>

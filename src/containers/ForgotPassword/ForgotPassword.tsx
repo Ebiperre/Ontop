@@ -43,7 +43,7 @@ const ForgotPassword = () => {
                                 placeholder="Your email address"
                                 value={email}
                                 onChange={handleInputChange}
-                                className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm focus:border focus:outline-none" />
+                                className="w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm input-focus" />
                             {error && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{error}</span>}
                         </div>
                         <div className="mb-6">
