@@ -1,7 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { FiCheckCircle } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import success from '../../../src/assets/gifs/success.gif';
+import UsernameInput from './UsernameInput';
+import PinInput from './PinInput';
+import ConfirmPinInput from './ConfirmPinInput';
+import SuccessMessage from './SuccessMessage';
 
 const steps = ['Enter Username', 'Enter Transaction PIN', 'Confirm Transaction PIN', 'Congratulations!'];
 
@@ -114,64 +117,27 @@ const SignUpFormStepper: React.FC = () => {
                 <form className='w-full' onSubmit={handleSubmit}>
                     <div>
                         {activeStep === 0 && (
-                            <div className='font-author text-left flex flex-col gap-1 md:gap-3'>
-                                <h3 className="text-2xl md:text-3xl font-medium">Hey there 👋 <br /> Welcome To OnTop</h3>
-                                <p className="text-sm md:text-base mb-5 text-grey2">Please provide your username for the account.Let’s get to know you! We’ll need you to choose a really cool name that other users can find you with</p>
-                                <input
-                                    type="text"
-                                    className={`w-full px-5 py-3 rounded-lg font-medium bg-gray-100 border border-gray-300 placeholder-gray-500 text-sm input-focus ${errors.includes('Username is required') ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:border-primary`}
-                                    placeholder="Username"
-                                    value={username}
-                                    onChange={(e) => setUsername(e.target.value)}
-                                />
-                                {errors.includes('Username is required') && (
-                                    <span className="text-deleteRed text-xs text-right md:text-left block">Username is required</span>
-                                )}
-                            </div>
+                            <UsernameInput
+                                username={username}
+                                setUsername={setUsername}
+                                errors={errors}
+                            />
                         )}
                         {activeStep === 1 && (
-                            <div className='font-author text-left flex flex-col gap-1 md:gap-3'>
-                                <h3 className="text-2xl md:text-3xl font-medium">Enter Transaction PIN</h3>
-                                <p className="text-sm md:text-base mb-5 text-grey2">Please set a 4-digit transaction PIN for your account. Your pin would be used to authenticate your request for transactions and authentications.</p>
-                                <div className="flex mx-auto">
-                                    {pin.map((digit, index) => (
-                                        <input
-                                            key={index}
-                                            ref={pinInputs[index]}
-                                            type="number"
-                                            maxLength={1}
-                                            className="w-12 h-12 text-3xl border border-gray-300 rounded-lg text-center mr-2 input-focus"
-                                            value={digit}
-                                            onChange={(e) => handlePinChange(index, e.target.value)}
-                                        />
-                                    ))}
-                                </div>
-                                <span className="text-xs text-center text-deleteRed mt-1">
-                                    {errors.includes('Transaction PIN must be a 4-digit number') ? 'Transaction PIN must be a 4-digit number' : ''}
-                                </span>
-                            </div>
+                            <PinInput
+                                pin={pin}
+                                handlePinChange={handlePinChange}
+                                pinInputs={pinInputs}
+                                errors={errors}
+                            />
                         )}
                         {activeStep === 2 && (
-                            <div className='font-author text-left flex flex-col gap-1 md:gap-3'>
-                                <h3 className="text-2xl md:text-3xl font-medium">Confirm Transaction PIN</h3>
-                                <p className="text-sm md:text-base mb-5 text-grey2">Please confirm your transaction PIN.</p>
-                                <div className="flex mx-auto">
-                                    {confirmPin.map((digit, index) => (
-                                        <input
-                                            key={index}
-                                            ref={pinInputs[index]}
-                                            type="number"
-                                            maxLength={1}
-                                            className="w-12 h-12 text-3xl border border-gray-300 rounded-lg text-center mr-2 input-focus"
-                                            value={digit}
-                                            onChange={(e) => handleConfirmPinChange(index, e.target.value)}
-                                        />
-                                    ))}
-                                </div>
-                                <span className="text-xs text-center text-deleteRed mt-1">
-                                    {errors.includes('Confirm Transaction PIN is required') ? 'Confirm Transaction PIN is required' : errors.includes('Transaction PIN and Confirm PIN must match') ? 'Transaction PIN and Confirm PIN must match' : ''}
-                                </span>
-                            </div>
+                            <ConfirmPinInput
+                                confirmPin={confirmPin}
+                                handleConfirmPinChange={handleConfirmPinChange}
+                                pinInputs={pinInputs}
+                                errors={errors}
+                            />
                         )}
                         <div className="mt-8 flex items-center justify-between">
                             <button
@@ -192,18 +158,7 @@ const SignUpFormStepper: React.FC = () => {
                 </form>
             )}
             {activeStep === 3 && (
-                <div className='font-author text-center flex flex-col items-center justify-center gap-1 md:gap-3'>
-                    <div>
-                        <img src={success} alt="Successful Registration" />
-                    </div>
-                    <div>
-                        <h3 className="text-2xl md:text-3xl font-medium">Account Setup Successful! 🎉</h3>
-                        <p className="text-sm md:text-base mb-5 text-grey2">Your account setup is successful.Welcome to OnTop! We're excited to have you join our community. You can now go to your <strong onClick={moveToDashboard}>Dashboard</strong> and carry out activities</p>
-                    </div>
-                    <button onClick={moveToDashboard} className="bg-orange2 text-white py-2.5 px-8 rounded">
-                        Go to Dashboard
-                    </button>
-                </div>
+                <SuccessMessage moveToDashboard={moveToDashboard} />
             )}
         </div>
     );

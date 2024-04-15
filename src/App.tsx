@@ -8,7 +8,7 @@ import SignUpPage from './pages/SignUpPage';
 import ForgotPassword from './containers/ForgotPassword/ForgotPassword';
 import ServicePage from './pages/ServicePage';
 import AboutPage from './pages/AboutPage';
-import SignUpFormStepper from "./containers/SignUpPageContainer/SignUpFormStepper";
+import SignUpFormStepper from "./containers/SignUpFormStepperContainer/SignUpFormStepper";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
 import WalletPage from "./pages/DashboardPages/WalletPage";
