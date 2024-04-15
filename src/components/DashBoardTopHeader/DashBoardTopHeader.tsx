@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../src/assets/icons/logo_without_text.png'
 import axios from "axios";
-import "./DashBoardTopHeader.css";
 
 interface Transaction {
   _id: string;
@@ -317,7 +316,7 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
                   <li key={coin.id}>
                     <Link
                       to={`/dashboard/buy/${coin.id}`}
-                      className="flex items-center gap-1.5 mb-5 cursor-pointer"
+                      className="flex items-center gap-1.5 mb-5 cursor-pointer border-b lg:pb-2"
                       onClick={() => {
                         setShowAsset(false);
                         handleLinkClick(coin.id);
@@ -367,14 +366,14 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
             </div>
           </div>
           {transactionHistory.length === 0 ? (
-            <div className="flex justify-center items-center py-20 mx-5 -mt-5 border-[1px] border-#d8d8d8] border-t-0 rounded-b-[15px]">
+            <div className="flex justify-center items-center py-20 mx-5 -mt-5 border-[1px] border-#d8d8d8] border-t-0 rounded-b-[15px] bg-white">
               <p className="text-dark2 font-[600]">
                 No Notification Yet
               </p>
             </div>
           ) : (
             <div>
-              <div className="h-[470px] aboveBonusDevice:h-[350px] mb-[20px]">
+              <div className="h-[470px] aboveBonusDevice:h-[350px] mb-[20px] bg-white">
                 <ul className="h-full overflow-y-auto side-bar-container">
                   {renderTransactions()}
                 </ul>
