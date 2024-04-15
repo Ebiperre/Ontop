@@ -289,7 +289,7 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
         <div
           ref={assetRef}
           className={`${showAsset ? "block" : "hidden"
-            } fixed top-[70px] w-[100%] largeDevice:w-[274px] h-[100%] largeDevice:h-auto aboveBonusDevice:right-[25%] aboveBonusDevice:top-[115px]`}
+            } fixed top-[70px] w-[100%] largeDevice:w-[350px] h-[100%] largeDevice:h-auto lg:right-[16%] aboveBonusDevice:top-[115px]`}
         >
           <div className="flex items-center gap-[10px] w-[95%] mx-auto h-[50px] mt-[15px] largeDevice:hidden
            border-[1px] border-[#d8d8d8]  rounded-t-[15px] largeDevice:right-[265px] bg-white m-5">
@@ -309,7 +309,7 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
             ></i>
           </div>
 
-          <div className="m-5 border border-t-0 -mt-5 p-5 rounded-b-[15px]  md:bg-white md:rounded-2xl md:border-t">
+          <div className="w-[95%] mx-auto border border-t-0 -mt-5 p-5 rounded-b-[15px] bg-white lg:rounded-2xl md:border-t">
             <p className="mb-5">Assets</p>
             {filteredCoins.length > 0 ? (
               <ul>
@@ -317,7 +317,7 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
                   <li key={coin.id}>
                     <Link
                       to={`/dashboard/buy/${coin.id}`}
-                      className="flex items-center gap-[5px] mb-[20px] cursor-pointer"
+                      className="flex items-center gap-1.5 mb-5 cursor-pointer"
                       onClick={() => {
                         setShowAsset(false);
                         handleLinkClick(coin.id);
