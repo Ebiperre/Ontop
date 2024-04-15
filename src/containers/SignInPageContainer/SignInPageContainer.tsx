@@ -92,8 +92,8 @@ const SignInPageContainer = () => {
                                 {errors.password && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.password}</span>}
                             </div>
                             <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-1 sm:gap-4 justify-start pl-2">
-                                    <input type="checkbox" className="accent-orange4 text-white" onChange={handleRememberMeChange} />
+                                <div className="flex items-center gap-2 justify-start pl-2">
+                                    <input type="checkbox" className="accent-orange4 text-orange rounded border bg-gray-100 border-gray-300 focus:ring-orange dark:focus:ring-orange2 ring-orange2" onChange={handleRememberMeChange} />
                                     <h3 className="flex items-center whitespace-nowrap text-xs">Remember me</h3>
                                 </div>
                                 <div className="text-right">

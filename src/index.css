@@ -6,7 +6,7 @@ body {
     font-family: 'Author', sans-serif;
 }
 
-.logo{
+.logo {
     object-fit: contain;
     height: 50px;
 }
@@ -17,12 +17,6 @@ body {
     box-sizing: border-box;
     max-width: 100% !important;
 }
-
-input{
-    box-shadow: none !important;
-    outline: none !important;
-    border: none !important;
-  }
 
 :root {
     --dark: #181A20;

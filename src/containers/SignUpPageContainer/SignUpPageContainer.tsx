@@ -157,8 +157,8 @@ const SignUpPageContainer = () => {
                                 {errors.password && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.password}</span>}
                             </div>
                             <div>
-                                <div className="flex items-center gap-1 sm:gap-4 justify-start pl-2">
-                                    <input required type="checkbox" className="accent-orange4 text-white bg-orange" name="agreed" onChange={handleInputChange} />
+                                <div className="flex items-center gap-2 justify-start pl-2">
+                                    <input required type="checkbox" className="accent-orange4 text-orange rounded border bg-gray-100 border-gray-300 focus:ring-orange dark:focus:ring-orange2 ring-orange2" name="agreed" onChange={handleInputChange} />
                                     <h3 className="flex items-center whitespace-nowrap text-xs">I agree to the <a href="/terms&conditions"><span className="text-orange">&nbsp;Terms</span>&nbsp;and<span className="text-orange">&nbsp;Privacy Policy</span></a>.</h3>
                                 </div>
                                 {errors.agreed && <span className="text-deleteRed text-xs text-right md:text-left block mt-1">{errors.agreed}</span>}
