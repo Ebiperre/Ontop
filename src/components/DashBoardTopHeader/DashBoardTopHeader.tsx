@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from '../../../src/assets/icons/logo_without_text.png'
 import axios from "axios";
 
@@ -41,6 +41,9 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
   const [unreadCount, setUnreadCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+
+  // Router
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -185,28 +188,28 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
               />
             </div>
 
-            <NavLink to="/dashboard/settings">
-              <div className="flex items-center justify-end mr-5 gap-[10px] bg-[#f7f7f7  rounded-t-[5px] w-[150px] rounded-b-[5px] py-[3px] cursor-pointer">
-                <div className="w-10 h-10 flex justify-center items-center cursor-pointer">
-                  <img
-                    src="https://ise-admin-dashboard-frontend.vercel.app/static/media/amirahTemi.bbf53a86315b6bcff637525e5cf7a4fc.svg"
-                    alt="user"
-                    className="block w-[100%] h-full rounded-full object-cover"
-                  />
-                </div>
-                <p
-                  className="capitalize font-author"
-                  style={{
-                    whiteSpace: "nowrap",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    maxWidth: "100px",
-                  }}
-                >
-                  Kizitech
-                </p>
+            <div
+              onClick={() => navigate("/dashboard/settings")}
+              className="flex items-center justify-end mr-5 gap-[10px] bg-[#f7f7f7  rounded-t-[5px] w-[150px] rounded-b-[5px] py-[3px] cursor-pointer">
+              <div className="w-10 h-10 flex justify-center items-center cursor-pointer">
+                <img
+                  src="https://ise-admin-dashboard-frontend.vercel.app/static/media/amirahTemi.bbf53a86315b6bcff637525e5cf7a4fc.svg"
+                  alt="user"
+                  className="block w-[100%] h-full rounded-full object-cover"
+                />
               </div>
-            </NavLink>
+              <p
+                className="capitalize font-author"
+                style={{
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  maxWidth: "100px",
+                }}
+              >
+                Kizitech
+              </p>
+            </div>
 
             <div
               className="cursor-pointer mt-[8px] relative"
@@ -240,18 +243,17 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
               <i className="fa-solid fa-magnifying-glass"></i>
             </div>
 
-            <NavLink to="/dashboard/settings">
-              <div className="bg-orange3 w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer text-sm">
-
-                <div className="w-[30px] h-[30px] flex justify-center items-center cursor-pointer">
-                  <img
-                    src="https://ise-admin-dashboard-frontend.vercel.app/static/media/amirahTemi.bbf53a86315b6bcff637525e5cf7a4fc.svg"
-                    alt="user"
-                    className="block w-[100%] h-[30px] rounded-full object-cover"
-                  />
-                </div>
+            <div
+              onClick={() => navigate("/dashboard/settings")}
+              className="bg-orange3 w-[28px] h-[28px] rounded-full flex justify-center items-center cursor-pointer text-sm">
+              <div className="w-[30px] h-[30px] flex justify-center items-center cursor-pointer">
+                <img
+                  src="https://ise-admin-dashboard-frontend.vercel.app/static/media/amirahTemi.bbf53a86315b6bcff637525e5cf7a4fc.svg"
+                  alt="user"
+                  className="block w-[100%] h-[30px] rounded-full object-cover"
+                />
               </div>
-            </NavLink>
+            </div>
 
             <div
               className="cursor-pointer relative"
