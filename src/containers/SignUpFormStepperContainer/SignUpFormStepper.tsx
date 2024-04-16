@@ -1,17 +1,15 @@
 import React, { useState, useRef } from 'react';
 import { FiCheckCircle } from 'react-icons/fi';
-import { useNavigate } from 'react-router-dom';
 import UsernameInput from './UsernameInput';
 import PinInput from './PinInput';
 import ConfirmPinInput from './ConfirmPinInput';
+import BillingInformationInput from './BillingInformationInput';
 import SuccessMessage from './SuccessMessage';
 
-const steps = ['Enter Username', 'Enter Transaction PIN', 'Confirm Transaction PIN', 'Congratulations!'];
+const steps = ['Enter Username', 'Enter Transaction PIN', 'Confirm Transaction PIN', 'Billing Information', 'Congratulations!'];
 
 const SignUpFormStepper: React.FC = () => {
-    const navigate = useNavigate();
-
-    const [activeStep, setActiveStep] = useState<number>(0);
+    const [activeStep, setActiveStep] = useState<number>(1);
     const [username, setUsername] = useState<string>('');
     const [pin, setPin] = useState<string[]>(['', '', '', '']);
     const [confirmPin, setConfirmPin] = useState<string[]>(['', '', '', '']);
@@ -20,17 +18,17 @@ const SignUpFormStepper: React.FC = () => {
 
     const validate = () => {
         const errors: string[] = [];
-        if (activeStep === 0 && !username.trim()) {
+        if (activeStep === 1 && !username.trim()) {
             errors.push('Username is required');
         }
-        if (activeStep === 1) {
+        if (activeStep === 2) {
             if (!pin.every((digit) => digit.trim())) {
                 errors.push('Transaction PIN is required');
             } else if (pin.some((digit) => digit.length !== 1 || !/^\d+$/.test(digit))) {
                 errors.push('Transaction PIN must be a 4-digit number');
             }
         }
-        if (activeStep === 2) {
+        if (activeStep === 3) {
             if (!confirmPin.every((digit) => digit.trim())) {
                 errors.push('Confirm Transaction PIN is required');
             } else if (confirmPin.join('') !== pin.join('')) {
@@ -44,12 +42,16 @@ const SignUpFormStepper: React.FC = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (validate()) {
-            if (activeStep === 2) {
-                setActiveStep(3);
+            if (activeStep === 4) {
+                setActiveStep(5);
             } else {
                 setActiveStep(activeStep + 1);
             }
         }
+    };
+
+    const handleBack = () => {
+        setActiveStep(prevStep => Math.max(prevStep - 1, 1));
     };
 
     const handlePinChange = (index: number, value: string) => {
@@ -57,14 +59,10 @@ const SignUpFormStepper: React.FC = () => {
             const newPin = [...pin];
             newPin[index] = value;
             setPin(newPin);
-            if (value) {
-                if (index < 3) {
-                    pinInputs[index + 1].current?.focus();
-                }
-            } else {
-                if (index > 0) {
-                    pinInputs[index - 1].current?.focus();
-                }
+            if (value && index < 3) {
+                pinInputs[index + 1].current?.focus();
+            } else if (!value && index > 0) {
+                pinInputs[index - 1].current?.focus();
             }
         }
     };
@@ -74,27 +72,19 @@ const SignUpFormStepper: React.FC = () => {
             const newConfirmPin = [...confirmPin];
             newConfirmPin[index] = value;
             setConfirmPin(newConfirmPin);
-            if (value) {
-                if (index < 3) {
-                    pinInputs[index + 1].current?.focus();
-                }
-            } else {
-                if (index > 0) {
-                    pinInputs[index - 1].current?.focus();
-                }
+            if (value && index < 3) {
+                pinInputs[index + 1].current?.focus();
+            } else if (!value && index > 0) {
+                pinInputs[index - 1].current?.focus();
             }
         }
     };
 
-    const moveToDashboard = () => {
-        navigate('/dashboard/home');
-    };
-
     return (
         <div className="h-screen max-w-lg mx-auto p-4 flex flex-col gap-20 justify-center items-center">
-            {activeStep !== 3 && (
+            {activeStep !== 5 && (
                 <div className="flex">
-                    {steps.slice(0, 3).map((label, index) => (
+                    {steps.slice(0, 4).map((label, index) => (
                         <div key={label} className="flex items-center mb-4">
                             {index > 0 && (
                                 <div className={`h-0.5 flex-grow bg-gray-300 mr-2 ${activeStep > index ? 'bg-primary' : ''}`}></div>
@@ -106,44 +96,48 @@ const SignUpFormStepper: React.FC = () => {
                                     {index + 1}
                                 </div>
                             )}
-                            {index < 2 && (
+                            {index < 3 && (
                                 <div className={`mx-2 border-b w-20 ${activeStep > index ? 'border-primary' : 'border-gray-300'}`}></div>
                             )}
                         </div>
                     ))}
                 </div>
             )}
-            {activeStep !== 3 && (
-                <form className='w-full' onSubmit={handleSubmit}>
-                    <div>
-                        {activeStep === 0 && (
-                            <UsernameInput
-                                username={username}
-                                setUsername={setUsername}
-                                errors={errors}
-                            />
-                        )}
-                        {activeStep === 1 && (
-                            <PinInput
-                                pin={pin}
-                                handlePinChange={handlePinChange}
-                                pinInputs={pinInputs}
-                                errors={errors}
-                            />
-                        )}
-                        {activeStep === 2 && (
-                            <ConfirmPinInput
-                                confirmPin={confirmPin}
-                                handleConfirmPinChange={handleConfirmPinChange}
-                                pinInputs={pinInputs}
-                                errors={errors}
-                            />
-                        )}
+
+            <form className='w-full' onSubmit={handleSubmit}>
+                <div>
+                    {activeStep === 1 && (
+                        <UsernameInput
+                            username={username}
+                            setUsername={setUsername}
+                            errors={errors}
+                        />
+                    )}
+                    {activeStep === 2 && (
+                        <PinInput
+                            pin={pin}
+                            handlePinChange={handlePinChange}
+                            pinInputs={pinInputs}
+                            errors={errors}
+                        />
+                    )}
+                    {activeStep === 3 && (
+                        <ConfirmPinInput
+                            confirmPin={confirmPin}
+                            handleConfirmPinChange={handleConfirmPinChange}
+                            pinInputs={pinInputs}
+                            errors={errors}
+                        />
+                    )}
+                    {activeStep === 4 && (
+                        <BillingInformationInput />
+                    )}
+                    {activeStep !== 5 && (
                         <div className="mt-8 flex items-center justify-between">
                             <button
-                                disabled={activeStep === 0}
-                                onClick={() => setActiveStep(activeStep - 1)}
-                                className="px-4 py-2 mr-4 disabled:bg-inherit disabled:text-gray-300 disabled:cursor-not-allowed"
+                                disabled={activeStep === 1}
+                                onClick={handleBack}
+                                className="px-4 py-2 mr-4 disabled:bg-inherit disabled:text-gray-300 disabled:cursor-not-allowed hover:bg-slate-300 rounded font-medium"
                             >
                                 Back
                             </button>
@@ -151,14 +145,14 @@ const SignUpFormStepper: React.FC = () => {
                                 type="submit"
                                 className="px-8 py-2 rounded-md bg-orange2 text-white"
                             >
-                                Next
+                                {activeStep === 4 ? 'Next' : 'Submit'}
                             </button>
                         </div>
-                    </div>
-                </form>
-            )}
-            {activeStep === 3 && (
-                <SuccessMessage moveToDashboard={moveToDashboard} />
+                    )}
+                </div>
+            </form>
+            {activeStep === 5 && (
+                <SuccessMessage />
             )}
         </div>
     );
