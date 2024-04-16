@@ -92,7 +92,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
   }
 
   return (
-    <section className="pt-[3rem] px-4 pb-4 flex flex-col gap-4">
+    <section className="pt-[3rem] px-4 pb-4 flex flex-col gap-4 dashboard_home">
       <div className="flex items-start font-semibold">
         <h3 className="text-grey text-4xl">
           Dashboard
