@@ -35,7 +35,7 @@ const BillingInformation: React.FC<BillingInformationProps> = ({
             <h3 className="text-2xl md:text-3xl font-medium">Billing Information</h3>
             <p className="text-sm md:text-base mb-5 text-grey2">Please provide your billing information below. This information will be used for billing and shipping purposes.</p>
 
-            <div className="space-y-4 h-[120px] overflow-auto scrollbar pr-3">
+            <div className="space-y-4 md:h-[120px] overflow-auto scrollbar pr-3">
                 <div className="flex items-center relative">
                     <input required id="streetAddress" type="text" value={streetAddress} onChange={(e) => setStreetAddress(e.target.value)} className="py-3 pl-10 vrf2y block w-full d1k81 nq4w8 dtjcu ggbym input-focus kko9e tk4f7" placeholder="Street address" />
                     <IoHome className="absolute left-3 top-3 text-lg text-gray-500" />

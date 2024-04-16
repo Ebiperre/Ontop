@@ -108,27 +108,29 @@ const SignUpFormStepper: React.FC = () => {
 
     return (
         <div className="h-screen max-w-lg mx-auto p-4 flex flex-col gap-20 justify-center items-center">
-            {activeStep !== 5 && (
-                <div className="flex">
-                    {steps.slice(0, 4).map((label, index) => (
-                        <div key={label} className="flex items-center mb-4">
-                            {index > 0 && (
-                                <div className={`h-0.5 flex-grow bg-gray-300 mr-2 ${activeStep > index ? 'bg-primary' : ''}`}></div>
-                            )}
-                            {activeStep > index ? (
-                                <FiCheckCircle className="text-orange2 mr-2 h-12 w-12" />
-                            ) : (
-                                <div className="h-12 w-12 rounded-full border border-gray-300 mr-2 flex items-center justify-center">
-                                    {index + 1}
-                                </div>
-                            )}
-                            {index < 3 && (
-                                <div className={`mx-2 border-b w-20 ${activeStep > index ? 'border-primary' : 'border-gray-300'}`}></div>
-                            )}
-                        </div>
-                    ))}
-                </div>
-            )}
+            <div className="hidden md:block">
+                {activeStep !== 5 && (
+                    <div className="flex">
+                        {steps.slice(0, 4).map((label, index) => (
+                            <div key={label} className="flex items-center mb-4">
+                                {index > 0 && (
+                                    <div className={`h-0.5 flex-grow bg-gray-300 mr-2 ${activeStep > index ? 'bg-primary' : ''}`}></div>
+                                )}
+                                {activeStep > index ? (
+                                    <FiCheckCircle className="text-orange2 mr-2 h-12 w-12" />
+                                ) : (
+                                    <div className="h-12 w-12 rounded-full border border-gray-300 mr-2 flex items-center justify-center">
+                                        {index + 1}
+                                    </div>
+                                )}
+                                {index < 3 && (
+                                    <div className={`mx-2 border-b w-20 ${activeStep > index ? 'border-primary' : 'border-gray-300'}`}></div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
 
             <form className='w-full' onSubmit={handleSubmit}>
                 <div>
