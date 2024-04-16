@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; // Importing useParams from react-router-dom
+import { useParams } from 'react-router-dom';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import axios from 'axios';
 
 export default function LineGraph() {
   const [graphData, setGraphData] = useState([]);
-  const { CoinCardId } = useParams(); // Destructuring CoinCardId from useParams
+  const { CoinCardId } = useParams();
+
 
   useEffect(() => {
-    fetchData(CoinCardId); // Fetch data when CoinCardId changes
+    fetchData(CoinCardId);
   }, [CoinCardId]);
 
-  const fetchData = async (coin) => {
+  const fetchData = async (coin: string | undefined) => {
     try {
       const res = await axios.get(`https://api.coingecko.com/api/v3/coins/${coin}/market_chart/?vs_currency=usd&days=7`);
       console.log('API Response:', res.data);
 
-      const formattedData = res.data.prices.map(price => {
+      const formattedData = res.data.prices.map((price: [any, any]) => {
         const [timestamp, p] = price;
         return {
           Date: new Date(timestamp),
@@ -24,7 +25,7 @@ export default function LineGraph() {
         };
       });
       console.log('Formatted Data:', formattedData);
-      setGraphData(formattedData); // Set the fetched data to state
+      setGraphData(formattedData);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -47,7 +48,20 @@ export default function LineGraph() {
           <YAxis domain={['auto', 'auto']} />
 
           <Tooltip />
-          <Area type="monotone" dataKey="Price" stroke="#ffaa0e" strokeWidth={1} fill="transparent" className="shadow-lg shadow-orange" />
+          <Area
+            type="monotone"
+            dataKey="Price"
+            stroke="#ffaa0e"
+            strokeWidth={1.5}
+            fill={`url(#orangeGradient)`}
+            className="shadow-lg shadow-orange"
+          />
+          <defs>
+            <linearGradient id="orangeGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#ffaa0e" />
+              <stop offset="100%" stopColor="#ffffff" />
+            </linearGradient>
+          </defs>
         </AreaChart>
       </ResponsiveContainer>
     </div>

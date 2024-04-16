@@ -1,26 +1,24 @@
 import classes from './HomePageContainer.module.css';
 import marqueeStyle from "./marque.module.css";
-import heroImage from "../../assets/images/hero_image.svg";
-import bitGraph from "../../assets/images/bit_graph_icon.png";
-import phoneInHand from "../../assets/images/phone_in_hand.png";
-import Bitcoin from "../../assets/images/bitcoin.png";
 import giftCards from "../../assets/images/undraw_gift_card_re_5dyy.svg";
 import heroVideo from "../../assets/videos/original-0950845b9346878fc5c5ca847b4d2eef.mp4";
-import userImage from "../../assets/images/e8589424b38a561d93ece194321ebd06.jpg";
 import creditCard from "../../assets/images/credit_card.svg";
 import userShield from "../../assets/images/user_shield.svg";
 import handingDollar from "../../assets/images/handing_dollar.svg";
-import data from '../../utilities/testimonialData';
+import testimonialData from '../../utilities/testimonialData';
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 
-
-
-
+interface Testimonial {
+    message: string;
+    name: string;
+    rating: number;
+    userImage: string;
+}
 
 const HomePageContainer = () => {
 
-    const [displayedData, setDisplayedData] = useState([]);
+    const [displayedData, setDisplayedData] = useState<Testimonial[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const starStyle = {
         color: '#ffaa0e'
@@ -28,11 +26,16 @@ const HomePageContainer = () => {
 
     useEffect(() => {
         const switchData = setInterval(() => {
-            setCurrentIndex(prevIndex => (prevIndex + 3) % data.length);
+            setCurrentIndex(prevIndex => (prevIndex + 1) % testimonialData.length);
         }, 10000);
-        setDisplayedData(data.slice(currentIndex, currentIndex + 3));
+
+        setDisplayedData(testimonialData.slice(currentIndex, currentIndex + getDisplayCount()));
+
         return () => clearInterval(switchData);
-    }, [currentIndex]);
+    }, [currentIndex, testimonialData]);
+    const getDisplayCount = () => {
+        return window.innerWidth < 768 ? 1 : 3; // Adjust breakpoint as needed
+    };
 
     const renderStars = (rating: number) => {
         const stars = [];
@@ -140,20 +143,32 @@ const HomePageContainer = () => {
 
 
                 <div className={marqueeStyle.marquee}>
-                    <section>
-                        {displayedData.map((item, index) => (
-                            <div key={index}>
-                                <img className="h-28 aspect-square object-cover object-top rounded-full" src={item.userImage} alt="" />
-                                <span>
-                                    <h1 className="font-medium text-2xl">{item.name}</h1>
-                                    <p>"{item.message}"</p>
-                                    <span className="flex flex-row">
-                                        {renderStars(item.rating)}
-                                    </span>
 
-                                </span>
-                            </div>
-                        ))}
+                    <section >
+                        <span className="flex flex-col gap-4">
+                            <h2 className="text-3xl font-semibold">Lorem, ipsum dolor.</h2>
+                            <p>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, natus?
+                            </p>
+                        </span>
+
+                        <span className=" flex ">
+                            {displayedData.map((item, index) => (
+                                <div key={index}>
+                                    <img className="h-28 aspect-square object-cover object-top rounded-full" src={item.userImage} alt="" />
+                                    <span>
+                                        <h1 className="font-medium text-2xl">{item.name}</h1>
+                                        <p>"{item.message}"</p>
+                                        <span className="flex flex-row">
+                                            {renderStars(item.rating)}
+                                        </span>
+
+                                    </span>
+                                </div>
+                            ))}
+                        </span>
+
+
                     </section>
                 </div>
 

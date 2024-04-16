@@ -16,21 +16,20 @@ interface CoinData {
   atl: number;
 }
 
+
 const CoinCardContainer: React.FC = () => {
 
-  const [cryptoData, setCryptoData] = useState<number[]>([]);
-  const [labels, setLabels] = useState<string[]>([]);
   const navigate = useNavigate();
   const [data, setData] = useState<CoinData[]>([]);
-  const [amount, setAmount] = useState()
+  const [amount, setAmount] = useState<string>('');
   const [filteredData, setFilteredData] = useState<CoinData[]>([]);
   const [currencyRate, setCurrencyRate] = useState<number>(1);
   const [selectedCurrency, setSelectedCurrency] = useState<string>('USD');
-  const [rawAmount, setRawAmount] = useState('');
-  const [formattedAmount, setFormattedAmount] = useState('');
-  const [dollarInActiveCoin, setDollarInActiveCoin] = useState('');
-  const [btnDisable, setBtnDisable] = useState(true);
-  const [ifNumber, setIfNumber] = useState<number>();
+  const [rawAmount, setRawAmount] = useState<string>('');
+  const [formattedAmount, setFormattedAmount] = useState<string>('');
+  const [dollarInActiveCoin, setDollarInActiveCoin] = useState<string>('');
+  const [btnDisable, setBtnDisable] = useState<boolean>(true);
+
 
   useEffect(() => {
     axios
@@ -63,7 +62,6 @@ const CoinCardContainer: React.FC = () => {
   const { CoinCardId } = useParams<{ CoinCardId: string }>();
 
   const activeCoin = filteredData.find((coin) => coin.id === CoinCardId);
-  const textColor = activeCoin?.ath_change_percentage > 0 ? 'green' : 'red';
 
 
   const amountInUSD = activeCoin?.current_price;
@@ -107,7 +105,7 @@ const CoinCardContainer: React.FC = () => {
 
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
     console.log(rawAmount);
     console.log(formattedAmount);
@@ -144,10 +142,8 @@ const CoinCardContainer: React.FC = () => {
         </section>
 
         <section className="h-[30%] w-[96%] flex-wrap items-start justify-center flex gap-6">
-          <div className="flex lg:flex-1 flex-col gap-4 border rounded-2xl flex-1 lg:max-w-[20vw] overflow-hidden h-full min-h-[50vh] bg-white p-4">
-            <div className="flex items-center h-8 w-full border-b border-l-grey pb-2 pl-4 text-xl font-medium text-grey">
-              Buy
-            </div>
+          <div className="flex lg:flex-1 flex-col gap-4 border rounded-2xl flex-1 lg:max-w-[20vw] overflow-hidden h-full min-h-fit bg-white p-5">
+
             <form className="flex flex-col gap-4 justify-start items-start" onSubmit={handleSubmit}>
               <div className="flex items-center justify-start gap-2">
                 <img className="h-8 object-contain" src={activeCoin?.image} alt="" />
@@ -185,7 +181,7 @@ const CoinCardContainer: React.FC = () => {
           </div>
           <div className="flex flex-col gap-6 w-full lg:flex-1 md:h-[200vh] lg:h-[80vh]  h-[80vh]">
             <div className=" hidden md:flex border rounded-2xl overflow-hidden w-full md:flex-1 lg:h-[100vh] xl:h-[60%] bg-white">
-              <div className="min-h-full py-6 w-full bg-white hidden md:flex justify-center items-center overflow-hidden">
+              <div className="min-h-full py-6 w-full overflow-scroll hidden md:flex justify-center items-center">
 
                 <LineGraph activeCoin={activeCoin} ></LineGraph>
 
@@ -203,13 +199,16 @@ const CoinCardContainer: React.FC = () => {
 
               <div className=" whitespace-nowrap text-left grid grid-cols-[1fr,_1fr_50px] md:grid-cols-[repeat(3,_1fr)_70px] items-start border-transparent md:px-4 gap-12">
                 <p>
-                  {activeCoin?.max_supply}
+                  {activeCoin?.max_supply.toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                  })}
                 </p>
                 <p className={priceChangePercentage > 0 ? "text-green" : "text-red-600"}>
                   {priceChangePercentage}%
                 </p>
 
-                <p className={`${athChangePercentColor > 0 ? "text-green" : "text-red-600"} hidden md:block bg-orange`}>
+                <p className={`${athChangePercentColor > 0 ? "text-green" : "text-red-600"} hidden md:block`}>
                   {athChangePercentColor}%
                 </p>
 

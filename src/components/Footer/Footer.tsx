@@ -1,17 +1,16 @@
 import classes from "./Footer.module.css";
-import logo from "../../assets/icons/logo_without_text.png"
 
 export default function Footer() {
     return (
         <>
             <div className=" bg-text-color text-black px-[4vw] pt-[16vh] md:pt-[30vh] md:pb-[10vh]">
                 <div>
-                    <div className="flex md:flex-row-reverse flex-wrap lg:flex-nowrap items-start justify-start md:flex-row md:items-start md:justify-end md:text-left gap-10 mb-5 md:mb-10 lg:mb-20 md:px-16">
+                    <div className="flex flex-wrap lg:flex-nowrap items-start justify-start md:flex-row md:items-start md:justify-end md:text-left gap-10 mb-5 md:mb-10 lg:mb-20 md:px-16">
                         <div className="flex flex-wrap justify-between gap-10 w-full">
 
                             <div className="flex flex-col gap-2 items-start text-left">
                                 <div className="font-semibold text-xl mb-3 whitespace-nowrap">About us</div>
-                                <div className="font-extralight  flex flex-col  gap-2 flex flex-col gap-2">
+                                <div className="font-extralight  flex flex-col gap-2">
                                     <a className="hover:underline hover:text-orange hover:cursor-pointer">About Us</a>
                                     <a className="hover:underline hover:text-orange hover:cursor-pointer">Buy/Sell</a>
                                     <a className="hover:underline hover:text-orange hover:cursor-pointer">Staking</a>
