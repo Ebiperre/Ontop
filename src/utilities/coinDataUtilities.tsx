@@ -9,5 +9,4 @@ export type CoinData = {
     max_supply: number;
     price_change_percentage_24h: number;
     atl: number;
-    // Add more properties as needed based on the actual API response
   }[]

@@ -20,15 +20,6 @@
 
 }
 
-.glassy {
-    background-color: rgba(255, 255, 255, 0.8);
-    /* Adjust the opacity as needed */
-    backdrop-filter: blur(10px);
-    /* Adjust the blur strength as needed */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Optional: Add a shadow */
-}
-
 .nav_list {
     display: none;
 }

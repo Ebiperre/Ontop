@@ -16,7 +16,6 @@
 
 .active{
   position: relative;
-  /* background-color: red; */
 }
 
 
@@ -33,4 +32,9 @@
   transform-origin: left;
   width: 100%;
   
+}
+
+
+tspan{
+  /* display: none; */
 }

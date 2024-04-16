@@ -1,0 +1,12 @@
+.stack_line tspan, .stack_line line{
+    display: none;
+}
+
+.stack_line circle{
+    display: none;
+}
+
+path{
+   display: flex;
+   flex: 1;
+}

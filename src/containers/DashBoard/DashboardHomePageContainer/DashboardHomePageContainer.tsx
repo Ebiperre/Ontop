@@ -5,6 +5,7 @@ import noResultImage from "../../../assets/images/undraw_crypto_portfolio_2jy5.s
 import { useNavigate } from "react-router-dom";
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
+import statData from "../../../utilities/statData";
 
 type CoinData = {
   id: string;
@@ -15,21 +16,19 @@ type CoinData = {
   amountInUSD: number;
 }
 
-
 const DashboardHomePageContainer: React.FC = ({ element }: any) => {
 
   const [data, setData] = useState<CoinData[]>([]);
   const [filteredData, setFilteredData] = useState<CoinData[]>([]);
-  const [currencyRate, setCurrencyRate] = useState<number>(1); // Default to 1:1 USD to Naira
-  const [selectedCurrency, setSelectedCurrency] = useState<string>('USD'); // Default currency
+  const [displayedData, setDisplayedData] = useState([]);
+  const [currencyRate, setCurrencyRate] = useState<number>(1);
+  const [selectedCurrency, setSelectedCurrency] = useState<string>('USD');
   const [searchInput, setSearchInput] = useState('');
   const [visibleItems, setVisibleItems] = useState(8);
   const textColor = element?.ath_change_percentage > 0 ? 'green' : 'red';
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [showBalance, setShowBalance] = useState(true);
-
-
 
   const handleSeeMore = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + 8);
@@ -93,7 +92,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
   }
 
   return (
-    <section className="pt-[6rem] px-4 pb-4 flex flex-col gap-4">
+    <section className="pt-[3rem] px-4 pb-4 flex flex-col gap-4">
       <div className="flex items-start font-semibold">
         <h3 className="text-grey text-4xl">
           Dashboard
@@ -102,86 +101,41 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
       </div>
 
       <div className="flex items-center justify-start text-dark2 w-full rounded-[1rem] min-h-36 gap-4 md:px-0 overflow-scroll md:overflow-scroll">
-        <div className="bg-greyWhite2 rounded-xl font-semibold md:flex-1 flex flex-col justify-between py-4 items-start h-28 border-r px-6">
-          <div className="flex font-medium w-full justify-between ">
-            <p>
-              Balance
-            </p>
-            <p>
-              %22.0
-            </p>
+
+        {statData.map((item, index) => (
+          <div key={index}>
+            <div className="bg-greyWhite2 rounded-xl font-semibold md:flex-1 min-w-60 flex flex-col justify-between py-4 items-start h-32 border-r px-6">
+              <div className="flex font-medium w-full justify-between ">
+                <p>
+                  {item.title}
+                </p>
+                <p>
+                  {item.rate}
+                </p>
+              </div>
+
+
+              <div className="flex justify-between items-center w-full">
+                <h1 className="font-sans text-2xl font-extrabold">
+                  {showBalance ? (
+                    <div className="">
+                      {item.amount.toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                      })}
+                    </div>
+                  ) : (
+                    <span>*****</span>
+                  )}
+                </h1>
+
+                <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow /> : <BiHide />}</div>
+              </div>
+
+
+            </div>
           </div>
-
-
-          <div className="flex justify-between items-center w-full">
-            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>*****</span>}</h1>
-
-            <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow /> : <BiHide />}</div>
-          </div>
-
-
-        </div>
-
-
-        <div className="bg-greyWhite2 rounded-xl font-semibold md:flex-1 flex flex-col justify-between py-4 items-start h-28 border-r px-6">
-          <div className="flex font-medium w-full justify-between ">
-            <p>
-              Balance
-            </p>
-            <p>
-              %22.0
-            </p>
-          </div>
-
-
-          <div className="flex justify-between items-center w-full">
-            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>*****</span>}</h1>
-
-            <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow /> : <BiHide />}</div>
-          </div>
-
-
-        </div>
-
-        <div className="bg-greyWhite2 rounded-xl font-semibold md:flex-1 flex flex-col justify-between py-4 items-start h-28 border-r px-6">
-          <div className="flex font-medium w-full justify-between ">
-            <p>
-              Balance
-            </p>
-            <p>
-              %22.0
-            </p>
-          </div>
-
-
-          <div className="flex justify-between items-center w-full">
-            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>*****</span>}</h1>
-
-            <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow /> : <BiHide />}</div>
-          </div>
-
-
-        </div>
-
-        <div className="bg-greyWhite2 rounded-xl font-semibold md:flex-1 flex flex-col justify-between py-4 items-start h-28 border-r px-6">
-          <div className="flex font-medium w-full justify-between ">
-            <p>
-              Balance
-            </p>
-            <p>
-              %22.0
-            </p>
-          </div>
-
-
-          <div className="flex justify-between items-center w-full">
-            <h1 className=" font-sans text-2xl font-extrabold">{showBalance ? <div className=""> $24,899.<span className=" text-slate-400">00</span> </div> : <span>*****</span>}</h1>
-
-            <div className=" cursor-pointer text-lg" onClick={() => setShowBalance(!showBalance)}>{showBalance ? <BiShow /> : <BiHide />}</div>
-          </div>
-
-
-        </div>
+        ))}
       </div>
 
       <section className="rounded-2xl bg-white md:p-8 mt-14">
@@ -215,6 +169,8 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
             <p className="hidden md:block">Change</p>
             <p>Trade</p>
           </div>
+
+
 
           {filteredData.slice(0, visibleItems).map((element) => (
             <div key={element.id} className="border-b border-transparent pt-10 md:px-4 pb-2 gap-2 grid grid-cols-[1fr,_1fr_50px] md:grid-cols-[repeat(3,_1fr)_70px] items-start text-left last:border-none">
@@ -265,8 +221,6 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
               )}
             </>
           )}
-
-
           {filteredData.length > visibleItems && (
             <button onClick={handleSeeMore} className=" mt-10 w-fit border border-grey text-grey font-medium px-4 py-2 rounded">
               See More

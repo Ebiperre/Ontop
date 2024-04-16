@@ -142,7 +142,9 @@
 
 .card {
     min-height: 50vh;
+    width: 100%;
     max-width: 18rem;
+    /* max-width: 380px; */
     background: linear-gradient(-200deg, white 2%, var(--greyWhite2));
     border-radius: 8px;
     display: flex;
@@ -231,6 +233,10 @@
     .subscribe svg{
         display: none !important;
     }
+
+    .card{
+        max-width: 100% !important;
+            }
 }
 
 
@@ -267,6 +273,10 @@
         aspect-ratio: 1;
         border-radius: 100% 0px 100% 100%;
     }
+
+    /* card wrap */
+
+    
 
 
     /* features */
