@@ -3,8 +3,8 @@ import { FiCheckCircle } from 'react-icons/fi';
 import UsernameInput from './UsernameInput';
 import PinInput from './PinInput';
 import ConfirmPinInput from './ConfirmPinInput';
-import BillingInformationInput from './BillingInformationInput';
 import SuccessMessage from './SuccessMessage';
+import BillingInformation from './BillingInformationInput';
 
 const steps = ['Enter Username', 'Enter Transaction PIN', 'Confirm Transaction PIN', 'Billing Information', 'Congratulations!'];
 
@@ -13,6 +13,11 @@ const SignUpFormStepper: React.FC = () => {
     const [username, setUsername] = useState<string>('');
     const [pin, setPin] = useState<string[]>(['', '', '', '']);
     const [confirmPin, setConfirmPin] = useState<string[]>(['', '', '', '']);
+    const [streetAddress, setStreetAddress] = useState<string>('');
+    const [aptNumber, setAptNumber] = useState<string>('');
+    const [city, setCity] = useState<string>('');
+    const [state, setState] = useState<string>('');
+    const [zipCode, setZipCode] = useState<string>('');
     const [errors, setErrors] = useState<string[]>([]);
     const pinInputs = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];
 
@@ -35,6 +40,25 @@ const SignUpFormStepper: React.FC = () => {
                 errors.push('Transaction PIN and Confirm PIN must match');
             }
         }
+        if (activeStep === 4) {
+            if (!streetAddress.trim()) {
+                errors.push('Street address is required');
+            }
+            if (!aptNumber.trim()) {
+                errors.push('Apt or suite number is required');
+            }
+            if (!city.trim()) {
+                errors.push('City is required');
+            }
+            if (!state.trim()) {
+                errors.push('State is required');
+            }
+            if (!zipCode.trim()) {
+                errors.push('ZIP code is required');
+            } else if (!/^\d{5,}$/.test(zipCode.trim())) {
+                errors.push('Invalid ZIP code format');
+            }
+        }
         setErrors(errors);
         return errors.length === 0;
     };
@@ -45,8 +69,10 @@ const SignUpFormStepper: React.FC = () => {
             if (activeStep === 4) {
                 setActiveStep(5);
             } else {
-                setActiveStep(activeStep + 1);
+                setActiveStep(prevStep => prevStep + 1);
             }
+        } else {
+            alert("Validation failed.");
         }
     };
 
@@ -130,7 +156,18 @@ const SignUpFormStepper: React.FC = () => {
                         />
                     )}
                     {activeStep === 4 && (
-                        <BillingInformationInput />
+                        <BillingInformation
+                            streetAddress={streetAddress}
+                            aptNumber={aptNumber}
+                            city={city}
+                            state={state}
+                            zipCode={zipCode}
+                            setStreetAddress={setStreetAddress}
+                            setAptNumber={setAptNumber}
+                            setCity={setCity}
+                            setState={setState}
+                            setZipCode={setZipCode}
+                        />
                     )}
                     {activeStep !== 5 && (
                         <div className="mt-8 flex items-center justify-between">
