@@ -1,106 +1,75 @@
-.marquee section{
+.marquee section {
   flex-wrap: wrap;
   width: 100%;
   overflow: hidden;
   min-height: 60vh;
   justify-content: center;
-  
+
 }
 
-  .marquee,
-  .marquee > div {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .marquee section {
-    display: flex;
-    /* gap: 3rem; */
-  }
-  
-  .marquee section div {
-    /* border: 2px var(--orange); */
-    border-radius: 20px;
-    /* border-style: dashed; */
-    height: 40vh;
-    width: 22rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 1rem 2rem;
-    text-align: center;
-    gap: 1rem;
-    transition: all 300ms ease-in-out;
-    position: relative;
-    z-index: 10;
-    /* -webkit-animation: animate-marquee var(--marquee-speed) ease-in-out alternate-reverse;
-    animation: animate-marquee var(--marquee-speed) ease-in-out infinite alternate-reverse ;
-    transition: var(--marquee-hover-transition-speed) margin-left ease-in-out;
-    will-change: transform, margin-left; */
-  }
-  
-.marquee section div::after{
+.marquee,
+.marquee>div {
+  display: flex;
+  gap: 10px;
+}
+
+.marquee section {
+  display: flex;
+}
+
+.marquee section div {
+  border-radius: 20px;
+  height: 40vh;
+  width: 22rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  text-align: center;
+  gap: 1rem;
+  transition: all 300ms ease-in-out;
+  position: relative;
+  z-index: 10;
+}
+
+.marquee section div::after {
   box-shadow: 0px 0px 10px 0px rgba(218, 159, 49, 0.253);
   position: absolute;
   content: "";
   border-radius: inherit;
-  inset: 4rem 1rem;
+  inset: 5rem 1rem;
   background-color: white;
   bottom: 0;
   z-index: -10;
 
 }
 
-.marquee section div:hover{
+.marquee section div:hover {
   border-style: solid;
 }
 
-  .marquee div span {
-    padding: 0px 1rem;
-  }
-  
-  .marquee div p {
-    flex-wrap: wrap;
-    display: flex;
-    color: var(--grey);
-  }
-  
-  .h3 {
-    font-weight: 500;
-    font-size: 3vw;
-  }
-  
-  .marquee:hover > section div {
-    -webkit-animation-play-state: paused;
-    animation-play-state: paused;
-  }
-/*   
-  @-webkit-keyframes animate-marquee {
-    0%, 100% {
-      transform: translateX(0%) translateZ(0);
-    }
-    50% {
-      transform: translateX(-100%) translateZ(0);
-    }
-  } */
-  
-  /* @keyframes animate-marquee {
-    0%, 100% {
-      transform: translateX(0%) translateZ(0);
-    }
-    50% {
-      transform: translateX(-100%) translateZ(0);
-    }
-  }
-   */
+.marquee div span {
+  padding: 0px 1rem;
+}
 
-  @media screen and (max-width: 800px) {
+.marquee div p {
+  flex-wrap: wrap;
+  display: flex;
+  color: var(--grey);
+}
 
-    .marquee{
-      display: none !important;
+.h3 {
+  font-weight: 500;
+  font-size: 3vw;
+}
 
-    }
+.marquee:hover>section div {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
 
-  
-  }
+@media screen and (max-width: 800px) {
+
+
+}

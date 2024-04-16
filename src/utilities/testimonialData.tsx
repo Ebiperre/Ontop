@@ -1,7 +1,7 @@
 import Image from "../assets/images/e8589424b38a561d93ece194321ebd06.jpg";
 
 
-const data = [
+const testimonialData = [
     {
         name: 'John',
         message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
@@ -41,4 +41,4 @@ const data = [
 
 ];
 
-export default data;
+export default testimonialData;
