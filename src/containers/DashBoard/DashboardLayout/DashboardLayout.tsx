@@ -3,14 +3,19 @@ import { useLocation } from "react-router-dom";
 import DashBoardSideNav from "../../../components/DashBoardSideNav/DashBoardSideNav";
 import DashBoardTopHeader from "../../../components/DashBoardTopHeader/DashBoardTopHeader";
 
+
 type DashboardLayoutProps = {
   children: ReactNode;
+  showSideBar: boolean | undefined;
 }
 
-const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+const DashboardLayout = ({ children, showSideBar}: DashboardLayoutProps) => {
   const [showNav, setShowNav] = useState(false);
   const [activeLinkText, setActiveLinkText] = useState("");
   const location = useLocation();
+  // const [show,] = useDisplay();
+
+
 
   const toggleNav = () => {
     setShowNav((prevShowNav) => !prevShowNav);
@@ -47,6 +52,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
     }
   }, [location.pathname]);
 
+
   return (
     <section className="bg-white lg:bg-[#f7f7f7] text-dark flex-1 h-full">
       <div>
@@ -55,13 +61,15 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           toggleNav={toggleNav}
           activeLinkText={activeLinkText}
           setActiveLinkText={setActiveLinkText}
+          showSideBar={showSideBar}
         />
         <DashBoardSideNav
           showNav={showNav}
           setActiveLinkText={setActiveLinkText}
           setShowNav={setShowNav}
+          showSideBar={showSideBar}
         />
-        <div className="largeDevice:ml-[274px] pt-12">
+        <div className={`largeDevice:ml-[274px] pt-12 ${showSideBar ? "" : "largeDevice:ml-0"}`}>
           {children}
         </div>
       </div>

@@ -15,11 +15,13 @@ type DashBoardSideNavProps = {
   showNav: boolean;
   setActiveLinkText: React.Dispatch<React.SetStateAction<string>>;
   setShowNav: React.Dispatch<React.SetStateAction<boolean>>;
+  showSideBar: boolean | undefined;
 }
 
 const DashBoardSideNav = ({
   showNav,
   setShowNav,
+  showSideBar
 }: DashBoardSideNavProps) => {
   const [navigationLinks] = useState([
     { to: "/dashboard/home", icon: <MdSpaceDashboard />, text: "Home" },
@@ -38,10 +40,11 @@ const DashBoardSideNav = ({
   const navigate = useNavigate();
   const location = useLocation();
 
+
   return (
     <aside
       className={`${showNav ? "" : "generalDevice:right-[-100%]"
-        } side-bar-container bg-white border-r border-r-[#d8d8d8] font-author text-left text-dark h-full min-h-full w-full lg:max-w-[274px] overflow-auto fixed z-50 generalDevice:top-[70px] generalDevice:right-0 transition-all duration-[500ms] ease-in-out`}
+        } ${showSideBar ? 'block' : 'hidden right-[-100%]'} side-bar-container bg-white border-r border-r-[#d8d8d8] font-author text-left text-dark h-full min-h-full w-full lg:max-w-[274px] overflow-auto fixed z-50 generalDevice:top-[70px] generalDevice:right-0 transition-all duration-[500ms] ease-in-out`}
     >
       <div
         onClick={() => { navigate('/dashboard/home') }}
