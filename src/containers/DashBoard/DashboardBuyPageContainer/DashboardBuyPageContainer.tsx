@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import noResultImage from "../../../assets/images/undraw_crypto_portfolio_2jy5.svg";
-import serverErrorImage from "../../../assets/images/server_error.svg"
+import serverErrorImage from "../../../assets/images/server_error.svg";
 import { useNavigate } from "react-router-dom";
 import StackLinkGraph from "../../../components/stackLineGraph/stackLineGraph";
 
@@ -24,13 +24,11 @@ export default function BuyContainer() {
     const [loading, setLoading] = useState(false);
     const [serverError, setServerError] = useState(true);
     const [searchQuery, setSearchQuery] = useState("");
+    const [filteredData, setFilteredData] = useState<CoinData[]>([]);
     const navigate = useNavigate();
-
 
     useEffect(() => {
         fetchData();
-
-
     }, []);
 
     const fetchData = () => {
@@ -42,20 +40,28 @@ export default function BuyContainer() {
             .then((res) => {
                 setData(res.data);
                 setLoading(false);
-                setServerError(true);
-
+                setFilteredData(res.data);
             })
             .catch((error) => {
                 console.log(error);
                 setLoading(false);
-                setServerError(false);
+                setServerError(true);
+                const storedData = localStorage.getItem('coinData');
+                if (storedData) {
+                    setData(JSON.parse(storedData));
+                    setFilteredData(JSON.parse(storedData));
+                    console.log(JSON.parse(storedData))
+                }else{
+                    setServerError(false)
+                }
             });
-
-
     };
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(e.target.value);
+        const query = e.target.value.toLowerCase();
+        setSearchQuery(query);
+        const filtered = data.filter((coin) => coin.name.toLowerCase().includes(query));
+        setFilteredData(filtered);
     };
 
     const formatNumber = (num: number): string => {
@@ -71,19 +77,13 @@ export default function BuyContainer() {
         return num.toString();
     };
 
-    const filteredData = data.filter((coin) =>
-        coin.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
     const loadMore = () => {
         setVisibleItems((prevVisibleItems) => prevVisibleItems + 10);
     };
 
-
-
     return (
         <main className="pt-10 min-h-[100vh]">
-            <section className=" flex flex-col gap-6 items-center justify-center px-4">
+            <section className="flex flex-col gap-6 items-center justify-center px-4">
 
                 <div className="bg-white border rounded-md overflow-hidden h-10 flex justify-between items-center px-4 flex-1 min-w-72">
                     <input
@@ -194,8 +194,6 @@ export default function BuyContainer() {
 
                     </div>
                 )}
-
-
 
             </section>
         </main>

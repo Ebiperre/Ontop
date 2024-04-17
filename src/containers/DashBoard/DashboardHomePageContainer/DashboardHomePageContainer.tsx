@@ -45,11 +45,20 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
       .then((res) => {
         setData(res.data);
         setFilteredData(res.data);
-        setLoading(false)
+        setLoading(false);
+        localStorage.setItem('coinData', JSON.stringify(res.data));
         console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
+        const storedData = localStorage.getItem('coinData');
+        if (storedData) {
+          setData(JSON.parse(storedData));
+          setFilteredData(JSON.parse(storedData));
+          setLoading(false);
+        }else{
+          setLoading(true)
+        }
       });
 
     axios
@@ -61,7 +70,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
         console.log(error);
         console.log(formattedAmountInSelectedCurrency)
       });
-  }, [selectedCurrency]);
+  }, [selectedCurrency, data]);
 
 
   const formattedAmountInUSD = amountInUSD?.toLocaleString(undefined, {
@@ -158,7 +167,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
         </div>
 
         <section>
-          <div className="border-b text-left grid grid-cols-[1fr,_1fr_50px] md:grid-cols-[repeat(3,_1fr)_70px] items-start border-transparent pt-10 md:px-4 pb-2 gap-12">
+          <div className="border-b text-left grid grid-cols-[1fr,_1fr_50px] md:grid-cols-[repeat(3,_1fr)_70px] items-start border-[#c9c9c9] pt-10 md:px-4 pb-2 gap-12">
             <p>Name</p>
             <p>Price :{" "}
               <select className="py-2 px-2 rounded-md" onChange={(e) => handleCurrencyChange(e.target.value)} value={selectedCurrency}>
