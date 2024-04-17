@@ -1,15 +1,23 @@
+
 import { useState } from "react";
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
+import { Link } from "react-router-dom";
+import { GoArrowLeft } from "react-icons/go";
 
-const WithdrawalContainer = () => {
+
+const WithdrawalContainer = ()  => {
   const [showBalance, setShowBalance] = useState(true);
   return (
     <>
-      <div className="">
-        <div className="">
+      <div className="px-32 py-10 h-full">
+        <Link to='/dashboard/wallet' className="flex items-center gap-1 group">
+        <GoArrowLeft className="group-hover:-translate-x-1 transition-all duration-200"/>
+          Back
+        </Link>
+        <div className=" bg-white rounded-lg px-10 py-7 mb-5 w-full max-w-3xl mx-auto">
           <div className="mb-4 overflow-hidden ">
-            <div className=" bg-dark2 text-white w-full  mb-4">
+            <div className=" bg-dark2 text-white rounded-lg w-full  mb-4">
               <div className="flex relative">
                 <div className="px-4 py-3 text-start">
                   <h4 className="text-sm pb-2">

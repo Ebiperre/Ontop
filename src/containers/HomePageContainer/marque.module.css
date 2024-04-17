@@ -1,7 +1,7 @@
 .marquee section {
   flex-wrap: wrap;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   min-height: 60vh;
   justify-content: center;
 
@@ -15,12 +15,14 @@
 
 .marquee section {
   display: flex;
+  /* overflow: visible; */
 }
 
 .marquee section div {
   border-radius: 20px;
   height: 40vh;
-  width: 22rem;
+  /* width: 22rem; */
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +40,9 @@
   position: absolute;
   content: "";
   border-radius: inherit;
-  inset: 5rem 1rem;
+  min-height: 11rem;
+  width: 90%;
+  /* inset: 5rem 1rem; */
   background-color: white;
   bottom: 0;
   z-index: -10;
@@ -57,7 +61,11 @@
   flex-wrap: wrap;
   display: flex;
   color: var(--grey);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
 }
+
 
 .h3 {
   font-weight: 500;
@@ -71,5 +79,15 @@
 
 @media screen and (max-width: 800px) {
 
+  .marquee section div{
+    max-width: 340px;
+  }
+ 
+
+  .marquee section div::after{
+    height: 14rem;
+    width: 100% !important;
+
+  }
 
 }

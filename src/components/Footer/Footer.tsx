@@ -1,4 +1,5 @@
 import classes from "./Footer.module.css";
+import { NavLink } from "react-router-dom"
 
 export default function Footer() {
     return (
@@ -11,31 +12,31 @@ export default function Footer() {
                             <div className="flex flex-col gap-2 items-start text-left">
                                 <div className="font-semibold text-xl mb-3 whitespace-nowrap">About us</div>
                                 <div className="font-extralight  flex flex-col gap-2">
-                                    <a className="hover:underline hover:text-orange hover:cursor-pointer">About Us</a>
-                                    <a className="hover:underline hover:text-orange hover:cursor-pointer">Buy/Sell</a>
-                                    <a className="hover:underline hover:text-orange hover:cursor-pointer">Staking</a>
+                                    <NavLink to="/about"  className="hover:underline hover:text-orange hover:cursor-pointer">About Us</NavLink>
+                                    <NavLink to="/service" className="hover:underline hover:text-orange hover:cursor-pointer">Buy/Sell</NavLink>
+                                    <NavLink to="/service" className="hover:underline hover:text-orange hover:cursor-pointer">Staking</NavLink>
                                 </div>
                             </div>
                             <div className=" items-start text-left">
                                 <div className="font-semibold text-xl mb-3">Privacy</div>
                                 <div className="font-extralight  flex flex-col gap-2">
-                                    <a href="/terms&conditions" className="hover:underline hover:text-orange hover:cursor-pointer">Terms & Condition</a>
-                                    <a href="/terms&conditions" className="hover:underline hover:text-orange hover:cursor-pointer">Privacy Policy</a>
+                                    <NavLink to="/terms&conditions" className="hover:underline hover:text-orange hover:cursor-pointer">Terms & Condition</NavLink>
+                                    <NavLink to="/terms&conditions" className="hover:underline hover:text-orange hover:cursor-pointer">Privacy Policy</NavLink>
                                 </div>
                             </div>
                             <div className=" items-start text-left">
-                                <div className="font-semibold text-xl mb-3">Privacy</div>
+                                <div className="font-semibold text-xl mb-3">Get Started</div>
                                 <div className="font-extralight  flex flex-col gap-2">
-                                    <a href="/terms&conditions" className="hover:underline hover:text-orange hover:cursor-pointer">Terms & Condition</a>
-                                    <a href="/terms&conditions" className="hover:underline hover:text-orange hover:cursor-pointer">Privacy Policy</a>
+                                    <NavLink to="/sign-in" className="hover:underline hover:text-orange hover:cursor-pointer">Sign-in</NavLink>
+                                    <NavLink to="/sign-up" className="hover:underline hover:text-orange hover:cursor-pointer">Register</NavLink>
                                 </div>
                             </div>
                             <div className=" items-start text-left">
                                 <div className="font-semibold text-xl mb-3">ONTOP</div>
                                 <div className="font-extralight flex flex-col gap-2">
-                                    <span className="max-w-[300px]">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium, tenetur!</span>
-                                    <a href="tel:+23470173453453">Contact:
-                                        <span className="hover:underline hover:text-orange hover:cursor-pointer ml-2">(234) 701-3458-453</span></a>
+                                    <span className="max-w-[300px]">4th Floor, Bayelsa Tech Hub, Oxbox Lake, Yenagoa, Bayelsa State, Nigeria</span>
+                                    <NavLink to="tel:+23470173453453">Contact:
+                                        <span className="hover:underline hover:text-orange hover:cursor-pointer ml-2">(234) 701-3458-453</span></NavLink>
                                 </div>
                                 <div className="mt-3">
                                     <div>

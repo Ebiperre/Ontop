@@ -24,17 +24,50 @@ const HomePageContainer = () => {
         color: '#ffaa0e'
     };
 
+
     useEffect(() => {
         const switchData = setInterval(() => {
             setCurrentIndex(prevIndex => (prevIndex + 1) % testimonialData.length);
         }, 10000);
 
-        setDisplayedData(testimonialData.slice(currentIndex, currentIndex + getDisplayCount()));
-
         return () => clearInterval(switchData);
+    }, [testimonialData]);
+
+    useEffect(() => {
+        const updateDisplayedData = () => {
+            const displayCount = getDisplayCount();
+            const newData = [];
+            let index = currentIndex;
+            for (let i = 0; i < displayCount; i++) {
+                newData.push(testimonialData[index]);
+                index = (index + 1) % testimonialData.length;
+            }
+            setDisplayedData(newData);
+        };
+
+        updateDisplayedData();
+
+        const resizeHandler = () => {
+            updateDisplayedData();
+        };
+
+        window.addEventListener('resize', resizeHandler);
+
+        return () => {
+            window.removeEventListener('resize', resizeHandler);
+        };
     }, [currentIndex, testimonialData]);
+
     const getDisplayCount = () => {
-        return window.innerWidth < 768 ? 1 : 3; // Adjust breakpoint as needed
+        return window.innerWidth < 800 ? 1 : 3;
+    };
+
+    const handlePrev = () => {
+        setCurrentIndex(prevIndex => (prevIndex - 1 + testimonialData.length) % testimonialData.length);
+    };
+
+    const handleNext = () => {
+        setCurrentIndex(prevIndex => (prevIndex + 1) % testimonialData.length);
     };
 
     const renderStars = (rating: number) => {
@@ -62,10 +95,9 @@ const HomePageContainer = () => {
                         </h2>
 
                         <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae hic autem sit mollitia sunt illo nostrum harum quas iure facilis modi deserunt, voluptas earum. Tenetur vero distinctio voluptatum officiis repellendus.
-                        </p>
+                            Looking for secure cryptocurrency trading? Our trusted exchange ensures confident buying, selling, and management of digital assets with robust security. Join now!                        </p>
 
-                        <Link to="/sign-up" className="md:mx-0 mx-auto">
+                        <Link to="/sign-up" className={classes.start_btn}>
                             <button>
                                 Get Started
                             </button>
@@ -81,35 +113,34 @@ const HomePageContainer = () => {
                 <section>
                     <div className={classes.features_head}>
                         <h2>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, placeat?
+                            Explore Exciting Features
                         </h2>
                         <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis pariatur excepturi, eligendi perspiciatis totam sapiente facilis reiciendis, sit ducimus eos porro repellendus.
-                        </p>
+                            Discover the latest advancements in cryptocurrency trading. From intuitive interfaces to real-time analytics, we've got you covered.                        </p>
                     </div>
 
                     <section className={classes.card_wrap}>
                         <div className={classes.card}>
                             <div className="bg-orange rounded p-4">
-                                <img src={creditCard} alt="Graph" />
+                                <img src={creditCard} alt="#Credit Card" />
                             </div>
                             <h3>
-                                Lorem, ipsum dolor.
+                                Convenient Online Payments
                             </h3>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, accusantium! Aspernatur, voluptatum eius quos dolorem debitis sapiente alias fuga praesentium.
+                                Enjoy seamless transactions with our user-friendly payment system. No more hassles of traditional methods; our platform guarantees effortless purchases.
                             </p>
                         </div>
 
                         <div className={classes.card}>
                             <div className="bg-orange rounded p-4">
-                                <img src={handingDollar} alt="Graph" />
+                                <img src={handingDollar} alt="#Growth" />
                             </div>
                             <h3>
-                                Lorem, ipsum dolor.
+                                Financial Growth and Crypto Market Expansion
                             </h3>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, accusantium! Aspernatur, voluptatum eius quos dolorem debitis sapiente alias fuga praesentium.
+                                Discover the evolving realm of cryptocurrency and its financial opportunities, offering potential growth and myriad possibilities in today's dynamic landscape.
                             </p>
                         </div>
 
@@ -118,10 +149,11 @@ const HomePageContainer = () => {
                                 <img src={userShield} alt="Graph" />
                             </div>
                             <h3>
-                                Lorem, ipsum dolor.
+                                User Data Security
                             </h3>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, accusantium! Aspernatur, voluptatum eius quos dolorem debitis sapiente alias fuga praesentium.
+                                <p>
+                                    We prioritize protecting your data with advanced encryption, strict access controls, and continuous monitoring, ensuring utmost security and privacy.</p>
                             </p>
                         </div>
                     </section>
@@ -133,39 +165,55 @@ const HomePageContainer = () => {
                     </div>
                     <div className="flex flex-col lg:w-[70%]">
                         <h3 className={`${classes.h3}`}>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, maiores.
+                            Explore Our Gift Card Market
                         </h3>
-                        <p className="lg:w-[70%]">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum laboriosam, blanditiis tenetur molestiae eos quo quidem magnam. Excepturi assumenda atque expedita incidunt earum, velit eveniet.
+                        <p className="lg:w-[90%] mt-4">
+                            Discover a diverse range of gift cards on our platform, offering convenience and flexibility for your gifting needs. Whether it's for retail, dining, entertainment, or more, find the perfect gift card for any occasion. With easy access and seamless transactions, gifting has never been easier. Start exploring our gift card market today and delight your loved ones with the gift of choice.
                         </p>
+                        <Link to="/service">
+                            <button className={classes.giftCard_btn}>
+                                See More
+                            </button>
+                        </Link>
+
                     </div>
                 </section>
 
 
                 <div className={marqueeStyle.marquee}>
 
-                    <section >
-                        <span className="flex flex-col gap-4">
-                            <h2 className="text-3xl font-semibold">Lorem, ipsum dolor.</h2>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, natus?
-                            </p>
-                        </span>
+                    <section className="flex-col">
+                        <h2 className="text-4xl font-semibold">User Testimonials and Feedback</h2>
+                        <p>
+                            Explore the insights and opinions shared by our valued users...
+                        </p>
 
-                        <span className=" flex ">
-                            {displayedData.map((item, index) => (
-                                <div key={index}>
-                                    <img className="h-28 aspect-square object-cover object-top rounded-full" src={item.userImage} alt="" />
+                        <span className=" flex flex-row items-center justify-center flex-1 relative">
+
+                            <button onClick={handlePrev} className="absolute md:static mt-20 bottom-[-1.5rem] left-[9rem] w-10 rounded-full border-2 border-greyWhite text-greyWhite hover:border-orange hover:text-orange  aspect-square flex items-center justify-center">
+                                <span className="material-symbols-outlined">
+                                    keyboard_arrow_left
+                                </span>
+                            </button>
+
+                            {displayedData.map((testimonial, index) => (
+                                <div key={index} className="testimonial-card">
+                                    <img className="h-28 aspect-square object-cover object-top rounded-full" src={testimonial.userImage} alt="" />
                                     <span>
-                                        <h1 className="font-medium text-2xl">{item.name}</h1>
-                                        <p>"{item.message}"</p>
+                                        <h1 className="font-medium text-2xl">{testimonial.name}</h1>
+                                        <p>"{testimonial.message}"</p>
                                         <span className="flex flex-row">
-                                            {renderStars(item.rating)}
+                                            {renderStars(testimonial.rating)}
                                         </span>
 
                                     </span>
                                 </div>
                             ))}
+                            <button onClick={handleNext} className="absolute md:static bottom-[-1.5rem] right-[9rem] mt-20 w-10 rounded-full border-2 border-greyWhite text-greyWhite hover:border-orange hover:text-orange  aspect-square flex items-center justify-center">
+                                <span className="material-symbols-outlined">
+                                    keyboard_arrow_right
+                                </span>
+                            </button>
                         </span>
 
 
@@ -185,9 +233,12 @@ const HomePageContainer = () => {
 
                     <div className="flex flex-1 flex-wrap items-center justify-center bg-[#ff9900d0] p-2 rounded-2xl w-2/4">
                         <input placeholder="Enter Email..." className="md:flex-1 outline-none border-none text-white" type="email" />
+                        <Link to="/sign-up">
                         <button className="bg-white rounded-xl h-12 md:w-36 flex-1 md:flex-none font-medium text-lg">
                             Register
                         </button>
+                        </Link>
+                        
                     </div>
 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffaa0e" fill-opacity="1" d="M0,224L0,128L160,128L160,256L320,256L320,224L480,224L480,128L640,128L640,160L800,160L800,288L960,288L960,96L1120,96L1120,96L1280,96L1280,288L1440,288L1440,0L1280,0L1280,0L1120,0L1120,0L960,0L960,0L800,0L800,0L640,0L640,0L480,0L480,0L320,0L320,0L160,0L160,0L0,0L0,0Z"></path></svg>

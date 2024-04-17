@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import noResultImage from "../../../assets/images/undraw_crypto_portfolio_2jy5.svg";
-import serverErrorImage from "../../../assets/images/server_error.svg"
+import serverErrorImage from "../../../assets/images/server_error.svg";
 import { useNavigate } from "react-router-dom";
 import StackLinkGraph from "../../../components/stackLineGraph/stackLineGraph";
 
@@ -24,13 +24,11 @@ export default function BuyContainer() {
     const [loading, setLoading] = useState(false);
     const [serverError, setServerError] = useState(true);
     const [searchQuery, setSearchQuery] = useState("");
+    const [filteredData, setFilteredData] = useState<CoinData[]>([]);
     const navigate = useNavigate();
-
 
     useEffect(() => {
         fetchData();
-
-
     }, []);
 
     const fetchData = () => {
@@ -42,20 +40,28 @@ export default function BuyContainer() {
             .then((res) => {
                 setData(res.data);
                 setLoading(false);
-                setServerError(true);
-
+                setFilteredData(res.data);
             })
             .catch((error) => {
                 console.log(error);
                 setLoading(false);
-                setServerError(false);
+                setServerError(true);
+                const storedData = localStorage.getItem('coinData');
+                if (storedData) {
+                    setData(JSON.parse(storedData));
+                    setFilteredData(JSON.parse(storedData));
+                    console.log(JSON.parse(storedData))
+                }else{
+                    setServerError(false)
+                }
             });
-
-
     };
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(e.target.value);
+        const query = e.target.value.toLowerCase();
+        setSearchQuery(query);
+        const filtered = data.filter((coin) => coin.name.toLowerCase().includes(query));
+        setFilteredData(filtered);
     };
 
     const formatNumber = (num: number): string => {
@@ -71,19 +77,13 @@ export default function BuyContainer() {
         return num.toString();
     };
 
-    const filteredData = data.filter((coin) =>
-        coin.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
     const loadMore = () => {
         setVisibleItems((prevVisibleItems) => prevVisibleItems + 10);
     };
 
-
-
     return (
         <main className="pt-10 min-h-[100vh]">
-            <section className=" flex flex-col gap-6 items-center justify-center px-4">
+            <section className="flex flex-col gap-6 items-center justify-center px-4">
 
                 <div className="bg-white border rounded-md overflow-hidden h-10 flex justify-between items-center px-4 flex-1 min-w-72">
                     <input
@@ -100,7 +100,7 @@ export default function BuyContainer() {
                 </div>
 
                 {serverError ? (
-                    <section className="flex flex-wrap gap-6 items-center md:justify-start lg:w-[82%] justify-center md:w-[90%] w-full">
+                    <section className="flex flex-wrap gap-6 items-center md:justify-start justify-center md:w-[90%] w-full">
                         {filteredData.slice(0, visibleItems).map((element) => (
                             <div onClick={() => navigate(`/dashboard/buy/${element.id}`)} key={element.id} className="title p-4 border rounded-xl h-36 md:flex-grow-0 flex-1 min-w-64 flex flex-col justify-between bg-white">
                                 <div className="flex gap-2 items-center justify-start">
@@ -185,7 +185,7 @@ export default function BuyContainer() {
                             <p className="text-center w-full md:w-[30vw] mb-6">Can't connect to the server. Check your internet and try later. Sorry for the trouble.</p>
                             {loading ?
                                 (
-                                    <div className="animate-spin rounded-full border-t-4 border-orange border-solid border-opacity-50 h-12 w-12"></div>
+                                    <div className="animate-spin mx-auto rounded-full border-t-4 border-orange border-solid border-opacity-50 h-12 w-12"></div>
                                 ) : (
                                     <button onClick={fetchData} className="bg-orange text-white px-4 py-2 rounded-md hover:bg-orange2 focus:outline-none focus:bg-orange3">Try Again</button>
                                 )
@@ -194,8 +194,6 @@ export default function BuyContainer() {
 
                     </div>
                 )}
-
-
 
             </section>
         </main>

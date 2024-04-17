@@ -1,11 +1,13 @@
+import { FaFacebookSquare } from "react-icons/fa";
 import ContactImg from "../assets/images/contact_us.svg";
+import { FaLinkedin, FaSquareInstagram, FaSquareXTwitter } from "react-icons/fa6";
 
 const ContactForm = () => {
   return (
     <div className="relative">
       <div className="xl:max-w-7xl md:my-3 h-full w-full flex justify-between items-stretch px-5 xl:px-5 py-2.5">
-        <div className="sm:w-[60%] lg:w-[50%] bg-cover bg-center items-center justify-center hidden md:flex ">
-          <img src={ContactImg} alt="login" className="h-[500px]" />
+        <div className="sm:w-[60%] md:w-[80%] lg:w-[50%] bg-cover bg-center items-center justify-center hidden md:flex ">
+          <img src={ContactImg} alt="login" className="h-[500px] md:h-auto" />
         </div>
         <div className="mx-auto w-full lg:w-1/2 md:p-10 py-5 md:py-0">
           <h1 className="text-center text-2xl sm:text-3xl font-semibold text-black">
@@ -52,12 +54,12 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
-      <div className="left-6 absolute bottom-5">
+      <div className="left-6 absolute -bottom-16 md:bottom-5">
         <div className="flex items-center gap-4">
-          <div className="w-8 h-8 border border-pink-300 rounded-md"></div>
-          <div className="w-8 h-8 border border-blue-600 rounded-md"></div>
-          <div className="w-8 h-8 border border-black rounded-md"></div>
-          <div className="w-8 h-8 border border-green-400 rounded-md"></div>
+          <div className="w-8 h-8  text-pink-300 rounded-md md:opacity-60 hover:opacity-100 cursor-pointer"><FaSquareInstagram className="w-8 h-8 "/></div>
+          <div className="w-8 h-8  text-blue-600 rounded-md md:opacity-60 hover:opacity-100 cursor-pointer"><FaFacebookSquare className="w-8 h-8 "/></div>
+          <div className="w-8 h-8  text-blue-400 rounded-md md:opacity-60 hover:opacity-100 cursor-pointer"><FaLinkedin className="w-8 h-8 "/></div>
+          <div className="w-8 h-8 rounded-md md:opacity-60 hover:opacity-100 cursor-pointer"><FaSquareXTwitter className="w-8 h-8 "/></div>
         </div>
       </div>
     </div>
