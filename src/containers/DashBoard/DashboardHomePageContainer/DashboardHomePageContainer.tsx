@@ -189,7 +189,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
                 <p style={{ color: textColor }} className="flex md:hidden flex-1 gap-2">{element.ath_change_percentage} %</p>
               </div>
               <p style={{ color: textColor }} className="hidden md:flex flex-1 gap-2">{element.ath_change_percentage} %</p>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap md:flex-nowrap gap-2">
                 <button onClick={() => navigate(`/dashboard/buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
                   Buy
                 </button>

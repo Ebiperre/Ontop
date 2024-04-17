@@ -37,6 +37,7 @@ export default function BuyContainer() {
         setLoading(true);
         axios
             .get(
+                // `https://ken-travis.netlify.app`
                 `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en`
             )
             .then((res) => {
@@ -100,7 +101,7 @@ export default function BuyContainer() {
                 </div>
 
                 {serverError ? (
-                    <section className="flex flex-wrap gap-6 items-center md:justify-start lg:w-[82%] justify-center md:w-[90%] w-full">
+                    <section className="flex flex-wrap gap-6 items-center md:justify-start justify-center md:w-[90%] w-full">
                         {filteredData.slice(0, visibleItems).map((element) => (
                             <div onClick={() => navigate(`/dashboard/buy/${element.id}`)} key={element.id} className="title p-4 border rounded-xl h-36 md:flex-grow-0 flex-1 min-w-64 flex flex-col justify-between bg-white">
                                 <div className="flex gap-2 items-center justify-start">
@@ -185,7 +186,7 @@ export default function BuyContainer() {
                             <p className="text-center w-full md:w-[30vw] mb-6">Can't connect to the server. Check your internet and try later. Sorry for the trouble.</p>
                             {loading ?
                                 (
-                                    <div className="animate-spin rounded-full border-t-4 border-orange border-solid border-opacity-50 h-12 w-12"></div>
+                                    <div className="animate-spin mx-auto rounded-full border-t-4 border-orange border-solid border-opacity-50 h-12 w-12"></div>
                                 ) : (
                                     <button onClick={fetchData} className="bg-orange text-white px-4 py-2 rounded-md hover:bg-orange2 focus:outline-none focus:bg-orange3">Try Again</button>
                                 )

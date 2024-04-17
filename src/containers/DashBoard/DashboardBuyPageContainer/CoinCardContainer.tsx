@@ -157,6 +157,8 @@ const CoinCardContainer: React.FC = () => {
                     className="outline-none border-none px-4 h-full w-full overflow-hidden"
                     value={formattedAmount}
                     type="text"
+                    inputMode="numeric" 
+                    placeholder='$0'
                     onChange={handleAmountChange}
                   />
 
