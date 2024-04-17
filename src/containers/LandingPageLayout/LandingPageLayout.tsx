@@ -17,7 +17,7 @@ const LandingPageLayout = ({
   notDisplayFooter,
 }: LandingPageLayoutProps) => {
   return (
-    <section className={classes.container}>
+    <section className={`${classes.container} hide-scrollbar`}>
       <div
         className={classes.body}
         style={notDisplayHeader ? { height: "100vh" } : undefined}
