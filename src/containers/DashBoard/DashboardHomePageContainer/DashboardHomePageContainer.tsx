@@ -45,11 +45,20 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
       .then((res) => {
         setData(res.data);
         setFilteredData(res.data);
-        setLoading(false)
+        setLoading(false);
+        localStorage.setItem('coinData', JSON.stringify(res.data));
         console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
+        const storedData = localStorage.getItem('coinData');
+        if (storedData) {
+          setData(JSON.parse(storedData));
+          setFilteredData(JSON.parse(storedData));
+          setLoading(false);
+        }else{
+          setLoading(true)
+        }
       });
 
     axios
@@ -61,7 +70,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
         console.log(error);
         console.log(formattedAmountInSelectedCurrency)
       });
-  }, [selectedCurrency]);
+  }, [selectedCurrency, data]);
 
 
   const formattedAmountInUSD = amountInUSD?.toLocaleString(undefined, {
@@ -104,7 +113,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
 
         {statData.map((item, index) => (
           <div key={index}>
-            <div className="bg-greyWhite2 rounded-xl font-semibold md:flex-1 min-w-60 flex flex-col justify-between py-4 items-start h-32 border-r px-6">
+            <div className="hide-scrollbar bg-greyWhite2 rounded-xl font-semibold md:flex-1 min-w-60 flex flex-col justify-between py-4 items-start h-32 border-r px-6">
               <div className="flex font-medium w-full justify-between ">
                 <p>
                   {item.title}
@@ -158,7 +167,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
         </div>
 
         <section>
-          <div className="border-b text-left grid grid-cols-[1fr,_1fr_50px] md:grid-cols-[repeat(3,_1fr)_70px] items-start border-transparent pt-10 md:px-4 pb-2 gap-12">
+          <div className="border-b text-left grid grid-cols-[1fr,_1fr_50px] md:grid-cols-[repeat(3,_1fr)_70px] items-start border-[#c9c9c9] pt-10 md:px-4 pb-2 gap-12">
             <p>Name</p>
             <p>Price :{" "}
               <select className="py-2 px-2 rounded-md" onChange={(e) => handleCurrencyChange(e.target.value)} value={selectedCurrency}>
@@ -189,7 +198,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
                 <p style={{ color: textColor }} className="flex md:hidden flex-1 gap-2">{element.ath_change_percentage} %</p>
               </div>
               <p style={{ color: textColor }} className="hidden md:flex flex-1 gap-2">{element.ath_change_percentage} %</p>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap md:flex-nowrap gap-2">
                 <button onClick={() => navigate(`/dashboard/buy/${element.id}`)} className="h-7 w-14 bg-green rounded text-sm text-white font-medium">
                   Buy
                 </button>
