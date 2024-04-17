@@ -1,3 +1,7 @@
+import visa from "../../src/assets/icons/visa.svg";
+import verve from "../../src/assets/icons/verve.svg";
+import mastercard from "../../src/assets/icons/mastercard.svg";
+
 export type debitCardType = {
     default: boolean;
     cardNumber: string;
@@ -6,6 +10,7 @@ export type debitCardType = {
     cvv: string;
     issuingBank: string;
     cardType: string;
+    cardTypeImg: string;
 }[];
 
 export const debitCards: debitCardType = [
@@ -16,7 +21,8 @@ export const debitCards: debitCardType = [
         expirationDate: "11/25",
         cvv: "789",
         issuingBank: "Guaranty Trust Bank (GTBank)",
-        cardType: "Mastercard"
+        cardType: "mastercard",
+        cardTypeImg: mastercard,
     },
     {
         default: false,
@@ -25,7 +31,8 @@ export const debitCards: debitCardType = [
         expirationDate: "09/24",
         cvv: "234",
         issuingBank: "First Bank of Nigeria",
-        cardType: "Visa"
+        cardType: "verve",
+        cardTypeImg: verve,
     },
     {
         default: false,
@@ -34,16 +41,18 @@ export const debitCards: debitCardType = [
         expirationDate: "05/23",
         cvv: "456",
         issuingBank: "Zenith Bank",
-        cardType: "Visa"
+        cardType: "visa",
+        cardTypeImg: visa,
     },
     {
-        default: false,
+        default: true,
         cardNumber: "5061 4604 9876 5432",
         cardholderName: "Abubakar Musa",
         expirationDate: "03/25",
         cvv: "321",
         issuingBank: "United Bank for Africa (UBA)",
-        cardType: "Mastercard"
+        cardType: "mastercard",
+        cardTypeImg: mastercard,
     },
     {
         default: false,
@@ -52,7 +61,8 @@ export const debitCards: debitCardType = [
         expirationDate: "08/23",
         cvv: "678",
         issuingBank: "Access Bank",
-        cardType: "Visa"
+        cardType: "visa",
+        cardTypeImg: visa,
     },
     {
         default: false,
@@ -61,7 +71,8 @@ export const debitCards: debitCardType = [
         expirationDate: "02/24",
         cvv: "890",
         issuingBank: "First City Monument Bank (FCMB)",
-        cardType: "Mastercard"
+        cardType: "mstercard",
+        cardTypeImg: mastercard,
     },
     {
         default: false,
@@ -70,7 +81,8 @@ export const debitCards: debitCardType = [
         expirationDate: "07/23",
         cvv: "567",
         issuingBank: "Union Bank of Nigeria",
-        cardType: "Visa"
+        cardType: "verve",
+        cardTypeImg: verve,
     },
     {
         default: false,
@@ -79,7 +91,8 @@ export const debitCards: debitCardType = [
         expirationDate: "12/24",
         cvv: "432",
         issuingBank: "Sterling Bank",
-        cardType: "Mastercard"
+        cardType: "mastercard",
+        cardTypeImg: mastercard,
     },
     {
         default: false,
@@ -88,7 +101,8 @@ export const debitCards: debitCardType = [
         expirationDate: "10/23",
         cvv: "345",
         issuingBank: "Stanbic IBTC Bank",
-        cardType: "Visa"
+        cardType: "visa",
+        cardTypeImg: visa,
     },
     {
         default: false,
@@ -97,6 +111,7 @@ export const debitCards: debitCardType = [
         expirationDate: "06/25",
         cvv: "901",
         issuingBank: "Polaris Bank",
-        cardType: "Mastercard"
+        cardType: "verve",
+        cardTypeImg: verve,
     },
 ];

@@ -24,16 +24,22 @@ const SettingsContent = () => {
       style={{ transform: 'translateY(-100px)', overflow: 'auto', width: '100%' }}
     >
       <Tabs>
-        <TabList px={5} overflow={'auto'}>
+        <TabList
+          overflowX={'auto'}
+          css={{
+            scrollbarWidth: 'none',
+            '-ms-overflow-style': 'none'
+          }}
+        >
           {tabs.map(tab => (
             <Tab
               key={tab}
               mx={3}
-              px={0}
+              px={3}
               py={3}
               fontWeight="semibold"
               color="brand.cadet"
-              borderBottomWidth={1}
+              borderBottomWidth={2}
               _active={{ bg: 'transparent' }}
               _selected={{ color: 'brand.dark', borderColor: 'brand.orange' }}
             >
