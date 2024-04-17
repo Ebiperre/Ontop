@@ -104,7 +104,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
 
         {statData.map((item, index) => (
           <div key={index}>
-            <div className="bg-greyWhite2 rounded-xl font-semibold md:flex-1 min-w-60 flex flex-col justify-between py-4 items-start h-32 border-r px-6">
+            <div className="hide-scrollbar bg-greyWhite2 rounded-xl font-semibold md:flex-1 min-w-60 flex flex-col justify-between py-4 items-start h-32 border-r px-6">
               <div className="flex font-medium w-full justify-between ">
                 <p>
                   {item.title}
