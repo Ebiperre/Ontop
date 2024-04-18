@@ -2,6 +2,7 @@ import DashboardLayout from "../../containers/DashBoard/DashboardLayout/Dashboar
 import SellCoinDataContianer from "../../containers/DashBoard/DashboardSellPageContainer/SellCoinDataContainer";
 
 
+<<<<<<< HEAD
 export default function DashboardSellCoinPages() {
 
   return (
@@ -10,3 +11,15 @@ export default function DashboardSellCoinPages() {
     </DashboardLayout>
   );
 }
+=======
+const DashboardSellCoinPages = () =>{
+
+    return (
+      <DashboardLayout>
+        <SellCoinDataContianer />
+      </DashboardLayout>
+    );
+  };
+  export default  DashboardSellCoinPages
+  
+>>>>>>> 83f5873 (added layout)
