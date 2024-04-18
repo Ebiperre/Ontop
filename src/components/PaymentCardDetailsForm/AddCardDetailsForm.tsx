@@ -66,15 +66,15 @@ const AddCardDetailsForm = ({ closeModal }: AddCardDetailsFormProps) => {
                             <div className="absolute vt6s4 atruh flex items-center ootlu c8qx6 cursor-pointer">
                                 <svg className="flex-shrink-0 sfo8l qcpnt fyxhw " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
                             </div>
-                            <input type="text" className="py-2 xumsi m9su6 block w-full d1k81 nq4w8 dtjcu ggbym focus:border-blue-500 focus:ring-blue-500 kko9e tk4f7" placeholder="Card number" />
+                            <input required type="text" className="py-2 xumsi m9su6 block w-full d1k81 nq4w8 dtjcu ggbym input-focus kko9e tk4f7" placeholder="Card number" />
                         </div>
 
                         <div className="grid zvyci gap-x-2">
                             <div>
-                                <input type="text" className="py-2 vrf2y block w-full d1k81 nq4w8 dtjcu ggbym focus:border-blue-500 focus:ring-blue-500 kko9e tk4f7" placeholder="Expiration" />
+                                <input required type="text" className="py-2 vrf2y block w-full d1k81 nq4w8 dtjcu ggbym input-focus kko9e tk4f7" placeholder="Expiration" />
                             </div>
                             <div>
-                                <input type="text" className="py-2 vrf2y block w-full d1k81 nq4w8 dtjcu v7056 focus:z-10" placeholder="CVV" />
+                                <input required type="text" className="py-2 vrf2y block w-full d1k81 nq4w8 dtjcu v7056 input-focus" placeholder="CVV" />
                             </div>
                         </div>
 
@@ -82,25 +82,6 @@ const AddCardDetailsForm = ({ closeModal }: AddCardDetailsFormProps) => {
                             <svg className="flex-shrink-0 pmkhf h-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                             This is a secure form
                         </p>
-                    </div>
-
-                    <div className="space-y-2">
-                        <label htmlFor="hs-pro-dacmba" className="block tn07p dtjcu eass7 v7056 ">
-                            Billing address
-                        </label>
-
-                        <input id="hs-pro-dacmba" type="text" className="py-2 vrf2y block w-full d1k81 nq4w8 dtjcu ggbym focus:border-blue-500 focus:ring-blue-500 kko9e tk4f7" placeholder="Street address" />
-                        <input type="text" className="py-2 vrf2y block w-full d1k81 nq4w8 dtjcu ggbym focus:border-blue-500 focus:ring-blue-500 kko9e tk4f7" placeholder="Apt or suite number" />
-                        <input type="text" className="py-2 vrf2y block w-full d1k81 nq4w8 dtjcu ggbym focus:border-blue-500 focus:ring-blue-500 kko9e tk4f7" placeholder="City" />
-
-                        <div className="grid zvyci gap-x-2">
-                            <div>
-                                <input type="text" className="py-2 vrf2y block w-full d1k81 nq4w8 dtjcu ggbym focus:border-blue-500 focus:ring-blue-500 kko9e tk4f7" placeholder="State" />
-                            </div>
-                            <div>
-                                <input type="text" className="py-2 vrf2y block w-full d1k81 nq4w8 dtjcu ggbym focus:border-blue-500 focus:ring-blue-500 kko9e tk4f7" placeholder="ZIP code" />
-                            </div>
-                        </div>
                     </div>
 
                     <div className="flex">
