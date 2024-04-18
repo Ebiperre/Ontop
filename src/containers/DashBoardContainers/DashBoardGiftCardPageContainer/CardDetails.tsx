@@ -51,6 +51,10 @@ const CardDetails = () => {
 
 
   return (
+    <div>
+      <div className='w-[100%]'>
+     
+      </div>
     <div className='px-6 xl:px-60 xl:pb-8'>
       <div className='flex justify-between items-center pt-2'>
         <div className='flex justify-center items-center gap-3'>
@@ -58,6 +62,12 @@ const CardDetails = () => {
           <h1 className='text-xl font-medium'>{activeCard?.title}</h1>
         </div>
         <p className="font-medium cursor-pointer xl:text-lg" onClick={() => { navigate('/dashboard/cards') }} >Back</p>
+      <div className='flex justify-between items-center xl:flex xl:justify-between xl:items-center pt-2'>
+        <div className='flex justify-center items-center gap-3 mt-24'>
+      <img className='w-12 xl:w-20' src={activeCard?.image} alt="" />
+      <h1 className='text-xl font-medium'>{activeCard?.title}</h1>
+      </div>
+      <p className="font-medium cursor-pointer mt-20 xl:text-lg" onClick={() => {navigate('/dashboard-cards')}} >Back</p>
       </div>
       <div className="flex flex-col items-start justify-start pt-4">
         <p className='text-xl'>Fill the form to start trading </p>
@@ -99,8 +109,8 @@ const CardDetails = () => {
       <button className='w-full bg-purple2 mt-8 text-white py-4 rounded-md xl:py-2 xl:mr-[50rem] xl:text-xl xl:w-36'>Confirm Trade</button>
 
     </div>
+    </div>
 
   )
 }
 
-export default CardDetails;
