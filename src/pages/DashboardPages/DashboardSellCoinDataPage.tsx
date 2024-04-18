@@ -2,7 +2,7 @@ import DashboardLayout from "../../containers/DashBoard/DashboardLayout/Dashboar
 import SellCoinDataContianer from "../../containers/DashBoard/DashboardSellPageContainer/SellCoinDataContainer";
 
 
-export default function DashboardSellCoinPages(){
+const DashboardSellCoinPages = () =>{
 
     return (
       <DashboardLayout>
@@ -10,4 +10,5 @@ export default function DashboardSellCoinPages(){
       </DashboardLayout>
     );
   };
+  export default  DashboardSellCoinPages
   
