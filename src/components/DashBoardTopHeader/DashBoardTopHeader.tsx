@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from '../../../src/assets/icons/logo_without_text.png'
 import axios from "axios";
-import useDisplay from "../../utilities/useDisplay";
 
 interface Transaction {
   _id: string;
@@ -24,7 +23,7 @@ interface DashBoardTopHeaderProps {
   toggleNav: () => void;
   activeLinkText: string;
   setActiveLinkText: React.Dispatch<React.SetStateAction<string>>;
-  showSideBar: boolean | undefined
+  showSideBar: boolean | undefined;
 }
 
 
@@ -47,7 +46,6 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
 
   // Router
   const navigate = useNavigate();
-  const [show] = useDisplay();
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -166,12 +164,12 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
   return (
     <section>
       <nav className="fixed z-40 font-author">
-        <div className={`bg-white text-dark generalDevice:w-[100%]  h-[70px] border-b-[1px] border-b-[#d8d8d8] fixed largeDevice:left-[274px] ${showSideBar ? "" : "largeDevice:left-0"} largeDevice:right-0 flex items-center justify-between px-4`}>
+        <div className={`bg-white text-dark generalDevice:w-[100%]  h-[70px] border-b-[1px] border-b-[#d8d8d8] fixed  ${!showSideBar ? "largeDevice:left-[274px]" : "largeDevice:left-0"} largeDevice:right-0 flex items-center justify-between px-4`}>
           <div className="largeDevice:hidden mt-[15px]">
             <img src={logo} alt="logo" className="w-full h-full block pr-4" />
           </div>
 
-          {showSideBar ? <div className="generalDevice:hidden">
+          {!showSideBar ? <div className="generalDevice:hidden">
             <p className="text-5xl opacity-35 font-author font-bold text-dark2">
               {activeLinkText || "Coin"}
             </p>

@@ -9,7 +9,7 @@ const WithdrawalPage = () => {
   
   return (
     <>
-      <DashboardLayout showSideBar={false}>
+      <DashboardLayout showSideBar>
        <WithdrawalContainer />
       </DashboardLayout>
     </>

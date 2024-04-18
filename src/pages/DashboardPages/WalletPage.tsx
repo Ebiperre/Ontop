@@ -1,14 +1,14 @@
-import WalletPageContainer from "../../containers/DashBoard/DashBoardHome/WalletPargeContainer"
-import DashboardLayout from "../../containers/DashBoard/DashboardLayout/DashboardLayout"
+import WalletPageContainer from "../../containers/DashBoard/DashBoardHome/WalletPargeContainer";
+import DashboardLayout from "../../containers/DashBoard/DashboardLayout/DashboardLayout";
 
 const WalletPage = () => {
   return (
     <div>
       <DashboardLayout>
-       <WalletPageContainer />
+        <WalletPageContainer />
       </DashboardLayout>
     </div>
-  )
-}
+  );
+};
 
-export default WalletPage
+export default WalletPage;

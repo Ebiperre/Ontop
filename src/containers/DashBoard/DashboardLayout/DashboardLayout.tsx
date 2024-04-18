@@ -6,14 +6,13 @@ import DashBoardTopHeader from "../../../components/DashBoardTopHeader/DashBoard
 
 type DashboardLayoutProps = {
   children: ReactNode;
-  showSideBar: boolean | undefined;
+  showSideBar?: boolean | undefined;
 }
 
 const DashboardLayout = ({ children, showSideBar}: DashboardLayoutProps) => {
   const [showNav, setShowNav] = useState(false);
   const [activeLinkText, setActiveLinkText] = useState("");
   const location = useLocation();
-  // const [show,] = useDisplay();
 
 
 
@@ -63,13 +62,12 @@ const DashboardLayout = ({ children, showSideBar}: DashboardLayoutProps) => {
           setActiveLinkText={setActiveLinkText}
           showSideBar={showSideBar}
         />
-        <DashBoardSideNav
+       {!showSideBar &&  <DashBoardSideNav
           showNav={showNav}
           setActiveLinkText={setActiveLinkText}
           setShowNav={setShowNav}
-          showSideBar={showSideBar}
-        />
-        <div className={`largeDevice:ml-[274px] pt-12 ${showSideBar ? "" : "largeDevice:ml-0"}`}>
+        />  }
+        <div className={` pt-12 ${!showSideBar ? "largeDevice:ml-[274px]" : "largeDevice:ml-0"}`}>
           {children}
         </div>
       </div>
