@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import { LuLock } from 'react-icons/lu';
 import visa from "../../../src/assets/icons/visa.svg";
 import verve from "../../../src/assets/icons/verve.svg";
 import ameXp from "../../../src/assets/icons/ameXp.svg";
 import discover from "../../../src/assets/icons/discover.svg";
 import mastercard from "../../../src/assets/icons/mastercard.svg";
-import { LuLock } from 'react-icons/lu';
 
 type AddCardDetailsFormProps = {
     closeModal: () => void;

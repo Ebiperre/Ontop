@@ -3,6 +3,7 @@ import logo from "../../../src/assets/icons/logo_without_text.png";
 import {
   MdCardGiftcard,
   MdOutlineAdminPanelSettings,
+  MdOutlinePayments,
   MdSpaceDashboard,
 } from "react-icons/md";
 import { AiOutlineTransaction } from "react-icons/ai";
@@ -28,6 +29,7 @@ const DashBoardSideNav = ({
     { to: "/dashboard/cards", icon: <MdCardGiftcard />, text: "Gift Cards" },
     { to: "/dashboard/wallet", icon: <IoWalletOutline />, text: "Wallet" },
     { to: "/dashboard/transactions", icon: <TfiLayoutListThumb />, text: "Transactions" },
+    { to: "/dashboard/payments", icon: <MdOutlinePayments />, text: "Payments" },
     { to: "/dashboard/settings", icon: <MdOutlineAdminPanelSettings />, text: "Settings" },
   ]);
 

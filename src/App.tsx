@@ -50,7 +50,7 @@ function App() {
         <Route path="/dashboard-withdraw" element={<WithdrawalPage />} />
         <Route path="/dashboard/buy/:CoinCardId" element={<DashboardCoinPages />} />
         <Route path="/dashboard/transactions" element={<DashboardTransactionPage />} />
-        <Route path="/dashboard/transactions/payments" element={<DashboardPaymentPage />} />
+        <Route path="/dashboard/payments" element={<DashboardPaymentPage />} />
       </Routes>
     </Router>
   );

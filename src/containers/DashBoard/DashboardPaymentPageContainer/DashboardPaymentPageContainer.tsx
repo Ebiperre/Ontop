@@ -3,20 +3,17 @@ import React, { useState } from 'react'
 import { BiSolidCreditCardAlt } from 'react-icons/bi'
 import AddCardDetailsForm from '../../../components/PaymentCardDetailsForm/AddCardDetailsForm';
 import MangePaymentCardBoard from '../../../components/PaymentCardDetailsForm/MangePaymentCardBoard';
-import MangePaymentCards from '../../../components/PaymentCardDetailsForm/MangePaymentCards';
 import EditPaymentCard from '../../../components/PaymentCardDetailsForm/EditPaymentCard';
 import DeletePaymentCard from '../../../components/PaymentCardDetailsForm/DeletePaymentCard';
 
 const DashboardPaymentPageContainer: React.FC = () => {
 
     const [isAddNewCardModalOpen, setIsAddNewCardModalOpen] = useState(false);
-    const [isManageCardModalOpen, setIsManageCardModalOpen] = useState(false);
     const [isEditCardModalOpen, setIsEditCardModalOpen] = useState(false);
     const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
     const closeModal = () => {
         setIsAddNewCardModalOpen(false);
-        setIsManageCardModalOpen(false);
         setIsEditCardModalOpen(false);
         setDeleteModalOpen(false);
     };
@@ -39,7 +36,6 @@ const DashboardPaymentPageContainer: React.FC = () => {
                 <div className="w-full max-w-4xl mx-auto">
                     <MangePaymentCardBoard
                         openAddCardModal={() => { setIsAddNewCardModalOpen(true) }}
-                        openManageCardModal={() => { setIsManageCardModalOpen(true) }}
                         openEditModal={() => { setIsEditCardModalOpen(true) }}
                     />
                 </div>
@@ -55,23 +51,7 @@ const DashboardPaymentPageContainer: React.FC = () => {
                         </ModalContent>
                     </ModalOverlay>
                 </Modal>
-                <Modal isOpen={isManageCardModalOpen} onClose={closeModal}>
-                    <ModalOverlay>
-                        <ModalContent>
-                            <ModalBody>
-                                <div className='w-full mx-auto flex items-center justify-center bg-black bg-opacity-30 py-24 h-screen'>
-                                    <MangePaymentCards
-                                        closeModal={closeModal}
-                                        openEditModal={() => {
-                                            setIsEditCardModalOpen(true);
-                                            setIsManageCardModalOpen(false);
-                                        }}
-                                    />
-                                </div>
-                            </ModalBody>
-                        </ModalContent>
-                    </ModalOverlay>
-                </Modal>
+
                 <Modal isOpen={isEditCardModalOpen} onClose={closeModal}>
                     <ModalOverlay>
                         <ModalContent>

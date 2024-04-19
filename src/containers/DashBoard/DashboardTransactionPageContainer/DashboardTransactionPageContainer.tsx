@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import image from '../../../../src/assets/images/noTransactionResult.svg'
-import { useNavigate } from 'react-router-dom';
 
 const transactions = [
     {
@@ -67,7 +66,6 @@ const typeColors: { [key: string]: string } = {
 };
 
 const DashboardTransactionPageContainer: React.FC = () => {
-    const navigate = useNavigate();
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -92,14 +90,9 @@ const DashboardTransactionPageContainer: React.FC = () => {
     return (
         <div className="px-4 lg:px-8 pt-14 pb-10">
             <div className=" flex flex-col gap-16 relative">
-                <div className=" bg-white p-4 md:p-6 lg:py-10 lg:px-8 rounded-lg shadow-sm flex flex-wrap items-start justify-between gap-10">
-                    <div className='text-left w-full max-w-xl'>
-                        <h2 className="text-3xl lg:text-5xl text-dark font-medium mb-3">Manage Transactions</h2>
-                        <p className="text-grey text-sm lg:text-base">
-                            Stay on top of your finances. Monitor, analyze, and manage your transactions seamlessly with our intuitive platform.
-                        </p>
-                    </div>
-                    <button onClick={() => navigate('/dashboard/transactions/payments')} className="bg-orange2 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-orange">Manage Payment</button>
+                <div className="text-left bg-white p-4 md:p-6 lg:py-10 lg:px-8 rounded-lg shadow-sm flex flex-wrap items-start justify-between">
+                    <h2 className="text-3xl lg:text-5xl text-dark font-medium mb-3">Manage Transactions</h2>
+                    <p className="text-grey text-sm lg:text-base">Stay on top of your finances. Monitor, analyze, and manage your transactions seamlessly with our intuitive platform.</p>
                 </div>
 
                 <div className="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">

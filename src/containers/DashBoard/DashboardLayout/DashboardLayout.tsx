@@ -9,7 +9,7 @@ type DashboardLayoutProps = {
   showSideBar?: boolean | undefined;
 }
 
-const DashboardLayout = ({ children, showSideBar}: DashboardLayoutProps) => {
+const DashboardLayout = ({ children, showSideBar }: DashboardLayoutProps) => {
   const [showNav, setShowNav] = useState(false);
   const [activeLinkText, setActiveLinkText] = useState("");
   const location = useLocation();
@@ -40,7 +40,7 @@ const DashboardLayout = ({ children, showSideBar}: DashboardLayoutProps) => {
       case "/dashboard/transactions":
         setActiveLinkText("Transactions");
         break;
-      case "/dashboard/transactions/payments":
+      case "/dashboard/payments":
         setActiveLinkText("Payments");
         break;
       case "/dashboard/settings":
@@ -62,11 +62,11 @@ const DashboardLayout = ({ children, showSideBar}: DashboardLayoutProps) => {
           setActiveLinkText={setActiveLinkText}
           showSideBar={showSideBar}
         />
-       {!showSideBar &&  <DashBoardSideNav
+        {!showSideBar && <DashBoardSideNav
           showNav={showNav}
           setActiveLinkText={setActiveLinkText}
           setShowNav={setShowNav}
-        />  }
+        />}
         <div className={` pt-12 ${!showSideBar ? "largeDevice:ml-[274px]" : "largeDevice:ml-0"}`}>
           {children}
         </div>
