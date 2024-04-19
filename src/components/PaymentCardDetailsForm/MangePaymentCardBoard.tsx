@@ -3,25 +3,21 @@ import "../../../src/obfuscated.css"
 import { AppContext } from "../../context/AppContext"
 import { CiCreditCard1 } from "react-icons/ci";
 import { IoAdd } from "react-icons/io5";
-import CardDetails from "./AAAAAA";
 
 type MangePaymentCardBoardProps = {
     openEditModal: () => void
     openAddCardModal: () => void
-    openManageCardModal: () => void
 }
 
 const MangePaymentCardBoard = ({
     openEditModal,
     openAddCardModal,
-    openManageCardModal
 }: MangePaymentCardBoardProps) => {
 
     const { paymentCards } = useContext(AppContext)
 
     return (
         <div className="flex lgqw8 f0dty l66z3 d1k81 k3u76 ">
-            <CardDetails />
             <div className="h-full p-6">
                 <h2 className="text-xl kxhcs v7056 text-left">Payment methods ({paymentCards.length})</h2>
                 <p className="mt-2 dtjcu fyxhw mb-6 text-left">Add and manage your payment methods using our secure payment system.</p>
@@ -84,17 +80,6 @@ const MangePaymentCardBoard = ({
                     )}
                 </ul>
             </div>
-            {paymentCards.length > 0 && (
-                <div className="flex -space-x-px lz37y d1k81 hl4p4 gdqph">
-                    <button type="button" onClick={openManageCardModal} className="py-3 pgrdw w-full pqrvw pdrgo items-center dqqs4 dtjcu eass7 e0g5v f0dty v7056 tgfrq cjy9h kko9e tk4f7 focus:outline-none focus:bg-gray-50" data-hs-overlay="#hs-pro-dmcm">
-                        Manage cards
-                    </button>
-                    <button type="button" onClick={openAddCardModal} className="py-3 pgrdw w-full pqrvw pdrgo items-center dqqs4 dtjcu eass7 v9zg6 f0dty v7056 tgfrq cjy9h kko9e tk4f7 focus:outline-none focus:bg-gray-50" data-hs-overlay="#hs-pro-dmacm">
-                        <svg className="flex-shrink-0 sfo8l h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
-                        Add new card
-                    </button>
-                </div>
-            )}
         </div>
     )
 }
