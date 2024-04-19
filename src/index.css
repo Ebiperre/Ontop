@@ -45,6 +45,12 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+.no-input-focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 .input-focus:focus {
     outline: none;
     box-shadow: none;
