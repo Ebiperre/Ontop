@@ -3,6 +3,7 @@ import "../../../src/obfuscated.css"
 import { AppContext } from "../../context/AppContext"
 import { CiCreditCard1 } from "react-icons/ci";
 import { IoAdd } from "react-icons/io5";
+import CardDetails from "./AAAAAA";
 
 type MangePaymentCardBoardProps = {
     openEditModal: () => void
@@ -20,8 +21,9 @@ const MangePaymentCardBoard = ({
 
     return (
         <div className="flex lgqw8 f0dty l66z3 d1k81 k3u76 ">
+            <CardDetails />
             <div className="h-full p-6">
-                <h2 className="text-xl kxhcs v7056 text-left">Payment methods</h2>
+                <h2 className="text-xl kxhcs v7056 text-left">Payment methods ({paymentCards.length})</h2>
                 <p className="mt-2 dtjcu fyxhw mb-6 text-left">Add and manage your payment methods using our secure payment system.</p>
 
                 <ul className="mt-4 flex lgqw8 l66z3 d1k81 k3u76 -space-y-px">
@@ -42,7 +44,7 @@ const MangePaymentCardBoard = ({
                                 <li key={index} className="p-3 lz37y d1k81 x6keb">
                                     <div className="flex gap-x-3">
                                         <div>
-                                            <div className="py-2.5 vrf2y l66z3 nq4w8 h-10 w-16">
+                                            <div className="p-1 flex items-center justify-center l66z3 nq4w8 h-10 w-16">
                                                 <img src={card.cardTypeImg} alt={card.cardType} />
                                             </div>
                                         </div>

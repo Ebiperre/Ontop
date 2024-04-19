@@ -173,20 +173,20 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
             <p className="text-5xl opacity-35 font-author font-bold text-dark2">
               {activeLinkText || "Coin"}
             </p>
-          </div> : 
-           <div
-           onClick={() => { navigate('/dashboard/home') }}
-           className=" flex items-center pl-2.5 generalDevice:hidden">
-           <img
-             src={logo}
-             alt="logo"
-             className="w-10 h-10 object-cover"
-           />
-           <h1 className="text-orange font-semibold text-2xl ml-1.5"> ONTOP </h1>
-         </div>
+          </div> :
+            <div
+              onClick={() => { navigate('/dashboard/home') }}
+              className=" flex items-center pl-2.5 generalDevice:hidden">
+              <img
+                src={logo}
+                alt="logo"
+                className="w-10 h-10 object-cover"
+              />
+              <h1 className="text-orange font-semibold text-2xl ml-1.5"> ONTOP </h1>
+            </div>
           }
 
-          
+
 
           <div className="generalDevice:hidden flex gap-[20px]">
             <div
@@ -196,7 +196,7 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
               <i className="fa-solid fa-magnifying-glass pl-5"></i>
               <input
                 type="text"
-                className="border-none outline-none w-[100%] bg-[#f7f7f7] h-[30px]"
+                className="no-input-focus w-[100%] bg-[#f7f7f7] h-[30px]"
                 placeholder="Search for assets"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -312,7 +312,7 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
             <i className="fa-solid fa-magnifying-glass pl-5"></i>
             <input
               type="text"
-              className={`outline-none w-[100%] rounded-b-[8px] rounded-t-[8px]`}
+              className={`no-input-focus w-[100%] rounded-b-[8px] rounded-t-[8px]`}
               placeholder="Search for assets"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

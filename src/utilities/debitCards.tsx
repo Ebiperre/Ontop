@@ -1,8 +1,11 @@
 import visa from "../../src/assets/icons/visa.svg";
 import verve from "../../src/assets/icons/verve.svg";
+import ameXp from "../../src/assets/icons/ameXp.svg";
+import discover from "../../src/assets/icons/discover.svg";
 import mastercard from "../../src/assets/icons/mastercard.svg";
 
 export type debitCardType = {
+    id: string;
     default: boolean;
     cardNumber: string;
     cardholderName: string;
@@ -15,6 +18,7 @@ export type debitCardType = {
 
 export const debitCards: debitCardType = [
     {
+        id: "01",
         default: false,
         cardNumber: "5061 4604 9123 4567",
         cardholderName: "Chinwe Okonkwo",
@@ -25,6 +29,7 @@ export const debitCards: debitCardType = [
         cardTypeImg: mastercard,
     },
     {
+        id: "02",
         default: false,
         cardNumber: "5399 7100 1234 5678",
         cardholderName: "Emeka Eze",
@@ -35,6 +40,7 @@ export const debitCards: debitCardType = [
         cardTypeImg: verve,
     },
     {
+        id: "03",
         default: false,
         cardNumber: "5370 1234 5678 9012",
         cardholderName: "Aisha Yusuf",
@@ -45,6 +51,7 @@ export const debitCards: debitCardType = [
         cardTypeImg: visa,
     },
     {
+        id: "04",
         default: true,
         cardNumber: "5061 4604 9876 5432",
         cardholderName: "Abubakar Musa",
@@ -52,9 +59,10 @@ export const debitCards: debitCardType = [
         cvv: "321",
         issuingBank: "United Bank for Africa (UBA)",
         cardType: "mastercard",
-        cardTypeImg: mastercard,
+        cardTypeImg: ameXp,
     },
     {
+        id: "05",
         default: false,
         cardNumber: "5399 7100 8765 4321",
         cardholderName: "Chinyere Nwachukwu",
@@ -62,56 +70,6 @@ export const debitCards: debitCardType = [
         cvv: "678",
         issuingBank: "Access Bank",
         cardType: "visa",
-        cardTypeImg: visa,
-    },
-    {
-        default: false,
-        cardNumber: "5061 4604 5555 1234",
-        cardholderName: "Oluwaseun Okeke",
-        expirationDate: "02/24",
-        cvv: "890",
-        issuingBank: "First City Monument Bank (FCMB)",
-        cardType: "mstercard",
-        cardTypeImg: mastercard,
-    },
-    {
-        default: false,
-        cardNumber: "5370 1234 5678 2222",
-        cardholderName: "Fatima Ibrahim",
-        expirationDate: "07/23",
-        cvv: "567",
-        issuingBank: "Union Bank of Nigeria",
-        cardType: "verve",
-        cardTypeImg: verve,
-    },
-    {
-        default: false,
-        cardNumber: "5061 4604 3333 9999",
-        cardholderName: "Nnamdi Obi",
-        expirationDate: "12/24",
-        cvv: "432",
-        issuingBank: "Sterling Bank",
-        cardType: "mastercard",
-        cardTypeImg: mastercard,
-    },
-    {
-        default: false,
-        cardNumber: "5399 7100 4444 8888",
-        cardholderName: "Amina Ahmed",
-        expirationDate: "10/23",
-        cvv: "345",
-        issuingBank: "Stanbic IBTC Bank",
-        cardType: "visa",
-        cardTypeImg: visa,
-    },
-    {
-        default: false,
-        cardNumber: "5061 4604 7777 6666",
-        cardholderName: "Yakubu Bello",
-        expirationDate: "06/25",
-        cvv: "901",
-        issuingBank: "Polaris Bank",
-        cardType: "verve",
-        cardTypeImg: verve,
+        cardTypeImg: discover,
     },
 ];
