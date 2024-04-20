@@ -1,3 +1,4 @@
+
 import { useContext } from "react"
 import "../../../src/obfuscated.css"
 import { AppContext } from "../../context/AppContext"
@@ -36,6 +37,12 @@ const MangePaymentCardBoard = ({
                         </div>
                     ) : (
                         paymentCards.map((card, index) => {
+                            const [expMonth, expYear] = card.expirationDate.split("/");
+                            const currentYear = new Date().getFullYear();
+                            const currentMonth = new Date().getMonth() + 1;
+                            const expirationYearNum = parseInt(expYear);
+                            const expirationMonthNum = parseInt(expMonth);
+                            const expired = currentYear > expirationYearNum || (currentYear === expirationYearNum && currentMonth > expirationMonthNum);
                             return (
                                 <li key={index} className="p-3 lz37y d1k81 x6keb">
                                     <div className="flex gap-x-3">
@@ -51,7 +58,7 @@ const MangePaymentCardBoard = ({
                                                     <span className="capitalize">{card.cardType}</span> •••• <span>{card.cardNumber.slice(-4)}</span>
                                                 </p>
                                                 <p className="text-xs fyxhw ">
-                                                    Debit - Expires <span>{card.expirationDate}</span>
+                                                    Debit - Expires <span className={expired ? "text-red-500" : ""}>{card.expirationDate}{expired ? " (Expired)" : ""}</span>
                                                 </p>
                                             </div>
 
@@ -84,4 +91,4 @@ const MangePaymentCardBoard = ({
     )
 }
 
-export default MangePaymentCardBoard
+export default MangePaymentCardBoard;

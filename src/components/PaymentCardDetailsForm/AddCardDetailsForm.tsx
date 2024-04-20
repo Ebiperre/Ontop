@@ -16,6 +16,10 @@ const AddCardDetailsForm = ({ closeModal }: AddCardDetailsFormProps) => {
         cardtype: "",
         expirydt: ""
     });
+    const [errors, setErrors] = useState({
+        cardno: "",
+        expirydt: ""
+    });
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const cartypeNew = cardnumber(e.target.value);
@@ -61,6 +65,12 @@ const AddCardDetailsForm = ({ closeModal }: AddCardDetailsFormProps) => {
         return parts.join(" - ");
     };
 
+    const onChangeExp = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        setCard({
+            ...card,
+            expirydt: e.target.value
+        });
+    };
 
     const expiryFormat = (value: string): string => {
         const expdate = value;
@@ -70,13 +80,6 @@ const AddCardDetailsForm = ({ closeModal }: AddCardDetailsFormProps) => {
             expdate.replace(/\//g, "").substring(2, 4);
 
         return expDateFormatter;
-    };
-
-    const onChangeExp = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setCard({
-            ...card,
-            expirydt: e.target.value
-        });
     };
 
     const getCardIcon = (): JSX.Element | null => {
@@ -93,6 +96,35 @@ const AddCardDetailsForm = ({ closeModal }: AddCardDetailsFormProps) => {
                 return <img src={verve} alt="Verve" />;
             default:
                 return null;
+        }
+    };
+
+    const validate = (): boolean => {
+        let valid = true;
+        const newErrors = { ...errors };
+
+        if (!card.cardno.match(/^\d{16,19}$/)) {
+            newErrors.cardno = "Please enter a valid card number (16-19 digits).";
+            valid = false;
+        } else {
+            newErrors.cardno = "";
+        }
+
+        if (!card.expirydt.match(/^\d{2}\/\d{2}$/)) {
+            newErrors.expirydt = "Please enter a valid expiration date (MM/YY).";
+            valid = false;
+        } else {
+            newErrors.expirydt = "";
+        }
+
+        setErrors(newErrors);
+        return valid;
+    };
+
+    const handleSave = () => {
+        if (validate()) {
+            // Perform save action
+            closeModal();
         }
     };
 
@@ -123,7 +155,7 @@ const AddCardDetailsForm = ({ closeModal }: AddCardDetailsFormProps) => {
                                 </div>
                                 <input
                                     type="text"
-                                    className={`py-2 xumsi m9su6 block w-full d1k81 nq4w8 dtjcu ggbym input-focus kko9e tk4f7`}
+                                    className={`py-2 xumsi m9su6 block w-full d1k81 nq4w8 dtjcu ggbym input-focus kko9e tk4f7 ${errors.cardno ? 'border-red-500' : ''}`}
                                     placeholder="Card number (i.e Enter the 16 - 19 digit card number)"
                                     data-mask="0000 0000 0000 0000"
                                     value={ccFormat(card.cardno)}
@@ -134,6 +166,7 @@ const AddCardDetailsForm = ({ closeModal }: AddCardDetailsFormProps) => {
                                         }
                                     }}
                                 />
+                                {errors.cardno && <p className="text-red-500 text-xs mt-1">{errors.cardno}</p>}
                             </div>
                         </div>
                         <div className="grid zvyci gap-2">
@@ -162,11 +195,12 @@ const AddCardDetailsForm = ({ closeModal }: AddCardDetailsFormProps) => {
                             <div>
                                 <input
                                     type="text"
-                                    className={`py-2 vrf2y block w-full d1k81 nq4w8 dtjcu ggbym input-focus kko9e tk4f7`}
+                                    className={`py-2 vrf2y block w-full d1k81 nq4w8 dtjcu ggbym input-focus kko9e tk4f7 ${errors.expirydt ? 'border-red-500' : ''}`}
                                     placeholder="Expiration (MM/YY)"
                                     onChange={onChangeExp}
                                     value={expiryFormat(card.expirydt)}
                                 />
+                                {errors.expirydt && <p className="text-red-500 text-xs mt-1">{errors.expirydt}</p>}
                             </div>
                             <div>
                                 <input
@@ -205,7 +239,7 @@ const AddCardDetailsForm = ({ closeModal }: AddCardDetailsFormProps) => {
                 <button type="button" onClick={closeModal} className="py-2 vrf2y pqrvw items-center dqqs4 dtjcu eass7 nq4w8 l66z3 d1k81 f0dty v7056 tgfrq cjy9h kko9e tk4f7 focus:outline-none focus:bg-gray-50 hover:bg-slate-300" data-hs-overlay="#hs-pro-dmacm">
                     Cancel
                 </button>
-                <button type="button" className="py-2 vrf2y pqrvw items-center dqqs4 dtjcu kxhcs nq4w8 l66z3 yj6bp wpeco dafkk nkmbv kko9e tk4f7 focus:outline-none focus:ring-2 focus:ring-orange bg-orange2 hover:bg-orange" data-hs-overlay="#hs-pro-dmacm">
+                <button type="button" onClick={handleSave} className="py-2 vrf2y pqrvw items-center dqqs4 dtjcu kxhcs nq4w8 l66z3 yj6bp wpeco dafkk nkmbv kko9e tk4f7 focus:outline-none focus:ring-2 focus:ring-orange bg-orange2 hover:bg-orange" data-hs-overlay="#hs-pro-dmacm">
                     Save
                 </button>
             </div>
