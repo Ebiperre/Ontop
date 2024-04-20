@@ -6,6 +6,7 @@ import mastercard from "../../src/assets/icons/mastercard.svg";
 
 export type debitCardType = {
     id: string;
+    status: string;
     default: boolean;
     cardNumber: string;
     cardholderName: string;
@@ -19,6 +20,7 @@ export type debitCardType = {
 export const debitCards: debitCardType = [
     {
         id: "01",
+        status: "pending",
         default: false,
         cardNumber: "5061 4604 9123 4567",
         cardholderName: "Chinwe Okonkwo",
@@ -30,6 +32,7 @@ export const debitCards: debitCardType = [
     },
     {
         id: "02",
+        status: "pending",
         default: false,
         cardNumber: "5399 7100 1234 5678",
         cardholderName: "Emeka Eze",
@@ -41,6 +44,7 @@ export const debitCards: debitCardType = [
     },
     {
         id: "03",
+        status: "pending",
         default: false,
         cardNumber: "5370 1234 5678 9012",
         cardholderName: "Aisha Yusuf",
@@ -52,6 +56,7 @@ export const debitCards: debitCardType = [
     },
     {
         id: "04",
+        status: "pending",
         default: true,
         cardNumber: "5061 4604 9876 5432",
         cardholderName: "Abubakar Musa",
@@ -63,6 +68,7 @@ export const debitCards: debitCardType = [
     },
     {
         id: "05",
+        status: "pending",
         default: false,
         cardNumber: "5399 7100 8765 4321",
         cardholderName: "Chinyere Nwachukwu",
