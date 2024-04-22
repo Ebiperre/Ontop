@@ -165,8 +165,15 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
     <section>
       <nav className="fixed z-40 font-author">
         <div className={`bg-white text-dark generalDevice:w-[100%]  h-[70px] border-b-[1px] border-b-[#d8d8d8] fixed  ${!showSideBar ? "largeDevice:left-[274px]" : "largeDevice:left-0"} largeDevice:right-0 flex items-center justify-between px-4`}>
-          <div className="largeDevice:hidden mt-[15px]">
-            <img src={logo} alt="logo" className="w-full h-full block pr-4" />
+          <div
+            onClick={() => { navigate('/dashboard/home') }}
+            className="flex items-center largeDevice:hidden mt-2">
+            <img
+              src={logo}
+              alt="logo"
+              className="w-8 h-8 object-cover"
+            />
+            <h1 className="text-orange font-semibold text-xl ml-1.5"> ONTOP </h1>
           </div>
 
           {!showSideBar ? <div className="generalDevice:hidden">
@@ -176,7 +183,7 @@ const DashBoardTopHeader: React.FC<DashBoardTopHeaderProps> = ({
           </div> :
             <div
               onClick={() => { navigate('/dashboard/home') }}
-              className=" flex items-center pl-2.5 generalDevice:hidden">
+              className="flex items-center pl-2.5 generalDevice:hidden">
               <img
                 src={logo}
                 alt="logo"
