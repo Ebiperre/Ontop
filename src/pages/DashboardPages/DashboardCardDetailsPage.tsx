@@ -1,4 +1,4 @@
-import DashboardLayout from "../../containers/DashBoard/DashboardLayout/DashboardLayout";
+import DashboardLayout from '../../containers/DashBoardContainers/DashboardLayout/DashboardLayout';
 import CardDetails from '../../containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails'
 
 
