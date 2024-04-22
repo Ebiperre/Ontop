@@ -51,7 +51,7 @@ const CardDetails = () => {
 
 
   return (
-    <div className='px-10 pt-14 pb-10'>
+    <div className='px-10 pt-14 pb-10 max-w-3xl mx-auto'>
       <div className='flex justify-between items-center pt-2'>
         <div className='flex justify-center items-center gap-3'>
           <img className='w-12 xl:w-20' src={activeCard?.image} alt="" />

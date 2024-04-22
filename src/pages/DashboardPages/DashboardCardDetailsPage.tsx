@@ -4,7 +4,7 @@ import CardDetails from '../../containers/DashBoard/DashBoardGiftCardPageContain
 
 export default function() {
     return (
-        <DashboardLayout>
+        <DashboardLayout showSideBar>
             <CardDetails/>
         </DashboardLayout>
     );
