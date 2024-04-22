@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./LandingPageLayout.module.css";
-import Footer from "../../components/Footer/Footer";
-import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../../components/Footer/Footer";
+import Navbar from "../../../components/Navbar/Navbar";
 
 type LandingPageLayoutProps = {
   children: React.ReactNode;

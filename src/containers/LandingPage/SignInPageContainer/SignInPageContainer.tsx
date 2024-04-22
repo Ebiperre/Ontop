@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import signInImage from '../../../src/assets/images/signIn-illustration.svg';
+import signInImage from '../../../../src/assets/images/signIn-illustration.svg';
 
 interface FormData {
     email: string;

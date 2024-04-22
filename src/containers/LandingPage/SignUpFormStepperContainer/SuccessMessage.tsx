@@ -1,5 +1,5 @@
 import React from 'react';
-import success from '../../../src/assets/gifs/success.gif';
+import success from '../../../../src/assets/gifs/success.gif';
 import { Link } from 'react-router-dom';
 
 const SuccessMessage: React.FC = () => {
