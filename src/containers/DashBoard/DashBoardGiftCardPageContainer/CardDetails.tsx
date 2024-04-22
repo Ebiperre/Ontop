@@ -55,6 +55,10 @@ const CardDetails = () => {
       <div className='w-[100%]'>
      
       </div>
+    <div>
+      <div className='w-[100%]'>
+     
+      </div>
     <div className='px-6 xl:px-60 xl:pb-8'>
       <div className='flex justify-between items-center pt-2'>
         <div className='flex justify-center items-center gap-3'>
@@ -62,6 +66,7 @@ const CardDetails = () => {
           <h1 className='text-xl font-medium'>{activeCard?.title}</h1>
         </div>
         <p className="font-medium cursor-pointer xl:text-lg" onClick={() => { navigate('/dashboard/cards') }} >Back</p>
+
       <div className='flex justify-between items-center xl:flex xl:justify-between xl:items-center pt-2'>
         <div className='flex justify-center items-center gap-3 mt-24'>
       <img className='w-12 xl:w-20' src={activeCard?.image} alt="" />
@@ -111,6 +116,7 @@ const CardDetails = () => {
     </div>
     </div>
 
+    
   )
 }
 

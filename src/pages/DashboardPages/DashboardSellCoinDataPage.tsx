@@ -3,6 +3,7 @@ import SellCoinDataContianer from "../../containers/DashBoard/DashboardSellPageC
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default function DashboardSellCoinPages() {
 
   return (
@@ -12,6 +13,8 @@ export default function DashboardSellCoinPages() {
   );
 }
 =======
+=======
+>>>>>>> f3d4015833621b8c3f1ee1b19437e6bfc99c527d
 const DashboardSellCoinPages = () =>{
 
     return (
@@ -21,5 +24,9 @@ const DashboardSellCoinPages = () =>{
     );
   };
   export default  DashboardSellCoinPages
+<<<<<<< HEAD
   
 >>>>>>> 83f5873 (added layout)
+=======
+  
+>>>>>>> f3d4015833621b8c3f1ee1b19437e6bfc99c527d
