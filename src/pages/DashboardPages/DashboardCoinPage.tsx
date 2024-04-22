@@ -1,11 +1,11 @@
-import DashboardLayout from "../../containers/DashBoard/DashboardLayout/DashboardLayout";
-import CoinCardContainer from "../../containers/DashBoard/DashboardBuyPageContainer/CoinCardContainer";
+import DashboardLayout from "../../containers/DashBoardContainers/DashboardLayout/DashboardLayout";
+import CoinCardContainer from "../../containers/DashBoardContainers/DashboardBuyPageContainer/CoinCardContainer";
 
-export default function DashboardCoinPages(){
+export default function DashboardCoinPages() {
 
   return (
     <DashboardLayout>
-        <CoinCardContainer />
+      <CoinCardContainer />
     </DashboardLayout>
   );
 };

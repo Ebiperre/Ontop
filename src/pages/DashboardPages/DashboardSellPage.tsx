@@ -1,12 +1,12 @@
-import DashboardLayout from "../../containers/DashBoard/DashboardLayout/DashboardLayout";
-import DashboardSellPageContainer from "../../containers/DashBoard/DashboardSellPageContainer/DashboardSellPageContainer";
+import DashboardLayout from "../../containers/DashBoardContainers/DashboardLayout/DashboardLayout";
+import DashboardSellPageContainer from "../../containers/DashBoardContainers/DashboardSellPageContainer/DashboardSellPageContainer";
 
 
 const DashBoardSellPage = () => {
     return (
-            <DashboardLayout>
-                <DashboardSellPageContainer />
-            </DashboardLayout>
+        <DashboardLayout>
+            <DashboardSellPageContainer />
+        </DashboardLayout>
     )
 }
 

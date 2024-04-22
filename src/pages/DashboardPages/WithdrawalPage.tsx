@@ -1,16 +1,16 @@
 
 // import { useEffect } from "react";
-import DashboardLayout from "../../containers/DashBoard/DashboardLayout/DashboardLayout"
-import WithdrawalContainer from '../../containers/DashBoard/DashboardWithdrawalContainer/WithdrawalContainer'
+import DashboardLayout from "../../containers/DashBoardContainers/DashboardLayout/DashboardLayout"
+import WithdrawalContainer from '../../containers/DashBoardContainers/DashboardWithdrawalContainer/WithdrawalContainer'
 
 
 const WithdrawalPage = () => {
 
-  
+
   return (
     <>
       <DashboardLayout showSideBar>
-       <WithdrawalContainer />
+        <WithdrawalContainer />
       </DashboardLayout>
     </>
   )

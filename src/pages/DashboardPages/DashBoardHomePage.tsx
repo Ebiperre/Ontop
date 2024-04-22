@@ -1,5 +1,5 @@
-import DashboardHomePageContainer from "../../containers/DashBoard/DashboardHomePageContainer/DashboardHomePageContainer";
-import DashboardLayout from "../../containers/DashBoard/DashboardLayout/DashboardLayout";
+import DashboardHomePageContainer from "../../containers/DashBoardContainers/DashboardHomePageContainer/DashboardHomePageContainer";
+import DashboardLayout from "../../containers/DashBoardContainers/DashboardLayout/DashboardLayout";
 
 const DashboardPages = () => {
   return (

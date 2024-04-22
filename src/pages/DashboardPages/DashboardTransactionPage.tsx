@@ -1,5 +1,5 @@
-import DashboardLayout from '../../containers/DashBoard/DashboardLayout/DashboardLayout'
-import DashboardTransactionPageContainer from '../../containers/DashBoard/DashboardTransactionPageContainer/DashboardTransactionPageContainer'
+import DashboardLayout from '../../containers/DashBoardContainers/DashboardLayout/DashboardLayout'
+import DashboardTransactionPageContainer from '../../containers/DashBoardContainers/DashboardTransactionPageContainer/DashboardTransactionPageContainer'
 
 const DashboardTransactionPage = () => {
     return (

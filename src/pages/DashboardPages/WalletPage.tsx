@@ -1,5 +1,5 @@
-import WalletPageContainer from "../../containers/DashBoard/DashBoardHome/WalletPargeContainer";
-import DashboardLayout from "../../containers/DashBoard/DashboardLayout/DashboardLayout";
+import WalletPageContainer from "../../containers/DashBoardContainers/DashBoardHome/WalletPargeContainer";
+import DashboardLayout from "../../containers/DashBoardContainers/DashboardLayout/DashboardLayout";
 
 const WalletPage = () => {
   return (

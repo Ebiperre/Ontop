@@ -1,6 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react"
-import DashboardLayout from "../../containers/DashBoard/DashboardLayout/DashboardLayout"
-import SettingsMain from "../../containers/DashBoard/DashboardSettingsPageContainer/SettingsMain"
+import DashboardLayout from "../../containers/DashBoardContainers/DashboardLayout/DashboardLayout"
+import SettingsMain from "../../containers/DashBoardContainers/DashboardSettingsPageContainer/SettingsMain"
 import { theme } from "../../chakraTheme"
 
 const DashBoardSettingsPage = () => {

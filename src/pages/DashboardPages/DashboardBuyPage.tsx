@@ -1,7 +1,7 @@
-import DashboardLayout from "../../containers/DashBoard/DashboardLayout/DashboardLayout";
-import BuyContainer from "../../containers/DashBoard/DashboardBuyPageContainer/DashboardBuyPageContainer";
+import DashboardLayout from "../../containers/DashBoardContainers/DashboardLayout/DashboardLayout";
+import BuyContainer from "../../containers/DashBoardContainers/DashboardBuyPageContainer/DashboardBuyPageContainer";
 
-export default function DashboardBuyPages(){
+export default function DashboardBuyPages() {
 
   return (
     <DashboardLayout>

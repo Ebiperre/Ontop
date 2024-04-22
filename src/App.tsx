@@ -14,14 +14,14 @@ import DashBoardHomePage from "./pages/DashboardPages/DashBoardHomePage";
 import WalletPage from "./pages/DashboardPages/WalletPage";
 import DashBoardSettingsPage from "./pages/DashboardPages/DashBoardSettingsPage";
 import DashBoardGiftCardPage from "./pages/DashboardPages/DashBoardGiftCardPage";
-import CardDetails from "./containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails";
+import CardDetails from "./containers/DashBoardContainers/DashBoardGiftCardPageContainer/CardDetails";
 import DashboardCoinPages from "./pages/DashboardPages/DashboardCoinPage";
 import DashboardTransactionPage from './pages/DashboardPages/DashboardTransactionPage'
 import DashboardPaymentPage from "./pages/DashboardPages/DashboardPaymentPage";
 import WithdrawalPage from "./pages/DashboardPages/WithdrawalPage";
 import DashboardBuyPages from "./pages/DashboardPages/DashboardBuyPage";
 import DashboardSellPage from "./pages/DashboardPages/DashboardSellPage"
-import SellCoinDataContianer from "./containers/DashBoard/DashboardSellPageContainer/SellCoinDataContainer";
+import SellCoinDataContianer from "./containers/DashBoardContainers/DashboardSellPageContainer/SellCoinDataContainer";
 
 
 function App() {

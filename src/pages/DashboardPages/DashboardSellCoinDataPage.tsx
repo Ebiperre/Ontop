@@ -1,5 +1,5 @@
-import DashboardLayout from "../../containers/DashBoard/DashboardLayout/DashboardLayout";
-import SellCoinDataContianer from "../../containers/DashBoard/DashboardSellPageContainer/SellCoinDataContainer";
+import DashboardLayout from "../../containers/DashBoardContainers/DashboardLayout/DashboardLayout";
+import SellCoinDataContianer from "../../containers/DashBoardContainers/DashboardSellPageContainer/SellCoinDataContainer";
 
 
 export default function DashboardSellCoinPages() {

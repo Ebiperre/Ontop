@@ -5,7 +5,7 @@ import { AppContext } from '../../../context/AppContext'
 import { useParams } from 'react-router-dom'
 import UsaImage from "../../../assets/images/usa.png"
 import CadImage from "../../../assets/images/canada.png"
-import CardClass from "../../../containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails.module.css"
+import CardClass from "../../../containers/DashBoardContainers/DashBoardGiftCardPageContainer/CardDetails.module.css"
 import { FaImage } from "react-icons/fa6";
 
 const CardDetails = () => {
