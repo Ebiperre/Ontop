@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import signUpImage from '../../../src/assets/images/signUp-illustration.svg';
+import signUpImage from '../../../../src/assets/images/signUp-illustration.svg';
 
 interface FormData {
     firstName: string;

@@ -1,11 +1,11 @@
 import classes from './HomePageContainer.module.css';
 import marqueeStyle from "./marque.module.css";
-import giftCards from "../../assets/images/undraw_gift_card_re_5dyy.svg";
-import heroVideo from "../../assets/videos/original-0950845b9346878fc5c5ca847b4d2eef.mp4";
-import creditCard from "../../assets/images/credit_card.svg";
-import userShield from "../../assets/images/user_shield.svg";
-import handingDollar from "../../assets/images/handing_dollar.svg";
-import testimonialData from '../../utilities/testimonialData';
+import giftCards from "../../../assets/images/undraw_gift_card_re_5dyy.svg";
+import heroVideo from "../../../assets/videos/original-0950845b9346878fc5c5ca847b4d2eef.mp4";
+import creditCard from "../../../assets/images/credit_card.svg";
+import userShield from "../../../assets/images/user_shield.svg";
+import handingDollar from "../../../assets/images/handing_dollar.svg";
+import testimonialData from '../../../utilities/testimonialData';
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 
@@ -233,11 +233,11 @@ const HomePageContainer = () => {
                     <div className="flex flex-1 flex-wrap items-center justify-center bg-[#ff9900d0] p-2 rounded-2xl w-2/4">
                         <input placeholder="Enter Email..." className="md:flex-1 outline-none border-none text-white" type="email" />
                         <Link to="/sign-up">
-                        <button className="bg-white rounded-xl h-12 md:w-36 flex-1 md:flex-none font-medium text-lg">
-                            Register
-                        </button>
+                            <button className="bg-white rounded-xl h-12 md:w-36 flex-1 md:flex-none font-medium text-lg">
+                                Register
+                            </button>
                         </Link>
-                        
+
                     </div>
 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffaa0e" fill-opacity="1" d="M0,224L0,128L160,128L160,256L320,256L320,224L480,224L480,128L640,128L640,160L800,160L800,288L960,288L960,96L1120,96L1120,96L1280,96L1280,288L1440,288L1440,0L1280,0L1280,0L1120,0L1120,0L960,0L960,0L800,0L800,0L640,0L640,0L480,0L480,0L320,0L320,0L160,0L160,0L0,0L0,0Z"></path></svg>
