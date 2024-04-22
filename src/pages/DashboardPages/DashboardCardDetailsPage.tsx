@@ -1,11 +1,11 @@
+import CardDetails from '../../containers/DashBoardContainers/DashBoardGiftCardPageContainer/CardDetails';
 import DashboardLayout from '../../containers/DashBoardContainers/DashboardLayout/DashboardLayout';
-import CardDetails from '../../containers/DashBoard/DashBoardGiftCardPageContainer/CardDetails'
 
 
-export default function() {
+export default function () {
     return (
         <DashboardLayout showSideBar>
-            <CardDetails/>
+            <CardDetails />
         </DashboardLayout>
     );
-};
+}
