@@ -85,3 +85,12 @@ input[type=number] {
 .scrollbar::-webkit-scrollbar-thumb:hover {
     background-color: #5e5e5e;
 }
+
+.css-13d1tkw {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}

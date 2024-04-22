@@ -5,6 +5,7 @@ import verve from "../../../src/assets/icons/verve.svg";
 import ameXp from "../../../src/assets/icons/ameXp.svg";
 import discover from "../../../src/assets/icons/discover.svg";
 import mastercard from "../../../src/assets/icons/mastercard.svg";
+import { FaCreditCard } from 'react-icons/fa';
 
 type AddCardDetailsFormProps = {
     closeModal: () => void;
@@ -95,7 +96,7 @@ const AddCardDetailsForm = ({ closeModal }: AddCardDetailsFormProps) => {
             case "verve":
                 return <img src={verve} alt="Verve" />;
             default:
-                return null;
+                return <FaCreditCard />;
         }
     };
 

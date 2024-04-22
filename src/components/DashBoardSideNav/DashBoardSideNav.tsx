@@ -57,7 +57,7 @@ const DashBoardSideNav = ({
         <h1 className="text-orange font-semibold text-2xl ml-1.5"> ONTOP </h1>
       </div>
 
-      <ul className="flex flex-col gap-[20px] mx-2.5 mt-10 lg:mr-7 smallDevice:gap-[25px] smallerDevice:gap-[10px]">
+      <ul className="flex flex-col gap-[20px] mx-2.5 mt-10 lg:mr-7 h-full overflow-y-auto smallDevice:gap-[25px] smallerDevice:gap-[10px]">
         {navigationLinks.map((link, index) => (
           <li
             key={index}
