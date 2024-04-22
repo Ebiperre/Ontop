@@ -1,5 +1,5 @@
-import LandingPageLayout from '../containers/LandingPage/LandingPageLayout/LandingPageLayout'
-import ServicePageContainer from '../containers/LandingPage/ServicePageContainer/ServicePageContainer'
+import LandingPageLayout from '../containers/LandingPagesContainer/LandingPageLayout/LandingPageLayout'
+import ServicePageContainer from '../containers/LandingPagesContainer/ServicePageContainer/ServicePageContainer'
 
 const ServicePage = () => {
   return (

@@ -1,5 +1,5 @@
-import ContactPageContainer from "../containers/LandingPage/ContactPageContainer/ContactPageContainer"
-import LandingPageLayout from "../containers/LandingPage/LandingPageLayout/LandingPageLayout"
+import ContactPageContainer from "../containers/LandingPagesContainer/ContactPageContainer/ContactPageContainer"
+import LandingPageLayout from "../containers/LandingPagesContainer/LandingPageLayout/LandingPageLayout"
 
 const ContactPage = () => {
     return (
