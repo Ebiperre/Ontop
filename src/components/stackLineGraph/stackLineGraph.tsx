@@ -19,9 +19,14 @@ export default function StackLineGraph({ coinId }: any) {
           };
         });
         setGraphData(formattedData);
+
+        localStorage.setItem('coinGraphData', JSON.stringify(formattedData));
       })
       .catch(error => {
-        console.error('Error fetching data:', error);
+        const storedData = localStorage.getItem('coinGraphData');
+        if (storedData) {
+          setGraphData(JSON.parse(storedData));
+        }
       });
   }, [coinId]);
 

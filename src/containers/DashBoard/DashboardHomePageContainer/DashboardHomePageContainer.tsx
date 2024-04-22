@@ -47,10 +47,8 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
         setFilteredData(res.data);
         setLoading(false);
         localStorage.setItem('coinData', JSON.stringify(res.data));
-        console.log(res.data);
       })
       .catch((error) => {
-        console.log(error);
         const storedData = localStorage.getItem('coinData');
         if (storedData) {
           setData(JSON.parse(storedData));
@@ -67,8 +65,6 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
         setCurrencyRate(res.data.rate);
       })
       .catch((error) => {
-        console.log(error);
-        console.log(formattedAmountInSelectedCurrency)
       });
   }, [selectedCurrency, data]);
 

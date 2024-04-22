@@ -21,7 +21,6 @@
 .marquee section div {
   border-radius: 20px;
   height: 40vh;
-  /* width: 22rem; */
   flex: 1;
   display: flex;
   align-items: center;
@@ -40,9 +39,8 @@
   position: absolute;
   content: "";
   border-radius: inherit;
-  min-height: 11rem;
+  height: 30vh;
   width: 90%;
-  /* inset: 5rem 1rem; */
   background-color: white;
   bottom: 0;
   z-index: -10;
@@ -63,6 +61,8 @@
   color: var(--grey);
   overflow: hidden;
   text-overflow: ellipsis;
+  height: 3rem;
+  /* white-space: nowrap; */
   
 }
 

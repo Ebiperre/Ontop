@@ -36,11 +36,9 @@ const CoinCardContainer: React.FC = () => {
       .get(`https://v6.exchangerate-api.com/v6/f37ca771bb207d4e21c89669/latest/USD=${selectedCurrency}`)
       .then((res) => {
         setCurrencyRate(res.data.rate);
-        console.log(formattedAmountInSelectedCurrency)
 
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((error) => {        
 
       });
 
@@ -51,10 +49,13 @@ const CoinCardContainer: React.FC = () => {
       .then((res) => {
         setData(res.data);
         setFilteredData(res.data);
-        console.log(res.data);
       })
       .catch((error) => {
-        console.log(error);
+        const storedData = localStorage.getItem('coinData');
+                if (storedData) {
+                    setData(JSON.parse(storedData));
+                    setFilteredData(JSON.parse(storedData));
+                }
 
       });
   }, [selectedCurrency]);

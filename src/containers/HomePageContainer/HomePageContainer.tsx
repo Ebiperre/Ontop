@@ -205,7 +205,6 @@ const HomePageContainer = () => {
                                         <span className="flex flex-row">
                                             {renderStars(testimonial.rating)}
                                         </span>
-
                                     </span>
                                 </div>
                             ))}
