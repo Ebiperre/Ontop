@@ -1,5 +1,5 @@
-import AboutPageContainer from '../containers/LandingPage/AboutPageContainer/AboutPageContainer'
-import LandingPageLayout from '../containers/LandingPage/LandingPageLayout/LandingPageLayout'
+import AboutPageContainer from '../containers/LandingPagesContainer/AboutPageContainer/AboutPageContainer'
+import LandingPageLayout from '../containers/LandingPagesContainer/LandingPageLayout/LandingPageLayout'
 
 const AboutPage = () => {
   return (

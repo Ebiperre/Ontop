@@ -1,5 +1,5 @@
-import LandingPageLayout from '../containers/LandingPage/LandingPageLayout/LandingPageLayout'
-import TermsAndConditions from '../containers/LandingPage/TermsAndConditions/TermsAndConditions'
+import LandingPageLayout from '../containers/LandingPagesContainer/LandingPageLayout/LandingPageLayout'
+import TermsAndConditions from '../containers/LandingPagesContainer/TermsAndConditions/TermsAndConditions'
 
 const TermsAndConditionsPage = () => {
     return (

@@ -1,5 +1,5 @@
-import LandingPageLayout from '../containers/LandingPage/LandingPageLayout/LandingPageLayout'
-import SignUpPageContainer from '../containers/LandingPage/SignUpPageContainer/SignUpPageContainer'
+import LandingPageLayout from '../containers/LandingPagesContainer/LandingPageLayout/LandingPageLayout'
+import SignUpPageContainer from '../containers/LandingPagesContainer/SignUpPageContainer/SignUpPageContainer'
 
 const SignUpPage = () => {
     return (
