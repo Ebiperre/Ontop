@@ -31,18 +31,13 @@ const MangePaymentCardBoard = ({
                             </div>
                             <h2 className="text-dark text-xl lg:text-2xl font-medium">No Payment Methods Added</h2>
                             <p className="text-grey text-sm lg:text-base font-normal max-w-xl">You haven't added any payment methods yet. Securely store your payment details with us for easy and convenient transactions. Click below to add a payment method.</p>
+                            <span className="text-sm text-gray-400">Only accepts Mastercard, Visa, American Express, Discover and Verve</span>
                             <button type="button" onClick={openAddCardModal} className="flex items-center justify-center gap-1 text-sm lg:text-base py-2 px-4 border border-gray-300 rounded-lg mt-3">
                                 <IoAdd /> Add New Card
                             </button>
                         </div>
                     ) : (
                         paymentCards.map((card, index) => {
-                            const [expMonth, expYear] = card.expirationDate.split("/");
-                            const currentYear = new Date().getFullYear();
-                            const currentMonth = new Date().getMonth() + 1;
-                            const expirationYearNum = parseInt(expYear);
-                            const expirationMonthNum = parseInt(expMonth);
-                            const expired = currentYear > expirationYearNum || (currentYear === expirationYearNum && currentMonth > expirationMonthNum);
                             return (
                                 <li key={index} className="p-3 lz37y d1k81 x6keb">
                                     <div className="flex gap-x-3">
@@ -58,7 +53,7 @@ const MangePaymentCardBoard = ({
                                                     <span className="capitalize">{card.cardType}</span> •••• <span>{card.cardNumber.slice(-4)}</span>
                                                 </p>
                                                 <p className="text-xs fyxhw ">
-                                                    Debit - Expires <span className={expired ? "text-red-500" : ""}>{card.expirationDate}{expired ? " (Expired)" : ""}</span>
+                                                    Debit - Expires {card.expirationDate}
                                                 </p>
                                             </div>
 
