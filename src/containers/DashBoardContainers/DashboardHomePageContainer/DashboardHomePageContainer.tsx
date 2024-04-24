@@ -19,6 +19,7 @@ type CoinData = {
 const DashboardHomePageContainer: React.FC = ({ element }: any) => {
 
   const [data, setData] = useState<CoinData[]>([]);
+  const [coinData , setCoinData] = useState<CoinData[]>([]);
   const [filteredData, setFilteredData] = useState<CoinData[]>([]);
   const [displayedData, setDisplayedData] = useState([]);
   const [currencyRate, setCurrencyRate] = useState<number>(1);
@@ -50,7 +51,7 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
         console.log(res.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         const storedData = localStorage.getItem('coinData');
         if (storedData) {
           setData(JSON.parse(storedData));
@@ -67,8 +68,6 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
         setCurrencyRate(res.data.rate);
       })
       .catch((error) => {
-        console.log(error);
-        console.log(formattedAmountInSelectedCurrency)
       });
   }, [selectedCurrency, data]);
 
@@ -92,7 +91,10 @@ const DashboardHomePageContainer: React.FC = ({ element }: any) => {
   const handleSearch = (e: any) => {
     const inputValue = e.target.value;
     const exData = [...data];
+    
     setSearchInput(inputValue);
+    console.log(inputValue)
+console.log(setSearchInput)
 
     const newData = exData.filter((ex) => {
       return ex.id.startsWith(inputValue.toLowerCase());
