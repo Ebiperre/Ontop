@@ -1,9 +1,11 @@
 
-import { useContext } from "react"
+import { useContext, } from "react"
 import "../../../src/obfuscated.css"
 import { AppContext } from "../../context/AppContext"
 import { CiCreditCard1 } from "react-icons/ci";
 import { IoAdd } from "react-icons/io5";
+
+
 
 type MangePaymentCardBoardProps = {
     openEditModal: () => void
@@ -16,6 +18,62 @@ const MangePaymentCardBoard = ({
 }: MangePaymentCardBoardProps) => {
 
     const { paymentCards } = useContext(AppContext)
+
+    
+//   Using Date() constructor
+  const d = new Date();
+
+
+  // Funciton to extract month, and year
+  function formatDate(date: Date ) {
+    let month: string | number = date.getMonth() + 1;
+    if (month < 10) {
+      month = "0" + month;
+    }
+    const year = date.getFullYear().toString().slice(-2);
+    return month + "/" + year;
+  }
+
+function parseDate(dateString: string) {
+    const [month, year] = dateString.split('/');
+    return new Date(parseInt(year.toString().slice(-2)), parseInt(month) - 1);
+  }
+
+  function isRecentDate(dateString1: string, dateString2: string) {
+    const date1 = parseDate(dateString1);
+    const date2 = parseDate(dateString2);
+  
+    // Compare dates
+    if (date1 < date2) {
+      return true;
+    } else if (date1 > date2) {
+      return false;
+    } else {
+      // Dates are equal
+      return false;
+    }
+  }
+
+  const recentDateString = formatDate(d); // Current date in "MM/YY" format
+
+//   const id = 3;
+
+//  
+
+
+
+  const handleClick = (index: string) => {
+    openEditModal();
+    window.history.pushState(
+                null,
+                " ",
+                `?card=${index}`
+            )
+
+     window.location.search;
+  } 
+  
+
 
     return (
         <div className="flex lgqw8 f0dty l66z3 d1k81 k3u76 ">
@@ -52,9 +110,13 @@ const MangePaymentCardBoard = ({
                                                 <p className="text-sm eass7 v7056 ">
                                                     <span className="capitalize">{card.cardType}</span> •••• <span>{card.cardNumber.slice(-4)}</span>
                                                 </p>
-                                                <p className="text-xs fyxhw ">
-                                                    Debit - Expires {card.expirationDate}
-                                                </p>
+                                                <div className="text-xs fyxhw flex items-center">
+                                                    Debit - {isRecentDate(recentDateString, card.expirationDate) ? (
+                                                        <p className="flex items-center pl-px">Expires {card.expirationDate}</p>
+                                                    ) : (
+                                                        <p className="flex items-center pl-px text-deleteRed">Expired {card.expirationDate}</p>
+                                                    )}
+                                                </div>
                                             </div>
 
                                             <div className="flex gap-x-2">
@@ -69,7 +131,7 @@ const MangePaymentCardBoard = ({
                                                     }
                                                 </div>
                                                 <div>
-                                                    <button type="button" onClick={openEditModal} className="py-2 kdz1q pqrvw items-center dqqs4 rvi38 kxhcs nq4w8 l66z3 yj6bp hr03e v7056 bwuzh kko9e tk4f7 focus:outline-none focus:bg-gray-300" data-hs-overlay="#hs-pro-deacm">
+                                                    <button type="button" onClick={() => handleClick(card.id)} className="py-2 kdz1q pqrvw items-center dqqs4 rvi38 kxhcs nq4w8 l66z3 yj6bp hr03e v7056 bwuzh kko9e tk4f7 focus:outline-none focus:bg-gray-300" data-hs-overlay="#hs-pro-deacm">
                                                         Edit
                                                     </button>
                                                 </div>

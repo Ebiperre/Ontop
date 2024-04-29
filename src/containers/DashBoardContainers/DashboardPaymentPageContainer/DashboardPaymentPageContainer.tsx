@@ -5,18 +5,24 @@ import AddCardDetailsForm from '../../../components/PaymentCardDetailsForm/AddCa
 import MangePaymentCardBoard from '../../../components/PaymentCardDetailsForm/MangePaymentCardBoard';
 import EditPaymentCard from '../../../components/PaymentCardDetailsForm/EditPaymentCard';
 import DeletePaymentCard from '../../../components/PaymentCardDetailsForm/DeletePaymentCard';
+ 
+
 
 const DashboardPaymentPageContainer: React.FC = () => {
 
     const [isAddNewCardModalOpen, setIsAddNewCardModalOpen] = useState(false);
     const [isEditCardModalOpen, setIsEditCardModalOpen] = useState(false);
+    // const [cardId, setCardId] = useState('');
     const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+   
 
     const closeModal = () => {
         setIsAddNewCardModalOpen(false);
         setIsEditCardModalOpen(false);
         setDeleteModalOpen(false);
     };
+
+
     return (
         <div className="px-4 lg:px-8 pt-14 pb-24">
             <div className=" flex flex-col gap-16 relative">
@@ -86,3 +92,5 @@ const DashboardPaymentPageContainer: React.FC = () => {
 }
 
 export default DashboardPaymentPageContainer
+
+
