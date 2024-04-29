@@ -24,15 +24,13 @@ export default function LineGraph() {
           Price: p,
         };
       });
-      console.log('Formatted Data:', formattedData);
       setGraphData(formattedData);
     } catch (error) {
-      console.error('Error fetching data:', error);
     }
   };
 
   return (
-    <div className="flex-1 p-8 ">
+    <div className="flex-1 py-4 pt-10">
       <ResponsiveContainer width="100%" height={400}>
         <AreaChart
           data={graphData}
